@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import fonts from './fonts'
-import { font, media } from '../variable/mixin'
+import { font } from '../variable/mixin'
 
 export default createGlobalStyle`
   * {
@@ -115,45 +115,6 @@ export default createGlobalStyle`
 
   ins {
     display: block;
-  }
-
-  blockquote {
-    background: rgba(var(--c_1), 0.2);
-    padding: 16px 32px 24px;
-    margin: 0 -32px;
-    ${media.m`
-      margin: 0;
-    `}
-    &[data-title] {
-      background: var(--c_0);
-      margin: 0;
-      padding: 24px 32px;
-      &::before {
-        background: var(--c_0);
-        color: var(--c_1);
-        content: '🍿' attr(data-title);
-        border-radius: 36px;
-        display: inline-block;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-        margin: 0 0 12px;
-        padding: 0 16px 0 12px;
-        z-index: 1;
-      }
-    }
-    p {
-      font-size: 0.9rem;
-      &:first-of-type {
-        margin: 0;
-        &:first-letter {
-          font-size: 2.2rem;
-          font-weight: bold;
-          float: left;
-          line-height: 1.4;
-          letter-spacing: 0.2em;
-        }
-      }
-    }
   }
 
   button {

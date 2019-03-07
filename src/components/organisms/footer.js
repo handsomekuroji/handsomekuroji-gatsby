@@ -35,6 +35,7 @@ const SiteNav = styled.nav`
 `
 const SiteList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 `
 

@@ -8,6 +8,9 @@ const HeroImg = styled.img`
   height: auto;
   vertical-align: bottom;
   width: 100%;
+  .dark & {
+    filter: brightness(80%);
+  }
 `
 
 function Hero({ imgSrc, imgAlt }) {
