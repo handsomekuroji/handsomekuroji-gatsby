@@ -113,6 +113,10 @@ const PostContent = styled.div`
     letter-spacing: 0.05rem;
     margin: 24px 0 0;
     overflow: hidden;
+    &:first-of-type {
+      position: relative;
+      z-index: 1;
+    }
   }
   ul {
     list-style: disc;
