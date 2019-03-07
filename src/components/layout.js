@@ -10,20 +10,21 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-function Layout({ children }) {
+function Layout({ children, alltags }) {
   return (
     <>
       <Global />
       <Wrapper>
         {children}
-        <Footer />
+        <Footer alltags={alltags} />
       </Wrapper>
     </>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  alltags: PropTypes.array
 }
 
 export default Layout

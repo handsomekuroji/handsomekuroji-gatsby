@@ -10,6 +10,7 @@ module.exports = {
     twitter: env.SITE_TWITTER,
     facebook: env.SITE_FACEBOOK,
     author: env.SITE_AUTHOR,
+    verification: env.SITE_VERIFICATION,
     rss: {
       title: env.SITE_TITLE,
       description: env.SITE_DESCRIPTION,
@@ -100,7 +101,7 @@ module.exports = {
         background_color: '#fcfcfc',
         theme_color: '#fcfcfc',
         display: 'standalone',
-        icon: 'src/images/icon.png',
+        icon: 'src/images/main/icon.png',
         crossOrigin: 'use-credentials',
         lang: 'ja'
       }

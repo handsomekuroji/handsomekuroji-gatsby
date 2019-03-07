@@ -1,7 +1,6 @@
 import React from 'react'
 import AdSense from 'react-adsense'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { font, color, media } from '../components/variable/mixin'
 
@@ -10,6 +9,7 @@ import social from '../plugins/social'
 import youtube from '../plugins/youtube'
 import Replace from '../plugins/replace'
 
+import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import PostHeader from '../components/organisms/postHeader'
@@ -173,7 +173,14 @@ function postTemplate({ data }) {
   const html = Replace(post.content.childMarkdownRemark.html)
   const content = React.useRef()
 
-  const headerDarta = {
+  const metaData = {
+    img: post.thumbnail.file.url,
+    title: post.title,
+    description: post.description.description,
+    url: post.slug
+  }
+
+  const headerData = {
     src: post.thumbnail.file.url,
     title: post.title,
     date: post.createdAt,
@@ -192,14 +199,12 @@ function postTemplate({ data }) {
   }, [content])
 
   return (
-    <Layout>
-      <Helmet title={post.title}>
-        <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async />
-      </Helmet>
+    <Layout alltags={data.allContentfulTag.edges}>
+      <SEO meta={metaData} />
       <Header />
       <PostMain>
         <article>
-          <PostHeader headerData={headerDarta} />
+          <PostHeader headerData={headerData} />
           <PostContent
             ref={content}
             dangerouslySetInnerHTML={{
@@ -230,6 +235,7 @@ export const query = graphql`
       title
       createdAt
       description {
+        description
         childMarkdownRemark {
           html
         }
@@ -242,6 +248,14 @@ export const query = graphql`
       content {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    allContentfulTag {
+      edges {
+        node {
+          name
+          slug
         }
       }
     }

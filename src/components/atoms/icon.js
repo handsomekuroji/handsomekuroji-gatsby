@@ -23,7 +23,7 @@ const IconImg = css`
   &:hover {
     transition: 0.3s all;
     .icon {
-      fill: #fcfcf9;
+      fill: ${color.$c_4};
       transition: 0.2s all;
     }
   }

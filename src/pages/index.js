@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
+import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Loop from '../components/organisms/loop'
@@ -26,7 +27,8 @@ const SiteMain = styled.main`
 
 function IndexPage({ data }) {
   return (
-    <Layout>
+    <Layout alltags={data.allContentfulTag.edges}>
+      <SEO />
       <Header inIndex />
       <SiteMain>
         <Loop allPosts={data.allContentfulBlog.edges} />
@@ -50,6 +52,14 @@ export const query = graphql`
               url
             }
           }
+        }
+      }
+    }
+    allContentfulTag {
+      edges {
+        node {
+          name
+          slug
         }
       }
     }
