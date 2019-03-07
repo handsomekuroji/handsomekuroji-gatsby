@@ -12,6 +12,7 @@ import Replace from '../plugins/replace'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
+import Footer from '../components/organisms/footer'
 import PostHeader from '../components/organisms/postHeader'
 import PostFooter from '../components/organisms/postFooter'
 
@@ -200,7 +201,7 @@ function postTemplate({ data }) {
   }, [content])
 
   return (
-    <Layout alltags={data.allContentfulTag.edges}>
+    <Layout>
       <SEO meta={metaData} />
       <Header />
       <PostMain>
@@ -223,6 +224,7 @@ function postTemplate({ data }) {
           data-full-width-responsive="true"
         />
       </AdSenseContainer>
+      <Footer alltags={data.allContentfulTag.edges} />
     </Layout>
   )
 }

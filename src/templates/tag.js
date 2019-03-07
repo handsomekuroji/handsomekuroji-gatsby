@@ -7,6 +7,7 @@ import { font, media } from '../components/variable/mixin'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
+import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
 
 const TagMain = styled.main`
@@ -90,7 +91,7 @@ function tagTemplate({ data }) {
   }
 
   return (
-    <Layout alltags={data.allContentfulTag.edges}>
+    <Layout>
       <SEO meta={metaData} />
       <Header />
       <TagMain>
@@ -115,6 +116,7 @@ function tagTemplate({ data }) {
           data-full-width-responsive="true"
         />
       </AdSenseContainer>
+      <Footer alltags={data.allContentfulTag.edges} />
     </Layout>
   )
 }

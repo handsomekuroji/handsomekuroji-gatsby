@@ -12,7 +12,7 @@ function SEO({ lang, meta }) {
           siteMetadata {
             title
             description
-            url
+            siteUrl
             domain
             twitter
             facebook
@@ -27,11 +27,11 @@ function SEO({ lang, meta }) {
   const data = site.siteMetadata
   const metaTitle = meta.title || data.title
   const metaDescription = meta.description || data.description
-  const metaUrl = data.url + '/' + meta.url || data.url
+  const metaUrl = data.siteUrl + '/' + meta.url || data.url
   const metaDomain = data.domain
   const metaTwitter = data.twitter
   const metaFacebook = data.facebook
-  const metaOgImg = 'https:' + meta.img || data.url + OgImg
+  const metaOgImg = 'https:' + meta.img || data.siteUrl + OgImg
   const verification = data.verification
 
   return (

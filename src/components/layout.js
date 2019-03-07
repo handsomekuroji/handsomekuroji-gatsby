@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Footer from './organisms/footer'
 import Global from './variable/global'
 import { connect } from 'react-redux'
 
@@ -60,19 +59,17 @@ const DarkWrapper = connect(
   mapDispatchToProps
 )(Counter)
 
-function Layout({ children, alltags }) {
+function Layout({ children }) {
   return (
     <DarkWrapper>
       <Global />
       {children}
-      <Footer alltags={alltags} />
     </DarkWrapper>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  alltags: PropTypes.array
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

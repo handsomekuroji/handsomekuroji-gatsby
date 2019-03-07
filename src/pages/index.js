@@ -5,6 +5,7 @@ import { media } from '../components/variable/mixin'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
+import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
 
 const SiteMain = styled.main`
@@ -27,12 +28,13 @@ const SiteMain = styled.main`
 
 function IndexPage({ data }) {
   return (
-    <Layout alltags={data.allContentfulTag.edges}>
+    <Layout>
       <SEO />
       <Header inIndex />
       <SiteMain>
         <Loop allPosts={data.allContentfulBlog.edges} />
       </SiteMain>
+      <Footer alltags={data.allContentfulTag.edges} />
     </Layout>
   )
 }

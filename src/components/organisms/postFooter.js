@@ -38,14 +38,14 @@ function PostFooter({ footerData }) {
     query PostFooterQuery {
       site {
         siteMetadata {
-          url
+          siteUrl
           domain
           twitter
         }
       }
     }
   `)
-  const url = siteData.site.siteMetadata.url + '/' + footerData.url
+  const url = siteData.site.siteMetadata.siteUrl + '/' + footerData.url
   const title = footerData.title.replace('&#038;', '%26')
   const domain = siteData.site.siteMetadata.domain
   const account = siteData.site.siteMetadata.twitter
