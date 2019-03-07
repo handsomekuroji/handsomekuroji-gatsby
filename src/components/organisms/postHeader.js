@@ -2,12 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
-import { font, color, media } from '../../components/variable/mixin'
+import { font, media } from '../../components/variable/mixin'
 import Hero from '../../components/atoms/hero'
 
+const PostHeaderFig = styled.figure`
+  border: 1px solid var(--c_2);
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+`
+
 const PostHeaderInner = styled.div`
-  border-left: 1px solid ${color.$c_2};
-  border-right: 1px solid ${color.$c_2};
+  border-left: 1px solid var(--c_2);
+  border-right: 1px solid var(--c_2);
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
@@ -32,7 +38,7 @@ const PostTitle = styled.h1`
 
 const PostTime = styled.time`
   align-self: flex-end;
-  color: ${color.$c_0};
+  color: var(--c_0);
   font: 0.8rem / 1 ${font.$f_0};
   margin: 0 0 0 auto;
   ${media.m`
@@ -41,7 +47,7 @@ const PostTime = styled.time`
 `
 
 const PostPrefaces = styled.div`
-  border: 1px solid ${color.$c_2};
+  border: 1px solid var(--c_2);
   border-bottom: 0;
   box-sizing: border-box;
   font-size: 1rem;
@@ -68,7 +74,9 @@ function PostHeader({ headerData }) {
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
   return (
     <header>
-      <Hero imgSrc={headerData.src} imgAlt={headerData.title} />
+      <PostHeaderFig>
+        <Hero imgSrc={headerData.src} imgAlt={headerData.title} />
+      </PostHeaderFig>
       <PostHeaderInner>
         <PostTitle>{headerData.title}</PostTitle>
         <PostTime dateTime={headerData.date}>{date}</PostTime>

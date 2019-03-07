@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { color, media } from '../../components/variable/mixin'
+import { media } from '../../components/variable/mixin'
 
 import Twitter from '../../images/icon/twitter.svg'
 import Facebook from '../../images/icon/facebook.svg'
@@ -12,7 +12,7 @@ import Feedly from '../../images/icon/feedly.svg'
 
 const IconImg = css`
   align-items: center;
-  background: ${color.$c_2};
+  background: var(--c_2);
   border-radius: 6px;
   display: flex;
   height: 40px;
@@ -23,12 +23,12 @@ const IconImg = css`
   &:hover {
     transition: 0.3s all;
     .icon {
-      fill: ${color.$c_4};
+      fill: #ffffff;
       transition: 0.2s all;
     }
   }
   .icon {
-    fill: ${color.$c_7};
+    fill: var(--c_7);
     transition: 0.5s linear;
   }
 `

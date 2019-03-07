@@ -6,8 +6,12 @@ import SmallIcon from '../../images/main/hk.svg'
 
 const LogoImg = styled.img`
   height: auto;
+  transition: 0.3s all;
   vertical-align: bottom;
   width: 100%;
+  .dark & {
+    filter: invert(100%);
+  }
 `
 
 function Logo() {

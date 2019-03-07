@@ -2,7 +2,7 @@ import React from 'react'
 import AdSense from 'react-adsense'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { font, color, media } from '../components/variable/mixin'
+import { font, media } from '../components/variable/mixin'
 
 import lozad from '../plugins/lozad'
 import social from '../plugins/social'
@@ -16,7 +16,7 @@ import PostHeader from '../components/organisms/postHeader'
 import PostFooter from '../components/organisms/postFooter'
 
 const PostMain = styled.main`
-  background: ${color.$c_4};
+  background: var(--c_4);
   border-radius: 8px;
   margin: 32px auto 0;
   max-width: 620px;
@@ -35,12 +35,13 @@ const PostMain = styled.main`
 `
 
 const PostContent = styled.div`
-  border: 1px solid ${color.$c_2};
+  border: 1px solid var(--c_2);
   border-top: 0;
   counter-reset: section;
   font-size: 1rem;
   line-height: 1.8;
   padding: 0 0 32px;
+  transition: 0.3s all;
   ${media.m`
     padding: 0 0 48px;
   `}
@@ -59,7 +60,7 @@ const PostContent = styled.div`
       margin: 0;
     }
     &::before {
-      border-top: 1px solid ${color.$c_2};
+      border-top: 1px solid var(--c_2);
       content: '';
       display: block;
       margin: 0 -24px;
@@ -83,7 +84,7 @@ const PostContent = styled.div`
     `}
     &::before {
       bottom: -16px;
-      color: ${color.$c_2};
+      color: var(--c_2);
       counter-increment: section;
       content: counter(section, decimal-leading-zero);
       font: italic bold 7rem / 1.1 'Georgia', serif;
@@ -121,9 +122,9 @@ const PostContent = styled.div`
     overflow: hidden;
   }
   figcaption {
-    background: ${color.$c_5};
+    background: var(--c_5);
     box-sizing: border-box;
-    color: ${color.$c_2};
+    color: var(--c_2);
     font-size: 0.8rem;
     font-weight: bold;
     overflow: hidden;
@@ -135,7 +136,7 @@ const PostContent = styled.div`
   }
   hr {
     border: 0;
-    border-top: 2px solid ${color.$c_5};
+    border-top: 2px solid var(--c_5);
     margin: 32px -32px;
     @include media(ms) {
       margin: 48px -32px;

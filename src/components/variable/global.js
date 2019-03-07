@@ -1,11 +1,23 @@
 import { createGlobalStyle } from 'styled-components'
 import fonts from './fonts'
-import { font, color, media } from '../variable/mixin'
+import { font, media } from '../variable/mixin'
 
 export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+  }
+
+  :root {
+    --c_0: #404040;
+    --c_1: #757575;
+    --c_2: #ebebeb;
+    --c_3: #fcfcfc;
+    --c_4: #ffffff;
+    --c_5: #0090c6;
+    --c_6: #5f4b8b;
+    --c_7: #888c96;
+    --c_8: #66d7d1;
   }
 
   ::before,
@@ -62,31 +74,30 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${color.$c_3};
-    color: ${color.$c_0};
+    background: var(--c_3);
+    color: var(--c_0);
     font: 62.5% / 1 ${font.$f_0};
     min-width: 320px;
     -moz-osx-font-smoothing: grayscale;
-    padding: 0 0 16px;
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: rgba(${color.$c_0}, 0.2);
+    -webkit-tap-highlight-color: rgba(var(--c_0), 0.2);
   }
 
   a {
     background: 0 / 0 100%;
-    color: ${color.$c_5};
+    color: var(--c_5);
     outline: none;
     transition: 0.2s ease-in-out;
     &:visited {
-      color: ${color.$c_6};
+      color: var(--c_6);
     }
     &:hover,
     &:active {
       outline: none;
     }
     &:focus {
-      outline: thin solid rgba(${color.$c_5}, 0.5);
+      outline: thin solid rgba(var(--c_5), 0.5);
     }
   }
 
@@ -107,19 +118,19 @@ export default createGlobalStyle`
   }
 
   blockquote {
-    background: rgba(${color.$c_1}, 0.2);
+    background: rgba(var(--c_1), 0.2);
     padding: 16px 32px 24px;
     margin: 0 -32px;
     ${media.m`
       margin: 0;
     `}
     &[data-title] {
-      background: ${color.$c_0};
+      background: var(--c_0);
       margin: 0;
       padding: 24px 32px;
       &::before {
-        background: ${color.$c_0};
-        color: ${color.$c_1};
+        background: var(--c_0);
+        color: var(--c_1);
         content: '🍿' attr(data-title);
         border-radius: 36px;
         display: inline-block;
@@ -152,7 +163,7 @@ export default createGlobalStyle`
     cursor: pointer;
     outline: none;
     &:focus {
-      outline: thin solid rgba(${color.$c_0}, 0.5);
+      outline: thin solid rgba(var(--c_0), 0.5);
     }
   }
 
@@ -161,19 +172,19 @@ export default createGlobalStyle`
     appearance: none;
     border-radius: 0;
     &:focus {
-      outline: thin solid rgba(${color.$c_0}, 0.5);
+      outline: thin solid rgba(var(--c_0), 0.5);
     }
   }
 
   input::selection,
   textarea::selection {
-    border-color: ${color.$c_0};
-    color: ${color.$c_0};
+    border-color: var(--c_0);
+    color: var(--c_0);
   }
 
   ::selection {
-    background: rgba(${color.$c_0}, 0.3);
-    color: ${color.$c_1};
+    background: rgba(var(--c_0), 0.3);
+    color: var(--c_1);
   }
 
   @font-face {

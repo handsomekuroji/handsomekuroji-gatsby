@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
-import { font, color } from '../variable/mixin'
+import { font } from '../variable/mixin'
 import Thumbnail from '../../components/atoms/thumbnail'
 
 const ArticleBlock = styled.article``
@@ -11,7 +11,7 @@ const ArticleBlock = styled.article``
 const ArticleLink = styled(Link)`
   border-radius: 8px;
   box-shadow: rgba(19, 27, 54, 0.1) 0px 1px 6px;
-  color: ${color.$c_0};
+  color: var(--c_0);
   display: grid;
   font-size: 1rem;
   grid-template-rows: auto 1fr;
@@ -45,7 +45,7 @@ const ArticleLink = styled(Link)`
     }
   }
   &:visited {
-    color: ${color.$c_0};
+    color: var(--c_0);
   }
 `
 
@@ -55,7 +55,7 @@ const ArticleFigure = styled.figure`
 `
 
 const ArticleInner = styled.div`
-  background: ${color.$c_4};
+  background: var(--c_4);
   border-radius: 0 0 8px 8px;
   box-sizing: border-box;
   display: grid;

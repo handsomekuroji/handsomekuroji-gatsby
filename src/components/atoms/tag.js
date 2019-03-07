@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, color, media } from '../variable/mixin'
+import { font, media } from '../variable/mixin'
 
 const TagList = styled.li`
   margin: 8px;
@@ -11,7 +11,7 @@ const TagList = styled.li`
 `
 
 const TagLink = styled.a`
-  color: ${color.$c_0};
+  color: var(--c_0);
   font: italic bold 1rem / 1 ${font.$f_1};
   height: auto;
   vertical-align: bottom;
@@ -19,14 +19,14 @@ const TagLink = styled.a`
   transition: 0.1s linear;
   width: 100%;
   &:hover {
-    color: ${color.$c_7};
+    color: var(--c_7);
     transition: 0.1s all;
     &:visited {
-      color: ${color.$c_7};
+      color: var(--c_7);
     }
   }
   &:visited {
-    color: ${color.$c_0};
+    color: var(--c_0);
   }
   &::before {
     content: '#';

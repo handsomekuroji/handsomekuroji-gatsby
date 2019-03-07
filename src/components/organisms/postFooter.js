@@ -2,11 +2,11 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { color, media } from '../../components/variable/mixin'
+import { media } from '../../components/variable/mixin'
 import Icon from '../../components/atoms/icon'
 
 const FooterContainer = styled.footer`
-  border: 1px solid ${color.$c_2};
+  border: 1px solid var(--c_2);
   border-top: 0;
   border-radius: 0 0 8px 8px;
   padding: 32px 24px;
