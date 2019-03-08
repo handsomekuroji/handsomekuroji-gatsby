@@ -9,7 +9,8 @@ const reducer = (state, action) => {
   return state
 }
 
-const initialState = { siteState: false }
+const initialState =
+  new Date().getHours() >= 20 || new Date().getHours() < 6 ? { siteState: true } : { siteState: false }
 
 const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore
