@@ -8,9 +8,12 @@ import Icon from '../../components/atoms/icon'
 const FooterContainer = styled.footer`
   border-top: 1px solid var(--c_3);
   border-radius: 0 0 8px 8px;
-  padding: 32px 24px;
+  padding: 32px 16px;
+  ${media.s`
+    padding: 32px 24px;
+  `}
   ${media.ms`
-    padding: 32px 32px;
+    padding: 48px 32px;
   `}
   ${media.m`
     padding: 48px 64px;

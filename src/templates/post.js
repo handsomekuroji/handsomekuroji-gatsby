@@ -25,8 +25,11 @@ const PostMain = styled.main`
   margin: 32px auto 0;
   max-width: 620px;
   overflow: hidden;
-  width: calc(100% - 32px);
+  width: calc(100% - 16px);
   ${media.xs`
+    width: calc(100% - 32px);
+  `}
+  ${media.s`
     width: calc(100% - 48px);
   `}
   ${media.ms`
@@ -50,7 +53,10 @@ const PostContent = styled.div`
   section {
     margin: 32px 0 0;
     overflow: hidden;
-    padding: 0 24px;
+    padding: 0 16px;
+    ${media.s`
+      padding: 0 24px;
+    `}
     ${media.ms`
       margin: 48px 0 0;
       padding: 0 32px;

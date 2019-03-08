@@ -14,7 +14,13 @@ const PostHeaderInner = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
-  padding: 32px 24px;
+  padding: 32px 16px;
+  ${media.s`
+    padding: 32px 24px;
+  `}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
   ${media.m`
     padding: 48px 64px;
   `}
@@ -48,10 +54,13 @@ const PostPrefaces = styled.div`
   box-sizing: border-box;
   font-size: 1rem;
   line-height: 1.8;
-  padding: 32px 24px;
+  padding: 32px 16px;
   width: 100%;
+  ${media.s`
+    padding: 32px 24px;
+  `}
   ${media.ms`
-    padding: 32px 32px;
+    padding: 48px 32px;
   `}
   ${media.m`
     padding: 48px 64px;

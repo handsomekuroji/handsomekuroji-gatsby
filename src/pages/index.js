@@ -11,12 +11,16 @@ import Loop from '../components/organisms/loop'
 const SiteMain = styled.main`
   margin: 32px auto 0;
   max-width: 640px;
-  width: calc(100% - 32px);
+  width: calc(100% - 16px);
   ${media.xs`
+    width: calc(100% - 32px);
+  `}
+  ${media.s`
     width: calc(100% - 48px);
   `}
   ${media.ms`
     max-width: 690px;
+    width: calc(100% - 64px);
   `}
   ${media.ls`
     margin: 48px auto 0;

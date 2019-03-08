@@ -6,18 +6,6 @@ export const font = {
   $f_1: `'游明朝', YuMincho, 'Hiragino Mincho ProN', Meiryo, serif`
 }
 
-export const color = {
-  $c_0: '#404040',
-  $c_1: '#757575',
-  $c_2: '#ebebeb',
-  $c_3: '#fcfcfc',
-  $c_4: '#ffffff',
-  $c_5: '#0090c6',
-  $c_6: '#5f4b8b',
-  $c_7: '#888c96',
-  $c_8: '#66d7d1'
-}
-
 const sizes = {
   xs: 'screen and (min-width: 375px)',
   s: 'screen and (min-width: 414px)',
