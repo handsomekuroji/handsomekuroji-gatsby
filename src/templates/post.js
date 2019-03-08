@@ -103,7 +103,6 @@ const PostContent = styled.div`
       position: absolute;
       text-indent: 0.1rem;
       top: -60px;
-      -webkit-text-stroke: 0;
       white-space: pre;
       z-index: -1;
       ${media.s`

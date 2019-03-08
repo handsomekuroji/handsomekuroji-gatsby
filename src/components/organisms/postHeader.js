@@ -54,8 +54,11 @@ const PostPrefaces = styled.div`
   box-sizing: border-box;
   font-size: 1rem;
   line-height: 1.8;
+  overflow: hidden;
   padding: 16px;
+  position: relative;
   width: 100%;
+  z-index: 1;
   ${media.s`
     padding: 32px 24px;
   `}
@@ -65,12 +68,39 @@ const PostPrefaces = styled.div`
   ${media.m`
     padding: 48px 64px;
   `}
+  &::before {
+    color: var(--c_3);
+    content: '00';
+    font: italic bold 7rem / 1.1 'Georgia', serif;
+    left: -16px;
+    position: absolute;
+    text-indent: 0.1rem;
+    top: -46px;
+    white-space: pre;
+    z-index: -1;
+    ${media.s`
+      left: -8px;
+      top: -48px;
+    `}
+    ${media.ms`left: 0px;`}
+    ${media.m`
+      font-size: 10rem
+      left: -16px;
+      top: -64px;
+    `}
+    ${media.l`
+      font-size: 12rem
+      top: -80px;
+    `}
+  }
   p {
     letter-spacing: 0.05rem;
     margin: 24px 0 0;
     overflow: hidden;
     &:first-of-type {
       margin: 0;
+      position: relative;
+      z-index: 1;
     }
   }
 `
