@@ -33,7 +33,7 @@ const ButtonDark = styled.button`
 const SetSiteState = ({ siteState, increment, children }) => (
   <Wrapper className={siteState === true ? 'dark' : null}>
     {children}
-    <ButtonDark onClick={increment} type="button">
+    <ButtonDark onClick={increment} type="button" aria-label="ダークモード" aria-pressed="false">
       {siteState === true ? (
         <Sun width="32" height="32" alt="ライトモードボタン" />
       ) : (
