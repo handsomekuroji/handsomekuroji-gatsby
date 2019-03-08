@@ -11,7 +11,7 @@
     "cssnano": "^4.1.10",
     "dayjs": "^1.8.9",
     "dotenv": "^6.2.0",
-    "gatsby": "^2.1.24",
+    "gatsby": "^2.1.27",
     "gatsby-image": "^2.0.31",
     "gatsby-plugin-catch-links": "^2.0.12",
     "gatsby-plugin-feed": "^2.0.14",
