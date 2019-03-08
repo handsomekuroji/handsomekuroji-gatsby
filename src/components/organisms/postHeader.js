@@ -14,7 +14,7 @@ const PostHeaderInner = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
-  padding: 32px 16px;
+  padding: 16px;
   ${media.s`
     padding: 32px 24px;
   `}
@@ -54,7 +54,7 @@ const PostPrefaces = styled.div`
   box-sizing: border-box;
   font-size: 1rem;
   line-height: 1.8;
-  padding: 32px 16px;
+  padding: 16px;
   width: 100%;
   ${media.s`
     padding: 32px 24px;

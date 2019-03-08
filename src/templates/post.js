@@ -51,10 +51,11 @@ const PostContent = styled.div`
     padding: 0 0 48px;
   `}
   section {
-    margin: 32px 0 0;
+    margin: 16px 0 0;
     overflow: hidden;
     padding: 0 16px;
     ${media.s`
+      margin: 32px 0 0;
       padding: 0 24px;
     `}
     ${media.ms`
@@ -72,7 +73,10 @@ const PostContent = styled.div`
       content: '';
       display: block;
       margin: 0 -24px;
-      padding: 0 0 32px;
+      padding: 0 0 16px;
+      ${media.s`
+        padding: 0 0 32px;
+      `}
       ${media.ms`
         margin: 0 -32px;
       `}
@@ -98,10 +102,13 @@ const PostContent = styled.div`
       left: -32px;
       position: absolute;
       text-indent: 0.1rem;
-      top: -80px;
+      top: -60px;
       -webkit-text-stroke: 0;
       white-space: pre;
       z-index: -1;
+      ${media.s`
+        top: -80px;
+      `}
       ${media.m`
         font-size: 10rem
         left: -80px;
