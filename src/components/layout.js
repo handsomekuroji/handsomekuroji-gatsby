@@ -17,8 +17,10 @@ const Wrapper = styled.div`
   transition: 0.3s all;
   &.dark {
     --c_0: #fcfcfc;
-    --c_3: #333333;
-    --c_4: #414141;
+    --c_2: rgba(0, 0, 0, 0.3);
+    --c_3: #0d2538;
+    --c_4: #0f2d44;
+    --c_7: #ced8de;
   }
 `
 

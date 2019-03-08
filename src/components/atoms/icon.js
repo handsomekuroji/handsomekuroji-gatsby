@@ -12,7 +12,7 @@ import Feedly from '../../images/icon/feedly.svg'
 
 const IconImg = css`
   align-items: center;
-  background: var(--c_2);
+  background: var(--c_3);
   border-radius: 6px;
   display: flex;
   height: 40px;

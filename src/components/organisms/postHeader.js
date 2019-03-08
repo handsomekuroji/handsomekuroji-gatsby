@@ -6,14 +6,11 @@ import { font, media } from '../../components/variable/mixin'
 import Hero from '../../components/atoms/hero'
 
 const PostHeaderFig = styled.figure`
-  border: 1px solid var(--c_2);
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 `
 
 const PostHeaderInner = styled.div`
-  border-left: 1px solid var(--c_2);
-  border-right: 1px solid var(--c_2);
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
@@ -47,8 +44,7 @@ const PostTime = styled.time`
 `
 
 const PostPrefaces = styled.div`
-  border: 1px solid var(--c_2);
-  border-bottom: 0;
+  border-top: 1px solid var(--c_3);
   box-sizing: border-box;
   font-size: 1rem;
   line-height: 1.8;

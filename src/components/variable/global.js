@@ -11,13 +11,12 @@ export default createGlobalStyle`
   :root {
     --c_0: #404040;
     --c_1: #757575;
-    --c_2: #ebebeb;
-    --c_3: #fcfcfc;
-    --c_4: #ffffff;
+    --c_2: #dedede;
+    --c_3: #f3f7f9;
+    --c_4: #fcfcfc;
     --c_5: #0090c6;
     --c_6: #5f4b8b;
     --c_7: #888c96;
-    --c_8: #66d7d1;
   }
 
   ::before,

@@ -20,6 +20,7 @@ import PlayIcon from '../images/main/play.svg'
 
 const PostMain = styled.main`
   background: var(--c_4);
+  box-shadow: rgba(19, 27, 54, 0.1) 0 1px 6px;
   border-radius: 8px;
   margin: 32px auto 0;
   max-width: 620px;
@@ -38,8 +39,6 @@ const PostMain = styled.main`
 `
 
 const PostContent = styled.div`
-  border: 1px solid var(--c_2);
-  border-top: 0;
   counter-reset: section;
   font-size: 1rem;
   line-height: 1.8;
@@ -63,7 +62,7 @@ const PostContent = styled.div`
       margin: 0;
     }
     &::before {
-      border-top: 1px solid var(--c_2);
+      border-top: 1px solid var(--c_3);
       content: '';
       display: block;
       margin: 0 -24px;
@@ -86,12 +85,11 @@ const PostContent = styled.div`
       font-size: 1.5rem;
     `}
     &::before {
-      color: var(--c_2);
+      color: var(--c_3);
       counter-increment: section;
       content: counter(section, decimal-leading-zero);
       font: italic bold 7rem / 1.1 'Georgia', serif;
       left: -32px;
-      opacity: 0.5;
       position: absolute;
       text-indent: 0.1rem;
       top: -80px;
@@ -134,7 +132,7 @@ const PostContent = styled.div`
   figcaption {
     background: var(--c_5);
     box-sizing: border-box;
-    color: var(--c_2);
+    color: var(--c_3);
     font-size: 0.8rem;
     font-weight: bold;
     overflow: hidden;
@@ -145,7 +143,7 @@ const PostContent = styled.div`
     width: 100%;
   }
   img {
-    background: #dfdfdf;
+    background: var(--c_2);
     height: auto;
     vertical-align: bottom;
     width: 100%;
@@ -155,7 +153,7 @@ const PostContent = styled.div`
   }
 
   blockquote {
-    background: rgba(235, 235, 235, 0.5);
+    background: var(--c_2);
     padding: 16px 32px 24px;
     position: relative;
     margin: 0 -32px;
@@ -204,7 +202,7 @@ const PostContent = styled.div`
   }
   hr {
     border: 0;
-    border-top: 1px solid var(--c_2);
+    border-top: 1px solid var(--c_3);
     margin: 32px -32px;
     ${media.m`
       margin: 48px -64px;
@@ -300,7 +298,7 @@ const PostContent = styled.div`
   }
 
   .item {
-    background: rgba(235, 235, 235, .5);
+    background: var(--c_2);
     border-radius: 12px;
     display: grid;
     grid-gap: 16px;
@@ -384,10 +382,10 @@ const PostContent = styled.div`
 
   .item__a {
     align-items: center;
-    background: var(--c_0);
+    background: var(--c_4);
     border-radius: 4px;
     box-sizing: border-box;
-    color: var(--c_4);
+    color: var(--c_0);
     display: flex;
     font: italic bold 1rem / 1 ${font.$f_1};
     justify-content: center;
@@ -413,9 +411,9 @@ const PostContent = styled.div`
       color: var(--c_4);
     }
     &:visited {
-      color: var(--c_4);
+      color: var(--c_0);
       &:hover {
-        color: var(--c_4);
+        color: var(--c_0);
       }
     }
   }

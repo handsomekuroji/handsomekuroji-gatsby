@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import dummy from '../../images/main/dummy.svg'
 
 const HeroImg = styled.img`
-  background: #dfdfdf;
+  background: var(--c_2);
   height: auto;
   vertical-align: bottom;
   width: 100%;
