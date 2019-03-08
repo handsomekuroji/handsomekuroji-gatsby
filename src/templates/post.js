@@ -163,6 +163,9 @@ const PostContent = styled.div`
     &.fade {
       background: 0;
     }
+    .dark & {
+      filter: brightness(80%);
+    }
   }
 
   blockquote {
