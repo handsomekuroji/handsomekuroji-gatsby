@@ -427,9 +427,9 @@ const PostContent = styled.div`
       color: var(--c_4);
     }
     &:visited {
-      color: var(--c_0);
+      color: var(--c_4);
       &:hover {
-        color: var(--c_0);
+        color: var(--c_4);
       }
     }
   }
