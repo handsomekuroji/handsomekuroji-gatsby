@@ -34,7 +34,7 @@ const ButtonDark = styled.button`
 
 function SetSiteState({ siteState, buttonState, increment, children }) {
   React.useLayoutEffect(() => {
-    if ((new Date().getHours() >= 20 || new Date().getHours() < 8) && siteState === false && buttonState === false) {
+    if ((new Date().getHours() >= 20 || new Date().getHours() < 6) && siteState === false && buttonState === false) {
       increment()
     }
   }, [Wrapper])
