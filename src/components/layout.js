@@ -30,11 +30,11 @@ const ButtonDark = styled.button`
   right: 8px;
 `
 
-const Counter = ({ count, increment, children }) => (
-  <Wrapper className={count === true ? 'dark' : null}>
+const SetSiteState = ({ siteState, increment, children }) => (
+  <Wrapper className={siteState === true ? 'dark' : null}>
     {children}
-    <ButtonDark onClick={increment}>
-      {count === true ? (
+    <ButtonDark onClick={increment} type="button">
+      {siteState === true ? (
         <Sun width="32" height="32" alt="ライトモードボタン" />
       ) : (
         <Moon width="32" height="32" alt="ダークモードボタン" />
@@ -43,13 +43,13 @@ const Counter = ({ count, increment, children }) => (
   </Wrapper>
 )
 
-Counter.propTypes = {
-  count: PropTypes.bool.isRequired,
+SetSiteState.propTypes = {
+  siteState: PropTypes.bool.isRequired,
   increment: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ count }) => {
-  return { count }
+const mapStateToProps = ({ siteState }) => {
+  return { siteState }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -59,7 +59,7 @@ const mapDispatchToProps = dispatch => {
 const DarkWrapper = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter)
+)(SetSiteState)
 
 function Layout({ children }) {
   return (

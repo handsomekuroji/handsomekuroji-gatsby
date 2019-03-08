@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import OgImg from '../images/main/ogp.png'
 
-function SEO({ lang, meta }) {
+function SEO({ meta }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,7 +36,7 @@ function SEO({ lang, meta }) {
 
   return (
     <Helmet
-      htmlAttributes={{ lang }}
+      htmlAttributes={{ lang: 'ja' }}
       title={metaTitle}
       meta={[
         { charset: 'utf-8' },
@@ -85,7 +85,6 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
-  lang: 'ja',
   meta: {}
 }
 
