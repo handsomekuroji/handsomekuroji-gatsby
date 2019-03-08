@@ -47,7 +47,6 @@ function SEO({ meta }) {
         { name: 'twitter:site', content: '@' + metaTwitter },
         { name: 'twitter:domain', content: metaDomain },
         { name: 'twitter:creator', content: '@' + metaTwitter },
-        { name: 'viewport', content: 'initial-scale=1, viewport-fit=cover' },
         { property: 'article:publisher', content: 'https://www.facebook.com/' + metaFacebook },
         { property: 'fb:app_id', content: '130788987000950' },
         { property: 'og:site_name', content: data.title },
