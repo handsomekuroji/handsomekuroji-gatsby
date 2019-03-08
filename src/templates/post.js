@@ -69,7 +69,7 @@ const PostContent = styled.div`
       margin: 0;
     }
     &::before {
-      border-top: 1px solid var(--c_3);
+      border-top: 1px solid var(--c_8);
       content: '';
       display: block;
       margin: 0 -24px;
@@ -96,7 +96,7 @@ const PostContent = styled.div`
       font-size: 1.5rem;
     `}
     &::before {
-      color: var(--c_3);
+      color: var(--c_8);
       counter-increment: section;
       content: counter(section, decimal-leading-zero);
       font: italic bold 7rem / 1.1 'Georgia', serif;
@@ -218,8 +218,14 @@ const PostContent = styled.div`
   }
   hr {
     border: 0;
-    border-top: 1px solid var(--c_3);
-    margin: 32px -32px;
+    border-top: 1px solid var(--c_8);
+    margin: 16px -16px;
+    ${media.s`
+      margin: 32px -24px;
+    `}
+    ${media.ms`
+      margin: 48px -32px;
+    `}
     ${media.m`
       margin: 48px -64px;
     `}

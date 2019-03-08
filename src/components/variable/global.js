@@ -17,6 +17,7 @@ export default createGlobalStyle`
     --c_5: #0090c6;
     --c_6: #5f4b8b;
     --c_7: #888c96;
+    --c_8: #f1f2f3;
   }
 
   ::before,

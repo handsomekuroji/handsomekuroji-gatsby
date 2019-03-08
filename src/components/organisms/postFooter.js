@@ -6,9 +6,9 @@ import { media } from '../../components/variable/mixin'
 import Icon from '../../components/atoms/icon'
 
 const FooterContainer = styled.footer`
-  border-top: 1px solid var(--c_3);
+  border-top: 1px solid var(--c_8);
   border-radius: 0 0 8px 8px;
-  padding: 32px 16px;
+  padding: 16px;
   ${media.s`
     padding: 32px 24px;
   `}

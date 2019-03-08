@@ -22,6 +22,7 @@ const Wrapper = styled.div`
     --c_3: #0d2538;
     --c_4: #0f2d44;
     --c_7: #ced8de;
+    --c_8: #0d2538;
   }
 `
 
@@ -31,26 +32,35 @@ const ButtonDark = styled.button`
   right: 8px;
 `
 
-const SetSiteState = ({ siteState, increment, children }) => (
-  <Wrapper className={siteState === true ? 'dark' : null}>
-    {children}
-    <ButtonDark onClick={increment} type="button" aria-label="ダークモード" aria-pressed="false">
-      {siteState === true ? (
-        <Sun width="32" height="32" alt="ライトモードボタン" />
-      ) : (
-        <Moon width="32" height="32" alt="ダークモードボタン" />
-      )}
-    </ButtonDark>
-  </Wrapper>
-)
+function SetSiteState({ siteState, buttonState, increment, children }) {
+  React.useLayoutEffect(() => {
+    if ((new Date().getHours() >= 20 || new Date().getHours() < 8) && siteState === false && buttonState === false) {
+      increment()
+    }
+  }, [Wrapper])
+
+  return (
+    <Wrapper className={siteState === true ? 'dark' : null}>
+      {children}
+      <ButtonDark onClick={increment} type="button" aria-label="ダークモード" aria-pressed="false">
+        {siteState === true ? (
+          <Sun width="32" height="32" alt="ライトモードボタン" />
+        ) : (
+          <Moon width="32" height="32" alt="ダークモードボタン" />
+        )}
+      </ButtonDark>
+    </Wrapper>
+  )
+}
 
 SetSiteState.propTypes = {
+  buttonState: PropTypes.bool.isRequired,
   siteState: PropTypes.bool.isRequired,
   increment: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ siteState }) => {
-  return { siteState }
+const mapStateToProps = ({ siteState, buttonState }) => {
+  return { siteState, buttonState }
 }
 
 const mapDispatchToProps = dispatch => {

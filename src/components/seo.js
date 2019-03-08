@@ -58,7 +58,7 @@ function SEO({ meta }) {
         { property: 'og:url', content: metaUrl },
         { name: 'apple-mobile-web-app-title', content: metaTitle },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
-        { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'application-name', content: metaTitle },
         { name: 'msapplication-TileColor', content: '#404040' },
         { name: 'theme-color', content: '#fcfcfc' },

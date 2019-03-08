@@ -49,35 +49,6 @@ module.exports = {
             options: {
               rel: 'noopener noreferrer'
             }
-          },
-          {
-            resolve: 'gatsby-remark-custom-blocks',
-            options: {
-              blocks: {
-                simple: {
-                  classes: 'simple',
-                  title: 'optional'
-                },
-                info: {
-                  classes: 'info',
-                  title: 'optional'
-                },
-                alert: {
-                  classes: 'alert',
-                  title: 'optional'
-                },
-                notice: {
-                  classes: 'notice',
-                  title: 'optional'
-                },
-                imageSmall: {
-                  classes: 'image-small'
-                },
-                imageMedium: {
-                  classes: 'image-medium'
-                }
-              }
-            }
           }
         ]
       }

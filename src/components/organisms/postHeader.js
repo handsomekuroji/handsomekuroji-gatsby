@@ -51,7 +51,7 @@ const PostTime = styled.time`
 `
 
 const PostPrefaces = styled.div`
-  border-top: 1px solid var(--c_3);
+  border-top: 1px solid var(--c_8);
   box-sizing: border-box;
   font-size: 1rem;
   line-height: 1.8;
@@ -70,7 +70,7 @@ const PostPrefaces = styled.div`
     padding: 48px 64px;
   `}
   &::before {
-    color: var(--c_3);
+    color: var(--c_8);
     content: '00';
     font: italic bold 7rem / 1.1 'Georgia', serif;
     left: -16px;
