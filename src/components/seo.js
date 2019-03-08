@@ -25,13 +25,13 @@ function SEO({ meta }) {
   )
 
   const data = site.siteMetadata
-  const metaTitle = meta.title || data.title
-  const metaDescription = meta.description || data.description
-  const metaUrl = data.siteUrl + '/' + meta.url || data.url
+  const metaTitle = meta.title ? meta.title : data.title
+  const metaDescription = meta.description ? meta.description : data.description
+  const metaUrl = meta.url ? data.siteUrl + '/' + meta.url : data.siteUrl
   const metaDomain = data.domain
   const metaTwitter = data.twitter
   const metaFacebook = data.facebook
-  const metaOgImg = 'https:' + meta.img || data.siteUrl + OgImg
+  const metaOgImg = meta.img ? 'https:' + meta.img : data.siteUrl + OgImg
   const verification = data.verification
 
   return (
