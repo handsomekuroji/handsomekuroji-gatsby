@@ -10,9 +10,9 @@ export default createGlobalStyle`
 
   :root {
     --c_0: #404040;
-    --c_1: #757575;
+    --c_1: #404040;
     --c_2: #dedede;
-    --c_3: #f3f7f9;
+    --c_3: #f4f5f6;
     --c_4: #fcfcfc;
     --c_5: #0090c6;
     --c_6: #5f4b8b;
@@ -144,7 +144,7 @@ export default createGlobalStyle`
 
   ::selection {
     background: rgba(var(--c_0), 0.3);
-    color: var(--c_1);
+    color: var(--c_3);
   }
 
   @font-face {

@@ -65,6 +65,7 @@ const ArticleInner = styled.div`
 `
 
 const ArticleTitle = styled.h2`
+  color: var(--c_1);
   font: bold 1rem / 1.5 ${font.$f_1};
 `
 

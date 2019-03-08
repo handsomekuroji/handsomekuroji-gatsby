@@ -87,6 +87,7 @@ const PostContent = styled.div`
     }
   }
   h2 {
+    color: var(--c_1);
     font: bold 1.3rem / 1.5 ${font.$f_1};
     letter-spacing: 0.1rem;
     position: relative;

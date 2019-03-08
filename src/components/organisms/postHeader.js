@@ -28,6 +28,7 @@ const PostHeaderInner = styled.div`
 `
 
 const PostTitle = styled.h1`
+  color: var(--c_1);
   font: bold 1.3rem / 1.5 ${font.$f_1};
   grid-column: 1 / 3;
   letter-spacing: 0.08rem;

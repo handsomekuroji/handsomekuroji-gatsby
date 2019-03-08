@@ -16,7 +16,8 @@ const Wrapper = styled.div`
   padding: 0 0 16px;
   transition: 0.3s all;
   &.dark {
-    --c_0: #fcfcfc;
+    --c_0: #ced8de;
+    --c_1: #fcfcfc;
     --c_2: rgba(0, 0, 0, 0.3);
     --c_3: #0d2538;
     --c_4: #0f2d44;
