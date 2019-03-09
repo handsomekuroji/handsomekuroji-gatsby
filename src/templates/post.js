@@ -320,7 +320,7 @@ const PostContent = styled.div`
   }
 
   .item {
-    background: var(--c_2);
+    background: var(--c_3);
     border-radius: 12px;
     display: grid;
     grid-gap: 16px;
