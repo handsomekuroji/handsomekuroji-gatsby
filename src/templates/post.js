@@ -143,7 +143,7 @@ const PostContent = styled.div`
     }
   }
   figcaption {
-    background: var(--c_5);
+    background: var(--c_8);
     box-sizing: border-box;
     color: var(--c_3);
     font-size: 0.8rem;
@@ -169,7 +169,7 @@ const PostContent = styled.div`
   }
 
   blockquote {
-    background: var(--c_2);
+    background: var(--c_8);
     padding: 16px 32px 24px;
     position: relative;
     margin: 0 -32px;
@@ -320,7 +320,7 @@ const PostContent = styled.div`
   }
 
   .item {
-    background: var(--c_3);
+    background: var(--c_8);
     border-radius: 12px;
     display: grid;
     grid-gap: 16px;
@@ -429,13 +429,13 @@ const PostContent = styled.div`
       width: 96px;
     `}
     &:hover {
-      background: var(--c_7);
-      color: var(--c_4);
+      background: var(--c_2);
+      color: var(--c_0);
     }
     &:visited {
       color: var(--c_0);
       &:hover {
-        color: var(--c_4);
+        color: var(--c_0);
       }
     }
   }

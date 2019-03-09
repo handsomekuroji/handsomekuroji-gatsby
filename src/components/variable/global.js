@@ -12,7 +12,7 @@ export default createGlobalStyle`
     --c_0: #404040;
     --c_0-1: rgba(64, 64, 64, 0.2)
     --c_1: #404040;
-    --c_2: #dedede;
+    --c_2: #ededed;
     --c_3: #f4f5f6;
     --c_4: #fcfcfc;
     --c_5: #0090c6;
