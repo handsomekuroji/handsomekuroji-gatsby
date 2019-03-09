@@ -27,7 +27,7 @@ const StyledLink = styled(Link)`
   display: inline-block;
 `
 
-function Header({ inIndex }) {
+export default function Header({ inIndex }) {
   return (
     <SiteHeader>
       <StyledLink to="/">
@@ -48,5 +48,3 @@ function Header({ inIndex }) {
 Header.propTypes = {
   inIndex: PropTypes.bool
 }
-
-export default Header

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import OgImg from '../images/main/ogp.png'
 
-function SEO({ meta }) {
+export default function SEO({ meta }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -86,5 +86,3 @@ SEO.propTypes = {
 SEO.defaultProps = {
   meta: {}
 }
-
-export default SEO

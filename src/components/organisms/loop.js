@@ -29,7 +29,7 @@ const TagLoopWrapper = styled.div`
   `}
 `
 
-function Loop({ allPosts, inTags }) {
+export default function Loop({ allPosts, inTags }) {
   const loopPosts = allPosts.map((edge, i) => <Article key={i} postsData={edge} />)
 
   React.useEffect(() => {
@@ -43,5 +43,3 @@ Loop.propTypes = {
   allPosts: PropTypes.array,
   inTags: PropTypes.bool
 }
-
-export default Loop

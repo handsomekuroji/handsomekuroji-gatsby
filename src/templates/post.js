@@ -469,7 +469,7 @@ const AdSenseContainer = styled.div`
   `}
 `
 
-function postTemplate({ data }) {
+export default function postTemplate({ data }) {
   const post = data.contentfulBlog
   const html = Replace(post.content.childMarkdownRemark.html)
   const content = React.useRef()
@@ -527,8 +527,6 @@ function postTemplate({ data }) {
     </Layout>
   )
 }
-
-export default postTemplate
 
 export const query = graphql`
   query BlogBySlug($slug: String!) {

@@ -35,7 +35,7 @@ const FooterInner = styled.div`
   `}
 `
 
-function PostFooter({ footerData }) {
+export default function PostFooter({ footerData }) {
   const siteData = useStaticQuery(graphql`
     query PostFooterQuery {
       site {
@@ -93,5 +93,3 @@ function PostFooter({ footerData }) {
 PostFooter.propTypes = {
   footerData: PropTypes.object
 }
-
-export default PostFooter

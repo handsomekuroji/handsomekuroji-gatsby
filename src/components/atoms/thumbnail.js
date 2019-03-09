@@ -13,7 +13,7 @@ const ThumbImg = styled.img`
   }
 `
 
-function Thumbnail({ imgSrc, imgAlt }) {
+export default function Thumbnail({ imgSrc, imgAlt }) {
   return (
     <picture>
       <source
@@ -38,5 +38,3 @@ Thumbnail.propTypes = {
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string
 }
-
-export default Thumbnail

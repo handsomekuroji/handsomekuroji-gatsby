@@ -33,7 +33,7 @@ const TagLink = styled.a`
   }
 `
 
-function Tag({ tagList }) {
+export default function Tag({ tagList }) {
   const tagData = tagList.node
   return (
     <TagList>
@@ -45,5 +45,3 @@ function Tag({ tagList }) {
 Tag.propTypes = {
   tagList: PropTypes.object
 }
-
-export default Tag

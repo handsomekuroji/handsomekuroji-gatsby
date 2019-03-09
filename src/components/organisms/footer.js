@@ -58,7 +58,7 @@ const Copy = styled.small`
   `}
 `
 
-function Footer({ alltags }) {
+export default function Footer({ alltags }) {
   const loopTags = alltags.map((edge, i) => <Tag key={i} tagList={edge} />)
 
   return (
@@ -77,5 +77,3 @@ function Footer({ alltags }) {
 Footer.propTypes = {
   alltags: PropTypes.array
 }
-
-export default Footer

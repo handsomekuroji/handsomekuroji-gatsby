@@ -106,7 +106,7 @@ const PostPrefaces = styled.div`
   }
 `
 
-function PostHeader({ headerData }) {
+export default function PostHeader({ headerData }) {
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
   return (
     <header>
@@ -129,5 +129,3 @@ function PostHeader({ headerData }) {
 PostHeader.propTypes = {
   headerData: PropTypes.object
 }
-
-export default PostHeader

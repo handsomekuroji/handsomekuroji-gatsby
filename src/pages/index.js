@@ -30,7 +30,7 @@ const SiteMain = styled.main`
   `}
 `
 
-function IndexPage({ data }) {
+export default function IndexPage({ data }) {
   return (
     <Layout>
       <SEO />
@@ -42,8 +42,6 @@ function IndexPage({ data }) {
     </Layout>
   )
 }
-
-export default IndexPage
 
 export const query = graphql`
   query Index {

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Global from './variable/global'
 import { connect } from 'react-redux'
@@ -8,22 +9,10 @@ import Sun from '../images/icon/sun.svg'
 import Moon from '../images/icon/moon.svg'
 
 const Wrapper = styled.div`
-  background: var(--c_3);
-  color: var(--c_0);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding: 0 0 16px;
-  transition: 0.3s all;
-  &.dark {
-    --c_0: #ced8de;
-    --c_1: #fcfcfc;
-    --c_2: rgba(0, 0, 0, 0.3);
-    --c_3: #0d2538;
-    --c_4: #0f2d44;
-    --c_7: #ced8de;
-    --c_8: #0d2538;
-  }
 `
 
 const ButtonDark = styled.button`
@@ -40,7 +29,8 @@ function SetSiteState({ siteState, buttonState, increment, children }) {
   }, [Wrapper])
 
   return (
-    <Wrapper className={siteState === true ? 'dark' : null}>
+    <Wrapper>
+      <Helmet bodyAttributes={{ class: siteState === true ? 'dark' : 'light' }} />
       {children}
       <ButtonDark onClick={increment} type="button" aria-label="ダークモード" aria-pressed="false">
         {siteState === true ? (
@@ -72,7 +62,7 @@ const DarkWrapper = connect(
   mapDispatchToProps
 )(SetSiteState)
 
-function Layout({ children }) {
+export default function Layout({ children }) {
   return (
     <DarkWrapper>
       <Global />
@@ -84,5 +74,3 @@ function Layout({ children }) {
 Layout.propTypes = {
   children: PropTypes.node.isRequired
 }
-
-export default Layout

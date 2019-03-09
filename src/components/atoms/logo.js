@@ -14,7 +14,7 @@ const LogoImg = styled.img`
   }
 `
 
-function Logo() {
+export default function Logo() {
   const siteData = useStaticQuery(graphql`
     query HeaderQuery {
       site {
@@ -32,5 +32,3 @@ function Logo() {
     </picture>
   )
 }
-
-export default Logo

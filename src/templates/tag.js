@@ -84,7 +84,7 @@ const AdSenseContainer = styled.div`
   `}
 `
 
-function tagTemplate({ data }) {
+export default function tagTemplate({ data }) {
   const tag = data.contentfulTag
   const tagImg = tag.blog.slice(-1)[0].thumbnail.file.url
   const tagCount = '投稿数 ' + tag.blog.length + ' 件'
@@ -125,8 +125,6 @@ function tagTemplate({ data }) {
     </Layout>
   )
 }
-
-export default tagTemplate
 
 export const query = graphql`
   query TagBySlug($slug: String!) {

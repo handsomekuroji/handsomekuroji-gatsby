@@ -74,7 +74,7 @@ const ArticleTime = styled.time`
   margin: auto 0 0;
 `
 
-function Article({ postsData }) {
+export default function Article({ postsData }) {
   const post = postsData.node ? postsData.node : postsData
   const date = dayjs(post.createdAt).format('YYYY.MM.DD ddd')
   return (
@@ -95,5 +95,3 @@ function Article({ postsData }) {
 Article.propTypes = {
   postsData: PropTypes.object
 }
-
-export default Article

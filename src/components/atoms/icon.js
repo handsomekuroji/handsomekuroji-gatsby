@@ -75,7 +75,7 @@ const FeedlyIcon = styled.a`
   }
 `
 
-function Icon({ iconData }) {
+export default function Icon({ iconData }) {
   const type = iconData.type
   const url = iconData.url
   return (
@@ -112,5 +112,3 @@ function Icon({ iconData }) {
 Icon.propTypes = {
   iconData: PropTypes.object
 }
-
-export default Icon

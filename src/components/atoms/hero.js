@@ -13,7 +13,7 @@ const HeroImg = styled.img`
   }
 `
 
-function Hero({ imgSrc, imgAlt }) {
+export default function Hero({ imgSrc, imgAlt }) {
   return (
     <picture>
       <source
@@ -38,5 +38,3 @@ Hero.propTypes = {
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string
 }
-
-export default Hero
