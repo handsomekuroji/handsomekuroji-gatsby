@@ -17,8 +17,8 @@ const Wrapper = styled.div`
 
 const ButtonDark = styled.button`
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 16px;
+  right: 16px;
 `
 
 function SetSiteState({ siteState, buttonState, increment, children }) {
