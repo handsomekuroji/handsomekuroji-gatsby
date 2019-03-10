@@ -81,9 +81,11 @@ export default createGlobalStyle`
     min-width: 320px;
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
-    transition: 0.3s all;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: var( --c_0-1);
+    &.light {
+      transition: 0.3s all;
+    }
     &.dark {
       --c_0: #ced8de;
       --c_0-1: rgba(206, 216, 222, 0.2)
@@ -93,6 +95,7 @@ export default createGlobalStyle`
       --c_4: #0f2d44;
       --c_7: #ced8de;
       --c_8: #0d2538;
+      transition: 0.3s all;
     }
   }
 
