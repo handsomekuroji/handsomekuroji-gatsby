@@ -21,13 +21,7 @@ const ButtonDark = styled.button`
   right: 16px;
 `
 
-function SetSiteState({ siteState, buttonState, increment, children }) {
-  React.useLayoutEffect(() => {
-    if ((new Date().getHours() >= 20 || new Date().getHours() < 6) && siteState === false && buttonState === false) {
-      increment()
-    }
-  }, [Wrapper])
-
+function SetSiteState({ siteState, increment, children }) {
   return (
     <Wrapper>
       <Helmet bodyAttributes={{ class: siteState === true ? 'dark' : 'light' }} />
@@ -44,13 +38,12 @@ function SetSiteState({ siteState, buttonState, increment, children }) {
 }
 
 SetSiteState.propTypes = {
-  buttonState: PropTypes.bool.isRequired,
   siteState: PropTypes.bool.isRequired,
   increment: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ siteState, buttonState }) => {
-  return { siteState, buttonState }
+const mapStateToProps = ({ siteState }) => {
+  return { siteState }
 }
 
 const mapDispatchToProps = dispatch => {
