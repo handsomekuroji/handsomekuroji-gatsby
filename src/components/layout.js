@@ -23,9 +23,8 @@ const ButtonDark = styled.button`
 
 function SetSiteState({ siteState, increment, children }) {
   return (
-    <Wrapper>
+    <>
       <Helmet bodyAttributes={{ class: siteState === true ? 'dark' : 'light' }} />
-      {children}
       <ButtonDark onClick={increment} type="button" aria-label="ダークモード" aria-pressed="false">
         {siteState === true ? (
           <Sun width="32" height="32" alt="ライトモードボタン" />
@@ -33,7 +32,7 @@ function SetSiteState({ siteState, increment, children }) {
           <Moon width="32" height="32" alt="ダークモードボタン" />
         )}
       </ButtonDark>
-    </Wrapper>
+    </>
   )
 }
 
@@ -50,17 +49,18 @@ const mapDispatchToProps = dispatch => {
   return { increment: () => dispatch({ type: 'INCREMENT' }) }
 }
 
-const DarkWrapper = connect(
+const Dark = connect(
   mapStateToProps,
   mapDispatchToProps
 )(SetSiteState)
 
 export default function Layout({ children }) {
   return (
-    <DarkWrapper>
+    <Wrapper>
       <Global />
       {children}
-    </DarkWrapper>
+      <Dark />
+    </Wrapper>
   )
 }
 

@@ -9,7 +9,7 @@ const reducer = (state, action) => {
   return state
 }
 
-const initialState = { siteState: false }
+const initialState = { siteState: null }
 
 const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore

@@ -6,7 +6,7 @@ import SmallIcon from '../../images/main/hk.svg'
 
 const LogoImg = styled.img`
   height: auto;
-  transition: 0.3s all;
+  transition: 0.3s;
   vertical-align: bottom;
   width: 100%;
   .dark & {

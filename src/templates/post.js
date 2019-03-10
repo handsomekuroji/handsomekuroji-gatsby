@@ -25,6 +25,7 @@ const PostMain = styled.main`
   margin: 32px auto 0;
   max-width: 620px;
   overflow: hidden;
+  transition: 0.3s;
   width: calc(100% - 16px);
   ${media.xs`
     width: calc(100% - 32px);
@@ -46,7 +47,7 @@ const PostContent = styled.div`
   font-size: 1rem;
   line-height: 1.8;
   padding: 0 0 32px;
-  transition: 0.3s all;
+  transition: 0.3s;
   ${media.m`
     padding: 0 0 48px;
   `}

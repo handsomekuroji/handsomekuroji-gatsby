@@ -21,10 +21,10 @@ const IconImg = css`
   transition: 0.3s linear;
   width: 40px;
   &:hover {
-    transition: 0.3s all;
+    transition: 0.3s;
     .icon {
       fill: #ffffff;
-      transition: 0.2s all;
+      transition: 0.2s;
     }
   }
   .icon {

@@ -20,7 +20,7 @@ const TagLink = styled.a`
   width: 100%;
   &:hover {
     color: var(--c_7);
-    transition: 0.1s all;
+    transition: 0.1s;
     &:visited {
       color: var(--c_7);
     }

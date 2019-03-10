@@ -38,10 +38,10 @@ const ArticleLink = styled(Link)`
   }
   &:hover {
     transform: translate(0, -2px);
-    transition: 0.3s all;
+    transition: 0.3s;
     &::before {
       background: rgba(19, 27, 54, 0.1);
-      transition: 0.3s all;
+      transition: 0.3s;
     }
   }
   &:visited {
@@ -62,6 +62,7 @@ const ArticleInner = styled.div`
   gap: 16px;
   padding: 24px;
   position: relative;
+  transition: background 0.3s;
 `
 
 const ArticleTitle = styled.h2`
