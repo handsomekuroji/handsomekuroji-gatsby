@@ -53,7 +53,7 @@ const PostTime = styled.time`
 const PostPrefaces = styled.div`
   border-top: 1px solid var(--c_8);
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.8;
   overflow: hidden;
   padding: 16px;
@@ -67,6 +67,7 @@ const PostPrefaces = styled.div`
     padding: 48px 32px;
   `}
   ${media.m`
+    font-size: 1rem;
     padding: 48px 64px;
   `}
   &::before {

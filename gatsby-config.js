@@ -49,6 +49,16 @@ module.exports = {
             options: {
               rel: 'noopener noreferrer'
             }
+          },
+          {
+            resolve: 'gatsby-remark-custom-blocks',
+            options: {
+              blocks: {
+                link: {
+                  classes: 'link'
+                }
+              }
+            }
           }
         ]
       }
@@ -61,7 +71,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: env.SITE_TITLE,
         short_name: 'HK',

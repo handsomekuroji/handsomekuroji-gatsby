@@ -44,11 +44,12 @@ const PostMain = styled.main`
 
 const PostContent = styled.div`
   counter-reset: section;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.8;
   padding: 0 0 32px;
   transition: 0.3s;
   ${media.m`
+    font-size: 1rem;
     padding: 0 0 48px;
   `}
   section {
@@ -231,16 +232,49 @@ const PostContent = styled.div`
       margin: 48px -64px;
     `}
   }
+
   .twitter-tweet {
     display: grid !important;
     justify-content: center;
     margin: 32px auto 0 !important;
     width: 100% !important;
   }
+
   .instagram-media {
     box-sizing: border-box;
     margin: 32px auto 0 !important;
     min-width: unset !important;
+  }
+
+  .link {
+    background: var(--c_8);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 24px 0 0;
+    padding: 16px;
+    text-decoration: none;
+    ${media.ms`
+      font-size: 0.95rem;
+      padding: 16px 20px;
+    `}
+    p {
+      display: flex;
+      line-height: 1.5;
+      margin: 0;
+      &::before {
+        content: '👉';
+      }
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:visited {
+        color: var(--c_5);
+      }
+    }
   }
 
   .youtube {
@@ -378,12 +412,15 @@ const PostContent = styled.div`
     display: inline-block;
     font: bold 1rem / 1.6 ${font.$f_1};
     margin: 0 8px 0 0;
-    &:last-of-type {
-      margin: 0;
-    }
+    ${media.m`
+      font-size: 1rem;
+    `}
     ${media.ls`
       font-size: 1.2rem;
     `}
+    &:last-of-type {
+      margin: 0;
+    }
   }
 
   .item__button {
@@ -410,7 +447,7 @@ const PostContent = styled.div`
     box-sizing: border-box;
     color: var(--c_0);
     display: flex;
-    font: italic bold 1rem / 1 ${font.$f_1};
+    font: italic bold 0.95rem / 1 ${font.$f_1};
     justify-content: center;
     padding: 10px 12px 11px;
     position: relative;
@@ -425,6 +462,9 @@ const PostContent = styled.div`
     `}
     ${media.ms`
       width: 120px;
+    `}
+    ${media.m`
+      font-size: 1rem;
     `}
     ${media.ls`
       width: 96px;

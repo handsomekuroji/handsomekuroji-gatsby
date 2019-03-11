@@ -12,12 +12,15 @@ const TagList = styled.li`
 
 const TagLink = styled.a`
   color: var(--c_0);
-  font: italic bold 1rem / 1 ${font.$f_1};
+  font: italic bold 0.95rem / 1 ${font.$f_1};
   height: auto;
   vertical-align: bottom;
   text-decoration: none;
   transition: 0.1s linear;
   width: 100%;
+  ${media.m`
+    font-size: 1rem;
+  `}
   &:hover {
     color: var(--c_7);
     transition: 0.1s;

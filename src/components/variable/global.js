@@ -83,7 +83,7 @@ export default createGlobalStyle`
     text-size-adjust: 100%;
     transition: background 0.3s;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: var( --c_0-1);
+    -webkit-tap-highlight-color: var(--c_2);
     &.dark {
       --c_0: #ced8de;
       --c_0-1: rgba(206, 216, 222, 0.2)
@@ -136,7 +136,7 @@ export default createGlobalStyle`
     cursor: pointer;
     outline: none;
     &:focus {
-      outline: thin solid rgba(var(--c_0), 0.5);
+      outline: thin solid var(--c_2);
     }
   }
 
@@ -145,7 +145,7 @@ export default createGlobalStyle`
     appearance: none;
     border-radius: 0;
     &:focus {
-      outline: thin solid rgba(var(--c_0), 0.5);
+      outline: thin solid var(--c_2);
     }
   }
 
@@ -156,7 +156,7 @@ export default createGlobalStyle`
   }
 
   ::selection {
-    background: rgba(var(--c_0), 0.3);
+    background: var(--c_0);
     color: var(--c_3);
   }
 

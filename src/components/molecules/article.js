@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
-import { font } from '../variable/mixin'
+import { font, media } from '../variable/mixin'
 import Thumbnail from '../../components/atoms/thumbnail'
 
 const ArticleBlock = styled.article``
@@ -13,12 +13,15 @@ const ArticleLink = styled(Link)`
   box-shadow: rgba(19, 27, 54, 0.1) 0px 1px 6px;
   color: var(--c_0);
   display: grid;
-  font-size: 1rem;
+  font-size: 0.95rem;
   grid-template-rows: auto 1fr;
   height: 100%;
   position: relative;
   text-decoration: none;
   transition: 0.3s linear;
+  ${media.m`
+    font-size: 1rem;
+  `}
   &::before {
     bottom: 0;
     border-radius: 24px;
@@ -67,7 +70,10 @@ const ArticleInner = styled.div`
 
 const ArticleTitle = styled.h2`
   color: var(--c_1);
-  font: bold 1rem / 1.5 ${font.$f_1};
+  font: bold 0.95rem / 1.5 ${font.$f_1};
+  ${media.m`
+    font-size: 1rem;
+  `}
 `
 
 const ArticleTime = styled.time`
