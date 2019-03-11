@@ -21,7 +21,7 @@ const ButtonDark = styled.button`
   right: 16px;
 `
 
-function SetSiteState({ siteState, increment, children }) {
+function SetSiteState({ siteState, increment }) {
   return (
     <>
       <Helmet bodyAttributes={{ class: siteState === true ? 'dark' : 'light' }} />

@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { media } from '../../components/variable/mixin'
 
+import modal from '../../plugins/modal'
+
 import Twitter from '../../images/icon/twitter.svg'
 import Facebook from '../../images/icon/facebook.svg'
 import Hatebu from '../../images/icon/hatebu.svg'
@@ -78,30 +80,31 @@ const FeedlyIcon = styled.a`
 export default function Icon({ iconData }) {
   const type = iconData.type
   const url = iconData.url
+
   return (
     <>
       {type === 'Twitter' ? (
-        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer">
+        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
           <Twitter />
         </TwitterIcon>
       ) : type === 'Facebook' ? (
-        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer">
+        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
           <Facebook />
         </FacebookIcon>
       ) : type === 'Hatebu' ? (
-        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer">
+        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
           <Hatebu />
         </HatebuIcon>
       ) : type === 'Line' ? (
-        <LineIcon href={url} target="_blank" rel="noopener noreferrer">
+        <LineIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
           <Line />
         </LineIcon>
       ) : type === 'Pocket' ? (
-        <PocketIcon href={url} target="_blank" rel="noopener noreferrer">
+        <PocketIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
           <Pocket />
         </PocketIcon>
       ) : type === 'Feedly' ? (
-        <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer">
+        <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
           <Feedly />
         </FeedlyIcon>
       ) : null}
