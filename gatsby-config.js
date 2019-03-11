@@ -10,14 +10,7 @@ module.exports = {
     twitter: env.SITE_TWITTER,
     facebook: env.SITE_FACEBOOK,
     author: env.SITE_AUTHOR,
-    verification: env.SITE_VERIFICATION,
-    rss: {
-      title: env.SITE_TITLE,
-      description: env.SITE_DESCRIPTION,
-      siteUrl: env.SITE_URL,
-      feed_url: `${env.SITE_URL}/feed.xml`,
-      author: env.SITE_AUTHOR
-    }
+    verification: env.SITE_VERIFICATION
   },
   plugins: [
     'gatsby-plugin-eslint',
@@ -122,13 +115,11 @@ module.exports = {
           {
             site {
               siteMetadata {
-                rss {
-                  title
-                  description
-                  siteUrl
-                  feed_url
-                  author
-                }
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+                author
               }
             }
           }
@@ -136,7 +127,7 @@ module.exports = {
         feeds: [
           {
             serialize(ctx) {
-              const rss = ctx.query.site.siteMetadata.rss
+              const rss = ctx.query.site.siteMetadata
               return ctx.query.allContentfulBlog.edges.map(edge => ({
                 date: edge.node.createdAt,
                 title: edge.node.title,
