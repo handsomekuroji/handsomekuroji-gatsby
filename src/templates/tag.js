@@ -89,7 +89,7 @@ export default function tagTemplate({ data, pageContext }) {
   const tag = data.contentfulTag
   const posts = data.allContentfulBlog.edges
   const tagImg = posts.slice(-1)[0].node.thumbnail.file.url
-  const tagCount = '投稿数 ' + posts.length + ' 件'
+  const tagCount = '投稿数 ' + data.allContentfulBlog.totalCount + ' 件'
 
   const metaData = {
     title: tag.name,
@@ -144,6 +144,7 @@ export const query = graphql`
       limit: $limit
       skip: $skip
     ) {
+      totalCount
       edges {
         node {
           slug
