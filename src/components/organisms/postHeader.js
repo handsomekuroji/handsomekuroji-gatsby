@@ -39,6 +39,9 @@ const PostTag = styled(Link)`
   margin: 0 0 0 8px;
   text-decoration: none;
   transition: 0.1s linear;
+  ${media.m`
+    font-size: 1rem;
+  `}
   &:first-of-type {
     margin: 0;
   }
@@ -72,7 +75,7 @@ const PostTitle = styled.h1`
 const PostTime = styled.time`
   align-self: flex-end;
   color: var(--c_0);
-  font: 0.8rem / 1 ${font.$f_0};
+  font: 0.8rem / 1 ${font.$f_1};
   margin: 0 0 0 auto;
   ${media.m`
     font-size: 1rem;

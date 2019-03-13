@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../variable/mixin'
+import { media, font } from '../variable/mixin'
 import Logo from '../atoms/logo'
 import Tag from '../atoms/tag'
 
@@ -51,6 +51,7 @@ const SiteFig = styled.div`
 
 const Copy = styled.small`
   color: var(--c_0);
+  font-family: ${font.$f_1};
   font-size: 0.8rem;
   text-align: center;
   ${media.ms`

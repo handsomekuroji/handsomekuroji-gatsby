@@ -77,6 +77,7 @@ const ArticleTitle = styled.h2`
 `
 
 const ArticleTime = styled.time`
+  font-family: ${font.$f_1};
   font-size: 0.8rem;
   margin: auto 0 0;
 `
