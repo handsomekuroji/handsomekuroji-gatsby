@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
+import Pagination from '../components/molecules/pagination'
 
 const SiteMain = styled.main`
   margin: 32px auto 0;
@@ -30,13 +31,14 @@ const SiteMain = styled.main`
   `}
 `
 
-export default function IndexPage({ data }) {
+export default function IndexPage({ data, pageContext }) {
   return (
     <Layout>
       <SEO />
       <Header inIndex />
       <SiteMain>
         <Loop allPosts={data.allContentfulBlog.edges} />
+        <Pagination pagesData={pageContext} />
       </SiteMain>
       <Footer alltags={data.allContentfulTag.edges} />
     </Layout>
@@ -44,8 +46,8 @@ export default function IndexPage({ data }) {
 }
 
 export const query = graphql`
-  query Index {
-    allContentfulBlog(sort: { fields: [createdAt], order: DESC }) {
+  query Index($skip: Int!, $limit: Int!) {
+    allContentfulBlog(sort: { fields: [createdAt], order: DESC }, limit: $limit, skip: $skip) {
       edges {
         node {
           slug

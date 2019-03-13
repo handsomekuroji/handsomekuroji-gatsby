@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
@@ -25,6 +26,34 @@ const PostHeaderInner = styled.div`
     padding: 48px 64px;
   `}
   ${media.l`gap: 24px;`}
+`
+
+const PostTagContainer = styled.div`
+  grid-column: 1 / 3;
+  display: flex;
+`
+
+const PostTag = styled(Link)`
+  color: var(--c_0);
+  font: italic bold 0.8rem / 1 ${font.$f_1};
+  margin: 0 0 0 8px;
+  text-decoration: none;
+  transition: 0.1s linear;
+  &:first-of-type {
+    margin: 0;
+  }
+  &:hover {
+    color: var(--c_7);
+  }
+  &:visited {
+    color: var(--c_0);
+    &:hover {
+      color: var(--c_7);
+    }
+  }
+  &::before {
+    content: '#';
+  }
 `
 
 const PostTitle = styled.h1`
@@ -115,6 +144,13 @@ export default function PostHeader({ headerData }) {
         <Hero imgSrc={headerData.src} imgAlt={headerData.title} />
       </PostHeaderFig>
       <PostHeaderInner>
+        <PostTagContainer>
+          {headerData.tag.map((edge, i) => (
+            <PostTag to={'/' + edge.slug} key={i}>
+              {edge.name}
+            </PostTag>
+          ))}
+        </PostTagContainer>
         <PostTitle>{headerData.title}</PostTitle>
         <PostTime dateTime={headerData.date}>{date}</PostTime>
       </PostHeaderInner>

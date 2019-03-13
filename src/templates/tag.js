@@ -9,6 +9,7 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
+import Pagination from '../components/molecules/pagination'
 
 const TagMain = styled.main`
   margin: 32px auto 0;
@@ -84,10 +85,11 @@ const AdSenseContainer = styled.div`
   `}
 `
 
-export default function tagTemplate({ data }) {
+export default function tagTemplate({ data, pageContext }) {
   const tag = data.contentfulTag
-  const tagImg = tag.blog.slice(-1)[0].thumbnail.file.url
-  const tagCount = '投稿数 ' + tag.blog.length + ' 件'
+  const posts = data.allContentfulBlog.edges
+  const tagImg = posts.slice(-1)[0].node.thumbnail.file.url
+  const tagCount = '投稿数 ' + posts.length + ' 件'
 
   const metaData = {
     title: tag.name,
@@ -111,7 +113,8 @@ export default function tagTemplate({ data }) {
           <TagTitle>{tag.name}</TagTitle>
           <TagCount>{tagCount}</TagCount>
         </TagHeader>
-        <Loop allPosts={tag.blog} inTags />
+        <Loop allPosts={posts} inTags />
+        <Pagination pagesData={pageContext} />
       </TagMain>
       <AdSenseContainer>
         <AdSense.Google
@@ -127,20 +130,29 @@ export default function tagTemplate({ data }) {
 }
 
 export const query = graphql`
-  query TagBySlug($slug: String!) {
+  query TagBySlug($slug: String!, $skip: Int!, $limit: Int!) {
     contentfulTag(slug: { eq: $slug }) {
       slug
       name
       description {
         description
       }
-      blog {
-        slug
-        title
-        createdAt
-        thumbnail {
-          file {
-            url
+    }
+    allContentfulBlog(
+      filter: { tag: { elemMatch: { slug: { eq: $slug } } } }
+      sort: { fields: [createdAt], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          slug
+          title
+          createdAt
+          thumbnail {
+            file {
+              url
+            }
           }
         }
       }

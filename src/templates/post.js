@@ -267,6 +267,7 @@ const PostContent = styled.div`
       }
     }
     a {
+      margin: 0 0 0 4px;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -526,7 +527,8 @@ export default function postTemplate({ data }) {
     src: post.thumbnail.file.url,
     title: post.title,
     date: post.createdAt,
-    desc: Replace(post.description.childMarkdownRemark.html)
+    desc: Replace(post.description.childMarkdownRemark.html),
+    tag: post.tag
   }
 
   const footerData = {
@@ -590,6 +592,10 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      tag {
+        name
+        slug
       }
     }
     allContentfulTag {
