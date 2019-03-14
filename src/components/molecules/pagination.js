@@ -29,17 +29,30 @@ const Current = styled.span`
 
 const PageLink = styled(Link)`
   color: var(--c_0);
+  display: flex;
+  flex-direction: column;
   font: italic 1rem / 1.1 'Georgia', serif;
-  padding: 8px;
-  text-underline-position: under;
+  padding: 8px 8px 6px;
+  text-decoration: none;
   &:hover {
     color: var(--c_7);
+    &::after {
+      background: var(--c_7);
+    }
   }
   &:visited {
     color: var(--c_0);
     &:hover {
       color: var(--c_7);
     }
+  }
+  &::after {
+    background: var(--c_0);
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 2px 0 0;
+    width: 100%;
   }
 `
 
