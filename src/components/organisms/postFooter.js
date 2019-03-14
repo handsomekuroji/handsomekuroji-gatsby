@@ -22,8 +22,9 @@ const FooterContainer = styled.footer`
 
 const FooterInner = styled.div`
   display: grid;
-  gap: 8px;
+  gap: 12px;
   grid-auto-flow: column;
+  justify-content: center;
   margin: 0 auto;
   max-width: 320px;
   ${media.xs`
