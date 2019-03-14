@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { font, media } from '../variable/mixin'
 
@@ -10,7 +11,7 @@ const TagList = styled.li`
   `}
 `
 
-const TagLink = styled.a`
+const TagLink = styled(Link)`
   color: var(--c_0);
   font: italic bold 0.95rem / 1 ${font.$f_1};
   height: auto;
@@ -40,7 +41,7 @@ export default function Tag({ tagList }) {
   const tagData = tagList.node
   return (
     <TagList>
-      <TagLink href={'/' + tagData.slug}>{tagData.name}</TagLink>
+      <TagLink to={'/' + tagData.slug}>{tagData.name}</TagLink>
     </TagList>
   )
 }

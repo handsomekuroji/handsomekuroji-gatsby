@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadPosts = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulBlog {
+        allContentfulBlog(sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               slug
@@ -14,12 +14,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      result.data.allContentfulBlog.edges.forEach(({ node }) => {
+      const posts = result.data.allContentfulBlog.edges
+      posts.forEach((edge, i) => {
         createPage({
-          path: node.slug,
+          path: edge.node.slug,
           component: path.resolve('./src/templates/post.js'),
           context: {
-            slug: node.slug
+            slug: edge.node.slug
           }
         })
       })
@@ -63,7 +64,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadTags = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulTag {
+        allContentfulTag(sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               slug
