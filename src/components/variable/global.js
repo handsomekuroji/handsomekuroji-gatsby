@@ -83,7 +83,7 @@ export default createGlobalStyle`
     text-size-adjust: 100%;
     transition: background 0.3s;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: var(--c_2);
+    -webkit-tap-highlight-color: rgba(206, 216, 222, 0.2);
     &.dark {
       transition: none;
       --c_0: #ced8de;
