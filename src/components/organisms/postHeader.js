@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
 import Hero from '../../components/atoms/hero'
+import Photo from '../../images/main/handsomekuroji.jpg'
 
 const PostHeaderFig = styled.figure`
   border-radius: 8px 8px 0 0;
@@ -71,15 +72,33 @@ const PostTitle = styled.h1`
     font-size: 2rem;
   `}
 `
+const PostMeta = styled.div`
+  display: grid;
+  gap: 8px;
+`
+
+const PostPhoto = styled.img`
+  border-radius: 50%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  height: 40px;
+  width: 40px;
+`
+
+const PostName = styled.div`
+  font: bold 0.8rem / 1 ${font.$f_1};
+  grid-column: 2 / 3;
+  margin: auto 0 0;
+  ${media.m`
+    font-size: 1rem;
+  `}
+`
 
 const PostTime = styled.time`
   align-self: flex-end;
   color: var(--c_0);
   font: 0.8rem / 1 ${font.$f_1};
-  margin: 0 0 0 auto;
-  ${media.m`
-    font-size: 1rem;
-  `}
+  margin: 0 0 auto;
 `
 
 const PostPrefaces = styled.div`
@@ -140,6 +159,15 @@ const PostPrefaces = styled.div`
 `
 
 export default function PostHeader({ headerData }) {
+  const siteData = useStaticQuery(graphql`
+    query PostHeaderQuery {
+      site {
+        siteMetadata {
+          author
+        }
+      }
+    }
+  `)
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
   return (
     <header>
@@ -155,7 +183,11 @@ export default function PostHeader({ headerData }) {
           ))}
         </PostTagContainer>
         <PostTitle>{headerData.title}</PostTitle>
-        <PostTime dateTime={headerData.date}>{date}</PostTime>
+        <PostMeta>
+          <PostPhoto data-src={Photo} width="80" height="80" />
+          <PostName>{siteData.site.siteMetadata.author}</PostName>
+          <PostTime dateTime={headerData.date}>{date}</PostTime>
+        </PostMeta>
       </PostHeaderInner>
       <PostPrefaces
         dangerouslySetInnerHTML={{

@@ -28,6 +28,32 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const loadPages = new Promise(async resolve => {
+    await graphql(`
+      {
+        allContentfulPage(sort: { fields: [createdAt], order: DESC }) {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const posts = result.data.allContentfulPage.edges
+      posts.forEach((edge, i) => {
+        createPage({
+          path: edge.node.slug,
+          component: path.resolve('./src/templates/page.js'),
+          context: {
+            slug: edge.node.slug
+          }
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadIndex = new Promise(async resolve => {
     await graphql(`
       {
@@ -101,5 +127,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadIndex, loadPosts, loadTags])
+  return Promise.all([loadIndex, loadPosts, loadPages, loadTags])
 }
