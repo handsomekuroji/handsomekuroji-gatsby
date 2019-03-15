@@ -85,6 +85,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: var(--c_2);
     &.dark {
+      transition: none;
       --c_0: #ced8de;
       --c_0-1: rgba(206, 216, 222, 0.2)
       --c_1: #fcfcfc;
@@ -93,6 +94,9 @@ export default createGlobalStyle`
       --c_4: #0f2d44;
       --c_7: #ced8de;
       --c_8: #0d2538;
+    }
+    &light {
+      transition: none;
     }
   }
 

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Global from './variable/global'
-import { connect } from 'react-redux'
+
+import ThemeContext from '../context/ThemeContext'
 
 import Sun from '../images/icon/sun.svg'
 import Moon from '../images/icon/moon.svg'
@@ -21,46 +22,24 @@ const ButtonDark = styled.button`
   right: 16px;
 `
 
-function SetSiteState({ siteState, increment }) {
-  return (
-    <>
-      <Helmet bodyAttributes={{ class: siteState === true ? 'dark' : 'light' }} />
-      <ButtonDark onClick={increment} type="button" aria-label="ダークモード" aria-pressed="false">
-        {siteState === true ? (
-          <Sun width="32" height="32" alt="ライトモードボタン" />
-        ) : (
-          <Moon width="32" height="32" alt="ダークモードボタン" />
-        )}
-      </ButtonDark>
-    </>
-  )
-}
-
-SetSiteState.propTypes = {
-  siteState: PropTypes.bool.isRequired,
-  increment: PropTypes.func.isRequired
-}
-
-const mapStateToProps = ({ siteState }) => {
-  return { siteState }
-}
-
-const mapDispatchToProps = dispatch => {
-  return { increment: () => dispatch({ type: 'INCREMENT' }) }
-}
-
-const Dark = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SetSiteState)
-
 export default function Layout({ children }) {
   return (
-    <Wrapper>
-      <Global />
-      {children}
-      <Dark />
-    </Wrapper>
+    <ThemeContext.Consumer>
+      {theme => (
+        <Wrapper>
+          <Helmet bodyAttributes={{ class: theme.dark ? 'dark' : 'light' }} />
+          <Global />
+          {children}
+          <ButtonDark onClick={theme.toggleDark} type="button" aria-label="ダークモード" aria-pressed="false">
+            {theme.dark ? (
+              <Sun width="32" height="32" alt="ライトモードボタン" />
+            ) : (
+              <Moon width="32" height="32" alt="ダークモードボタン" />
+            )}
+          </ButtonDark>
+        </Wrapper>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 
