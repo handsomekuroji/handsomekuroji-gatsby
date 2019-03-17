@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 
 export const font = {
-  $f_0: `'Montserrat', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic,
+  $f_0: `'Avenir Next', 'Avenir', 'Ebrima', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic,
   'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif`,
   $f_1: `'游明朝', YuMincho, 'Hiragino Mincho ProN', Meiryo, serif`
 }

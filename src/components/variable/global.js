@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import fonts from './fonts'
 import { font } from '../variable/mixin'
 
 export default createGlobalStyle`
@@ -162,27 +161,5 @@ export default createGlobalStyle`
   ::selection {
     background: var(--c_0);
     color: var(--c_3);
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(${fonts.MontserratRegularEot});
-    src: local('Montserrat Regular'),
-      url(${fonts.MontserratRegularWoff2}) format('woff2'),
-      url(${fonts.MontserratRegularWoff}) format('woff');
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(${fonts.MontserratBoldEot});
-    src: local('Montserrat Bold'),
-      url(${fonts.MontserratBoldWoff2}) format('woff2'),
-      url(${fonts.MontserratBoldWoff}) format('woff');
   }
 `
