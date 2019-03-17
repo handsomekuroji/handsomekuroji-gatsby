@@ -13,8 +13,8 @@ export default replaceTarget => {
       return `
         <figure>
           <picture>
-            <source type="image/webp" data-srcset="${img}?fm=webp&w=640 640w, ${img}?fm=webp 1280w" data-sizes="100w" />
-            <img src="${dummy}" content="${img}" data-src="${img}" data-srcset="${img}?w=640 640w, ${img} 1280w" alt="${alt}" width="${width}" height="${height}" class="img">
+            <source type="image/webp" data-srcset="${img}?fm=webp&w=320 640w, ${img}?fm=webp&w=640 760w, ${img}?fm=webp&w=1280 1280w" data-sizes="100w" />
+            <img src="${dummy}" content="${img}" data-src="${img}" data-srcset="${img}?w=320 640w, ${img}?w=640 760w, ${img}?w=1280 1280w" alt="${alt}" width="${width}" height="${height}" class="img">
           </picture>
         </figure>
       `
