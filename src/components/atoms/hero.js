@@ -18,13 +18,15 @@ export default function Hero({ imgSrc, imgAlt }) {
     <picture>
       <source
         type="image/webp"
-        data-srcset={imgSrc + '?fm=webp&w=640 640w, ' + imgSrc + '?fm=webp&w=1280 1280w'}
+        data-srcset={
+          imgSrc + '?fm=webp&w=320 640w, ' + imgSrc + '?fm=webp&w=640 760w, ' + imgSrc + '?fm=webp&w=1280 1280w'
+        }
         data-sizes="100w"
       />
       <HeroImg
         src={dummy}
         data-src={imgSrc}
-        data-srcset={imgSrc + '?w=640 640w, ' + imgSrc + '?w=1280 1280w'}
+        data-srcset={imgSrc + '?w=320 640w, ' + imgSrc + '?w=640 760w, ' + imgSrc + '?w=1280 1280w'}
         content={imgSrc}
         alt={imgAlt}
         width="640"

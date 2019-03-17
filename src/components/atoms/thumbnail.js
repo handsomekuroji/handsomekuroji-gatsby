@@ -18,13 +18,15 @@ export default function Thumbnail({ imgSrc, imgAlt }) {
     <picture>
       <source
         type="image/webp"
-        data-srcset={imgSrc + '?fm=webp&w=480 640w, ' + imgSrc + '?fm=webp&w=600 1280w'}
+        data-srcset={
+          imgSrc + '?fm=webp&w=320 600w, ' + imgSrc + '?fm=webp&w=330 1040w, ' + imgSrc + '?fm=webp&w=300 1280w'
+        }
         data-sizes="100w"
       />
       <ThumbImg
         src={dummy}
         data-src={imgSrc}
-        data-srcset={imgSrc + '?w=480 640w, ' + imgSrc + '?w=600 1280w'}
+        data-srcset={imgSrc + '?w=320 600w, ' + imgSrc + '?w=330 1040w, ' + imgSrc + '?w=300 1280w'}
         content={imgSrc}
         alt={imgAlt}
         width="640"
