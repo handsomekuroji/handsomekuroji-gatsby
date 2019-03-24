@@ -19,7 +19,6 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -81,16 +80,10 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-sass',
+      resolve: `gatsby-plugin-styled-components`,
       options: {
-        includePaths: ['src/components'],
-        postCssPlugins: [
-          require('postcss-import')(),
-          require('postcss-url')(),
-          require('css-mqpacker')({ sort: true }),
-          require('cssnano')({ autoprefixer: false }),
-          require('autoprefixer')()
-        ]
+        minify: true,
+        pure: true
       }
     },
     {

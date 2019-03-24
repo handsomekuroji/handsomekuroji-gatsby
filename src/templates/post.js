@@ -20,7 +20,7 @@ import PlayIcon from '../images/main/play.svg'
 
 const PostMain = styled.main`
   background: var(--c_4);
-  box-shadow: rgba(19, 27, 54, 0.1) 0 1px 6px;
+  box-shadow: var(--c_9) 0 1px 6px;
   border-radius: 8px;
   margin: 32px auto 0;
   max-width: 620px;
@@ -313,7 +313,7 @@ const PostContent = styled.div`
     width: 100%;
     &::before {
       align-items: center;
-      background: url(${PlayIcon}) 50% / 16px 16px rgba(19, 27, 54, 0.8) no-repeat;
+      background: url(${PlayIcon}) 50% / 16px 16px var(--c_9_1) no-repeat;
       border-radius: 50%;
       bottom: 0;
       content: '';
@@ -328,7 +328,7 @@ const PostContent = styled.div`
       width: 48px;
     }
     &:hover::before {
-      background-color: rgba(19, 27, 54, 0.8);
+      background-color: var(--c_9_1);
       opacity: 0.8;
     }
   }
@@ -375,7 +375,7 @@ const PostContent = styled.div`
     width: 160px;
     &::before {
       backface-visibility: hidden;
-      background: rgba(19, 27, 54, 0.8);
+      background: var(--c_9_1);
       border-radius: 24px;
       bottom: 0;
       content: '';
