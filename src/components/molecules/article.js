@@ -10,7 +10,7 @@ const ArticleBlock = styled.article``
 
 const ArticleLink = styled(Link)`
   border-radius: 8px;
-  box-shadow: var(--c_9) 0px 1px 6px;
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0px 1px 6px;
   color: var(--c_0);
   display: grid;
   font-size: 0.95rem;
@@ -43,7 +43,7 @@ const ArticleLink = styled(Link)`
     transform: translate(0, -2px);
     transition: 0.3s;
     &::before {
-      background: var(--c_9);
+      background: rgba(var(--c_9-rgb), 0.1);
       transition: 0.3s;
     }
   }

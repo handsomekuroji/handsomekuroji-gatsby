@@ -1,17 +1,13 @@
 import React from 'react'
 
-const defaultState = {
+const ThemeContext = React.createContext({
   dark: false,
   toggleDark: () => {}
-}
-
-const ThemeContext = React.createContext(defaultState)
+})
 const { Provider } = ThemeContext
 
 class ThemeProvider extends React.Component {
-  state = {
-    dark: false
-  }
+  state = { dark: false }
 
   toggleDark = () => {
     let dark = !this.state.dark

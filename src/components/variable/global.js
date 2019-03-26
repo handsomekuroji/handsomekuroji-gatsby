@@ -14,13 +14,13 @@ export default createGlobalStyle`
     --c_3: #f4f5f6;
     --c_4: #fcfcfc;
     --c_5: #0090c6;
-    --c_5_1: rgba(0, 144, 198, 0.5);
+    --c_5-rgb: 0, 144, 198;
     --c_6: #5f4b8b;
     --c_7: #888c96;
-    --c_7_1: rgba(136, 140, 150, 0.2);
+    --c_7-rgb: 136, 140, 150;
     --c_8: #f1f2f3;
-    --c_9: rgba(19, 27, 54, 0.1);
-    --c_9_1: rgba(19, 27, 54, 0.8);
+    --c_9: #131b36;
+    --c_9-rgb: 19, 27, 54;
   }
 
   ::before,
@@ -85,7 +85,7 @@ export default createGlobalStyle`
     text-size-adjust: 100%;
     transition: background 0.3s;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: var(--c_7_1);
+    -webkit-tap-highlight-color: rgba(var(--c_7-rgb), 0.2);
     &.dark {
       transition: none;
       --c_0: #ced8de;
@@ -94,7 +94,7 @@ export default createGlobalStyle`
       --c_3: #0d2538;
       --c_4: #0f2d44;
       --c_7: #ced8de;
-      --c_7_1: rgba(206, 216, 222, 0.2);
+      --c_7-rgb: 206, 216, 222;
       --c_8: #0d2538;
     }
     &light {
@@ -115,7 +115,7 @@ export default createGlobalStyle`
       outline: none;
     }
     &:focus {
-      outline: thin solid rgba(var(--c_5), 0.5);
+      outline: thin solid rgba(var(--c_5-rgb), 0.5);
     }
   }
 
