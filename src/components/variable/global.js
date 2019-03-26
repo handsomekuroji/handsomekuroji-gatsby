@@ -97,9 +97,6 @@ export default createGlobalStyle`
       --c_7-rgb: 206, 216, 222;
       --c_8: #0d2538;
     }
-    &light {
-      transition: none;
-    }
   }
 
   a {
