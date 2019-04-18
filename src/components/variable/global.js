@@ -91,11 +91,11 @@ export default createGlobalStyle`
       --c_0: #ced8de;
       --c_1: #fcfcfc;
       --c_2: rgba(0, 0, 0, 0.3);
-      --c_3: #0d2538;
-      --c_4: #0f2d44;
+      --c_3: #19191a;
+      --c_4: #23232a;
       --c_7: #ced8de;
       --c_7-rgb: 206, 216, 222;
-      --c_8: #0d2538;
+      --c_8: #19191a;
     }
   }
 

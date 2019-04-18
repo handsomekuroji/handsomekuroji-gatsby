@@ -28,9 +28,10 @@ export default function Thumbnail({ imgSrc, imgAlt }) {
         data-src={imgSrc}
         data-srcset={imgSrc + '?w=320 600w, ' + imgSrc + '?w=330 1040w, ' + imgSrc + '?w=300 1280w'}
         content={imgSrc}
-        alt={imgAlt}
         width="640"
         height="360"
+        alt={imgAlt}
+        decoding="async"
       />
     </picture>
   )

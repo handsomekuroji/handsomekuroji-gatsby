@@ -106,9 +106,10 @@ export default function tagTemplate({ data, pageContext }) {
           <TagImage
             src={tagImg + '?w=96'}
             data-srcset={tagImg + '?w=128 1040w'}
-            alt={tag.name}
             width="48"
             height="48"
+            alt={tag.name}
+            decoding="async"
           />
           <TagTitle>{tag.name}</TagTitle>
           <TagCount>{tagCount}</TagCount>

@@ -28,9 +28,10 @@ export default function Hero({ imgSrc, imgAlt }) {
         data-src={imgSrc}
         data-srcset={imgSrc + '?w=320 640w, ' + imgSrc + '?w=640 760w, ' + imgSrc + '?w=1280 1280w'}
         content={imgSrc}
-        alt={imgAlt}
         width="640"
         height="360"
+        alt={imgAlt}
+        decoding="async"
       />
     </picture>
   )
