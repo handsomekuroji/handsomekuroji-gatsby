@@ -118,22 +118,20 @@ export default function Pagination({ pagesData }) {
     return slugUrl + (i === 1 ? '/' : '/' + i)
   }
 
+  const inner = length.map((_, i) =>
+    minMax(++i) ? (
+      <PageLink key={i} to={numSlug(i)}>
+        {i}
+      </PageLink>
+    ) : (
+      i === number && <Current key={i}>{i}</Current>
+    )
+  )
+
   return (
     <Wrapper>
       {!first && <PrevLink to={prevUrl}>←</PrevLink>}
-      {pages > 1 && (
-        <Inner>
-          {length.map((_, i) =>
-            minMax(++i) ? (
-              <PageLink key={i} to={numSlug(i)}>
-                {i}
-              </PageLink>
-            ) : (
-              i === number && <Current key={i}>{i}</Current>
-            )
-          )}
-        </Inner>
-      )}
+      {pages > 1 && <Inner>{inner}</Inner>}
       {!last && <NextLink to={nextUrl}>→</NextLink>}
     </Wrapper>
   )

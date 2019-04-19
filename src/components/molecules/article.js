@@ -85,6 +85,7 @@ const ArticleTime = styled.time`
 export default function Article({ postsData }) {
   const post = postsData.node ? postsData.node : postsData
   const date = dayjs(post.createdAt).format('YYYY.MM.DD ddd')
+
   return (
     <ArticleBlock>
       <ArticleLink to={'/' + post.slug}>

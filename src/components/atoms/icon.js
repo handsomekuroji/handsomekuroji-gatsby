@@ -81,30 +81,34 @@ export default function Icon({ iconData }) {
   const type = iconData.type
   const url = iconData.url
 
+  const box = () => {
+    modal(url, event)
+  }
+
   return (
     <>
       {type === 'Twitter' ? (
-        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
+        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Twitter />
         </TwitterIcon>
       ) : type === 'Facebook' ? (
-        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
+        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Facebook />
         </FacebookIcon>
       ) : type === 'Hatebu' ? (
-        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
+        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Hatebu />
         </HatebuIcon>
       ) : type === 'Line' ? (
-        <LineIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
+        <LineIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Line />
         </LineIcon>
       ) : type === 'Pocket' ? (
-        <PocketIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
+        <PocketIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Pocket />
         </PocketIcon>
       ) : type === 'Feedly' ? (
-        <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" onClick={() => modal(url, event)}>
+        <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Feedly />
         </FeedlyIcon>
       ) : null}

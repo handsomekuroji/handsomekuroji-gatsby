@@ -31,12 +31,13 @@ const TagLoopWrapper = styled.div`
 
 export default function Loop({ allPosts, inTags }) {
   const loopPosts = allPosts.map((edge, i) => <Article key={i} postsData={edge} />)
+  const loopResult = inTags ? <TagLoopWrapper>{loopPosts}</TagLoopWrapper> : <LoopWrapper>{loopPosts}</LoopWrapper>
 
   React.useEffect(() => {
     lozad()
   }, [LoopWrapper])
 
-  return inTags ? <TagLoopWrapper>{loopPosts}</TagLoopWrapper> : <LoopWrapper>{loopPosts}</LoopWrapper>
+  return loopResult
 }
 
 Loop.propTypes = {

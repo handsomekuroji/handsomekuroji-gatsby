@@ -61,6 +61,7 @@ const Copy = styled.small`
 
 export default function Footer({ alltags }) {
   const loopTags = alltags.map((edge, i) => <Tag key={i} tagList={edge} />)
+  const siteDate = new Date().getFullYear()
 
   return (
     <SiteFooter>
@@ -70,7 +71,7 @@ export default function Footer({ alltags }) {
       <SiteFig>
         <Logo />
       </SiteFig>
-      <Copy>© 2017 - {new Date().getFullYear()}</Copy>
+      <Copy>© 2017 - {siteDate}</Copy>
     </SiteFooter>
   )
 }

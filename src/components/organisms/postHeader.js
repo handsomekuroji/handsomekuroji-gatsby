@@ -169,6 +169,7 @@ export default function PostHeader({ headerData }) {
     }
   `)
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
+
   return (
     <header>
       <PostHeaderFig>

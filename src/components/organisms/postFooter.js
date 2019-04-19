@@ -80,13 +80,11 @@ export default function PostFooter({ footerData }) {
     }
   ]
 
+  const iconList = shareIcons.map((edge, i) => <Icon iconData={edge} key={i} />)
+
   return (
     <FooterContainer>
-      <FooterInner>
-        {shareIcons.map((edge, i) => (
-          <Icon iconData={edge} key={i} />
-        ))}
-      </FooterInner>
+      <FooterInner>{iconList}</FooterInner>
     </FooterContainer>
   )
 }

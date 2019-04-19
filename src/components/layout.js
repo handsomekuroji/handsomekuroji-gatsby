@@ -23,24 +23,22 @@ const ButtonDark = styled.button`
 `
 
 export default function Layout({ children }) {
-  return (
-    <ThemeContext.Consumer>
-      {theme => (
-        <Wrapper>
-          <Helmet bodyAttributes={{ class: theme.dark ? 'dark' : 'light' }} />
-          <Global />
-          {children}
-          <ButtonDark onClick={theme.toggleDark} type="button" aria-label="ダークモード" aria-pressed="false">
-            {theme.dark ? (
-              <Sun width="32" height="32" alt="ライトモードボタン" decoding="async" />
-            ) : (
-              <Moon width="32" height="32" alt="ダークモードボタン" decoding="async" />
-            )}
-          </ButtonDark>
-        </Wrapper>
-      )}
-    </ThemeContext.Consumer>
+  const cssTheme = theme => (
+    <Wrapper>
+      <Helmet bodyAttributes={{ class: theme.dark ? 'dark' : 'light' }} />
+      <Global />
+      {children}
+      <ButtonDark onClick={theme.toggleDark} type="button" aria-label="ダークモード" aria-pressed="false">
+        {theme.dark ? (
+          <Sun width="32" height="32" alt="ライトモードボタン" decoding="async" />
+        ) : (
+          <Moon width="32" height="32" alt="ダークモードボタン" decoding="async" />
+        )}
+      </ButtonDark>
+    </Wrapper>
   )
+
+  return <ThemeContext.Consumer>{cssTheme}</ThemeContext.Consumer>
 }
 
 Layout.propTypes = {

@@ -28,19 +28,19 @@ const StyledLink = styled(Link)`
 `
 
 export default function Header({ inIndex }) {
+  const heading = inIndex ? (
+    <SiteH1>
+      <Logo />
+    </SiteH1>
+  ) : (
+    <SiteDiv>
+      <Logo />
+    </SiteDiv>
+  )
+
   return (
     <SiteHeader>
-      <StyledLink to="/">
-        {inIndex ? (
-          <SiteH1>
-            <Logo />
-          </SiteH1>
-        ) : (
-          <SiteDiv>
-            <Logo />
-          </SiteDiv>
-        )}
-      </StyledLink>
+      <StyledLink to="/">{heading}</StyledLink>
     </SiteHeader>
   )
 }
