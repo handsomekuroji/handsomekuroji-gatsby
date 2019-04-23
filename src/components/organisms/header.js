@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { media } from '../../components/variable/mixin'
 import Logo from '../atoms/logo'
+import Search from '../atoms/search'
 
 const SiteHeader = styled.header`
   padding: 32px 0 0;
@@ -41,6 +42,7 @@ export default function Header({ inIndex }) {
   return (
     <SiteHeader>
       <StyledLink to="/">{heading}</StyledLink>
+      <Search />
     </SiteHeader>
   )
 }

@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -8,7 +9,11 @@ exports.createPages = ({ graphql, actions }) => {
         allContentfulBlog(sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
+              title
               slug
+              tag {
+                name
+              }
             }
           }
         }
@@ -25,6 +30,19 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
       resolve()
+
+      const searchJSON = result.data.allContentfulBlog.edges.map(edge => {
+        const node = edge.node
+        const tags = node.tag.map(edge => {
+          return edge.name
+        })
+        return {
+          title: node.title,
+          slug: node.slug,
+          tag: tags
+        }
+      })
+      fs.writeFileSync('./static/search.json', JSON.stringify(searchJSON, null, 2))
     })
   })
 

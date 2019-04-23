@@ -9,7 +9,9 @@ export default createGlobalStyle`
 
   :root {
     --c_0: #404040;
+    --c_0-rgb: 64, 64, 64;
     --c_1: #404040;
+    --c_1-rgb: 64, 64, 64;
     --c_2: #ededed;
     --c_3: #f4f5f6;
     --c_4: #fcfcfc;
@@ -90,6 +92,7 @@ export default createGlobalStyle`
       transition: none;
       --c_0: #ced8de;
       --c_1: #fcfcfc;
+      --c_1-rgb: 206, 216, 222;
       --c_2: rgba(0, 0, 0, 0.3);
       --c_3: #19191a;
       --c_4: #23232a;

@@ -1,0 +1,157 @@
+import React from 'react'
+import { Link } from 'gatsby'
+import axios from 'axios'
+import styled from 'styled-components'
+import { font } from '../../components/variable/mixin'
+
+import Icon from '../../images/icon/search.svg'
+
+const Search = styled.div`
+  margin: 32px auto 0;
+  position: relative;
+  width: 200px;
+`
+
+const SearchIcon = styled(Icon)`
+  stroke: rgba(var(--c_1-rgb), 0.5);
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 12px);
+`
+
+const Form = styled.input`
+  background: var(--c_2);
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--c_0);
+  font: 1rem / 1.3 ${font.$f_1};
+  padding: 8px 12px;
+  width: 100%;
+  &::selection {
+    background: var(--c_8);
+    color: var(--c_0);
+  }
+  &::placeholder {
+    color: rgba(var(--c_1-rgb), 0.5);
+    font: 1rem / 1.3 ${font.$f_1};
+  }
+`
+
+const Container = styled.ul`
+  background: #fcfcfc;
+  border-radius: 8px;
+  box-shadow: rgba(var(--c_9-rgb), 0.2) 0 3px 8px;
+  left: -50px;
+  position: absolute;
+  top: 48px;
+  width: 300px;
+  z-index: 1;
+  &::before {
+    border-color: transparent transparent #fcfcfc transparent;
+    border-style: solid;
+    border-width: 8px;
+    content: '';
+    display: block;
+    height: 0;
+    left: calc(50% - 8px);
+    pointer-events: none;
+    position: absolute;
+    top: -16px;
+    width: 0;
+    z-index: 11;
+  }
+`
+
+const List = styled.li`
+  border-top: 1px solid rgba(var(--c_0-rgb), 0.1);
+  text-align: left;
+  &:first-of-type {
+    border: 0;
+  }
+`
+
+const SearchLink = styled(Link)`
+  box-sizing: border-box;
+  color: #404040;
+  display: block;
+  font: bold 0.9rem / 1.3  ${font.$f_1};
+  line-height: 1.35;
+  vertical-align: bottom;
+  text-decoration: none;
+  padding: 12px 16px;
+  transition: 0.1s linear;
+  width: 100%;
+  &:hover {
+    color: rgba(var(--c_0-rgb), 0.5);
+    &:visited {
+      color: rgba(var(--c_0-rgb), 0.5);Z
+    }
+  }
+  &:visited {
+    color: #404040;
+  }
+`
+
+export default function App() {
+  const [isActive, setIsActive] = React.useState(false)
+  const [data, setData] = React.useState([])
+  const [items, setItems] = React.useState([])
+
+  React.useEffect(() => {
+    async function getData() {
+      await axios
+        .get('/search.json')
+        .then(res => {
+          const result = res.data
+          setData(result)
+        })
+        .catch(error => {
+          error({ statusCode: 404, message: 'NOT FOUND' })
+        })
+    }
+    getData()
+  }, [setData])
+
+  const filterList = e => {
+    const value = e.target.value
+    const values = value.split(/\s+/).map(str => new RegExp(str, 'i'))
+    const updateList = value
+      ? data.filter(list => {
+          return values.every(reg => {
+            return reg.test(list.title) || reg.test(list.tag.join())
+          })
+        })
+      : []
+    setItems(updateList)
+  }
+
+  const listDom =
+    items.length > 0 && isActive ? (
+      <Container onMouseDown={e => e.preventDefault()}>
+        {items.map(item => {
+          return (
+            <List key={item.slug}>
+              <SearchLink to={'/' + item.slug}>{item.title}</SearchLink>
+            </List>
+          )
+        })}
+      </Container>
+    ) : (
+      ''
+    )
+
+  return (
+    <Search>
+      <Form
+        type="text"
+        placeholder="Search"
+        onChange={e => filterList(e)}
+        onFocus={() => setIsActive(true)}
+        onBlur={() => setIsActive(false)}
+      />
+      <SearchIcon width="24" height="24" alt="検索アイコン" decoding="async" onMouseDown={e => e.preventDefault()} />
+      {listDom}
+    </Search>
+  )
+}
