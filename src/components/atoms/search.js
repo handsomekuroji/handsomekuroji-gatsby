@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import axios from 'axios'
 import styled from 'styled-components'
+import posed, { PoseGroup } from 'react-pose'
 import { font } from '../../components/variable/mixin'
 
 import Icon from '../../images/icon/search.svg'
@@ -38,10 +39,20 @@ const Form = styled.input`
   }
 `
 
-const Container = styled.ul`
-  background: #fcfcfc;
-  border-radius: 8px;
-  box-shadow: rgba(var(--c_9-rgb), 0.2) 0 3px 8px;
+const popover = {
+  enter: {
+    opacity: 1,
+    transition: { duration: 150 },
+    y: 0
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 150 },
+    y: 8
+  }
+}
+
+const Inner = styled(posed.div(popover))`
   left: -50px;
   position: absolute;
   top: 48px;
@@ -61,6 +72,18 @@ const Container = styled.ul`
     width: 0;
     z-index: 11;
   }
+`
+
+const Container = styled.ul`
+  background: #fcfcfc;
+  border-radius: 8px;
+  box-shadow: rgba(var(--c_9-rgb), 0.2) 0 3px 8px;
+  max-height: 400px;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
 `
 
 const List = styled.li`
@@ -126,9 +149,9 @@ export default function App() {
     setItems(updateList)
   }
 
-  const listDom =
-    items.length > 0 && isActive ? (
-      <Container onMouseDown={e => e.preventDefault()}>
+  const listDom = items.length > 0 && isActive && (
+    <Inner key="container" onMouseDown={e => e.preventDefault()}>
+      <Container>
         {items.map(item => {
           return (
             <List key={item.slug}>
@@ -137,21 +160,20 @@ export default function App() {
           )
         })}
       </Container>
-    ) : (
-      ''
-    )
+    </Inner>
+  )
 
   return (
     <Search>
       <Form
         type="text"
         placeholder="Search"
-        onChange={e => filterList(e)}
+        onChange={filterList}
         onFocus={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}
       />
       <SearchIcon width="24" height="24" alt="検索アイコン" decoding="async" onMouseDown={e => e.preventDefault()} />
-      {listDom}
+      <PoseGroup>{listDom}</PoseGroup>
     </Search>
   )
 }

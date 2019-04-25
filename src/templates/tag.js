@@ -109,6 +109,7 @@ export default function tagTemplate({ data, pageContext }) {
             width="48"
             height="48"
             alt={tag.name}
+            loading="lazy"
             decoding="async"
           />
           <TagTitle>{tag.name}</TagTitle>

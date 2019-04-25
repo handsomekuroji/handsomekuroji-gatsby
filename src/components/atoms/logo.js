@@ -28,7 +28,14 @@ export default function Logo() {
   return (
     <picture>
       <source media="(min-width: 600px)" srcSet={BigIcon} />
-      <LogoImg src={SmallIcon} width="180" height="60" alt={siteData.site.siteMetadata.title} decoding="async" />
+      <LogoImg
+        src={SmallIcon}
+        width="180"
+        height="60"
+        alt={siteData.site.siteMetadata.title}
+        loading="lazy"
+        decoding="async"
+      />
     </picture>
   )
 }

@@ -30,9 +30,9 @@ export default function Layout({ children }) {
       {children}
       <ButtonDark onClick={theme.toggleDark} type="button" aria-label="ダークモード" aria-pressed="false">
         {theme.dark ? (
-          <Sun width="32" height="32" alt="ライトモードボタン" decoding="async" />
+          <Sun width="32" height="32" alt="ライトモードボタン" loading="lazy" decoding="async" />
         ) : (
-          <Moon width="32" height="32" alt="ダークモードボタン" decoding="async" />
+          <Moon width="32" height="32" alt="ダークモードボタン" loading="lazy" decoding="async" />
         )}
       </ButtonDark>
     </Wrapper>

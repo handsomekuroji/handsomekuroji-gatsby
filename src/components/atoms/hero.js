@@ -31,6 +31,7 @@ export default function Hero({ imgSrc, imgAlt }) {
         width="640"
         height="360"
         alt={imgAlt}
+        loading="lazy"
         decoding="async"
       />
     </picture>

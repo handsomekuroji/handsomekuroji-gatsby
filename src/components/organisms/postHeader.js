@@ -185,7 +185,14 @@ export default function PostHeader({ headerData }) {
         </PostTagContainer>
         <PostTitle>{headerData.title}</PostTitle>
         <PostMeta>
-          <PostPhoto data-src={Photo} width="80" height="80" alt={siteData.site.siteMetadata.author} decoding="async" />
+          <PostPhoto
+            data-src={Photo}
+            width="80"
+            height="80"
+            alt={siteData.site.siteMetadata.author}
+            loading="lazy"
+            decoding="async"
+          />
           <PostName>{siteData.site.siteMetadata.author}</PostName>
           <PostTime dateTime={headerData.date}>{date}</PostTime>
         </PostMeta>

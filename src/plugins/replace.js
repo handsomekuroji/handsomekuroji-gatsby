@@ -14,7 +14,7 @@ export default replaceTarget => {
         <figure>
           <picture>
             <source type="image/webp" data-srcset="${img}?fm=webp&w=320 640w, ${img}?fm=webp&w=640 760w, ${img}?fm=webp&w=1280 1280w" data-sizes="100w" />
-            <img src="${dummy}" content="${img}" data-src="${img}" data-srcset="${img}?w=320 640w, ${img}?w=640 760w, ${img}?w=1280 1280w" width="${width}" height="${height}" alt="${alt}" decoding="async" class="img">
+            <img src="${dummy}" content="${img}" data-src="${img}" data-srcset="${img}?w=320 640w, ${img}?w=640 760w, ${img}?w=1280 1280w" width="${width}" height="${height}" alt="${alt}" loading="lazy" decoding="async" class="img">
           </picture>
         </figure>
       `
@@ -23,7 +23,7 @@ export default replaceTarget => {
       return `
         <figure class="youtube" data-youtube="${id}">
           <div id="${id}">
-            <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" data-src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" decoding="async">
+            <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" data-src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" loading="lazy" decoding="async">
             <button type="button" class="youtube__button" aria-label="再生" aria-pressed="false"></button>
           </div>
         </figure>
@@ -34,7 +34,7 @@ export default replaceTarget => {
         <div class="storyline">
           <figure class="youtube" data-youtube="${id}">
             <div id="${id}">
-              <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" data-src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" decoding="async">
+              <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" data-src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" loading="lazy" decoding="async">
               <button type="button" class="youtube__button" aria-label="再生" aria-pressed="false"></button>
             </div>
           </figure>
@@ -45,7 +45,7 @@ export default replaceTarget => {
     .replace(replaceIframe, (match, url) => {
       return `
         <figure class="iframe">
-          <iframe class="iframe__data" data-src="${url}" width="640" height="360" allowfullscreen></iframe>
+          <iframe class="iframe__data" data-src="${url}" width="640" height="360" loading="lazy" allowfullscreen></iframe>
         </figure>
       `
     })
@@ -54,7 +54,7 @@ export default replaceTarget => {
       return `
         <div class="item">
           <div class="item__figure">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/${img}._SL10_.jpg" data-src="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" content="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" width="240" height="240" alt="${text}" decoding="async" class="item__img">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/${img}._SL10_.jpg" data-src="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" content="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" width="240" height="240" alt="${text}" loading="lazy" decoding="async" class="item__img">
           </div>
           <div class="item__container">
             <div class="item__name">
@@ -74,7 +74,7 @@ export default replaceTarget => {
       return `
         <div class="item">
           <div class="item__figure">
-            <img src="https://images-fe.ssl-images-amazon.com/images/P/${id}._SL10_.jpg" data-src="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" content="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" width="240" height="240" alt="${text}" decoding="async" class="item__img">
+            <img src="https://images-fe.ssl-images-amazon.com/images/P/${id}._SL10_.jpg" data-src="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" content="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" width="240" height="240" alt="${text}" loading="lazy" decoding="async" class="item__img">
           </div>
           <div class="item__container">
             <div class="item__name">
