@@ -34,6 +34,7 @@ const FormInput = styled.input`
   background: var(--c_4);
   border: 1px solid var(--c_7);
   border-radius: 6px;
+  color: var(--c_7);
   font-size: 1rem;
   outline: none;
   padding: 8px;
@@ -46,6 +47,7 @@ const FormTextarea = styled.textarea`
   background: var(--c_4);
   border: 1px solid var(--c_7);
   border-radius: 6px;
+  color: var(--c_7);
   font-size: 1rem;
   height: 96px;
   padding: 8px;
