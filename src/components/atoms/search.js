@@ -122,7 +122,7 @@ export default function App() {
   const [items, setItems] = React.useState([])
 
   React.useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       await axios
         .get('/search.json')
         .then(res => {
@@ -135,6 +135,18 @@ export default function App() {
     }
     getData()
   }, [setData])
+
+  const setTrue = () => {
+    setIsActive(true)
+  }
+
+  const setFalse = () => {
+    setIsActive(false)
+  }
+
+  const eventDelete = e => {
+    e.preventDefault()
+  }
 
   const filterList = e => {
     const value = e.target.value
@@ -150,7 +162,7 @@ export default function App() {
   }
 
   const listDom = items.length > 0 && isActive && (
-    <Inner key="container" onMouseDown={e => e.preventDefault()}>
+    <Inner key="container" onMouseDown={eventDelete}>
       <Container>
         {items.map(item => {
           return (
@@ -165,14 +177,8 @@ export default function App() {
 
   return (
     <Search>
-      <Form
-        type="text"
-        placeholder="Search"
-        onChange={filterList}
-        onFocus={() => setIsActive(true)}
-        onBlur={() => setIsActive(false)}
-      />
-      <SearchIcon width="24" height="24" alt="検索アイコン" decoding="async" onMouseDown={e => e.preventDefault()} />
+      <Form type="text" placeholder="Search" onChange={filterList} onFocus={setTrue} onBlur={setFalse} />
+      <SearchIcon width="24" height="24" alt="検索アイコン" decoding="async" onMouseDown={eventDelete} />
       <PoseGroup>{listDom}</PoseGroup>
     </Search>
   )

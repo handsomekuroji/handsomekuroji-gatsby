@@ -12,7 +12,7 @@
     "cssnano": "^4.1.10",
     "dayjs": "^1.8.12",
     "dotenv": "^7.0.0",
-    "gatsby": "^2.3.30",
+    "gatsby": "^2.3.31",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-catch-links": "^2.0.13",
     "gatsby-plugin-feed": "^2.1.1",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-gatsby-standard": "^2.1.1",
-    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.2",

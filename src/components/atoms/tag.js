@@ -39,6 +39,7 @@ const TagLink = styled(Link)`
 
 export default function Tag({ tagList }) {
   const tagData = tagList.node
+
   return (
     <TagList>
       <TagLink to={'/' + tagData.slug}>{tagData.name}</TagLink>

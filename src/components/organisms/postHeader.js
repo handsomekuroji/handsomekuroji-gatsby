@@ -168,7 +168,14 @@ export default function PostHeader({ headerData }) {
       }
     }
   `)
+
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
+
+  const hederTags = headerData.tag.map((edge, i) => (
+    <PostTag to={'/' + edge.slug} key={i}>
+      {edge.name}
+    </PostTag>
+  ))
 
   return (
     <header>
@@ -176,13 +183,7 @@ export default function PostHeader({ headerData }) {
         <Hero imgSrc={headerData.src} imgAlt={headerData.title} />
       </PostHeaderFig>
       <PostHeaderInner>
-        <PostTagContainer>
-          {headerData.tag.map((edge, i) => (
-            <PostTag to={'/' + edge.slug} key={i}>
-              {edge.name}
-            </PostTag>
-          ))}
-        </PostTagContainer>
+        <PostTagContainer>{hederTags}</PostTagContainer>
         <PostTitle>{headerData.title}</PostTitle>
         <PostMeta>
           <PostPhoto

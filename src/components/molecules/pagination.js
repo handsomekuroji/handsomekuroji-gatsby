@@ -128,11 +128,15 @@ export default function Pagination({ pagesData }) {
     )
   )
 
+  const pagesDisplay = pages > 1 && <Inner>{inner}</Inner>
+  const prevDisplay = !first && <PrevLink to={prevUrl}>←</PrevLink>
+  const nextDisplay = !last && <NextLink to={nextUrl}>→</NextLink>
+
   return (
     <Wrapper>
-      {!first && <PrevLink to={prevUrl}>←</PrevLink>}
-      {pages > 1 && <Inner>{inner}</Inner>}
-      {!last && <NextLink to={nextUrl}>→</NextLink>}
+      {prevDisplay}
+      {pagesDisplay}
+      {nextDisplay}
     </Wrapper>
   )
 }

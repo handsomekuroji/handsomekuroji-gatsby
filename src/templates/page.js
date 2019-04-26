@@ -15,6 +15,7 @@ import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import PageHeader from '../components/organisms/pageHeader'
 import PostFooter from '../components/organisms/postFooter'
+import Form from '../components/organisms/form'
 
 import PlayIcon from '../images/main/play.svg'
 
@@ -552,80 +553,7 @@ export default function postTemplate({ data }) {
               __html: html
             }}
           />
-          <section className="contactForm">
-            <form
-              className="contactForm__container"
-              name="contact"
-              action="/thanks"
-              netlify-honeypot="bot-field"
-              data-netlify="true"
-              method="post"
-            >
-              <input type="hidden" name="form-name" value="contact" aria-label="hidden" />
-              <div className="contactForm__block--hidden">
-                <label id="dont" htmlFor="bot">
-                  Don’t fill this out
-                </label>
-                <input id="bot" className="contactForm__input" type="text" name="bot-field" aria-labelby="dont" />
-              </div>
-              <div className="contactForm__block">
-                <label id="nameLabel" htmlFor="name">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  className="contactForm__input contactForm__validation"
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  required="required"
-                  aria-labelby="nameLabel"
-                />
-              </div>
-              <div className="contactForm__block">
-                <label id="emailLabel" className="contactForm__label" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  className="contactForm__input contactForm__validation"
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  required="required"
-                  aria-labelby="emailLabel"
-                />
-              </div>
-              <div className="contactForm__block">
-                <label id="titleLabel" className="contactForm__label" htmlFor="title">
-                  Title
-                </label>
-                <input
-                  id="title"
-                  className="contactForm__input contactForm__validation"
-                  type="text"
-                  name="title"
-                  required="required"
-                  aria-labelby="titleLabel"
-                />
-              </div>
-              <div className="contactForm__block">
-                <label id="messageLabel" className="contactForm__label" htmlFor="message">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  className="contactForm__textarea contactForm__validation"
-                  name="message"
-                  required="required"
-                  aria-labelby="messageLabel"
-                />
-              </div>
-              <button className="contactForm__button" aria-label="フォームの内容を送信" type="submit">
-                SEND
-              </button>
-            </form>
-          </section>
+          <Form />
           <PostFooter footerData={footerData} />
         </article>
       </PostMain>
