@@ -85,13 +85,25 @@ const PostPhoto = styled.img`
   width: 40px;
 `
 
-const PostName = styled.div`
+const PostName = styled(Link)`
+  color: var(--c_0);
   font: bold 0.8rem / 1 ${font.$f_1};
   grid-column: 2 / 3;
   margin: auto 0 0;
+  text-decoration: none;
   ${media.m`
     font-size: 1rem;
   `}
+  &:hover {
+    color: var(--c_7);
+    text-decoration: underline;
+  }
+  &:visited {
+    color: var(--c_0);
+    &:hover {
+      color: var(--c_7);
+    }
+  }
 `
 
 const PostTime = styled.time`
@@ -194,7 +206,7 @@ export default function PostHeader({ headerData }) {
             loading="lazy"
             decoding="async"
           />
-          <PostName>{siteData.site.siteMetadata.author}</PostName>
+          <PostName to="/about">{siteData.site.siteMetadata.author}</PostName>
           <PostTime dateTime={headerData.date}>{date}</PostTime>
         </PostMeta>
       </PostHeaderInner>
