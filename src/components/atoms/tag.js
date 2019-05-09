@@ -7,13 +7,13 @@ import { font, media } from '../variable/mixin'
 const TagList = styled.li`
   margin: 8px;
   ${media.ms`
-    margin: 8px 16px;
+    margin: 8px 12px;
   `}
 `
 
 const TagLink = styled(Link)`
   color: var(--c_0);
-  font: italic bold 0.95rem / 1 ${font.$f_1};
+  font: 1rem / 1 ${font.$f_1};
   height: auto;
   vertical-align: bottom;
   text-decoration: none;

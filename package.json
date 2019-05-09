@@ -10,7 +10,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
-    "dayjs": "^1.8.13",
+    "dayjs": "^1.8.14",
     "dotenv": "^8.0.0",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",

@@ -10,24 +10,24 @@ import Icon from '../../images/icon/search.svg'
 const Search = styled.div`
   margin: 32px auto 0;
   position: relative;
-  width: 200px;
+  width: 240px;
 `
 
 const SearchIcon = styled(Icon)`
   stroke: rgba(var(--c_1-rgb), 0.5);
   position: absolute;
-  right: 8px;
+  right: 12px;
   top: calc(50% - 12px);
 `
 
 const Form = styled.input`
   background: var(--c_2);
   border: none;
-  border-radius: 8px;
+  border-radius: 32px;
   box-sizing: border-box;
   color: var(--c_0);
   font: 1rem / 1.3 ${font.$f_1};
-  padding: 8px 12px;
+  padding: 8px 16px;
   width: 100%;
   &::selection {
     background: var(--c_8);

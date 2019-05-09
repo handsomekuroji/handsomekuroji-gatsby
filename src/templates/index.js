@@ -38,8 +38,8 @@ const AdSenseContainer = styled.div`
   width: 100%;
   ${media.m`
     margin: 48px auto 0;
-    max-width: 690px;
-    width: calc(100% - 128px);
+    max-width: 960px;
+    width: calc(100% - 64px);
   `}
 `
 

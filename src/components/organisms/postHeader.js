@@ -36,12 +36,13 @@ const PostTagContainer = styled.div`
 
 const PostTag = styled(Link)`
   color: var(--c_0);
-  font: italic bold 0.8rem / 1 ${font.$f_1};
+  font: 0.8rem / 1 ${font.$f_1};
   margin: 0 0 0 8px;
   text-decoration: none;
   transition: 0.1s linear;
   ${media.m`
     font-size: 1rem;
+    margin: 0 0 0 12px;
   `}
   &:first-of-type {
     margin: 0;
@@ -87,7 +88,7 @@ const PostPhoto = styled.img`
 
 const PostName = styled(Link)`
   color: var(--c_0);
-  font: bold 0.8rem / 1 ${font.$f_1};
+  font: 0.8rem / 1 ${font.$f_1};
   grid-column: 2 / 3;
   margin: auto 0 0;
   text-decoration: none;
@@ -96,7 +97,6 @@ const PostName = styled(Link)`
   `}
   &:hover {
     color: var(--c_7);
-    text-decoration: underline;
   }
   &:visited {
     color: var(--c_0);
@@ -108,7 +108,7 @@ const PostName = styled(Link)`
 
 const PostTime = styled.time`
   align-self: flex-end;
-  color: var(--c_0);
+  color: var(--c_7);
   font: 0.8rem / 1 ${font.$f_1};
   margin: 0 0 auto;
 `

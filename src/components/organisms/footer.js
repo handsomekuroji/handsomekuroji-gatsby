@@ -8,7 +8,7 @@ import Tag from '../atoms/tag'
 const SiteFooter = styled.footer`
   align-items: center;
   display: grid;
-  gap: 8px 4px;
+  gap: 8px;
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 32px);
@@ -16,15 +16,15 @@ const SiteFooter = styled.footer`
     width: calc(100% - 48px);
   `}
   ${media.ms`
-    gap: 24px 4px;
+    gap: 24px 8px;
     max-width: 690px;
   `}
-  ${media.ls`
-    gap: 32px 4px;
-    margin: 48px auto 0;
+  ${media.m`
+    width: calc(100% - 64px);
   `}
-  ${media.l`
-    max-width: 960px;
+  ${media.ls`
+    gap: 32px 8px;
+    margin: 48px auto 0;
   `}
 `
 

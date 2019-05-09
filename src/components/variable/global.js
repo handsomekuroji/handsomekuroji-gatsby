@@ -12,7 +12,7 @@ export default createGlobalStyle`
     --c_0-rgb: 64, 64, 64;
     --c_1: #404040;
     --c_1-rgb: 64, 64, 64;
-    --c_2: #ededed;
+    --c_2: #e8e8e8;
     --c_3: #f4f5f6;
     --c_4: #fcfcfc;
     --c_5: #0090c6;
