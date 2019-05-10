@@ -57,7 +57,7 @@ const TagImage = styled.img`
 const TagTitle = styled.h1`
   align-self: flex-end;
   color: var(--c_1);
-  font: italic bold 1.5rem / 1 ${font.$f_1};
+  font: bold 1.5rem / 1 ${font.$f_1};
   &::before {
     content: '#';
   }
@@ -67,7 +67,7 @@ const TagTitle = styled.h1`
 `
 
 const TagCount = styled.div`
-  font: bold 0.8rem / 1 ${font.$f_1};
+  font: 0.9rem / 1 ${font.$f_1};
   margin: 0 0 0 2px;
   ${media.l`
     font-size: 0.9rem;
