@@ -53,7 +53,7 @@ const popover = {
 }
 
 const Inner = styled(posed.div(popover))`
-  left: -50px;
+  left: -30px;
   position: absolute;
   top: 48px;
   width: 300px;
