@@ -45,6 +45,14 @@ const StoryArticle = styled.article`
   grid-template-columns: auto 1fr;
   margin: 24px 0 0;
 
+  ${media.ms`
+    margin: 32px 0 0;
+  `}
+
+  ${media.m`
+    margin: 48px 0 0;
+  `}
+
   &:first-of-type {
     margin: 0;
   }
