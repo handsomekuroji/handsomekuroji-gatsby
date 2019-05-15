@@ -60,14 +60,17 @@ const Copy = styled.small`
 `
 
 export default function Footer({ alltags }) {
-  const loopTags = alltags.map((edge, i) => <Tag key={i} tagList={edge} />)
+  const loopTags = alltags ? alltags.map((edge, i) => <Tag key={i} tagList={edge} />) : ''
+  const siteNavi = (
+    <SiteNav>
+      <SiteList>{loopTags}</SiteList>
+    </SiteNav>
+  )
   const siteDate = new Date().getFullYear()
 
   return (
     <SiteFooter>
-      <SiteNav>
-        <SiteList>{loopTags}</SiteList>
-      </SiteNav>
+      {siteNavi}
       <SiteFig>
         <Logo />
       </SiteFig>

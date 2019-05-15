@@ -18,10 +18,11 @@ const SiteH1 = styled.h1`
   ${media.ls`width: 240px;`}
 `
 
-const NotFoundH1 = styled.h1`
+const OtherHeading = styled.h1`
   font: bold 1.5rem / 1 ${font.$f_1};
   margin: 32px 0 0;
   ${media.ms`margin: 32px 0 48px;`}
+  ${media.ls`font-size: 2rem;`}
 `
 
 const SiteDiv = styled.div`
@@ -34,7 +35,7 @@ const StyledLink = styled(Link)`
   display: inline-block;
 `
 
-export default function Header({ inIndex, in404 }) {
+export default function Header({ inIndex, in404, inStory }) {
   const heading = inIndex ? (
     <SiteH1>
       <Logo />
@@ -45,13 +46,15 @@ export default function Header({ inIndex, in404 }) {
     </SiteDiv>
   )
 
-  const notFound = in404 ? <NotFoundH1>404 Not Found</NotFoundH1> : ''
+  const otherText = in404 ? '404 Not Found' : inStory ? 'Story' : ''
+  const otherHead = <OtherHeading>{otherText}</OtherHeading>
+  const searchBox = inStory ? '' : <Search />
 
   return (
     <SiteHeader>
       <StyledLink to="/">{heading}</StyledLink>
-      {notFound}
-      <Search />
+      {otherHead}
+      {searchBox}
     </SiteHeader>
   )
 }

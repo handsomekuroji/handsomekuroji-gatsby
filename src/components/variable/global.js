@@ -23,6 +23,7 @@ export default createGlobalStyle`
     --c_8: #f1f2f3;
     --c_9: #131b36;
     --c_9-rgb: 19, 27, 54;
+    --c_10: #f0f0f1;
   }
 
   ::before,
@@ -99,6 +100,7 @@ export default createGlobalStyle`
       --c_7: #ced8de;
       --c_7-rgb: 206, 216, 222;
       --c_8: #19191a;
+      --c_10: #34353d;
     }
   }
 
