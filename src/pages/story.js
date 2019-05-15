@@ -74,6 +74,10 @@ const StoryBalloon = styled.div`
     padding: 16px;
   `}
 
+  ${media.m`
+    padding: 32px;
+  `}
+
   &::after {
     border: 16px solid transparent;
     border-top-color: var(--c_10);
