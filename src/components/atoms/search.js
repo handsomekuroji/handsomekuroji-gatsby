@@ -161,17 +161,17 @@ export default function App() {
     setItems(updateList)
   }
 
-  const listDom = items.length > 0 && isActive && (
+  const listDom = items.map(item => {
+    return (
+      <List key={item.slug}>
+        <SearchLink to={'/' + item.slug}>{item.title}</SearchLink>
+      </List>
+    )
+  })
+
+  const listInner = items.length > 0 && isActive && (
     <Inner key="container" onMouseDown={eventDelete}>
-      <Container>
-        {items.map(item => {
-          return (
-            <List key={item.slug}>
-              <SearchLink to={'/' + item.slug}>{item.title}</SearchLink>
-            </List>
-          )
-        })}
-      </Container>
+      <Container>{listDom}</Container>
     </Inner>
   )
 
@@ -179,7 +179,7 @@ export default function App() {
     <Search>
       <Form type="text" placeholder="Search" onChange={filterList} onFocus={setTrue} onBlur={setFalse} />
       <SearchIcon width="24" height="24" alt="検索アイコン" decoding="async" onMouseDown={eventDelete} />
-      <PoseGroup>{listDom}</PoseGroup>
+      <PoseGroup>{listInner}</PoseGroup>
     </Search>
   )
 }
