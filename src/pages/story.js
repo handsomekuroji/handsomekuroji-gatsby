@@ -109,11 +109,10 @@ const StoryTime = styled.time`
 const StoryIcon = styled.img`
   border-radius: 50%;
   grid-row: 1 / 3;
-  height: 48px;
+  height: auto;
   width: 48px;
   ${media.ms`
-    height: 64px;
-    width: 64px;
+    width: 56px;
   `}
 `
 
@@ -122,12 +121,14 @@ export default function NotFoundPage({ data }) {
     <StoryIcon src={Photo} width="80" height="80" alt={data.site.siteMetadata.author} loading="lazy" decoding="async" />
   )
 
+  const loopTime = time => {
+    return dayjs(time).format('YYYY.MM.DD ddd HH:mm:ss')
+  }
+
   const loopStory = data.allContentfulStory.edges.map((edge, i) => (
     <StoryArticle key={i} id={edge.node.text.id}>
       {loopIcon}
-      <StoryTime dateTime={edge.node.createdAt}>
-        {dayjs(edge.node.createdAt).format('YYYY.MM.DD ddd HH:mm:ss')}
-      </StoryTime>
+      <StoryTime dateTime={edge.node.createdAt}>{loopTime(edge.node.createdAt)}</StoryTime>
       <StoryBalloon>
         <StoryInner
           dangerouslySetInnerHTML={{
