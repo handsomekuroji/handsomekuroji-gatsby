@@ -150,7 +150,7 @@ export default function NotFoundPage({ data }) {
 
 export const pageQuery = graphql`
   query Story {
-    allContentfulStory {
+    allContentfulStory(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           createdAt
