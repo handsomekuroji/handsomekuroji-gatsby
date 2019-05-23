@@ -19,8 +19,9 @@ const SiteH1 = styled.h1`
 `
 
 const OtherHeading = styled.h1`
-  font: bold 1.5rem / 1 ${font.$f_1};
+  font: bold 1.3rem / 1 ${font.$f_1};
   margin: 32px 0 0;
+  ${media.xs`font-size: 1.5rem;`}
   ${media.ms`margin: 32px 0 48px;`}
   ${media.ls`font-size: 2rem;`}
 `
@@ -35,7 +36,7 @@ const StyledLink = styled(Link)`
   display: inline-block;
 `
 
-export default function Header({ inIndex, in404, inStory }) {
+export default function Header({ inIndex, in404, inContent }) {
   const heading = inIndex ? (
     <SiteH1>
       <Logo />
@@ -46,9 +47,9 @@ export default function Header({ inIndex, in404, inStory }) {
     </SiteDiv>
   )
 
-  const otherText = in404 ? '404 Not Found' : inStory ? 'Story' : ''
+  const otherText = in404 ? '404 Not Found' : inContent || ''
   const otherHead = <OtherHeading>{otherText}</OtherHeading>
-  const searchBox = inStory ? '' : <Search />
+  const searchBox = inContent ? '' : <Search />
 
   return (
     <SiteHeader>

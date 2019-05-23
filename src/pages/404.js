@@ -31,9 +31,15 @@ const SiteMain = styled.main`
 `
 
 export default function NotFoundPage({ data }) {
+  const metaData = {
+    title: '404: Not found',
+    description: 'このページは存在しません',
+    url: '/404'
+  }
+
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <SEO meta={metaData} />
       <Header in404 />
       <SiteMain>
         <Loop allPosts={data.allContentfulBlog.edges} />

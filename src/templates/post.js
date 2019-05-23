@@ -446,7 +446,7 @@ const PostContent = styled.div`
     background: var(--c_4);
     border-radius: 4px;
     box-sizing: border-box;
-    color: var(--c_0);
+    color: var(--c_1);
     display: flex;
     font: italic bold 0.95rem / 1 ${font.$f_1};
     justify-content: center;
@@ -472,12 +472,12 @@ const PostContent = styled.div`
     `}
     &:hover {
       background: var(--c_2);
-      color: var(--c_0);
+      color: var(--c_1);
     }
     &:visited {
-      color: var(--c_0);
+      color: var(--c_1);
       &:hover {
-        color: var(--c_0);
+        color: var(--c_1);
       }
     }
   }

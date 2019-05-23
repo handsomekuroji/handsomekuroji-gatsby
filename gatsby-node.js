@@ -3,6 +3,7 @@ const fs = require('fs')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+
   const loadPosts = new Promise(async resolve => {
     await graphql(`
       {
@@ -63,6 +64,32 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: edge.node.slug,
           component: path.resolve('./src/templates/page.js'),
+          context: {
+            slug: edge.node.slug
+          }
+        })
+      })
+      resolve()
+    })
+  })
+
+  const loadBests = new Promise(async resolve => {
+    await graphql(`
+      {
+        allContentfulBest(sort: { fields: [createdAt], order: DESC }) {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const posts = result.data.allContentfulBest.edges
+      posts.forEach((edge, i) => {
+        createPage({
+          path: 'best/' + edge.node.slug,
+          component: path.resolve('./src/templates/best.js'),
           context: {
             slug: edge.node.slug
           }
@@ -145,5 +172,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadIndex, loadPosts, loadPages, loadTags])
+  return Promise.all([loadIndex, loadPosts, loadPages, loadBests, loadTags])
 }

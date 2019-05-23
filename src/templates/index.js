@@ -14,9 +14,9 @@ const SiteMain = styled.main`
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 16px);
-  ${media.xs`
-    width: calc(100% - 32px);
-  `}
+
+  ${media.xs`width: calc(100% - 32px);`}
+
   ${media.s`
     width: calc(100% - 48px);
   `}

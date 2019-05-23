@@ -8,13 +8,13 @@ import Article from '../../components/molecules/article'
 const Wrapper = css`
   display: grid;
   gap: 24px;
+
   ${media.ms`
     grid-gap: 32px;
     grid-template-columns: 1fr 1fr;
   `}
-  ${media.l`
-    grid-template-columns: 1fr 1fr 1fr;
-  `}
+
+  ${media.l`grid-template-columns: 1fr 1fr 1fr;`}
 `
 
 const LoopWrapper = styled.div`

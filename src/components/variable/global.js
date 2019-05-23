@@ -15,6 +15,7 @@ export default createGlobalStyle`
     --c_2: #e8e8e8;
     --c_3: #f4f5f6;
     --c_4: #fcfcfc;
+    --c_4-rgb: 218, 218, 218;
     --c_5: #0090c6;
     --c_5-rgb: 0, 144, 198;
     --c_6: #5f4b8b;
@@ -97,6 +98,7 @@ export default createGlobalStyle`
       --c_2: rgba(0, 0, 0, 0.3);
       --c_3: #19191a;
       --c_4: #23232a;
+      --c_4-rgb: 25, 25, 26;
       --c_7: #ced8de;
       --c_7-rgb: 206, 216, 222;
       --c_8: #19191a;
