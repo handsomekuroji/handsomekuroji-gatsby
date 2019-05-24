@@ -29,10 +29,12 @@ const Form = styled.input`
   font: 1rem / 1.3 ${font.$f_1};
   padding: 8px 16px;
   width: 100%;
+
   &::selection {
     background: var(--c_8);
     color: var(--c_0);
   }
+
   &::placeholder {
     color: rgba(var(--c_1-rgb), 0.5);
     font: 1rem / 1.3 ${font.$f_1};
@@ -58,6 +60,7 @@ const Inner = styled(posed.div(popover))`
   top: 48px;
   width: 300px;
   z-index: 1;
+
   &::before {
     border-color: transparent transparent #fcfcfc transparent;
     border-style: solid;
@@ -89,6 +92,7 @@ const Container = styled.ul`
 const List = styled.li`
   border-top: 1px solid rgba(var(--c_0-rgb), 0.1);
   text-align: left;
+
   &:first-of-type {
     border: 0;
   }
@@ -105,12 +109,15 @@ const SearchLink = styled(Link)`
   padding: 12px 16px;
   transition: 0.1s linear;
   width: 100%;
+
   &:hover {
     color: rgba(var(--c_0-rgb), 0.5);
+
     &:visited {
       color: rgba(var(--c_0-rgb), 0.5);Z
     }
   }
+
   &:visited {
     color: #404040;
   }
@@ -126,8 +133,7 @@ export default function App() {
       await axios
         .get('/search.json')
         .then(res => {
-          const result = res.data
-          setData(result)
+          setData(res.data)
         })
         .catch(error => {
           error({ statusCode: 404, message: 'NOT FOUND' })
@@ -162,9 +168,10 @@ export default function App() {
   }
 
   const listDom = items.map(item => {
+    const slug = item.slug
     return (
-      <List key={item.slug}>
-        <SearchLink to={'/' + item.slug}>{item.title}</SearchLink>
+      <List key={slug}>
+        <SearchLink to={'/' + slug}>{item.title}</SearchLink>
       </List>
     )
   })
@@ -178,7 +185,7 @@ export default function App() {
   return (
     <Search>
       <Form type="text" placeholder="Search" onChange={filterList} onFocus={setTrue} onBlur={setFalse} />
-      <SearchIcon width="24" height="24" alt="検索アイコン" decoding="async" onMouseDown={eventDelete} />
+      <SearchIcon width="24" height="24" alt="検索アイコン" loading="lazy" decoding="async" onMouseDown={eventDelete} />
       <PoseGroup>{listInner}</PoseGroup>
     </Search>
   )

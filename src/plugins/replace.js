@@ -7,6 +7,7 @@ export default replaceTarget => {
   const replaceIframe = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">iframe<\/a><\/p>/gi
   const replaceAmazon = /<p><span data-amazon="([^>]*?)">([^>]*?)<\/span><\/p>/gi
   const replaceAmaImg = /<p><span data-amazon="([^>]*?)" data-amaimg="([^>]*?)">([^>]*?)<\/span><\/p>/gi
+
   return replaceTarget
     .replace(/\s+/g, ' ')
     .replace(replaceImage, (match, img, alt, width, height) => {

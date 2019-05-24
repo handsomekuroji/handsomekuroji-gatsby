@@ -34,18 +34,7 @@ const PageLink = styled(Link)`
   font: italic 1rem / 1.1 'Georgia', serif;
   padding: 8px 8px 6px;
   text-decoration: none;
-  &:hover {
-    color: var(--c_7);
-    &::after {
-      background: var(--c_7);
-    }
-  }
-  &:visited {
-    color: var(--c_0);
-    &:hover {
-      color: var(--c_7);
-    }
-  }
+
   &::after {
     background: var(--c_0);
     content: '';
@@ -53,6 +42,22 @@ const PageLink = styled(Link)`
     height: 1px;
     margin: 2px 0 0;
     width: 100%;
+  }
+
+  &:hover {
+    color: var(--c_7);
+
+    &::after {
+      background: var(--c_7);
+    }
+  }
+
+  &:visited {
+    color: var(--c_0);
+
+    &:hover {
+      color: var(--c_7);
+    }
   }
 `
 
@@ -64,11 +69,14 @@ const PrevLink = styled(Link)`
   padding: 8px;
   text-decoration: none;
   width: min-content;
+
   &:hover {
     color: var(--c_7);
   }
+
   &:visited {
     color: var(--c_0);
+
     &:hover {
       color: var(--c_7);
     }
@@ -83,11 +91,14 @@ const NextLink = styled(Link)`
   padding: 8px;
   text-decoration: none;
   width: min-content;
+
   &:hover {
     color: var(--c_7);
   }
+
   &:visited {
     color: var(--c_0);
+
     &:hover {
       color: var(--c_7);
     }
@@ -96,6 +107,7 @@ const NextLink = styled(Link)`
 
 export default function Pagination({ pagesData }) {
   const { length, pages, number, slug } = pagesData
+
   const first = number === 1
   const last = number === pages
 

@@ -15,31 +15,27 @@ const TagMain = styled.main`
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 16px);
-  ${media.xs`
-    width: calc(100% - 32px);
-  `}
-  ${media.s`
-    width: calc(100% - 48px);
-  `}
+
+  ${media.xs`width: calc(100% - 32px);`}
+
+  ${media.s`width: calc(100% - 48px);`}
+
   ${media.ms`
     max-width: 690px;
     width: calc(100% - 64px);
   `}
-  ${media.ls`
-    margin: 48px auto 0;
-  `}
-  ${media.l`
-    max-width: 960px;
-  `}
+
+  ${media.ls`margin: 48px auto 0;`}
+
+  ${media.l`max-width: 960px;`}
 `
 
 const TagHeader = styled.header`
   display: grid;
   gap: 8px;
   grid-template-columns: auto 1fr;
-  ${media.l`
-    gap: 12px 16px;
-  `}
+
+  ${media.l`gap: 12px 16px;`}
 `
 
 const TagImage = styled.img`
@@ -48,6 +44,7 @@ const TagImage = styled.img`
   height: 48px;
   object-fit: cover;
   width: 48px;
+
   ${media.l`
     height: 64px;
     width: 64px;
@@ -58,26 +55,26 @@ const TagTitle = styled.h1`
   align-self: flex-end;
   color: var(--c_1);
   font: bold 1.5rem / 1 ${font.$f_1};
+
   &::before {
     content: '#';
   }
-  ${media.l`
-    font-size: 2rem;
-  `}
+
+  ${media.l`font-size: 2rem;`}
 `
 
 const TagCount = styled.div`
   font: 0.9rem / 1 ${font.$f_1};
   margin: 0 0 0 2px;
-  ${media.l`
-    font-size: 0.9rem;
-  `}
+
+  ${media.l`font-size: 0.9rem;`}
 `
 
 const AdSenseContainer = styled.div`
   margin: 32px auto 0;
   max-width: 620px;
   width: 100%;
+
   ${media.m`
     margin: 48px auto 0;
     max-width: 960px;
@@ -88,11 +85,12 @@ const AdSenseContainer = styled.div`
 export default function tagTemplate({ data, pageContext }) {
   const tag = data.contentfulTag
   const posts = data.allContentfulBlog.edges
+  const tagName = tag.name
   const tagImg = posts.slice(-1)[0].node.thumbnail.file.url
   const tagCount = '投稿数 ' + data.allContentfulBlog.totalCount + ' 件'
 
   const metaData = {
-    title: tag.name,
+    title: tagName,
     description: tag.description.description.replace(/\r?\n/g, ''),
     url: tag.slug
   }
@@ -108,11 +106,11 @@ export default function tagTemplate({ data, pageContext }) {
             data-srcset={tagImg + '?w=128 1040w'}
             width="48"
             height="48"
-            alt={tag.name}
+            alt={tagName}
             loading="lazy"
             decoding="async"
           />
-          <TagTitle>{tag.name}</TagTitle>
+          <TagTitle>{tagName}</TagTitle>
           <TagCount>{tagCount}</TagCount>
         </TagHeader>
         <Loop allPosts={posts} inTags />

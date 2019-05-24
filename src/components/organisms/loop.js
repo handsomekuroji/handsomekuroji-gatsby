@@ -23,10 +23,10 @@ const LoopWrapper = styled.div`
 
 const TagLoopWrapper = styled.div`
   ${Wrapper}
+
   margin: 16px 0 0;
-  ${media.m`
-    margin: 24px 0 0;
-  `}
+
+  ${media.m`margin: 24px 0 0;`}
 `
 
 export default function Loop({ allPosts, inTags }) {

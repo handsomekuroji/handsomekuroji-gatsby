@@ -9,15 +9,12 @@ const FooterContainer = styled.footer`
   border-top: 1px solid var(--c_8);
   border-radius: 0 0 8px 8px;
   padding: 16px;
-  ${media.s`
-    padding: 32px 24px;
-  `}
-  ${media.ms`
-    padding: 48px 32px;
-  `}
-  ${media.m`
-    padding: 48px 64px;
-  `}
+
+  ${media.s`padding: 32px 24px;`}
+
+  ${media.ms`padding: 48px 32px;`}
+
+  ${media.m`padding: 48px 64px;`}
 `
 
 const FooterInner = styled.div`
@@ -27,9 +24,9 @@ const FooterInner = styled.div`
   justify-content: center;
   margin: 0 auto;
   max-width: 320px;
-  ${media.xs`
-    gap: 16px;
-  `}
+
+  ${media.xs`gap: 16px;`}
+
   ${media.m`
     gap: 24px;
     max-width: 360px;
@@ -48,6 +45,7 @@ export default function PostFooter({ footerData }) {
       }
     }
   `)
+
   const url = siteData.site.siteMetadata.siteUrl + '/' + footerData.url
   const title = footerData.title.replace('&#038;', '%26')
   const domain = siteData.site.siteMetadata.domain
@@ -56,31 +54,31 @@ export default function PostFooter({ footerData }) {
   const shareIcons = [
     {
       type: 'Twitter',
-      url: 'https://twitter.com/share?count=horizontal&lang=en&url=' + url + '&text=' + title + '&via=' + account
+      url: `https://twitter.com/share?count=horizontal&lang=en&url=${url}&text=${title}&via=${account}`
     },
     {
       type: 'Facebook',
-      url: 'https://www.facebook.com/share.php?u=' + url
+      url: `https://www.facebook.com/share.php?u=${url}`
     },
     {
       type: 'Hatebu',
-      url: 'http://b.hatena.ne.jp/add?mode=confirm&url=' + url
+      url: `http://b.hatena.ne.jp/add?mode=confirm&url=${url}`
     },
     {
       type: 'Line',
-      url: 'https://line.me/R/msg/text/?' + title + '&nbsp;' + url
+      url: `https://line.me/R/msg/text/?${title}&nbsp;${url}`
     },
     {
       type: 'Pocket',
-      url: 'https://getpocket.com/edit?url=' + url + '&title=' + title
+      url: `https://getpocket.com/edit?url=${url}&title=${title}`
     },
     {
       type: 'Feedly',
-      url: 'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F' + domain + '%2Ffeed.xml'
+      url: `https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F${domain}%2Ffeed.xml`
     }
   ]
 
-  const iconList = shareIcons.map((edge, i) => <Icon iconData={edge} key={i} />)
+  const iconList = shareIcons.map((edge, i) => <Icon key={i} iconData={edge} />)
 
   return (
     <FooterContainer>

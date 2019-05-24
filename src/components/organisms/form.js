@@ -5,15 +5,12 @@ import { media, font } from '../variable/mixin'
 const FormSection = styled.section`
   box-sizing: border-box;
   padding: 0 16px 32px;
-  ${media.s`
-    padding: 0 24px 32px;
-  `}
-  ${media.ms`
-    padding: 0 32px 32px;
-  `}
-  ${media.m`
-    padding: 0 64px 48px;
-  `}
+
+  ${media.s`padding: 0 24px 32px;`}
+
+  ${media.ms`padding: 0 32px 32px;`}
+
+  ${media.m`padding: 0 64px 48px;`}
 `
 
 const FormContainer = styled.form`
@@ -38,6 +35,7 @@ const FormInput = styled.input`
   font-size: 1rem;
   outline: none;
   padding: 8px;
+
   &:focus {
     outline: 1px var(--c_5) dashed;
   }
@@ -52,6 +50,7 @@ const FormTextarea = styled.textarea`
   height: 96px;
   padding: 8px;
   resize: vertical;
+
   &:focus {
     outline: 1px var(--c_5) dashed;
   }
@@ -67,6 +66,7 @@ const FormButton = styled.button`
   margin: 8px 0 0;
   padding: 12px 12px 10px;
   transition: 0.2s ease;
+
   &:hover {
     background: rgba(var(--c_0-rgb), 0.8);
     border: 1px solid rgba(var(--c_0-rgb), 0.8);

@@ -22,13 +22,16 @@ const IconImg = css`
   text-align: center;
   transition: 0.3s linear;
   width: 40px;
+
   &:hover {
     transition: 0.3s;
+
     .icon {
-      fill: #ffffff;
+      fill: #fff;
       transition: 0.2s;
     }
   }
+
   .icon {
     fill: var(--c_7);
     transition: 0.5s linear;
@@ -36,6 +39,7 @@ const IconImg = css`
 `
 const TwitterIcon = styled.a`
   ${IconImg}
+
   &:hover {
     background: #1da1f2;
   }
@@ -43,12 +47,14 @@ const TwitterIcon = styled.a`
 
 const FacebookIcon = styled.a`
   ${IconImg}
+
   &:hover {
     background: #3b5998;
   }
 `
 const HatebuIcon = styled.a`
   ${IconImg}
+
   &:hover {
     background: #00a4de;
   }
@@ -56,6 +62,7 @@ const HatebuIcon = styled.a`
 
 const LineIcon = styled.a`
   ${IconImg}
+
   &:hover {
     background: #00c300;
   }
@@ -63,6 +70,7 @@ const LineIcon = styled.a`
 
 const PocketIcon = styled.a`
   ${IconImg}
+
   &:hover {
     background: #ef3f56;
   }
@@ -70,8 +78,11 @@ const PocketIcon = styled.a`
 
 const FeedlyIcon = styled.a`
   ${IconImg}
+
   display: none;
+
   ${media.ms`display: flex;`}
+
   &:hover {
     background: #2bb24c;
   }
@@ -107,11 +118,13 @@ export default function Icon({ iconData }) {
         <PocketIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
           <Pocket />
         </PocketIcon>
-      ) : type === 'Feedly' ? (
-        <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
-          <Feedly />
-        </FeedlyIcon>
-      ) : null}
+      ) : (
+        type === 'Feedly' && (
+          <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+            <Feedly />
+          </FeedlyIcon>
+        )
+      )}
     </>
   )
 }

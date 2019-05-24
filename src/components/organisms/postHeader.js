@@ -17,15 +17,13 @@ const PostHeaderInner = styled.div`
   gap: 12px;
   grid-template-columns: auto 1fr;
   padding: 16px;
-  ${media.s`
-    padding: 32px 24px;
-  `}
-  ${media.ms`
-    padding: 48px 32px;
-  `}
-  ${media.m`
-    padding: 48px 64px;
-  `}
+
+  ${media.s`padding: 32px 24px;`}
+
+  ${media.ms`padding: 48px 32px;`}
+
+  ${media.m`padding: 48px 64px;`}
+
   ${media.l`gap: 24px;`}
 `
 
@@ -40,22 +38,28 @@ const PostTag = styled(Link)`
   margin: 0 0 0 8px;
   text-decoration: none;
   transition: 0.1s linear;
+
   ${media.m`
     font-size: 1rem;
     margin: 0 0 0 12px;
   `}
+
   &:first-of-type {
     margin: 0;
   }
+
   &:hover {
     color: var(--c_7);
   }
+
   &:visited {
     color: var(--c_0);
+
     &:hover {
       color: var(--c_7);
     }
   }
+
   &::before {
     content: '#';
   }
@@ -66,12 +70,10 @@ const PostTitle = styled.h1`
   font: bold 1.3rem / 1.5 ${font.$f_1};
   grid-column: 1 / 3;
   letter-spacing: 0.08rem;
-  ${media.xs`
-    font-size: 1.5rem;
-  `}
-  ${media.l`
-    font-size: 2rem;
-  `}
+
+  ${media.xs`font-size: 1.5rem;`}
+
+  ${media.l`font-size: 2rem;`}
 `
 const PostMeta = styled.div`
   display: grid;
@@ -92,14 +94,16 @@ const PostName = styled(Link)`
   grid-column: 2 / 3;
   margin: auto 0 0;
   text-decoration: none;
-  ${media.m`
-    font-size: 1rem;
-  `}
+
+  ${media.m`font-size: 1rem;`}
+
   &:hover {
     color: var(--c_7);
   }
+
   &:visited {
     color: var(--c_0);
+
     &:hover {
       color: var(--c_7);
     }
@@ -123,16 +127,16 @@ const PostPrefaces = styled.div`
   position: relative;
   width: 100%;
   z-index: 1;
-  ${media.s`
-    padding: 32px 24px;
-  `}
-  ${media.ms`
-    padding: 48px 32px;
-  `}
+
+  ${media.s`padding: 32px 24px;`}
+
+  ${media.ms`padding: 48px 32px;`}
+
   ${media.m`
     font-size: 1rem;
     padding: 48px 64px;
   `}
+
   &::before {
     color: var(--c_8);
     content: '00';
@@ -143,25 +147,31 @@ const PostPrefaces = styled.div`
     top: -46px;
     white-space: pre;
     z-index: -1;
+
     ${media.s`
       left: -8px;
       top: -48px;
     `}
+
     ${media.ms`left: 0px;`}
+
     ${media.m`
       font-size: 10rem
       left: -16px;
       top: -64px;
     `}
+
     ${media.l`
       font-size: 12rem
       top: -80px;
     `}
   }
+
   p {
     letter-spacing: 0.05rem;
     margin: 24px 0 0;
     overflow: hidden;
+
     &:first-of-type {
       margin: 0;
       position: relative;
@@ -182,9 +192,11 @@ export default function PostHeader({ headerData }) {
   `)
 
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
+  const title = headerData.title
+  const author = siteData.site.siteMetadata.author
 
   const hederTags = headerData.tag.map((edge, i) => (
-    <PostTag to={'/' + edge.slug} key={i}>
+    <PostTag key={i} to={`/${edge.slug}`}>
       {edge.name}
     </PostTag>
   ))
@@ -192,21 +204,14 @@ export default function PostHeader({ headerData }) {
   return (
     <header>
       <PostHeaderFig>
-        <Hero imgSrc={headerData.src} imgAlt={headerData.title} />
+        <Hero imgSrc={headerData.src} imgAlt={title} />
       </PostHeaderFig>
       <PostHeaderInner>
         <PostTagContainer>{hederTags}</PostTagContainer>
-        <PostTitle>{headerData.title}</PostTitle>
+        <PostTitle>{title}</PostTitle>
         <PostMeta>
-          <PostPhoto
-            data-src={Photo}
-            width="80"
-            height="80"
-            alt={siteData.site.siteMetadata.author}
-            loading="lazy"
-            decoding="async"
-          />
-          <PostName to="/about">{siteData.site.siteMetadata.author}</PostName>
+          <PostPhoto data-src={Photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
+          <PostName to="/about">{author}</PostName>
           <PostTime dateTime={headerData.date}>{date}</PostTime>
         </PostMeta>
       </PostHeaderInner>

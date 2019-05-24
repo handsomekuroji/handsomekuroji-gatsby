@@ -90,6 +90,7 @@ export default createGlobalStyle`
     transition: background 0.3s;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(var(--c_7-rgb), 0.2);
+
     &.dark {
       transition: none;
       --c_0: #ced8de;
@@ -111,13 +112,16 @@ export default createGlobalStyle`
     color: var(--c_5);
     outline: none;
     transition: 0.2s ease-in-out;
+
     &:visited {
       color: var(--c_6);
     }
+
     &:hover,
     &:active {
       outline: none;
     }
+
     &:focus {
       outline: thin solid rgba(var(--c_5-rgb), 0.5);
     }
@@ -145,6 +149,7 @@ export default createGlobalStyle`
     border-radius: 0;
     cursor: pointer;
     outline: none;
+
     &:focus {
       outline: thin solid var(--c_2);
     }
@@ -154,6 +159,7 @@ export default createGlobalStyle`
   textarea {
     appearance: none;
     border-radius: 0;
+
     &:focus {
       outline: thin solid var(--c_2);
     }

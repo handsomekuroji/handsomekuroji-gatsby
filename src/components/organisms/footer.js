@@ -12,16 +12,16 @@ const SiteFooter = styled.footer`
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 32px);
-  ${media.xs`
-    width: calc(100% - 48px);
-  `}
+
+  ${media.xs`width: calc(100% - 48px);`}
+
   ${media.ms`
     gap: 24px 8px;
     max-width: 690px;
   `}
-  ${media.m`
-    width: calc(100% - 64px);
-  `}
+
+  ${media.m`width: calc(100% - 64px);`}
+
   ${media.ls`
     gap: 32px 8px;
     margin: 48px auto 0;
@@ -29,9 +29,7 @@ const SiteFooter = styled.footer`
 `
 
 const SiteNav = styled.nav`
-  ${media.ms`
-    grid-column: 1 / 3;
-  `}
+  ${media.ms`grid-column: 1 / 3;`}
 `
 const SiteList = styled.ul`
   display: flex;
@@ -42,6 +40,7 @@ const SiteList = styled.ul`
 const SiteFig = styled.div`
   margin: 28px auto 0;
   width: 48px;
+
   ${media.ms`
     margin: 0;
     justify-self: flex-end;
@@ -54,23 +53,19 @@ const Copy = styled.small`
   font-family: ${font.$f_1};
   font-size: 0.8rem;
   text-align: center;
-  ${media.ms`
-    justify-self: flex-start;
-  `}
+
+  ${media.ms`justify-self: flex-start;s`}
 `
 
 export default function Footer({ alltags }) {
-  const loopTags = alltags ? alltags.map((edge, i) => <Tag key={i} tagList={edge} />) : ''
-  const siteNavi = (
-    <SiteNav>
-      <SiteList>{loopTags}</SiteList>
-    </SiteNav>
-  )
+  const loopTags = alltags && alltags.map((edge, i) => <Tag key={i} tagList={edge} />)
   const siteDate = new Date().getFullYear()
 
   return (
     <SiteFooter>
-      {siteNavi}
+      <SiteNav>
+        <SiteList>{loopTags}</SiteList>
+      </SiteNav>
       <SiteFig>
         <Logo />
       </SiteFig>

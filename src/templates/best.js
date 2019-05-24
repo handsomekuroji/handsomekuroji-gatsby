@@ -1,4 +1,5 @@
 import React from 'react'
+import AdSense from 'react-adsense'
 import { graphql } from 'gatsby'
 import lozad from '../plugins/lozad'
 import styled from 'styled-components'
@@ -23,7 +24,6 @@ const BestMain = styled.main`
   ${media.ms`
     grid-gap: 32px;
     grid-gap: 24px;
-    margin: 0 auto;
     max-width: 690px;
     width: calc(100% - 64px);
   `}
@@ -38,17 +38,32 @@ const BestMain = styled.main`
   `}
 `
 
+const AdSenseContainer = styled.div`
+  margin: 32px auto 0;
+  max-width: 620px;
+  width: 100%;
+
+  ${media.m`
+    margin: 48px auto 0;
+    max-width: 960px;
+    width: calc(100% - 64px);
+  `}
+`
+
 export default function bestTemplate({ data }) {
   const best = data.contentfulBest
+  const slug = best.slug
+  const title = `ぼくが好きな「${best.title}」まとめ`
+  const desc = best.content.content.replace(/\r?\n/g, '')
 
   const loopFaves = data.allContentfulFaves.edges.map((edge, i) => (
-    <Box key={i} boxData={edge} boxCount={i} boxSlug={best.slug} />
+    <Box key={i} boxData={edge} boxCount={i} boxSlug={slug} />
   ))
 
   const metaData = {
-    title: 'ぼくが好きな「' + best.title + '」まとめ',
-    description: best.content.content.replace(/\r?\n/g, ''),
-    url: 'best/' + best.slug
+    title: title,
+    description: desc,
+    url: `best/${slug}`
   }
 
   React.useEffect(() => {
@@ -58,8 +73,16 @@ export default function bestTemplate({ data }) {
   return (
     <Layout>
       <SEO meta={metaData} />
-      <Header inContent={'ぼくが好きな「' + best.title + '」まとめ'} />
+      <Header inContent={title} />
       <BestMain>{loopFaves}</BestMain>
+      <AdSenseContainer>
+        <AdSense.Google
+          client="ca-pub-3005738200116146"
+          slot="2919591828"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </AdSenseContainer>
       <Footer />
     </Layout>
   )

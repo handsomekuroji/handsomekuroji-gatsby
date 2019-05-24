@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Balloon from '../components/molecules/balloon'
+import lozad from '../plugins/lozad'
 
 const StoryMain = styled.main`
   background: var(--c_4);
@@ -18,24 +19,23 @@ const StoryMain = styled.main`
   overflow: hidden;
   padding: 16px;
   width: calc(100% - 16px);
-  ${media.xs`
-    width: calc(100% - 32px);
-  `}
+
+  ${media.xs`width: calc(100% - 32px);`}
+
   ${media.s`
     padding: 24px;
     width: calc(100% - 48px);
   `}
+
   ${media.ms`
     max-width: 690px;
     padding: 32px;
     width: calc(100% - 64px);
   `}
-  ${media.m`
-    padding: 64px;
-  `}
-  ${media.ls`
-    margin: 0 auto;
-  `}
+
+  ${media.m`padding: 64px;`}
+
+  ${media.ls`margin: 48px auto 0;`}
 `
 
 export default function NotFoundPage({ data }) {
@@ -46,6 +46,10 @@ export default function NotFoundPage({ data }) {
     description: 'ぼくの物語',
     url: 'story'
   }
+
+  React.useEffect(() => {
+    lozad()
+  }, [StoryMain])
 
   return (
     <Layout>

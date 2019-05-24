@@ -6,9 +6,8 @@ import { font, media } from '../variable/mixin'
 
 const TagList = styled.li`
   margin: 8px;
-  ${media.ms`
-    margin: 8px 12px;
-  `}
+
+  ${media.ms`margin: 8px 12px;`}
 `
 
 const TagLink = styled(Link)`
@@ -19,19 +18,22 @@ const TagLink = styled(Link)`
   text-decoration: none;
   transition: 0.1s linear;
   width: 100%;
-  ${media.m`
-    font-size: 1rem;
-  `}
+
+  ${media.m`font-size: 1rem;`}
+
   &:hover {
     color: var(--c_7);
     transition: 0.1s;
+
     &:visited {
       color: var(--c_7);
     }
   }
+
   &:visited {
     color: var(--c_0);
   }
+
   &::before {
     content: '#';
   }

@@ -12,13 +12,9 @@ const BalloonArticle = styled.article`
   grid-template-columns: auto 1fr;
   margin: 24px 0 0;
 
-  ${media.ms`
-    margin: 32px 0 0;
-  `}
+  ${media.ms`margin: 32px 0 0;`}
 
-  ${media.m`
-    margin: 48px 0 0;
-  `}
+  ${media.m`margin: 48px 0 0;`}
 
   &:first-of-type {
     margin: 0;
@@ -41,9 +37,7 @@ const BalloonContainer = styled.div`
     padding: 16px;
   `}
 
-  ${media.m`
-    padding: 32px;
-  `}
+  ${media.m`padding: 32px;`}
 
   &::after {
     border: 16px solid transparent;
@@ -61,6 +55,8 @@ const BalloonInner = styled.div`
     line-height: 1.8;
     margin: 24px 0 0;
     overflow: hidden;
+    word-break: break-all;
+
     &:first-of-type {
       margin: 0;
       position: relative;
@@ -78,9 +74,8 @@ const BalloonIcon = styled.img`
   grid-row: 1 / 3;
   height: auto;
   width: 48px;
-  ${media.ms`
-    width: 56px;
-  `}
+
+  ${media.ms`width: 56px;`}
 `
 
 export default function Balloon({ balloonData }) {
@@ -94,21 +89,20 @@ export default function Balloon({ balloonData }) {
     }
   `)
 
-  const loopTime = time => {
-    return dayjs(time).format('YYYY.MM.DD ddd HH:mm:ss')
-  }
+  const date = balloonData.node.createdAt
+  const time = dayjs(date).format('YYYY.MM.DD ddd HH:mm:ss')
 
   return (
     <BalloonArticle id={balloonData.node.text.id}>
       <BalloonIcon
-        src={Photo}
+        data-src={Photo}
         width="80"
         height="80"
         alt={siteData.site.siteMetadata.author}
         loading="lazy"
         decoding="async"
       />
-      <BalloonTime dateTime={balloonData.node.createdAt}>{loopTime(balloonData.node.createdAt)}</BalloonTime>
+      <BalloonTime dateTime={date}>{time}</BalloonTime>
       <BalloonContainer>
         <BalloonInner
           dangerouslySetInnerHTML={{

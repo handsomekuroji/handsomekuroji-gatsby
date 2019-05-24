@@ -6,8 +6,6 @@ import dayjs from 'dayjs'
 import { font, media } from '../variable/mixin'
 import Thumbnail from '../../components/atoms/thumbnail'
 
-const ArticleBlock = styled.article``
-
 const ArticleLink = styled(Link)`
   border-radius: 8px;
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0px 1px 6px;
@@ -19,9 +17,9 @@ const ArticleLink = styled(Link)`
   position: relative;
   text-decoration: none;
   transition: 0.3s linear;
-  ${media.m`
-    font-size: 1rem;
-  `}
+
+  ${media.m`font-size: 1rem;`}
+
   &::before {
     bottom: 0;
     border-radius: 24px;
@@ -39,14 +37,17 @@ const ArticleLink = styled(Link)`
     width: calc(100% - 48px);
     z-index: -1;
   }
+
   &:hover {
     transform: translate(0, -2px);
     transition: 0.3s;
+
     &::before {
       background: rgba(var(--c_9-rgb), 0.1);
       transition: 0.3s;
     }
   }
+
   &:visited {
     color: var(--c_0);
   }
@@ -71,9 +72,8 @@ const ArticleInner = styled.div`
 const ArticleTitle = styled.h2`
   color: var(--c_1);
   font: bold 0.95rem / 1.5 ${font.$f_1};
-  ${media.m`
-    font-size: 1rem;
-  `}
+
+  ${media.m`font-size: 1rem;`}
 `
 
 const ArticleTime = styled.time`
@@ -85,20 +85,22 @@ const ArticleTime = styled.time`
 
 export default function Article({ postsData }) {
   const post = postsData.node ? postsData.node : postsData
-  const date = dayjs(post.createdAt).format('YYYY.MM.DD ddd')
+  const time = post.createdAt
+  const date = dayjs(time).format('YYYY.MM.DD ddd')
+  const title = post.title
 
   return (
-    <ArticleBlock>
+    <article>
       <ArticleLink to={'/' + post.slug}>
         <ArticleFigure>
-          <Thumbnail imgSrc={post.thumbnail.file.url} imgAlt={post.title} />
+          <Thumbnail imgSrc={post.thumbnail.file.url} imgAlt={title} />
         </ArticleFigure>
         <ArticleInner>
-          <ArticleTitle>{post.title}</ArticleTitle>
-          <ArticleTime dateTime={post.createdAt}>{date}</ArticleTime>
+          <ArticleTitle>{title}</ArticleTitle>
+          <ArticleTime dateTime={time}>{date}</ArticleTime>
         </ArticleInner>
       </ArticleLink>
-    </ArticleBlock>
+    </article>
   )
 }
 

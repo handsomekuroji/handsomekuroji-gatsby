@@ -27,19 +27,17 @@ const PostMain = styled.main`
   overflow: hidden;
   transition: 0.3s;
   width: calc(100% - 16px);
-  ${media.xs`
-    width: calc(100% - 32px);
-  `}
-  ${media.s`
-    width: calc(100% - 48px);
-  `}
+
+  ${media.xs`width: calc(100% - 32px);`}
+
+  ${media.s`width: calc(100% - 48px);`}
+
   ${media.ms`
     max-width: 690px;
     width: calc(100% - 64px);
   `}
-  ${media.ls`
-    margin: 48px auto 0;
-  `}
+
+  ${media.ls`margin: 48px auto 0;`}
 `
 
 const PostContent = styled.div`
@@ -48,55 +46,60 @@ const PostContent = styled.div`
   line-height: 1.8;
   padding: 0 0 32px;
   transition: 0.3s;
+
   ${media.m`
     font-size: 1rem;
     padding: 0 0 48px;
   `}
+
   section {
     margin: 16px 0 0;
     overflow: hidden;
     padding: 0 16px;
+
     ${media.s`
       margin: 32px 0 0;
       padding: 0 24px;
     `}
+
     ${media.ms`
       margin: 48px 0 0;
       padding: 0 32px;
     `}
-    ${media.m`
-      padding: 0 64px;
-    `}
+
+    ${media.m`padding: 0 64px;`}
+
     &:first-of-type {
       margin: 0;
     }
+
     &::before {
       border-top: 1px solid var(--c_8);
       content: '';
       display: block;
       margin: 0 -24px;
       padding: 0 0 16px;
-      ${media.s`
-        padding: 0 0 32px;
-      `}
-      ${media.ms`
-        margin: 0 -32px;
-      `}
+
+      ${media.s`padding: 0 0 32px;`}
+
+      ${media.ms`margin: 0 -32px;`}
+
       ${media.m`
         margin: 0 -64px;
         padding: 0 0 48px;
       `}
     }
   }
+
   h2 {
     color: var(--c_1);
     font: bold 1.3rem / 1.5 ${font.$f_1};
     letter-spacing: 0.1rem;
     position: relative;
     z-index: 1;
-    ${media.l`
-      font-size: 1.5rem;
-    `}
+
+    ${media.l`font-size: 1.5rem;`}
+
     &::before {
       color: var(--c_8);
       counter-increment: section;
@@ -108,34 +111,39 @@ const PostContent = styled.div`
       top: -60px;
       white-space: pre;
       z-index: -1;
-      ${media.s`
-        top: -80px;
-      `}
+
+      ${media.s`top: -80px;`}
+
       ${media.m`
         font-size: 10rem
         left: -80px;
         top: -112px;
       `}
+
       ${media.l`
         font-size: 12rem
         top: -128px;
       `}
     }
   }
+
   p {
     letter-spacing: 0.05rem;
     margin: 24px 0 0;
     overflow: hidden;
+
     &:first-of-type {
       position: relative;
       z-index: 1;
     }
   }
+
   ul {
     list-style: disc;
     margin: 24px 0 0;
     padding: 0 0 0 20px;
   }
+
   figure {
     border-radius: 12px;
     margin: 32px 0;
@@ -144,6 +152,7 @@ const PostContent = styled.div`
       margin: 32px 0 0;
     }
   }
+
   figcaption {
     background: var(--c_8);
     box-sizing: border-box;
@@ -157,14 +166,17 @@ const PostContent = styled.div`
     white-space: nowrap;
     width: 100%;
   }
+
   img {
     background: var(--c_2);
     height: auto;
     vertical-align: bottom;
     width: 100%;
+
     &.fade {
       background: 0;
     }
+
     .dark & {
       filter: brightness(80%);
     }
@@ -175,16 +187,16 @@ const PostContent = styled.div`
     padding: 16px 32px 24px;
     position: relative;
     margin: 0 -32px;
-    ${media.m`
-      margin: 0;
-    `}
+
+    ${media.m`margin: 0;`}
+
     &[data-title] {
       margin: 0;
       padding: 16px;
       z-index: 1;
-      ${media.ms`
-        padding: 24px 32px;
-      `}
+
+      ${media.ms`padding: 24px 32px;`}
+
       &::before {
         color: var(--c_4);
         content: attr(data-title);
@@ -196,6 +208,7 @@ const PostContent = styled.div`
         -webkit-text-stroke: 0;
         white-space: pre;
         z-index: -1;
+
         ${media.m`
           font-size: 5rem
           left: -16px;
@@ -206,8 +219,10 @@ const PostContent = styled.div`
 
     p {
       font-size: 0.9rem;
+
       &:first-of-type {
         margin: 0;
+
         &:first-letter {
           font-size: 2.2rem;
           font-weight: bold;
@@ -218,19 +233,17 @@ const PostContent = styled.div`
       }
     }
   }
+
   hr {
     border: 0;
     border-top: 1px solid var(--c_8);
     margin: 16px -16px;
-    ${media.s`
-      margin: 32px -24px;
-    `}
-    ${media.ms`
-      margin: 48px -32px;
-    `}
-    ${media.m`
-      margin: 48px -64px;
-    `}
+
+    ${media.s`margin: 32px -24px;`}
+
+    ${media.ms`margin: 48px -32px;`}
+
+    ${media.m`margin: 48px -64px;`}
   }
 
   .twitter-tweet {
@@ -254,24 +267,30 @@ const PostContent = styled.div`
     margin: 24px 0 0;
     padding: 16px;
     text-decoration: none;
+
     ${media.ms`
       font-size: 0.95rem;
       padding: 16px 20px;
     `}
+
     p {
       display: flex;
       line-height: 1.5;
       margin: 0;
+
       &::before {
         content: '👉';
       }
     }
+
     a {
       margin: 0 0 0 4px;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
+
       &:visited {
         color: var(--c_5);
       }
@@ -282,11 +301,13 @@ const PostContent = styled.div`
     background: var(--c_0);
     position: relative;
     z-index: 1;
+
     &::before {
       content: '';
       display: block;
       padding: 56.25% 0 0;
     }
+
     iframe {
       border: 0;
       height: 100%;
@@ -311,6 +332,7 @@ const PostContent = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
+
     &::before {
       align-items: center;
       background: url(${PlayIcon}) 50% / 16px 16px rgba(var(--c_9-rgb), 0.8) no-repeat;
@@ -327,6 +349,7 @@ const PostContent = styled.div`
       transition: 0.2s ease;
       width: 48px;
     }
+
     &:hover::before {
       background-color: rgba(var(--c_9-rgb), 0.8);
       opacity: 0.8;
@@ -343,11 +366,13 @@ const PostContent = styled.div`
     margin: 32px 0;
     overflow: hidden;
     position: relative;
+
     [data-youtube] {
       border-radius: 12px 12px 0 0;
       margin: 0;
       z-index: 2;
     }
+
     ${media.m`
       [data-youtube] {
         margin: 0;
@@ -362,6 +387,7 @@ const PostContent = styled.div`
     grid-gap: 16px;
     margin: 24px 0 0;
     padding: 32px 16px;
+
     ${media.ls`
       grid-auto-flow: column;
       grid-gap: 32px;
@@ -373,6 +399,7 @@ const PostContent = styled.div`
     margin: 0 auto;
     position: relative;
     width: 160px;
+
     &::before {
       backface-visibility: hidden;
       background: rgba(var(--c_9-rgb), 0.8);
@@ -389,9 +416,8 @@ const PostContent = styled.div`
       right: 0;
       width: calc(100% - 48px);
     }
-    ${media.ls`
-      margin: 0 0 0 auto;
-    `}
+
+    ${media.ls`margin: 0 0 0 auto;`}
   }
 
   .item__img {
@@ -404,21 +430,19 @@ const PostContent = styled.div`
   .item__name {
     font-weight: bold;
     text-align: center;
-    ${media.ls`
-      text-align: left;
-    `}
+
+    ${media.ls`text-align: left;`}
   }
 
   .item__title {
     display: inline-block;
     font: bold 1rem / 1.6 ${font.$f_1};
     margin: 0 8px 0 0;
-    ${media.m`
-      font-size: 1rem;
-    `}
-    ${media.ls`
-      font-size: 1.2rem;
-    `}
+
+    ${media.m`font-size: 1rem;`}
+
+    ${media.ls`font-size: 1.2rem;`}
+
     &:last-of-type {
       margin: 0;
     }
@@ -429,12 +453,11 @@ const PostContent = styled.div`
     grid-gap: 8px;
     justify-content: center;
     margin: 16px 0 0;
-    ${media.s`
-      grid-auto-flow: column;
-    `}
-    ${media.ms`
-      grid-gap: 16px;
-    `}
+
+    ${media.s`grid-auto-flow: column;`}
+
+    ${media.ms`grid-gap: 16px;`}
+
     ${media.ls`
       grid-gap: 8px;
       justify-content: flex-start;
@@ -455,27 +478,25 @@ const PostContent = styled.div`
     text-decoration: none;
     width: 160px;
     z-index: 1;
-    ${media.s`
-      width: 96px;
-    `}
-    ${media.sm`
-      width: 112px;
-    `}
-    ${media.ms`
-      width: 120px;
-    `}
-    ${media.m`
-      font-size: 1rem;
-    `}
-    ${media.ls`
-      width: 96px;
-    `}
+
+    ${media.s`width: 96px;`}
+
+    ${media.sm`width: 112px;`}
+
+    ${media.ms`width: 120px;`}
+
+    ${media.m`font-size: 1rem;`}
+
+    ${media.ls`width: 96px;`}
+
     &:hover {
       background: var(--c_2);
       color: var(--c_1);
     }
+
     &:visited {
       color: var(--c_1);
+
       &:hover {
         color: var(--c_1);
       }
@@ -484,6 +505,7 @@ const PostContent = styled.div`
 
   .iframe {
     position: relative;
+
     &::before {
       content: '';
       display: block;
@@ -504,6 +526,7 @@ const AdSenseContainer = styled.div`
   margin: 32px auto 0;
   max-width: 620px;
   width: 100%;
+
   ${media.m`
     margin: 48px auto 0;
     max-width: 960px;
@@ -514,26 +537,29 @@ const AdSenseContainer = styled.div`
 export default function postTemplate({ data }) {
   const post = data.contentfulBlog
   const html = Replace(post.content.childMarkdownRemark.html)
+  const img = post.thumbnail.file.url
+  const title = post.title
+  const slug = post.slug
   const content = React.useRef()
 
   const metaData = {
-    img: post.thumbnail.file.url,
-    title: post.title,
+    img: img,
+    title: title,
     description: post.description.description,
-    url: post.slug
+    url: slug
   }
 
   const headerData = {
-    src: post.thumbnail.file.url,
-    title: post.title,
+    src: img,
+    title: title,
     date: post.createdAt,
     desc: Replace(post.description.childMarkdownRemark.html),
     tag: post.tag
   }
 
   const footerData = {
-    title: post.title,
-    url: post.slug
+    title: title,
+    url: slug
   }
 
   React.useEffect(() => {

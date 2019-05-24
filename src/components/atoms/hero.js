@@ -8,25 +8,22 @@ const HeroImg = styled.img`
   height: auto;
   vertical-align: bottom;
   width: 100%;
+
   .dark & {
     filter: brightness(80%);
   }
 `
 
 export default function Hero({ imgSrc, imgAlt }) {
+  const srcSet = `${imgSrc}?fm=webp&w=320 640w, ${imgSrc}?fm=webp&w=640 760w, ${imgSrc}?fm=webp&w=1280 1280w`
+
   return (
     <picture>
-      <source
-        type="image/webp"
-        data-srcset={
-          imgSrc + '?fm=webp&w=320 640w, ' + imgSrc + '?fm=webp&w=640 760w, ' + imgSrc + '?fm=webp&w=1280 1280w'
-        }
-        data-sizes="100w"
-      />
+      <source type="image/webp" data-srcset={srcSet} data-sizes="100w" />
       <HeroImg
         src={dummy}
         data-src={imgSrc}
-        data-srcset={imgSrc + '?w=320 640w, ' + imgSrc + '?w=640 760w, ' + imgSrc + '?w=1280 1280w'}
+        data-srcset={srcSet}
         content={imgSrc}
         width="640"
         height="360"

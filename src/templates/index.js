@@ -17,25 +17,23 @@ const SiteMain = styled.main`
 
   ${media.xs`width: calc(100% - 32px);`}
 
-  ${media.s`
-    width: calc(100% - 48px);
-  `}
+  ${media.s`width: calc(100% - 48px);`}
+
   ${media.ms`
     max-width: 690px;
     width: calc(100% - 64px);
   `}
-  ${media.ls`
-    margin: 48px auto 0;
-  `}
-  ${media.l`
-    max-width: 960px;
-  `}
+
+  ${media.ls`margin: 48px auto 0;`}
+
+  ${media.l`max-width: 960px;`}
 `
 
 const AdSenseContainer = styled.div`
   margin: 32px auto 0;
   max-width: 620px;
   width: 100%;
+
   ${media.m`
     margin: 48px auto 0;
     max-width: 960px;

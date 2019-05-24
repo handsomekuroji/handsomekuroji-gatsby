@@ -33,6 +33,7 @@ const BoxWrapper = styled.div`
 
   &:hover {
     transform: translate(0, -2px);
+
     &::after {
       background: rgba(var(--c_9-rgb), 0.1);
     }
@@ -125,6 +126,7 @@ const BoxLink = styled.a`
 
   &:visited {
     color: var(--c_1);
+
     &:hover {
       color: var(--c_1);
     }
@@ -133,8 +135,18 @@ const BoxLink = styled.a`
 
 const BoxInner = styled(
   posed.div({
-    closed: { height: 0, 'margin-top': 0, opacity: 0, 'padding-bottom': 0 },
-    open: { height: 'auto', 'margin-top': '24px', opacity: 1, 'padding-bottom': '6px' }
+    closed: {
+      height: 0,
+      'margin-top': 0,
+      opacity: 0,
+      'padding-bottom': 0
+    },
+    open: {
+      height: 'auto',
+      'margin-top': '24px',
+      opacity: 1,
+      'padding-bottom': '6px'
+    }
   })
 )`
   box-sizing: border-box;
@@ -145,7 +157,6 @@ const BoxInner = styled(
   padding: 0 6px;
   position: relative;
   text-align: left;
-  width: fit-content;
 
   ${media.ms`font-size: 1rem;`}
 
@@ -156,6 +167,7 @@ const BoxInner = styled(
     line-height: 1.8;
     margin: 16px 0 0;
     overflow: hidden;
+
     &:first-of-type {
       margin: 0;
       position: relative;
@@ -190,56 +202,58 @@ const BoxIframe = styled.iframe`
 `
 
 export default function Box({ boxData, boxCount, boxSlug }) {
+  const box = boxData.node
+  const youtube = box.youtube
+  const url = box.url
+  const title = box.title
   const count = boxCount + 1
   const [isActive, setIsActive] = React.useState(false)
 
   const boxOpen = () => {
-    isActive === true ? setIsActive(false) : setIsActive(true)
+    setIsActive(isActive !== true)
   }
 
   const boxKey = e => {
-    if (e.key === 'Enter') {
-      isActive === true ? setIsActive(false) : setIsActive(true)
-    }
+    e.key === 'Enter' && setIsActive(isActive !== true)
   }
 
-  const eventDelete = e => {
+  const boxDel = e => {
     e.stopPropagation()
   }
 
   const boxLinkText = boxSlug === 'movie' ? '映画を見る' : '商品リンク'
 
-  const boxVideo = isActive ? (
+  const boxLinks = box.affiliate.map((edge, i) => (
+    <BoxLink key={i} href={edge} target="_blank" rel="noopener noreferrer" onClick={boxDel} onKeyDown={boxDel}>
+      {boxLinkText}
+    </BoxLink>
+  ))
+
+  const boxVideo = isActive && (
     <BoxVideo>
       <BoxIframe
-        id={boxData.node.youtube}
+        id={youtube}
         frameBorder="0"
         allowFullScreen="1"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        title="YouTube video player"
+        title={title}
         width="1280"
         height="720"
-        src={
-          'https://www.youtube.com/embed/' +
-          boxData.node.youtube +
-          '?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1'
-        }
+        src={`https://www.youtube.com/embed/${youtube}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`}
       />
     </BoxVideo>
-  ) : (
-    ''
   )
 
   return (
-    <article id={boxData.node.id}>
+    <article>
       <BoxWrapper>
         <BoxContainer onClick={boxOpen} onKeyDown={boxKey} tabIndex="0">
           <BoxFigure>
             <BoxImage
               src={dummy}
-              data-src={boxData.node.url}
-              alt={boxData.node.title}
-              content={boxData.node.url}
+              data-src={url}
+              alt={title}
+              content={url}
               width="360"
               height="640"
               loading="lazy"
@@ -248,17 +262,15 @@ export default function Box({ boxData, boxCount, boxSlug }) {
           </BoxFigure>
           <BoxTitle>
             <BoxCount>{count}</BoxCount>
-            <BoxName>{boxData.node.title}</BoxName>
-            <BoxText>{boxData.node.text}</BoxText>
-            <BoxLink href={boxData.node.affiliate} target="_blank" rel="noopener noreferrer" onClick={eventDelete}>
-              {boxLinkText}
-            </BoxLink>
+            <BoxName>{title}</BoxName>
+            <BoxText>{box.text}</BoxText>
+            {boxLinks}
           </BoxTitle>
           <BoxInner pose={isActive ? 'open' : 'closed'}>
             {boxVideo}
             <div
               dangerouslySetInnerHTML={{
-                __html: boxData.node.content.childMarkdownRemark.html
+                __html: box.content.childMarkdownRemark.html
               }}
             />
           </BoxInner>
