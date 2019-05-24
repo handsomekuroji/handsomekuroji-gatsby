@@ -15,11 +15,14 @@ const ThumbImg = styled.img`
 `
 
 export default function Thumbnail({ imgSrc, imgAlt }) {
-  const srcSet = `${imgSrc}?fm=webp&w=320 600w, ${imgSrc}?fm=webp&w=330 1040w, ${imgSrc}?fm=webp&w=300 1280w`
+  const srcSet = fm => {
+    const webp = fm && 'fm=webp&'
+    return `${imgSrc}?${webp}w=320 600w, ${imgSrc}?${webp}w=330 1040w, ${imgSrc}?${webp}w=300 1280w`
+  }
 
   return (
     <picture>
-      <source type="image/webp" data-srcset={srcSet} data-sizes="100w" />
+      <source type="image/webp" data-srcset={srcSet(true)} data-sizes="100w" />
       <ThumbImg
         src={dummy}
         data-src={imgSrc}

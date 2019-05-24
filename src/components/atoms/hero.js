@@ -15,11 +15,14 @@ const HeroImg = styled.img`
 `
 
 export default function Hero({ imgSrc, imgAlt }) {
-  const srcSet = `${imgSrc}?fm=webp&w=320 640w, ${imgSrc}?fm=webp&w=640 760w, ${imgSrc}?fm=webp&w=1280 1280w`
+  const srcSet = fm => {
+    const webp = fm && 'fm=webp&'
+    return `${imgSrc}?${webp}w=320 640w, ${imgSrc}?${webp}w=640 760w, ${imgSrc}?${webp}w=1280 1280w`
+  }
 
   return (
     <picture>
-      <source type="image/webp" data-srcset={srcSet} data-sizes="100w" />
+      <source type="image/webp" data-srcset={srcSet(true)} data-sizes="100w" />
       <HeroImg
         src={dummy}
         data-src={imgSrc}
