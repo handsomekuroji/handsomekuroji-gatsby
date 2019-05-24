@@ -223,12 +223,6 @@ export default function Box({ boxData, boxCount, boxSlug }) {
 
   const boxLinkText = boxSlug === 'movie' ? '映画を見る' : '商品リンク'
 
-  const boxLinks = box.affiliate.map((edge, i) => (
-    <BoxLink key={i} href={edge} target="_blank" rel="noopener noreferrer" onClick={boxDel} onKeyDown={boxDel}>
-      {boxLinkText}
-    </BoxLink>
-  ))
-
   const boxVideo = isActive && (
     <BoxVideo>
       <BoxIframe
@@ -264,7 +258,9 @@ export default function Box({ boxData, boxCount, boxSlug }) {
             <BoxCount>{count}</BoxCount>
             <BoxName>{title}</BoxName>
             <BoxText>{box.text}</BoxText>
-            {boxLinks}
+            <BoxLink href={box.affiliate} target="_blank" rel="noopener noreferrer" onClick={boxDel} onKeyDown={boxDel}>
+              {boxLinkText}
+            </BoxLink>
           </BoxTitle>
           <BoxInner pose={isActive ? 'open' : 'closed'}>
             {boxVideo}
