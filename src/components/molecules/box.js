@@ -89,7 +89,7 @@ const BoxCount = styled.span`
 `
 
 const BoxName = styled.h2`
-  font: bold 1rem / 1 ${font.$f_1};
+  font: bold 1rem / 1.3 ${font.$f_1};
   margin: 16px 0 0;
   position: relative;
   z-index: 2;
@@ -100,7 +100,7 @@ const BoxName = styled.h2`
 `
 
 const BoxText = styled.p`
-  font: 0.7rem / 1 ${font.$f_1};
+  font: 0.7rem / 1.3 ${font.$f_1};
   margin: 4px 0 auto;
   position: relative;
   z-index: 2;
@@ -157,6 +157,7 @@ const BoxInner = styled(
   padding: 0 6px;
   position: relative;
   text-align: left;
+  transform: translate3d(0, 0, 0);
 
   ${media.ms`font-size: 1rem;`}
 
