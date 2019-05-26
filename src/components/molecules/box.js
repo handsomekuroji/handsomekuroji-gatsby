@@ -250,6 +250,7 @@ export default function Box({ boxData, boxCount, boxSlug }) {
   const youtube = box.youtube
   const url = box.url
   const title = box.title
+  const link = box.affiliate
   const count = boxCount + 1
   const [isActive, setIsActive] = React.useState(false)
 
@@ -265,9 +266,8 @@ export default function Box({ boxData, boxCount, boxSlug }) {
     e.stopPropagation()
   }
 
-  let linkIcon
-  const boxLinks = box.affiliate.map((edge, i) => {
-    linkIcon = edge.includes('amzn.to') ? (
+  const boxLinks = link.map((edge, i) => {
+    const linkIcon = edge.includes('amzn.to') ? (
       <AmazonIcon>
         <Amazon />
       </AmazonIcon>
