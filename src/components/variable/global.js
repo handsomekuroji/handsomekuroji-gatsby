@@ -25,6 +25,8 @@ export default createGlobalStyle`
     --c_9: #131b36;
     --c_9-rgb: 19, 27, 54;
     --c_10: #f0f0f1;
+    --c_11-rgb: 25, 25, 26;
+    --c_12: #e4e4e4;
   }
 
   ::before,
@@ -78,6 +80,10 @@ export default createGlobalStyle`
   html {
     box-sizing: border-box;
     overflow-y: scroll;
+
+    &.fixed {
+      overflow: hidden;
+    }
   }
 
   body {
@@ -104,6 +110,11 @@ export default createGlobalStyle`
       --c_7-rgb: 206, 216, 222;
       --c_8: #19191a;
       --c_10: #34353d;
+      --c_12: #22222a;
+    }
+
+    &.fixed {
+      overflow: hidden;
     }
   }
 
@@ -151,7 +162,7 @@ export default createGlobalStyle`
     outline: none;
 
     &:focus {
-      outline: thin solid var(--c_2);
+      outline: thin solid rgba(var(--c_5-rgb), 0.5);
     }
   }
 

@@ -1,11 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import posed from 'react-pose'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { media, font } from '../variable/mixin'
 import dummy from '../../images/main/dummy.svg'
 import Amazon from '../../images/icon/amazon.svg'
+import Netflix from '../../images/icon/netflix.svg'
+import Hulu from '../../images/icon/hulu.svg'
 
 const BoxWrapper = styled.div`
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
@@ -116,145 +117,63 @@ const BoxText = styled.p`
   z-index: 2;
 `
 
-const BoxButton = styled.button`
-  align-items: center;
-  background: var(--c_10);
-  border-radius: 32px;
-  color: var(--c_1);
-  display: flex;
-  font: bold 0.9rem / 1 ${font.$f_1};
-  height: 32px;
-  justify-content: center;
-  margin: 32px 0 0;
-  max-width: 160px;
-  text-decoration: none;
-  transition: 0.2s ease-in-out;
-
-  &:hover {
-    background: rgba(var(--c_4-rgb), 0.7);
-    color: var(--c_1);
-  }
-
-  &:visited {
-    color: var(--c_1);
-
-    &:hover {
-      color: var(--c_1);
-    }
-  }
-`
-
-const BoxModal = styled.div`
-  align-items: flex-end;
-  background: rgba(var(--c_11-rgb), 0.8);
-  bottom: 0;
-  cursor: auto;
-  display: none;
-  justify-content: center;
-  left: 0;
-  padding: 24px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 3;
-
-  ${media.ms`align-items: center;`}
-
-  &.open {
-    display: flex;
-  }
-`
-
-const BoxModalContainer = styled.div`
+const BoxButton = styled.div`
   display: grid;
   gap: 8px;
-  max-width: 240px;
-  width: 100%;
-
-  ${media.ms`
-    border-radius: 8px;
-    gap: 1px;
-  `}
-`
-
-const BoxModalInner = styled.div`
-  display: grid;
-  gap: 1px;
+  grid-template-columns: repeat(auto-fill, 32px);
 `
 
 const BoxLink = styled.a`
+  border-radius: 6px;
+`
+
+const BoxIcon = css`
   align-items: center;
-  background: #fcfcfc;
-  box-sizing: border-box;
-  color: #444;
+  background: var(--c_10);
+  border-radius: 6px;
   display: flex;
-  font-size: 0.9rem;
-  font-weight: bold;
-  height: 40px;
+  height: 32px;
   justify-content: center;
-  text-decoration: none;
+  text-align: center;
+  transition: 0.3s linear;
+  width: 32px;
 
-  ${media.ms`height: 48px;`}
+  &:hover {
+    transition: 0.3s;
 
-  &:first-of-type {
-    border-radius: 8px 8px 0 0;
-
-    ${media.ms`height: 50px;`}
-
-    &:last-of-type {
-      border-radius: 8px;
-      ${media.ms`border-radius: 8px 8px 0 0;`}
+    .icon {
+      fill: #fff;
+      transition: 0.2s;
     }
   }
 
-  &:last-of-type {
-    border-radius: 0 0 8px 8px;
-
-    ${media.ms`border-radius: 0;`}
-  }
-
-  &:hover {
-    background: rgb(218, 218, 218, 0.9);
-    color: #404040;
-  }
-
-  &:visited {
-    color: #404040;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgb(var(--c_5-rgb), 0.5);
+  .icon {
+    fill: var(--c_7);
+    transition: 0.5s linear;
   }
 `
 
-const BoxCancel = styled.button`
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #fcfcfc;
-  color: #fcfcfc;
-  display: flex;
-  font-size: 0.8rem;
-  font-weight: bold;
-  height: 40px;
-  justify-content: center;
-  transition: background 0.2s ease-in-out;
-
-  ${media.ms`
-    background: var(--c_5);
-    border: 0;
-    border-radius: 0 0 8px 8px;
-    font-size: 0.7rem;
-  `}
+const AmazonIcon = styled.span`
+  ${BoxIcon}
 
   &:hover {
-    background: rgb(var(--c_7-rgb), 0.3);
-    ${media.ms`background: #346b87;`}
+    background: #ff9900;
   }
+`
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgb(var(--c_5-rgb), 0.5);
+const NetflixIcon = styled.span`
+  ${BoxIcon}
+
+  &:hover {
+    background: #e50914;
+  }
+`
+
+const HuluIcon = styled.span`
+  ${BoxIcon}
+
+  &:hover {
+    background: #3dbb3d;
   }
 `
 
@@ -279,7 +198,6 @@ const BoxInner = styled(
   font-size: 0.9rem;
   grid-column: 1 / 3;
   overflow: hidden;
-  padding: 0 6px;
   position: relative;
   text-align: left;
   transform: translate3d(0, 0, 0);
@@ -334,9 +252,6 @@ export default function Box({ boxData, boxCount, boxSlug }) {
   const title = box.title
   const count = boxCount + 1
   const [isActive, setIsActive] = React.useState(false)
-  const [btActive, setBtActive] = React.useState(false)
-  const [focusState, setFocusState] = React.useState('')
-  const modalRef = React.useRef()
 
   const boxOpen = () => {
     setIsActive(isActive !== true)
@@ -350,74 +265,29 @@ export default function Box({ boxData, boxCount, boxSlug }) {
     e.stopPropagation()
   }
 
-  const boxClose = e => {
-    e.stopPropagation()
-    e.key === 'Escape' && focusState.focus()
-  }
-
-  const boxModal = e => {
-    setBtActive(btActive !== true)
-    btActive === false && controlTab()
-    btActive === true && focusState.focus()
-    e.stopPropagation()
-  }
-
-  const boxLinkText = boxSlug === 'movie' ? '映画を観る' : 'チェック'
-
-  let linkText
   const boxLinks = box.affiliate.map((edge, i) => {
-    linkText = edge.includes('amzn.to') ? (
-      <>
+    const linkIcon = edge.includes('amzn.to') ? (
+      <AmazonIcon>
         <Amazon />
-        AMAZON
-      </>
+      </AmazonIcon>
     ) : edge.includes('netflix.com') ? (
-      'NETFLIX'
+      <NetflixIcon>
+        <Netflix />
+      </NetflixIcon>
     ) : (
-      edge.includes('happyon.jp') && 'Hulu'
+      edge.includes('happyon.jp') && (
+        <HuluIcon>
+          <Hulu />
+        </HuluIcon>
+      )
     )
 
     return (
-      <BoxLink key={i} href={edge} target="_blank" rel="noopener noreferrer" onClick={boxDel} onKeyDown={boxClose}>
-        {linkText}
+      <BoxLink key={i} href={edge} target="_blank" rel="noopener noreferrer" onClick={boxDel} onKeyDown={boxDel}>
+        {linkIcon}
       </BoxLink>
     )
   })
-
-  const controlTab = () => {
-    const buttons = modalRef.current.querySelectorAll('a[href], button:not([disabled])')
-    const buttonState = Array.prototype.slice.call(buttons)
-    const firstTab = buttonState[0]
-    const lastTab = buttonState[buttonState.length - 1]
-
-    setFocusState(document.activeElement)
-
-    setTimeout(() => {
-      firstTab.focus()
-    }, 0)
-
-    const lastFocus = e => {
-      e.preventDefault()
-      lastTab.focus()
-    }
-
-    const firstFocus = e => {
-      e.preventDefault()
-      firstTab.focus()
-    }
-
-    const trapTabKey = e => {
-      const active = document.activeElement
-
-      e.key === 'Tab' && e.shiftKey && active === firstTab && lastFocus(e)
-      e.key === 'Tab' && active === lastTab && firstFocus(e)
-      e.key === 'Escape' && setBtActive(false)
-    }
-
-    modalRef.current.addEventListener('keydown', trapTabKey)
-  }
-
-  const boxHelmet = btActive && <Helmet htmlAttributes={{ class: 'fixed' }} />
 
   const boxVideo = isActive && (
     <BoxVideo>
@@ -436,7 +306,7 @@ export default function Box({ boxData, boxCount, boxSlug }) {
 
   return (
     <article>
-      <BoxWrapper className={btActive && 'hover'}>
+      <BoxWrapper>
         <BoxContainer onClick={boxOpen} onKeyDown={boxKey} tabIndex="0">
           <BoxFigure>
             <BoxImage
@@ -454,18 +324,7 @@ export default function Box({ boxData, boxCount, boxSlug }) {
             <BoxCount>{count}</BoxCount>
             <BoxName>{title}</BoxName>
             <BoxText>{box.text}</BoxText>
-            <BoxButton type="button" onClick={boxModal} onKeyDown={boxDel}>
-              {boxLinkText}
-            </BoxButton>
-            <BoxModal onClick={boxDel} className={btActive && 'open'} ref={modalRef}>
-              {boxHelmet}
-              <BoxModalContainer>
-                <BoxModalInner>{boxLinks}</BoxModalInner>
-                <BoxCancel type="button" onClick={boxModal} onKeyDown={boxClose}>
-                  キャンセル
-                </BoxCancel>
-              </BoxModalContainer>
-            </BoxModal>
+            <BoxButton>{boxLinks}</BoxButton>
           </BoxTitle>
           <BoxInner pose={isActive ? 'open' : 'closed'}>
             {boxVideo}

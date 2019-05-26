@@ -37,7 +37,7 @@ const Form = styled.input`
 
   &::placeholder {
     color: rgba(var(--c_1-rgb), 0.5);
-    font: 1rem / 1.3 ${font.$f_1};
+    font: 1rem / normal ${font.$f_1};
   }
 `
 
