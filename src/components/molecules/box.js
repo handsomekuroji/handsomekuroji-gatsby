@@ -265,8 +265,9 @@ export default function Box({ boxData, boxCount, boxSlug }) {
     e.stopPropagation()
   }
 
+  let linkIcon
   const boxLinks = box.affiliate.map((edge, i) => {
-    const linkIcon = edge.includes('amzn.to') ? (
+    linkIcon = edge.includes('amzn.to') ? (
       <AmazonIcon>
         <Amazon />
       </AmazonIcon>
