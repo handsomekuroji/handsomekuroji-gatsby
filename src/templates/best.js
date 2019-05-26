@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
-import Box from '../components/molecules/boxw'
+import Box from '../components/molecules/box'
 
 const BestMain = styled.main`
   display: grid;
