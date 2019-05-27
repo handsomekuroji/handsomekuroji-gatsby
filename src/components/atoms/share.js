@@ -23,11 +23,11 @@ export default function Share({ shareData }) {
   const [isActive, setIsActive] = React.useState(false)
 
   const shareLink = () => {
-    share(shareData, event)
+    share(shareData)
   }
 
   React.useLayoutEffect(() => {
-    if (typeof navigator.share === 'undefined') {
+    if (navigator.share) {
       setIsActive(true)
     }
   }, [ShareButton])

@@ -1,5 +1,4 @@
-export default (data, event) => {
-  event && event.preventDefault()
+export default data => {
   navigator.share({
     title: data.title,
     text: data.title,
