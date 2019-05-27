@@ -5,6 +5,7 @@ import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
 import Hero from '../../components/atoms/hero'
+import Share from '../../components/atoms/share'
 import Photo from '../../images/main/handsomekuroji.jpg'
 
 const PostHeaderFig = styled.figure`
@@ -185,6 +186,7 @@ export default function PostHeader({ headerData }) {
     query PostHeaderQuery {
       site {
         siteMetadata {
+          siteUrl
           author
         }
       }
@@ -194,6 +196,11 @@ export default function PostHeader({ headerData }) {
   const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
   const title = headerData.title
   const author = siteData.site.siteMetadata.author
+
+  const headerShare = {
+    title: title,
+    url: siteData.site.siteMetadata.siteUrl + '/' + headerData.url
+  }
 
   const hederTags = headerData.tag.map((edge, i) => (
     <PostTag key={i} to={`/${edge.slug}`}>
@@ -214,6 +221,7 @@ export default function PostHeader({ headerData }) {
           <PostName to="/about">{author}</PostName>
           <PostTime dateTime={headerData.date}>{date}</PostTime>
         </PostMeta>
+        <Share shareData={headerShare} />
       </PostHeaderInner>
       <PostPrefaces
         dangerouslySetInnerHTML={{

@@ -552,6 +552,7 @@ export default function postTemplate({ data }) {
   const headerData = {
     src: img,
     title: title,
+    url: slug,
     date: post.createdAt,
     desc: Replace(post.description.childMarkdownRemark.html),
     tag: post.tag
