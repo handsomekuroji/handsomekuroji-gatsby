@@ -30,12 +30,12 @@ export default function Share({ shareData }) {
     setIsActive(navigator.share && true)
   }, [ShareButton])
 
-  return (
-    isActive && (
-      <ShareButton type="button" onClick={shareLink}>
-        SHARE
-      </ShareButton>
-    )
+  return isActive ? (
+    <ShareButton type="button" onClick={shareLink}>
+      SHARE
+    </ShareButton>
+  ) : (
+    ''
   )
 }
 
