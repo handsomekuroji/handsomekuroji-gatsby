@@ -1,5 +1,4 @@
 import React from 'react'
-import AdSense from 'react-adsense'
 import { graphql } from 'gatsby'
 import lozad from '../plugins/lozad'
 import styled from 'styled-components'
@@ -9,6 +8,7 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Box from '../components/molecules/box'
+import Ads from '../components/atoms/ads'
 
 const BestMain = styled.main`
   display: grid;
@@ -38,18 +38,6 @@ const BestMain = styled.main`
   `}
 `
 
-const AdSenseContainer = styled.div`
-  margin: 32px auto 0;
-  max-width: 620px;
-  width: 100%;
-
-  ${media.m`
-    margin: 48px auto 0;
-    max-width: 960px;
-    width: calc(100% - 64px);
-  `}
-`
-
 export default function bestTemplate({ data }) {
   const best = data.contentfulBest
   const slug = best.slug
@@ -75,14 +63,7 @@ export default function bestTemplate({ data }) {
       <SEO meta={metaData} />
       <Header inContent={title} />
       <BestMain>{loopBox}</BestMain>
-      <AdSenseContainer>
-        <AdSense.Google
-          client="ca-pub-3005738200116146"
-          slot="2919591828"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </AdSenseContainer>
+      <Ads />
       <Footer />
     </Layout>
   )

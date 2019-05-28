@@ -1,5 +1,4 @@
 import React from 'react'
-import AdSense from 'react-adsense'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
@@ -9,6 +8,7 @@ import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
+import Ads from '../components/atoms/ads'
 
 const SiteMain = styled.main`
   margin: 32px auto 0;
@@ -29,18 +29,6 @@ const SiteMain = styled.main`
   ${media.l`max-width: 960px;`}
 `
 
-const AdSenseContainer = styled.div`
-  margin: 32px auto 0;
-  max-width: 620px;
-  width: 100%;
-
-  ${media.m`
-    margin: 48px auto 0;
-    max-width: 960px;
-    width: calc(100% - 64px);
-  `}
-`
-
 export default function IndexPage({ data, pageContext }) {
   return (
     <Layout>
@@ -50,14 +38,7 @@ export default function IndexPage({ data, pageContext }) {
         <Loop allPosts={data.allContentfulBlog.edges} />
         <Pagination pagesData={pageContext} />
       </SiteMain>
-      <AdSenseContainer>
-        <AdSense.Google
-          client="ca-pub-3005738200116146"
-          slot="2919591828"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </AdSenseContainer>
+      <Ads />
       <Footer alltags={data.allContentfulTag.edges} />
     </Layout>
   )

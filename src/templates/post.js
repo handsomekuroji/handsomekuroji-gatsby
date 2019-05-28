@@ -1,5 +1,4 @@
 import React from 'react'
-import AdSense from 'react-adsense'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { font, media } from '../components/variable/mixin'
@@ -15,6 +14,7 @@ import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import PostHeader from '../components/organisms/postHeader'
 import PostFooter from '../components/organisms/postFooter'
+import Ads from '../components/atoms/ads'
 
 import PlayIcon from '../images/main/play.svg'
 
@@ -522,18 +522,6 @@ const PostContent = styled.div`
   }
 `
 
-const AdSenseContainer = styled.div`
-  margin: 32px auto 0;
-  max-width: 620px;
-  width: 100%;
-
-  ${media.m`
-    margin: 48px auto 0;
-    max-width: 960px;
-    width: calc(100% - 64px);
-  `}
-`
-
 export default function postTemplate({ data }) {
   const post = data.contentfulBlog
   const html = Replace(post.content.childMarkdownRemark.html)
@@ -585,14 +573,7 @@ export default function postTemplate({ data }) {
           <PostFooter footerData={footerData} />
         </article>
       </PostMain>
-      <AdSenseContainer>
-        <AdSense.Google
-          client="ca-pub-3005738200116146"
-          slot="2919591828"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </AdSenseContainer>
+      <Ads />
       <Footer alltags={data.allContentfulTag.edges} />
     </Layout>
   )
