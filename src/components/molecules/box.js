@@ -252,6 +252,7 @@ export default function Box({ boxData, boxCount, boxSlug }) {
   const title = box.title
   const link = box.affiliate
   const count = boxCount + 1
+
   const [isActive, setIsActive] = React.useState(false)
 
   const boxOpen = () => {
@@ -300,6 +301,7 @@ export default function Box({ boxData, boxCount, boxSlug }) {
         title={title}
         width="1280"
         height="720"
+        loading="lazy"
         src={`https://www.youtube.com/embed/${youtube}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`}
       />
     </BoxVideo>

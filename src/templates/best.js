@@ -56,7 +56,7 @@ export default function bestTemplate({ data }) {
   const title = `ぼくが好きな「${best.title}」まとめ`
   const desc = best.content.content.replace(/\r?\n/g, '')
 
-  const loopFaves = data.allContentfulFaves.edges.map((edge, i) => (
+  const loopBox = data.allContentfulFaves.edges.map((edge, i) => (
     <Box key={i} boxData={edge} boxCount={i} boxSlug={slug} />
   ))
 
@@ -68,13 +68,13 @@ export default function bestTemplate({ data }) {
 
   React.useEffect(() => {
     lozad()
-  }, [loopFaves])
+  }, [loopBox])
 
   return (
     <Layout>
       <SEO meta={metaData} />
       <Header inContent={title} />
-      <BestMain>{loopFaves}</BestMain>
+      <BestMain>{loopBox}</BestMain>
       <AdSenseContainer>
         <AdSense.Google
           client="ca-pub-3005738200116146"
