@@ -26,7 +26,7 @@ const Form = styled.input`
   border-radius: 32px;
   box-sizing: border-box;
   color: var(--c_0);
-  font: 1rem / 1.3 ${font.$f_1};
+  font: 1rem / normal ${font.$f_1};
   padding: 8px 16px;
   width: 100%;
 
@@ -38,6 +38,10 @@ const Form = styled.input`
   &::placeholder {
     color: rgba(var(--c_1-rgb), 0.5);
     font: 1rem / normal ${font.$f_1};
+  }
+
+  &:placeholder-shown {
+    line-height: normal;
   }
 `
 
