@@ -247,7 +247,7 @@ const BoxIframe = styled.iframe`
 
 export default function Box({ boxData, boxCount, boxSlug }) {
   const box = boxData.node
-  const youtube = box.youtube
+  const embed = box.embed
   const url = box.url
   const title = box.title
   const link = box.affiliate
@@ -266,6 +266,11 @@ export default function Box({ boxData, boxCount, boxSlug }) {
   const boxDel = e => {
     e.stopPropagation()
   }
+
+  const iframe =
+    embed && embed.includes('shonenjumpplus')
+      ? embed
+      : `https://www.youtube.com/embed/${embed}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`
 
   const boxLinks = link.map((edge, i) => {
     const linkIcon = edge.includes('amzn.to') ? (
@@ -291,10 +296,10 @@ export default function Box({ boxData, boxCount, boxSlug }) {
     )
   })
 
-  const boxVideo = isActive && (
+  const boxVideo = isActive && embed && (
     <BoxVideo>
       <BoxIframe
-        id={youtube}
+        id={embed}
         frameBorder="0"
         allowFullScreen="1"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -302,7 +307,7 @@ export default function Box({ boxData, boxCount, boxSlug }) {
         width="1280"
         height="720"
         loading="lazy"
-        src={`https://www.youtube.com/embed/${youtube}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`}
+        src={iframe}
       />
     </BoxVideo>
   )

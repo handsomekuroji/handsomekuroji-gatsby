@@ -27,11 +27,11 @@ export default function SEO({ meta }) {
   const data = site.siteMetadata
   const metaTitle = meta.title ? meta.title : data.title
   const metaDescription = meta.description ? meta.description : data.description
-  const metaUrl = meta.url ? data.siteUrl + '/' + meta.url : data.siteUrl
+  const metaUrl = meta.url ? `${data.siteUrl}/${meta.url}` : data.siteUrl
   const metaDomain = data.domain
   const metaTwitter = data.twitter
   const metaFacebook = data.facebook
-  const metaOgImg = meta.img ? 'https:' + meta.img : data.siteUrl + OgImg
+  const metaOgImg = meta.img ? `https:${meta.img}` : data.siteUrl + OgImg
   const verification = data.verification
 
   return (
@@ -44,17 +44,18 @@ export default function SEO({ meta }) {
         { name: 'format-detection', content: 'telephone=no, email=no,address=no' },
         { name: 'description', content: metaDescription },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@' + metaTwitter },
+        { name: 'twitter:site', content: `@${metaTwitter}` },
         { name: 'twitter:domain', content: metaDomain },
         { name: 'twitter:creator', content: '@' + metaTwitter },
-        { property: 'article:publisher', content: 'https://www.facebook.com/' + metaFacebook },
+        { property: 'article:publisher', content: `https://www.facebook.com/${metaFacebook}` },
         { property: 'fb:app_id', content: '130788987000950' },
         { property: 'og:site_name', content: data.title },
         { property: 'og:type', content: 'website' },
         { property: 'og:image', content: metaOgImg },
         { property: 'og:title', content: metaTitle },
         { property: 'og:description', content: metaDescription },
-        { property: 'og:url', content: metaUrl },
+        { property: 'thumbnail', content: metaOgImg },
+        { name: 'google-site-verification', content: verification },
         { name: 'apple-mobile-web-app-title', content: metaTitle },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },

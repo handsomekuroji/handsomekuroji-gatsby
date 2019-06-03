@@ -93,17 +93,12 @@ export const bestQuery = graphql`
           title
           text
           url
-          image {
-            file {
-              url
-            }
-          }
           content {
             childMarkdownRemark {
               html
             }
           }
-          youtube
+          embed
           affiliate
         }
       }
