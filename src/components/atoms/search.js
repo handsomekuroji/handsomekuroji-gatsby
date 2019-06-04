@@ -133,17 +133,16 @@ export default function App() {
   const [items, setItems] = React.useState([])
 
   React.useEffect(() => {
-    const getData = async () => {
+    ;(async () => {
       await axios
         .get('/search.json')
         .then(res => {
           setData(res.data)
         })
-        .catch(error => {
-          error({ statusCode: 404, message: 'NOT FOUND' })
+        .catch(e => {
+          e({ statusCode: 404, message: 'NOT FOUND' })
         })
-    }
-    getData()
+    })()
   }, [setData])
 
   const setTrue = () => {

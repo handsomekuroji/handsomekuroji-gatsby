@@ -1,45 +1,10 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, media } from '../components/variable/mixin'
-
-import lozad from '../plugins/lozad'
-import social from '../plugins/social'
-import youtube from '../plugins/youtube'
-import Replace from '../plugins/replace'
-
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Header from '../components/organisms/header'
-import Footer from '../components/organisms/footer'
-import PageHeader from '../components/organisms/pageHeader'
-import PostFooter from '../components/organisms/postFooter'
-import Form from '../components/organisms/form'
-import Ads from '../components/atoms/ads'
-
-import PlayIcon from '../images/main/play.svg'
-
-const PostMain = styled.main`
-  background: var(--c_4);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
-  border-radius: 8px;
-  margin: 32px auto 0;
-  max-width: 620px;
-  overflow: hidden;
-  transition: 0.3s;
-  width: calc(100% - 16px);
-
-  ${media.xs`width: calc(100% - 32px);`}
-
-  ${media.s`width: calc(100% - 48px);`}
-
-  ${media.ms`
-    max-width: 690px;
-    width: calc(100% - 64px);
-  `}
-
-  ${media.ls`margin: 48px auto 0;`}
-`
+import { font, media } from '../../components/variable/mixin'
+import youtube from '../../plugins/youtube'
+import social from '../../plugins/social'
+import PlayIcon from '../../images/main/play.svg'
 
 const PostContent = styled.div`
   counter-reset: section;
@@ -150,7 +115,6 @@ const PostContent = styled.div`
     border-radius: 12px;
     margin: 32px 0;
     overflow: hidden;
-
     &:last-child {
       margin: 32px 0 0;
     }
@@ -244,7 +208,7 @@ const PostContent = styled.div`
 
     ${media.s`margin: 32px -24px;`}
 
-    ${media.ms` margin: 48px -32px;`}
+    ${media.ms`margin: 48px -32px;`}
 
     ${media.m`margin: 48px -64px;`}
   }
@@ -472,7 +436,7 @@ const PostContent = styled.div`
     background: var(--c_4);
     border-radius: 4px;
     box-sizing: border-box;
-    color: var(--c_0);
+    color: var(--c_1);
     display: flex;
     font: italic bold 0.95rem / 1 ${font.$f_1};
     justify-content: center;
@@ -494,14 +458,14 @@ const PostContent = styled.div`
 
     &:hover {
       background: var(--c_2);
-      color: var(--c_0);
+      color: var(--c_1);
     }
 
     &:visited {
-      color: var(--c_0);
+      color: var(--c_1);
 
       &:hover {
-        color: var(--c_0);
+        color: var(--c_1);
       }
     }
   }
@@ -525,90 +489,24 @@ const PostContent = styled.div`
   }
 `
 
-export default function postTemplate({ data }) {
-  const post = data.contentfulPage
-  const html = Replace(post.content.childMarkdownRemark.html)
-  const img = post.thumbnail.file.url
-  const title = post.title
-  const slug = post.slug
+export default function content({ contentData }) {
   const content = React.useRef()
 
-  const metaData = {
-    img: img,
-    title: title,
-    url: slug
-  }
-
-  const headerData = {
-    src: img,
-    title: title,
-    desc: Replace(post.description.childMarkdownRemark.html)
-  }
-
-  const footerData = {
-    title: title,
-    url: slug
-  }
-
   React.useEffect(() => {
-    lozad()
     youtube(content.current)
     social('https://platform.twitter.com/widgets.js', 'twitter-tweet', content.current)
   }, [content])
 
   return (
-    <Layout>
-      <SEO meta={metaData} />
-      <Header />
-      <PostMain>
-        <article>
-          <PageHeader headerData={headerData} />
-          <PostContent
-            ref={content}
-            dangerouslySetInnerHTML={{
-              __html: html
-            }}
-          />
-          <Form />
-          <PostFooter footerData={footerData} />
-        </article>
-      </PostMain>
-      <Ads />
-      <Footer alltags={data.allContentfulTag.edges} />
-    </Layout>
+    <PostContent
+      ref={content}
+      dangerouslySetInnerHTML={{
+        __html: contentData
+      }}
+    />
   )
 }
 
-export const query = graphql`
-  query PageBySlug($slug: String!) {
-    contentfulPage(slug: { eq: $slug }) {
-      slug
-      title
-      createdAt
-      description {
-        description
-        childMarkdownRemark {
-          html
-        }
-      }
-      thumbnail {
-        file {
-          url
-        }
-      }
-      content {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    allContentfulTag {
-      edges {
-        node {
-          name
-          slug
-        }
-      }
-    }
-  }
-`
+content.propTypes = {
+  contentData: PropTypes.object
+}
