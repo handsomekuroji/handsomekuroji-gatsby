@@ -75,7 +75,7 @@ export default function tagTemplate({ data, pageContext }) {
   const posts = data.allContentfulBlog.edges
   const tagName = tag.name
   const tagImg = posts.slice(-1)[0].node.thumbnail.file.url
-  const tagCount = '投稿数 ' + data.allContentfulBlog.totalCount + ' 件'
+  const tagCount = `投稿数 ${data.allContentfulBlog.totalCount} 件`
 
   const metaData = {
     title: tagName,
@@ -90,8 +90,8 @@ export default function tagTemplate({ data, pageContext }) {
       <TagMain>
         <TagHeader>
           <TagImage
-            src={tagImg + '?w=96'}
-            data-srcset={tagImg + '?w=128 1040w'}
+            src={`${tagImg}?w=96`}
+            data-srcset={`${tagImg}?w=128 1040w`}
             width="48"
             height="48"
             alt={tagName}
