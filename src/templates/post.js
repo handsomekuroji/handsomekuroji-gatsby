@@ -43,7 +43,6 @@ export default function postTemplate({ data }) {
   const img = post.thumbnail.file.url
   const title = post.title
   const slug = post.slug
-  const content = React.useRef()
 
   const metaData = {
     img: img,
@@ -68,7 +67,7 @@ export default function postTemplate({ data }) {
 
   React.useEffect(() => {
     lozad()
-  }, [content])
+  }, [Content])
 
   return (
     <Layout>
