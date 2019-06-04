@@ -12,6 +12,11 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               title
               slug
+              thumbnail {
+                file {
+                  url
+                }
+              }
               tag {
                 name
               }
@@ -40,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
         return {
           title: node.title,
           slug: node.slug,
+          image: `https:${node.thumbnail.file.url}`,
           tag: tags
         }
       })
