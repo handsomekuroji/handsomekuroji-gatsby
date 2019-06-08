@@ -122,7 +122,7 @@ const Anchor = styled(Link)`
 `
 
 export default function Breadcrumb({ breadcrumbData }) {
-  const best = breadcrumbData && 'best'
+  const best = breadcrumbData.description && 'best'
 
   return (
     <Navigation className={best} aria-label="breadcrumb">
