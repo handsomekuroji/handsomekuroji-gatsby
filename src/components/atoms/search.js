@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import axios from 'axios'
+import ky from 'ky'
 import styled from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
 import { font } from '../../components/variable/mixin'
@@ -63,7 +63,7 @@ const Inner = styled(posed.div(popover))`
   position: absolute;
   top: 48px;
   width: 300px;
-  z-index: 1;
+  z-index: 2;
 
   &::before {
     border-color: transparent transparent #fcfcfc transparent;
@@ -134,13 +134,19 @@ export default function App() {
 
   React.useEffect(() => {
     ;(async () => {
-      await axios
-        .get('/search.json')
+      await ky('/search.json')
+        .json()
         .then(res => {
-          setData(res.data)
+          setData(res)
         })
         .catch(e => {
-          e({ statusCode: 404, message: 'NOT FOUND' })
+          setData([
+            {
+              title: '',
+              slug: '',
+              tag: []
+            }
+          ])
         })
     })()
   }, [setData])
@@ -173,7 +179,7 @@ export default function App() {
   const listDom = items.map(item => {
     const slug = item.slug
     return (
-      <List key={slug}>
+      <List key={slug} role="option">
         <SearchLink to={'/' + slug}>{item.title}</SearchLink>
       </List>
     )
@@ -181,14 +187,35 @@ export default function App() {
 
   const listInner = items.length > 0 && isActive && (
     <Inner key="container" onMouseDown={eventDelete}>
-      <Container>{listDom}</Container>
+      <Container role="listbox">{listDom}</Container>
     </Inner>
   )
 
+  const espanded = !!(items.length > 0 && isActive)
+
   return (
     <Search>
-      <Form type="text" placeholder="Search" onChange={filterList} onFocus={setTrue} onBlur={setFalse} />
-      <SearchIcon width="24" height="24" alt="検索アイコン" loading="lazy" decoding="async" onMouseDown={eventDelete} />
+      <form role="search">
+        <Form
+          type="text"
+          placeholder="Search"
+          role="combobox"
+          aria-label="サイト内を検索"
+          aria-expanded={espanded}
+          onChange={filterList}
+          onFocus={setTrue}
+          onBlur={setFalse}
+        />
+        <SearchIcon
+          width="24"
+          height="24"
+          alt="検索アイコン"
+          loading="lazy"
+          decoding="async"
+          role="presentation"
+          onMouseDown={eventDelete}
+        />
+      </form>
       <PoseGroup>{listInner}</PoseGroup>
     </Search>
   )

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
   align-items: center;
   display: grid;
   gap: 16px;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   width: fit-content;
 `
 
-const Inner = styled.div`
+const Inner = styled.ul`
   align-items: center;
   display: grid;
   gap: 16px;
@@ -22,7 +22,7 @@ const Inner = styled.div`
   width: fit-content;
 `
 
-const Current = styled.span`
+const Current = styled.li`
   font: italic 1rem / 1.1 'Georgia', serif;
   padding: 8px;
 `
@@ -114,10 +114,10 @@ export default function Pagination({ pagesData }) {
   const prevPage = number - 1 === 1 ? '' : number - 1
   const nextPage = number + 1
 
-  const slugUrl = slug ? '/' + slug : ''
+  const slugUrl = slug ? `/${slug}` : ''
 
-  const prevUrl = first ? null : slugUrl + '/' + prevPage
-  const nextUrl = last ? null : slugUrl + '/' + nextPage
+  const prevUrl = first ? null : `${slugUrl}/${prevPage}`
+  const nextUrl = last ? null : `${slugUrl}/${nextPage}`
 
   const min = last ? 3 : 2
   const max = first ? 3 : 2
@@ -127,25 +127,39 @@ export default function Pagination({ pagesData }) {
   }
 
   const numSlug = i => {
-    return slugUrl + (i === 1 ? '/' : '/' + i)
+    return slugUrl + (i === 1 ? '/' : `/${i}`)
   }
 
   const inner = length.map((_, i) =>
     minMax(++i) ? (
-      <PageLink key={i} to={numSlug(i)}>
-        {i}
-      </PageLink>
+      <li>
+        <PageLink key={i} to={numSlug(i)} aria-label={`${i}ページ目へ`}>
+          {i}
+        </PageLink>
+      </li>
     ) : (
-      i === number && <Current key={i}>{i}</Current>
+      i === number && (
+        <Current key={i} aria-label={`現在のページ ${i}ページ目`}>
+          {i}
+        </Current>
+      )
     )
   )
 
   const pagesDisplay = pages > 1 && <Inner>{inner}</Inner>
-  const prevDisplay = !first && <PrevLink to={prevUrl}>←</PrevLink>
-  const nextDisplay = !last && <NextLink to={nextUrl}>→</NextLink>
+  const prevDisplay = !first && (
+    <PrevLink to={prevUrl} aria-label="前のページへ">
+      ←
+    </PrevLink>
+  )
+  const nextDisplay = !last && (
+    <NextLink to={nextUrl} aria-label="次のページへ">
+      →
+    </NextLink>
+  )
 
   return (
-    <Wrapper>
+    <Wrapper aria-label="ページナビゲーション">
       {prevDisplay}
       {pagesDisplay}
       {nextDisplay}

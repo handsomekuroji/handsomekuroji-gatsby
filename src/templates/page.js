@@ -14,16 +14,12 @@ import PageHeader from '../components/organisms/pageHeader'
 import PostFooter from '../components/organisms/postFooter'
 import Content from '../components/molecules/content'
 import Form from '../components/organisms/form'
+import Breadcrumb from '../components/organisms/breadcrumb'
 import Ads from '../components/atoms/ads'
 
 const PostMain = styled.main`
-  background: var(--c_4);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
-  border-radius: 8px;
   margin: 32px auto 0;
   max-width: 620px;
-  overflow: hidden;
-  transition: 0.3s;
   width: calc(100% - 16px);
 
   ${media.xs`width: calc(100% - 32px);`}
@@ -36,6 +32,14 @@ const PostMain = styled.main`
   `}
 
   ${media.ls`margin: 48px auto 0;`}
+`
+
+const PostArticle = styled.article`
+  background: var(--c_4);
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.3s;
 `
 
 export default function postTemplate({ data }) {
@@ -71,12 +75,13 @@ export default function postTemplate({ data }) {
       <SEO meta={metaData} />
       <Header />
       <PostMain>
-        <article>
+        <PostArticle>
           <PageHeader headerData={headerData} />
           <Content contentData={html} />
           <Form />
           <PostFooter footerData={footerData} />
-        </article>
+        </PostArticle>
+        <Breadcrumb breadcrumbData={footerData} />
       </PostMain>
       <Ads />
       <Footer alltags={data.allContentfulTag.edges} />

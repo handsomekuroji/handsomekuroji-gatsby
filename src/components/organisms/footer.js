@@ -63,7 +63,7 @@ export default function Footer({ alltags }) {
 
   return (
     <SiteFooter>
-      <SiteNav>
+      <SiteNav role="navigation">
         <SiteList>{loopTags}</SiteList>
       </SiteNav>
       <SiteFig>

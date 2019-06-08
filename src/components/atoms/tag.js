@@ -44,7 +44,7 @@ export default function Tag({ tagList }) {
 
   return (
     <TagList>
-      <TagLink to={'/' + tagData.slug}>{tagData.name}</TagLink>
+      <TagLink to={`/${tagData.slug}`}>{tagData.name}</TagLink>
     </TagList>
   )
 }

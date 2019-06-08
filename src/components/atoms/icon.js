@@ -99,28 +99,34 @@ export default function Icon({ iconData }) {
   return (
     <>
       {type === 'Twitter' ? (
-        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Twitterでシェア" onClick={box}>
           <Twitter />
         </TwitterIcon>
       ) : type === 'Facebook' ? (
-        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア" onClick={box}>
           <Facebook />
         </FacebookIcon>
       ) : type === 'Hatebu' ? (
-        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+        <HatebuIcon
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="はてなブックマークでシェア"
+          onClick={box}
+        >
           <Hatebu />
         </HatebuIcon>
       ) : type === 'Line' ? (
-        <LineIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+        <LineIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="LINEでシェア" onClick={box}>
           <Line />
         </LineIcon>
       ) : type === 'Pocket' ? (
-        <PocketIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+        <PocketIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Pocketに保存" onClick={box}>
           <Pocket />
         </PocketIcon>
       ) : (
         type === 'Feedly' && (
-          <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" onClick={box}>
+          <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Feedlyに登録" onClick={box}>
             <Feedly />
           </FeedlyIcon>
         )

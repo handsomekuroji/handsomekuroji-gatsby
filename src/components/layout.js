@@ -24,7 +24,7 @@ const ButtonDark = styled.button`
 
 export default function Layout({ children }) {
   const attr = theme => {
-    return { class: theme.dark ? 'dark' : 'light' }
+    return { class: theme.dark ? 'dark' : 'light', id: 'body' }
   }
 
   const toggle = theme => {
@@ -39,14 +39,28 @@ export default function Layout({ children }) {
     )
   }
 
+  const pressed = theme => {
+    return theme.dark
+  }
+
+  const label = theme => {
+    return theme.dark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'
+  }
+
   const cssTheme = theme => (
     <Wrapper>
       <Helmet bodyAttributes={attr(theme)} />
-      <Global />
-      {children}
-      <ButtonDark onClick={toggle(theme)} type="button" aria-label="ダークモード" aria-pressed="false">
+      <ButtonDark
+        type="button"
+        aria-pressed={pressed(theme)}
+        aria-label={label(theme)}
+        aria-controls="body"
+        onClick={toggle(theme)}
+      >
         {button(theme)}
       </ButtonDark>
+      <Global />
+      {children}
     </Wrapper>
   )
 

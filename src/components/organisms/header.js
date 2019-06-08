@@ -43,7 +43,7 @@ const OtherHeading = styled.h1`
 
 export default function Header({ inIndex, in404, inContent }) {
   const linkLogo = (
-    <Link to="/">
+    <Link to="/" aria-label="ハンサムクロジのサイト">
       <Logo />
     </Link>
   )
@@ -54,7 +54,7 @@ export default function Header({ inIndex, in404, inContent }) {
   const searchBox = inContent ? '' : <Search />
 
   return (
-    <SiteHeader>
+    <SiteHeader role="banner">
       {heading}
       {otherHead}
       {searchBox}

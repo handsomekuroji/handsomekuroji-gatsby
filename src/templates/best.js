@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Box from '../components/molecules/box'
+import Breadcrumb from '../components/organisms/breadcrumb'
 import Ads from '../components/atoms/ads'
 
 const BestMain = styled.main`
@@ -62,7 +63,10 @@ export default function bestTemplate({ data }) {
     <Layout>
       <SEO meta={metaData} />
       <Header inContent={title} />
-      <BestMain>{loopBox}</BestMain>
+      <BestMain>
+        {loopBox}
+        <Breadcrumb breadcrumbData={metaData} />
+      </BestMain>
       <Ads />
       <Footer />
     </Layout>
