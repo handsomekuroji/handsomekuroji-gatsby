@@ -122,6 +122,11 @@ const SearchLink = styled(Link)`
     }
   }
 
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
+
   &:visited {
     color: #404040;
   }
@@ -180,7 +185,9 @@ export default function App() {
     const slug = item.slug
     return (
       <List key={slug} role="option">
-        <SearchLink to={'/' + slug}>{item.title}</SearchLink>
+        <SearchLink to={'/' + slug} onFocus={setTrue}>
+          {item.title}
+        </SearchLink>
       </List>
     )
   })
@@ -193,9 +200,13 @@ export default function App() {
 
   const espanded = !!(items.length > 0 && isActive)
 
+  const submit = e => {
+    e.preventDefault()
+  }
+
   return (
     <Search>
-      <form role="search">
+      <form action="/" onSubmit={submit} role="search">
         <Form
           type="text"
           placeholder="Search"
