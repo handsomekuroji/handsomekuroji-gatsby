@@ -37,8 +37,8 @@ const PostTag = styled(Link)`
   color: var(--c_0);
   font: 0.8rem / 1 ${font.$f_1};
   margin: 0 0 0 8px;
+  position: relative;
   text-decoration: none;
-  transition: 0.1s linear;
 
   ${media.m`
     font-size: 1rem;
@@ -49,20 +49,29 @@ const PostTag = styled(Link)`
     margin: 0;
   }
 
-  &:hover {
-    color: var(--c_7);
+  &:hover,
+  &:focus {
+    &::before {
+      transform: scaleX(1) translateY(-50%);
+      transform-origin: center left;
+    }
   }
 
   &:visited {
     color: var(--c_0);
-
-    &:hover {
-      color: var(--c_7);
-    }
   }
 
   &::before {
-    content: '#';
+    background: var(--c_0);
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: scaleX(0) translateY(-50%);
+    transform-origin: center right;
+    transition: transform 0.3s ease;
   }
 `
 
@@ -94,20 +103,34 @@ const PostName = styled(Link)`
   font: 0.8rem / 1 ${font.$f_1};
   grid-column: 2 / 3;
   margin: auto 0 0;
+  position: relative;
   text-decoration: none;
 
   ${media.m`font-size: 1rem;`}
 
-  &:hover {
-    color: var(--c_7);
+  &:hover,
+  &:focus {
+    &::before {
+      transform: scaleX(1) translateY(-50%);
+      transform-origin: center left;
+    }
   }
 
   &:visited {
     color: var(--c_0);
+  }
 
-    &:hover {
-      color: var(--c_7);
-    }
+  &::before {
+    background: var(--c_0);
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: scaleX(0) translateY(-50%);
+    transform-origin: center right;
+    transition: transform 0.3s ease;
   }
 `
 
@@ -204,6 +227,7 @@ export default function PostHeader({ headerData }) {
 
   const hederTags = headerData.tag.map((edge, i) => (
     <PostTag key={i} to={`/${edge.slug}`}>
+      <span>#</span>
       {edge.name}
     </PostTag>
   ))

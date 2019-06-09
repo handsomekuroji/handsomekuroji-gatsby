@@ -23,7 +23,8 @@ const IconImg = css`
   transition: 0.3s linear;
   width: 40px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transition: 0.3s;
 
     .icon {
@@ -40,7 +41,7 @@ const IconImg = css`
 const TwitterIcon = styled.a`
   ${IconImg}
 
-  &:hover {
+  &:hover, &:focus {
     background: #1da1f2;
   }
 `
@@ -48,14 +49,14 @@ const TwitterIcon = styled.a`
 const FacebookIcon = styled.a`
   ${IconImg}
 
-  &:hover {
+  &:hover, &:focus {
     background: #3b5998;
   }
 `
 const HatebuIcon = styled.a`
   ${IconImg}
 
-  &:hover {
+  &:hover, &:focus {
     background: #00a4de;
   }
 `
@@ -63,7 +64,7 @@ const HatebuIcon = styled.a`
 const LineIcon = styled.a`
   ${IconImg}
 
-  &:hover {
+  &:hover, &:focus {
     background: #00c300;
   }
 `
@@ -71,7 +72,7 @@ const LineIcon = styled.a`
 const PocketIcon = styled.a`
   ${IconImg}
 
-  &:hover {
+  &:hover, &:focus {
     background: #ef3f56;
   }
 `
@@ -83,7 +84,7 @@ const FeedlyIcon = styled.a`
 
   ${media.ms`display: flex;`}
 
-  &:hover {
+  &:hover, &:focus {
     background: #2bb24c;
   }
 `

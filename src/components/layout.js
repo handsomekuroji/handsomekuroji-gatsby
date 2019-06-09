@@ -17,9 +17,18 @@ const Wrapper = styled.div`
 `
 
 const ButtonDark = styled.button`
+  border-radius: 50%;
+  padding: 6px;
   position: absolute;
   top: 16px;
   right: 16px;
+  transition: 0.2s;
+
+  &:hover,
+  &:focus {
+    background: var(--c_4);
+    box-shadow: rgba(var(--c_9-rgb), 0.1) 0px 1px 6px;
+  }
 `
 
 export default function Layout({ children }) {

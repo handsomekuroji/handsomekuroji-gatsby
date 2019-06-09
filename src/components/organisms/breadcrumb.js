@@ -96,7 +96,8 @@ const Anchor = styled(Link)`
   position: relative;
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     &::before {
       transform: scaleX(1) translateY(-50%);
       transform-origin: center left;
