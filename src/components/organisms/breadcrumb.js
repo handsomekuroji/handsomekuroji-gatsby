@@ -48,6 +48,10 @@ const Ordered = styled.ol`
 
     ${media.m`padding: 12px 32px;`}
   }
+
+  &::after {
+    padding: 8px;
+  }
 `
 
 const Root = styled.li`
