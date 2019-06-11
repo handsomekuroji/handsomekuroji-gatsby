@@ -73,6 +73,7 @@ const Wrapper = styled.div`
       font: italic bold 7rem / 1.1 'Georgia', serif;
       left: -32px;
       position: absolute;
+      speak: none;
       text-indent: 0.1rem;
       top: -60px;
       white-space: pre;
@@ -247,6 +248,7 @@ const Wrapper = styled.div`
 
       &::before {
         content: '👉';
+        speak: none;
       }
     }
 

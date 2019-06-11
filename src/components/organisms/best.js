@@ -6,7 +6,8 @@ import Card from '../../components/molecules/card'
 
 const Wrapper = styled.div`
   margin: -16px calc(50% - 50vw);
-  overflow: scroll hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding: 16px 0;
   position: relative;
   -webkit-overflow-scrolling: touch;
