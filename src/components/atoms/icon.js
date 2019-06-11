@@ -2,9 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { media } from '../../components/variable/mixin'
-
 import modal from '../../plugins/modal'
-
 import Twitter from '../../images/icon/twitter.svg'
 import Facebook from '../../images/icon/facebook.svg'
 import Hatebu from '../../images/icon/hatebu.svg'
@@ -12,7 +10,7 @@ import Line from '../../images/icon/line.svg'
 import Pocket from '../../images/icon/pocket.svg'
 import Feedly from '../../images/icon/feedly.svg'
 
-const IconImg = css`
+const Css = css`
   align-items: center;
   background: var(--c_3);
   border-radius: 6px;
@@ -39,7 +37,7 @@ const IconImg = css`
   }
 `
 const TwitterIcon = styled.a`
-  ${IconImg}
+  ${Css}
 
   &:hover, &:focus {
     background: #1da1f2;
@@ -47,14 +45,14 @@ const TwitterIcon = styled.a`
 `
 
 const FacebookIcon = styled.a`
-  ${IconImg}
+  ${Css}
 
   &:hover, &:focus {
     background: #3b5998;
   }
 `
 const HatebuIcon = styled.a`
-  ${IconImg}
+  ${Css}
 
   &:hover, &:focus {
     background: #00a4de;
@@ -62,7 +60,7 @@ const HatebuIcon = styled.a`
 `
 
 const LineIcon = styled.a`
-  ${IconImg}
+  ${Css}
 
   &:hover, &:focus {
     background: #00c300;
@@ -70,7 +68,7 @@ const LineIcon = styled.a`
 `
 
 const PocketIcon = styled.a`
-  ${IconImg}
+  ${Css}
 
   &:hover, &:focus {
     background: #ef3f56;
@@ -78,7 +76,7 @@ const PocketIcon = styled.a`
 `
 
 const FeedlyIcon = styled.a`
-  ${IconImg}
+  ${Css}
 
   display: none;
 
@@ -89,9 +87,9 @@ const FeedlyIcon = styled.a`
   }
 `
 
-export default function Icon({ iconData }) {
-  const type = iconData.type
-  const url = iconData.url
+export default function Icon({ icon }) {
+  const type = icon.type
+  const url = icon.url
 
   const box = () => {
     modal(url, event)
@@ -108,13 +106,7 @@ export default function Icon({ iconData }) {
           <Facebook />
         </FacebookIcon>
       ) : type === 'Hatebu' ? (
-        <HatebuIcon
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="はてなブックマークでシェア"
-          onClick={box}
-        >
+        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="はてブでシェア" onClick={box}>
           <Hatebu />
         </HatebuIcon>
       ) : type === 'Line' ? (
@@ -137,5 +129,5 @@ export default function Icon({ iconData }) {
 }
 
 Icon.propTypes = {
-  iconData: PropTypes.object
+  icon: PropTypes.object
 }

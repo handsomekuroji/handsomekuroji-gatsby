@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { media } from '../variable/mixin'
-import lozad from '../../plugins/lozad'
 import Article from '../../components/molecules/article'
 
-const Wrapper = css`
+const Css = css`
   display: grid;
   gap: 24px;
 
@@ -17,30 +16,29 @@ const Wrapper = css`
   ${media.l`grid-template-columns: 1fr 1fr 1fr;`}
 `
 
-const LoopWrapper = styled.div`
-  ${Wrapper}
-`
-
-const TagLoopWrapper = styled.div`
-  ${Wrapper}
+const Wrapper = styled.div`
+  ${Css}
 
   margin: 16px 0 0;
 
   ${media.m`margin: 24px 0 0;`}
 `
 
-export default function Loop({ allPosts, inTags }) {
-  const loopPosts = allPosts.map((edge, i) => <Article key={i} postsData={edge} />)
-  const loopResult = inTags ? <TagLoopWrapper>{loopPosts}</TagLoopWrapper> : <LoopWrapper>{loopPosts}</LoopWrapper>
+const Other = styled.div`
+  ${Css}
 
-  React.useEffect(() => {
-    lozad()
-  }, [LoopWrapper])
+  margin: 16px 0 0;
 
-  return loopResult
+  ${media.m`margin: 24px 0 0;`}
+`
+
+export default function Loop({ edges, tag }) {
+  const articles = edges.map((edge, i) => <Article key={i} edge={edge} />)
+
+  return tag ? <Other>{articles}</Other> : <Wrapper>{articles}</Wrapper>
 }
 
 Loop.propTypes = {
-  allPosts: PropTypes.array,
-  inTags: PropTypes.bool
+  edges: PropTypes.array,
+  tag: PropTypes.bool
 }

@@ -6,11 +6,13 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
+import Best from '../components/organisms/best'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
 import Ads from '../components/atoms/ads'
+import lozad from '../plugins/lozad'
 
-const SiteMain = styled.main`
+const Main = styled.main`
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 16px);
@@ -29,17 +31,22 @@ const SiteMain = styled.main`
   ${media.l`max-width: 960px;`}
 `
 
-export default function IndexPage({ data, pageContext }) {
+export default function Index({ data, pageContext }) {
+  React.useEffect(() => {
+    lozad()
+  }, [Main])
+
   return (
     <Layout>
       <SEO />
-      <Header inIndex />
-      <SiteMain>
-        <Loop allPosts={data.allContentfulBlog.edges} />
-        <Pagination pagesData={pageContext} />
-      </SiteMain>
+      <Header index />
+      <Main>
+        <Best edges={data.allContentfulBest.edges} />
+        <Loop edges={data.allContentfulBlog.edges} />
+        <Pagination page={pageContext} />
+      </Main>
       <Ads />
-      <Footer alltags={data.allContentfulTag.edges} />
+      <Footer tag={data.allContentfulTag.edges} />
     </Layout>
   )
 }
@@ -57,6 +64,15 @@ export const query = graphql`
               url
             }
           }
+        }
+      }
+    }
+    allContentfulBest(sort: { fields: [updatedAt], order: DESC }) {
+      edges {
+        node {
+          title
+          slug
+          icon
         }
       }
     }

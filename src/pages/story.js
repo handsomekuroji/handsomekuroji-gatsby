@@ -9,7 +9,7 @@ import Footer from '../components/organisms/footer'
 import Balloon from '../components/molecules/balloon'
 import lozad from '../plugins/lozad'
 
-const StoryMain = styled.main`
+const Main = styled.main`
   background: var(--c_4);
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
@@ -39,29 +39,31 @@ const StoryMain = styled.main`
 `
 
 export default function NotFoundPage({ data }) {
-  const loopStory = data.allContentfulStory.edges.map((edge, i) => <Balloon key={i} balloonData={edge} />)
+  const title = 'Story'
 
-  const metaData = {
-    title: 'Story',
-    description: 'ぼくの物語',
-    url: 'story'
+  const seo = {
+    title: title,
+    url: 'story',
+    description: 'ぼくの物語'
   }
+
+  const story = data.allContentfulStory.edges.map((edge, i) => <Balloon key={i} edge={edge} />)
 
   React.useEffect(() => {
     lozad()
-  }, [StoryMain])
+  }, [Main])
 
   return (
     <Layout>
-      <SEO meta={metaData} />
-      <Header inContent="Story" />
-      <StoryMain>{loopStory}</StoryMain>
+      <SEO meta={seo} />
+      <Header title={title} />
+      <Main>{story}</Main>
       <Footer />
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
   query Story {
     allContentfulStory(sort: { fields: [createdAt], order: DESC }) {
       edges {

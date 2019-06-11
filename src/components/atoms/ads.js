@@ -3,7 +3,7 @@ import AdSense from 'react-adsense'
 import styled from 'styled-components'
 import { media } from '../../components/variable/mixin'
 
-const AdSenseContainer = styled.div`
+const Wrapper = styled.div`
   margin: 32px auto 0;
   max-width: 620px;
   width: 100%;
@@ -15,15 +15,15 @@ const AdSenseContainer = styled.div`
   `}
 `
 
-export default function ads() {
+export default function Ads() {
   return (
-    <AdSenseContainer>
+    <Wrapper>
       <AdSense.Google
         client="ca-pub-3005738200116146"
         slot="2919591828"
         data-ad-format="auto"
         data-full-width-responsive="true"
       />
-    </AdSenseContainer>
+    </Wrapper>
   )
 }

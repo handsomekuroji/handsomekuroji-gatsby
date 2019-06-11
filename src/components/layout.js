@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Global from './variable/global'
 
-import ThemeContext from '../context/ThemeContext'
+import Context from '../context/Theme'
 
 import Sun from '../images/icon/sun.svg'
 import Moon from '../images/icon/moon.svg'
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   padding: 0 0 16px;
 `
 
-const ButtonDark = styled.button`
+const Button = styled.button`
   border-radius: 50%;
   padding: 6px;
   position: absolute;
@@ -27,25 +27,13 @@ const ButtonDark = styled.button`
   &:hover,
   &:focus {
     background: var(--c_4);
-    box-shadow: rgba(var(--c_9-rgb), 0.1) 0px 1px 6px;
+    box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   }
 `
 
 export default function Layout({ children }) {
   const attr = theme => {
     return { class: theme.dark ? 'dark' : 'light', id: 'body' }
-  }
-
-  const toggle = theme => {
-    return theme.toggleDark
-  }
-
-  const button = theme => {
-    return theme.dark ? (
-      <Sun width="32" height="32" alt="ライトモードボタン" loading="lazy" decoding="async" />
-    ) : (
-      <Moon width="32" height="32" alt="ダークモードボタン" loading="lazy" decoding="async" />
-    )
   }
 
   const pressed = theme => {
@@ -56,10 +44,22 @@ export default function Layout({ children }) {
     return theme.dark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'
   }
 
+  const toggle = theme => {
+    return theme.toggle
+  }
+
+  const button = theme => {
+    return theme.dark ? (
+      <Sun width="32" height="32" alt="ライトモードボタン" loading="lazy" decoding="async" />
+    ) : (
+      <Moon width="32" height="32" alt="ダークモードボタン" loading="lazy" decoding="async" />
+    )
+  }
+
   const cssTheme = theme => (
     <Wrapper>
       <Helmet bodyAttributes={attr(theme)} />
-      <ButtonDark
+      <Button
         type="button"
         aria-pressed={pressed(theme)}
         aria-label={label(theme)}
@@ -67,13 +67,13 @@ export default function Layout({ children }) {
         onClick={toggle(theme)}
       >
         {button(theme)}
-      </ButtonDark>
+      </Button>
       <Global />
       {children}
     </Wrapper>
   )
 
-  return <ThemeContext.Consumer>{cssTheme}</ThemeContext.Consumer>
+  return <Context.Consumer>{cssTheme}</Context.Consumer>
 }
 
 Layout.propTypes = {

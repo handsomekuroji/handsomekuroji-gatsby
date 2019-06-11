@@ -1,17 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { font, media } from '../components/variable/mixin'
-
+import { media } from '../components/variable/mixin'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
+import TagHeader from '../components/organisms/tagHeader'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
 import Ads from '../components/atoms/ads'
+import lozad from '../plugins/lozad'
 
-const TagMain = styled.main`
+const Main = styled.main`
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 16px);
@@ -30,82 +31,38 @@ const TagMain = styled.main`
   ${media.l`max-width: 960px;`}
 `
 
-const TagHeader = styled.header`
-  display: grid;
-  gap: 8px;
-  grid-template-columns: auto 1fr;
-
-  ${media.l`gap: 12px 16px;`}
-`
-
-const TagImage = styled.img`
-  border-radius: 50%;
-  grid-row: 1 / 3;
-  height: 48px;
-  object-fit: cover;
-  width: 48px;
-
-  ${media.l`
-    height: 64px;
-    width: 64px;
-  `}
-`
-
-const TagTitle = styled.h1`
-  align-self: flex-end;
-  color: var(--c_1);
-  font: bold 1.5rem / 1 ${font.$f_1};
-
-  &::before {
-    content: '#';
-  }
-
-  ${media.l`font-size: 2rem;`}
-`
-
-const TagCount = styled.div`
-  font: 0.9rem / 1 ${font.$f_1};
-  margin: 0 0 0 2px;
-
-  ${media.l`font-size: 0.9rem;`}
-`
-
-export default function tagTemplate({ data, pageContext }) {
+export default function Tag({ data, pageContext }) {
   const tag = data.contentfulTag
-  const posts = data.allContentfulBlog.edges
-  const tagName = tag.name
-  const tagImg = posts.slice(-1)[0].node.thumbnail.file.url
-  const tagCount = `投稿数 ${data.allContentfulBlog.totalCount} 件`
+  const edges = data.allContentfulBlog.edges
+  const name = tag.name
 
-  const metaData = {
-    title: tagName,
-    description: tag.description.description.replace(/\r?\n/g, ''),
-    url: tag.slug
+  const seo = {
+    title: name,
+    url: tag.slug,
+    description: tag.description.description.replace(/\r?\n/g, '')
   }
+
+  const meta = {
+    img: edges.slice(-1)[0].node.thumbnail.file.url,
+    title: name,
+    count: `投稿数 ${data.allContentfulBlog.totalCount} 件`
+  }
+
+  React.useEffect(() => {
+    lozad()
+  }, [Main])
 
   return (
     <Layout>
-      <SEO meta={metaData} />
+      <SEO meta={seo} />
       <Header />
-      <TagMain>
-        <TagHeader>
-          <TagImage
-            src={`${tagImg}?w=96`}
-            data-srcset={`${tagImg}?w=128 1040w`}
-            width="48"
-            height="48"
-            alt={tagName}
-            loading="lazy"
-            decoding="async"
-          />
-          <TagTitle>{tagName}</TagTitle>
-          <TagCount>{tagCount}</TagCount>
-        </TagHeader>
-        <Loop allPosts={posts} inTags />
-        <Pagination pagesData={pageContext} />
-      </TagMain>
+      <Main>
+        <TagHeader header={meta} />
+        <Loop edges={edges} tag />
+        <Pagination page={pageContext} />
+      </Main>
       <Ads />
-      <Footer alltags={data.allContentfulTag.edges} />
+      <Footer tag={data.allContentfulTag.edges} />
     </Layout>
   )
 }

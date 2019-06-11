@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import share from '../../plugins/share'
 
-const ShareButton = styled.button`
+const Button = styled.button`
   align-items: center;
   align-self: center;
   border: 1px solid var(--c_7);
@@ -19,26 +19,28 @@ const ShareButton = styled.button`
   padding: 0 16px;
 `
 
-export default function Share({ shareData }) {
-  const [isActive, setIsActive] = React.useState(false)
+export default function Share({ meta }) {
+  const [active, setActive] = React.useState(false)
 
-  const shareLink = () => {
-    share(shareData)
+  const link = meta => {
+    share(meta)
   }
 
-  React.useLayoutEffect(() => {
-    setIsActive(navigator.share && true)
-  }, [ShareButton])
-
-  return isActive ? (
-    <ShareButton type="button" onClick={shareLink}>
+  const button = active ? (
+    <Button type="button" onClick={link(meta)}>
       SHARE
-    </ShareButton>
+    </Button>
   ) : (
     ''
   )
+
+  React.useLayoutEffect(() => {
+    setActive(navigator.share && true)
+  }, [Button])
+
+  return button
 }
 
 Share.propTypes = {
-  shareData: PropTypes.object
+  meta: PropTypes.object
 }

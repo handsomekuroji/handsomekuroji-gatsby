@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import lozad from '../plugins/lozad'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
 import SEO from '../components/seo'
@@ -10,8 +9,9 @@ import Footer from '../components/organisms/footer'
 import Box from '../components/molecules/box'
 import Breadcrumb from '../components/organisms/breadcrumb'
 import Ads from '../components/atoms/ads'
+import lozad from '../plugins/lozad'
 
-const BestMain = styled.main`
+const Main = styled.main`
   display: grid;
   grid-gap: 24px;
   margin: 32px auto 0;
@@ -39,50 +39,44 @@ const BestMain = styled.main`
   `}
 `
 
-export default function bestTemplate({ data }) {
+export default function Best({ data }) {
   const best = data.contentfulBest
-  const slug = best.slug
   const title = `ぼくが好きな「${best.title}」まとめ`
-  const desc = best.content.content.replace(/\r?\n/g, '')
+  const slug = best.slug
 
-  const loopBox = data.allContentfulFaves.edges.map((edge, i) => (
-    <Box key={i} boxData={edge} boxCount={i} boxSlug={slug} />
-  ))
+  const loop = data.allContentfulFaves.edges.map((edge, i) => <Box key={i} edge={edge} count={i} />)
 
-  const metaData = {
+  const seo = {
     title: title,
-    description: desc,
-    url: `best/${slug}`
+    url: `best/${slug}`,
+    description: best.content.content.replace(/\r?\n/g, ''),
+    best: true
   }
 
   React.useEffect(() => {
     lozad()
-  }, [loopBox])
+  }, [loop])
 
   return (
     <Layout>
-      <SEO meta={metaData} />
-      <Header inContent={title} />
-      <BestMain>
-        {loopBox}
-        <Breadcrumb breadcrumbData={metaData} />
-      </BestMain>
+      <SEO meta={seo} />
+      <Header title={title} />
+      <Main>
+        {loop}
+        <Breadcrumb breadcrumb={seo} />
+      </Main>
       <Ads />
       <Footer />
     </Layout>
   )
 }
 
-export const bestQuery = graphql`
+export const query = graphql`
   query BestBySlug($slug: String!) {
     contentfulBest(slug: { eq: $slug }) {
-      slug
       title
-      thumbnail {
-        file {
-          url
-        }
-      }
+      slug
+      icon
       content {
         content
         childMarkdownRemark {

@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { media } from '../variable/mixin'
 import Photo from '../../images/main/handsomekuroji.jpg'
 
-const BalloonArticle = styled.article`
+const Article = styled.article`
   display: grid;
   gap: 4px 16px;
   grid-template-columns: auto 1fr;
@@ -21,7 +21,20 @@ const BalloonArticle = styled.article`
   }
 `
 
-const BalloonContainer = styled.div`
+const Time = styled.time`
+  font-size: 0.8rem;
+`
+
+const Img = styled.img`
+  border-radius: 50%;
+  grid-row: 1 / 3;
+  height: auto;
+  width: 48px;
+
+  ${media.ms`width: 56px;`}
+`
+
+const Container = styled.div`
   background: var(--c_10);
   border-radius: 8px;
   color: var(--c_1);
@@ -49,7 +62,7 @@ const BalloonContainer = styled.div`
   }
 `
 
-const BalloonInner = styled.div`
+const Inner = styled.div`
   p {
     letter-spacing: 0.05rem;
     line-height: 1.8;
@@ -65,20 +78,7 @@ const BalloonInner = styled.div`
   }
 `
 
-const BalloonTime = styled.time`
-  font-size: 0.8rem;
-`
-
-const BalloonIcon = styled.img`
-  border-radius: 50%;
-  grid-row: 1 / 3;
-  height: auto;
-  width: 48px;
-
-  ${media.ms`width: 56px;`}
-`
-
-export default function Balloon({ balloonData }) {
+export default function Balloon({ edge }) {
   const siteData = useStaticQuery(graphql`
     query BalloonQuery {
       site {
@@ -89,12 +89,12 @@ export default function Balloon({ balloonData }) {
     }
   `)
 
-  const date = balloonData.node.createdAt
+  const date = edge.node.createdAt
   const time = dayjs(date).format('YYYY.MM.DD ddd HH:mm:ss')
 
   return (
-    <BalloonArticle id={balloonData.node.text.id}>
-      <BalloonIcon
+    <Article id={edge.node.text.id}>
+      <Img
         data-src={Photo}
         width="80"
         height="80"
@@ -102,18 +102,18 @@ export default function Balloon({ balloonData }) {
         loading="lazy"
         decoding="async"
       />
-      <BalloonTime dateTime={date}>{time}</BalloonTime>
-      <BalloonContainer>
-        <BalloonInner
+      <Time dateTime={date}>{time}</Time>
+      <Container>
+        <Inner
           dangerouslySetInnerHTML={{
-            __html: balloonData.node.text.childMarkdownRemark.html
+            __html: edge.node.text.childMarkdownRemark.html
           }}
         />
-      </BalloonContainer>
-    </BalloonArticle>
+      </Container>
+    </Article>
   )
 }
 
 Balloon.propTypes = {
-  balloonData: PropTypes.object
+  edge: PropTypes.object
 }

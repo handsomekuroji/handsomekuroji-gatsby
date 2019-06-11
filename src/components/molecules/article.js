@@ -6,9 +6,9 @@ import dayjs from 'dayjs'
 import { font, media } from '../variable/mixin'
 import Thumbnail from '../../components/atoms/thumbnail'
 
-const ArticleLink = styled(Link)`
+const Anchor = styled(Link)`
   border-radius: 8px;
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0px 1px 6px;
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   color: var(--c_0);
   display: grid;
   font-size: 0.95rem;
@@ -53,12 +53,12 @@ const ArticleLink = styled(Link)`
   }
 `
 
-const ArticleFigure = styled.figure`
+const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 `
 
-const ArticleInner = styled.div`
+const Header = styled.header`
   background: var(--c_4);
   border-radius: 0 0 8px 8px;
   box-sizing: border-box;
@@ -69,41 +69,41 @@ const ArticleInner = styled.div`
   transition: background 0.3s;
 `
 
-const ArticleTitle = styled.h2`
+const Title = styled.h2`
   color: var(--c_1);
   font: bold 0.95rem / 1.5 ${font.$f_1};
 
   ${media.m`font-size: 1rem;`}
 `
 
-const ArticleTime = styled.time`
+const Time = styled.time`
   color: var(--c_7);
   font-family: ${font.$f_1};
   font-size: 0.8rem;
   margin: auto 0 0;
 `
 
-export default function Article({ postsData }) {
-  const post = postsData.node ? postsData.node : postsData
-  const time = post.createdAt
-  const date = dayjs(time).format('YYYY.MM.DD ddd')
+export default function Article({ edge }) {
+  const post = edge.node ? edge.node : edge
+  const date = post.createdAt
+  const time = dayjs(date).format('YYYY.MM.DD ddd')
   const title = post.title
 
   return (
     <article>
-      <ArticleLink to={'/' + post.slug}>
-        <ArticleFigure>
-          <Thumbnail imgSrc={post.thumbnail.file.url} imgAlt={title} />
-        </ArticleFigure>
-        <ArticleInner>
-          <ArticleTitle>{title}</ArticleTitle>
-          <ArticleTime dateTime={time}>{date}</ArticleTime>
-        </ArticleInner>
-      </ArticleLink>
+      <Anchor to={`/${post.slug}`}>
+        <Figure>
+          <Thumbnail src={post.thumbnail.file.url} alt={title} />
+        </Figure>
+        <Header>
+          <Title>{title}</Title>
+          <Time dateTime={date}>{time}</Time>
+        </Header>
+      </Anchor>
     </article>
   )
 }
 
 Article.propTypes = {
-  postsData: PropTypes.object
+  edge: PropTypes.object
 }

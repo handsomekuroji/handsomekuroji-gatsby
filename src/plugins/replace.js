@@ -1,16 +1,16 @@
 import dummy from '../images/main/dummy.svg'
 
-export default replaceTarget => {
-  const replaceImage = /<p><img src="([^>]*?)" alt="([^>]*?)" width="([^>]*?)" height="([^>]*?)"><\/p>/gi
-  const replaceYoutube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
-  const replaceStory = /<p><span data-youtube="([^>]*?)">([\s\S^>]*?)<\/span><\/p>/gi
-  const replaceIframe = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">iframe<\/a><\/p>/gi
-  const replaceAmazon = /<p><span data-amazon="([^>]*?)">([^>]*?)<\/span><\/p>/gi
-  const replaceAmaImg = /<p><span data-amazon="([^>]*?)" data-amaimg="([^>]*?)">([^>]*?)<\/span><\/p>/gi
+export default target => {
+  const image = /<p><img src="([^>]*?)" alt="([^>]*?)" width="([^>]*?)" height="([^>]*?)"><\/p>/gi
+  const youtube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
+  const story = /<p><span data-youtube="([^>]*?)">([\s\S^>]*?)<\/span><\/p>/gi
+  const iframe = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">iframe<\/a><\/p>/gi
+  const amazon = /<p><span data-amazon="([^>]*?)">([^>]*?)<\/span><\/p>/gi
+  const amazonImage = /<p><span data-amazon="([^>]*?)" data-amaimg="([^>]*?)">([^>]*?)<\/span><\/p>/gi
 
-  return replaceTarget
+  return target
     .replace(/\s+/g, ' ')
-    .replace(replaceImage, (match, img, alt, width, height) => {
+    .replace(image, (match, img, alt, width, height) => {
       return `
         <figure>
           <picture>
@@ -20,7 +20,7 @@ export default replaceTarget => {
         </figure>
       `
     })
-    .replace(replaceYoutube, (match, id) => {
+    .replace(youtube, (match, id) => {
       return `
         <figure class="youtube" data-youtube="${id}">
           <div id="${id}">
@@ -30,7 +30,7 @@ export default replaceTarget => {
         </figure>
       `
     })
-    .replace(replaceStory, (match, id, text) => {
+    .replace(story, (match, id, text) => {
       return `
         <div class="storyline">
           <figure class="youtube" data-youtube="${id}">
@@ -43,14 +43,14 @@ export default replaceTarget => {
         </div>
       `
     })
-    .replace(replaceIframe, (match, url) => {
+    .replace(iframe, (match, url) => {
       return `
         <figure class="iframe">
           <iframe class="iframe__data" data-src="${url}" width="640" height="360" loading="lazy" allowfullscreen></iframe>
         </figure>
       `
     })
-    .replace(replaceAmaImg, (match, id, img, text) => {
+    .replace(amazonImage, (match, id, img, text) => {
       const title = text.replace(/( )/gi, '</span><span class="item__title">')
       return `
         <div class="item">
@@ -70,7 +70,7 @@ export default replaceTarget => {
         </div>
       `
     })
-    .replace(replaceAmazon, (match, id, text) => {
+    .replace(amazon, (match, id, text) => {
       const title = text.replace(/( )/gi, '</span><span class="item__title">')
       return `
         <div class="item">

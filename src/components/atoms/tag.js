@@ -4,13 +4,13 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { font, media } from '../variable/mixin'
 
-const TagList = styled.li`
+const List = styled.li`
   margin: 8px;
 
   ${media.ms`margin: 8px 12px;`}
 `
 
-const TagLink = styled(Link)`
+const Anchor = styled(Link)`
   color: var(--c_0);
   display: flex;
   font: 1rem / 1 ${font.$f_1};
@@ -47,19 +47,17 @@ const TagLink = styled(Link)`
   }
 `
 
-export default function Tag({ tagList }) {
-  const tagData = tagList.node
-
+export default function Tag({ edge }) {
   return (
-    <TagList>
-      <TagLink to={`/${tagData.slug}`}>
+    <List>
+      <Anchor to={`/${edge.node.slug}`}>
         <span aria-hidden="true">#</span>
-        {tagData.name}
-      </TagLink>
-    </TagList>
+        {edge.node.name}
+      </Anchor>
+    </List>
   )
 }
 
 Tag.propTypes = {
-  tagList: PropTypes.object
+  edge: PropTypes.object
 }

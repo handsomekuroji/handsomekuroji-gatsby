@@ -3,16 +3,15 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Wrapper = styled.nav`
+const Navigation = styled.nav`
   align-items: center;
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 1fr);
   margin: 32px auto 0;
-  width: fit-content;
 `
 
-const Inner = styled.ul`
+const UnOrdered = styled.ul`
   align-items: center;
   display: grid;
   gap: 16px;
@@ -27,7 +26,7 @@ const Current = styled.li`
   padding: 8px;
 `
 
-const PageLink = styled(Link)`
+const Anchor = styled(Link)`
   color: var(--c_0);
   display: flex;
   flex-direction: column;
@@ -61,7 +60,7 @@ const PageLink = styled(Link)`
   }
 `
 
-const PrevLink = styled(Link)`
+const Prev = styled(Link)`
   color: var(--c_0);
   font: italic bold 1rem / 1.1 'Georgia', serif;
   grid-column: 1 / 2;
@@ -83,7 +82,7 @@ const PrevLink = styled(Link)`
   }
 `
 
-const NextLink = styled(Link)`
+const Next = styled(Link)`
   color: var(--c_0);
   font: italic bold 1rem / 1.1 'Georgia', serif;
   grid-column: 3 / 4;
@@ -105,37 +104,36 @@ const NextLink = styled(Link)`
   }
 `
 
-export default function Pagination({ pagesData }) {
-  const { length, pages, number, slug } = pagesData
+export default function Pagination({ page }) {
+  const { length, pages, number, slug } = page
 
   const first = number === 1
   const last = number === pages
+  const main = slug ? `/${slug}` : ''
 
-  const prevPage = number - 1 === 1 ? '' : number - 1
-  const nextPage = number + 1
+  const prevSlug = number - 1 === 1 ? '' : number - 1
+  const nextSlug = number + 1
 
-  const slugUrl = slug ? `/${slug}` : ''
-
-  const prevUrl = first ? null : `${slugUrl}/${prevPage}`
-  const nextUrl = last ? null : `${slugUrl}/${nextPage}`
+  const prevUrl = first ? null : `${main}/${prevSlug}`
+  const nextUrl = last ? null : `${main}/${nextSlug}`
 
   const min = last ? 3 : 2
   const max = first ? 3 : 2
 
-  const minMax = i => {
+  const calc = i => {
     return i !== number && i >= number - min && i <= number + max
   }
 
-  const numSlug = i => {
-    return slugUrl + (i === 1 ? '/' : `/${i}`)
+  const url = i => {
+    return main + (i === 1 || `/${i}`)
   }
 
   const inner = length.map((_, i) =>
-    minMax(++i) ? (
+    calc(++i) ? (
       <li>
-        <PageLink key={i} to={numSlug(i)} aria-label={`${i}ページ目へ`}>
+        <Anchor key={i} to={url(i)} aria-label={`${i}ページ目へ`}>
           {i}
-        </PageLink>
+        </Anchor>
       </li>
     ) : (
       i === number && (
@@ -146,27 +144,27 @@ export default function Pagination({ pagesData }) {
     )
   )
 
-  const pagesDisplay = pages > 1 && <Inner>{inner}</Inner>
-  const prevDisplay = !first && (
-    <PrevLink to={prevUrl} aria-label="前のページへ">
+  const unordered = pages > 1 && <UnOrdered>{inner}</UnOrdered>
+  const prevArrow = !first && (
+    <Prev to={prevUrl} aria-label="前のページへ">
       ←
-    </PrevLink>
+    </Prev>
   )
-  const nextDisplay = !last && (
-    <NextLink to={nextUrl} aria-label="次のページへ">
+  const nextArrow = !last && (
+    <Next to={nextUrl} aria-label="次のページへ">
       →
-    </NextLink>
+    </Next>
   )
 
   return (
-    <Wrapper aria-label="ページナビゲーション">
-      {prevDisplay}
-      {pagesDisplay}
-      {nextDisplay}
-    </Wrapper>
+    <Navigation aria-label="ページナビゲーション">
+      {prevArrow}
+      {unordered}
+      {nextArrow}
+    </Navigation>
   )
 }
 
 Pagination.propTypes = {
-  pagesData: PropTypes.object
+  page: PropTypes.object
 }

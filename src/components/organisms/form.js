@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { media, font } from '../variable/mixin'
 
-const FormSection = styled.section`
+const Section = styled.section`
   box-sizing: border-box;
   padding: 0 16px 32px;
 
@@ -13,21 +13,21 @@ const FormSection = styled.section`
   ${media.m`padding: 0 64px 48px;`}
 `
 
-const FormContainer = styled.form`
+const Wrapper = styled.form`
   display: grid;
   grid-gap: 16px;
 `
 
-const FormBlock = styled.div`
+const Block = styled.div`
   display: grid;
   grid-gap: 8px;
 `
 
-const FromLabel = styled.label`
+const Label = styled.label`
   font: 1rem / 1 ${font.$f_1};
 `
 
-const FormInput = styled.input`
+const Input = styled.input`
   background: var(--c_4);
   border: 1px solid var(--c_7);
   border-radius: 6px;
@@ -41,7 +41,7 @@ const FormInput = styled.input`
   }
 `
 
-const FormTextarea = styled.textarea`
+const Textarea = styled.textarea`
   background: var(--c_4);
   border: 1px solid var(--c_7);
   border-radius: 6px;
@@ -56,7 +56,7 @@ const FormTextarea = styled.textarea`
   }
 `
 
-const FormButton = styled.button`
+const Button = styled.button`
   background: var(--c_0);
   border: 1px solid var(--c_0);
   border-radius: 6px;
@@ -79,57 +79,43 @@ const Hidden = styled.div`
 
 export default function Form() {
   return (
-    <FormSection>
-      <FormContainer name="contact" action="/thanks" netlify-honeypot="bot-field" data-netlify="true" method="post">
-        <input type="hidden" name="form-name" value="contact" aria-label="hidden" />
+    <Section>
+      <Wrapper name="contact" action="/thanks" netlify-honeypot="bot-field" data-netlify="true" method="post">
+        <input type="hidden" name="form-name" value="contact" aria-hedden="true" />
         <Hidden>
           <label id="dont" htmlFor="bot">
             Don’t fill this out
           </label>
           <input id="bot" type="text" name="bot-field" aria-labelby="dont" />
         </Hidden>
-        <FormBlock>
-          <FromLabel id="nameLabel" htmlFor="name">
+        <Block>
+          <Label id="name" htmlFor="name" aria-label="名前">
             Name
-          </FromLabel>
-          <FormInput
-            id="name"
-            type="text"
-            name="name"
-            autoComplete="name"
-            required="required"
-            aria-labelby="nameLabel"
-          />
-        </FormBlock>
-        <FormBlock>
-          <FromLabel id="emailLabel" htmlFor="email">
+          </Label>
+          <Input id="name" type="text" name="name" autoComplete="name" required="required" aria-labelby="name" />
+        </Block>
+        <Block>
+          <Label id="email" htmlFor="email" aria-label="メールアドレス">
             Email
-          </FromLabel>
-          <FormInput
-            id="email"
-            type="email"
-            name="email"
-            autoComplete="email"
-            required="required"
-            aria-labelby="emailLabel"
-          />
-        </FormBlock>
-        <FormBlock>
-          <FromLabel id="titleLabel" htmlFor="title">
+          </Label>
+          <Input id="email" type="email" name="email" autoComplete="email" required="required" aria-labelby="email" />
+        </Block>
+        <Block>
+          <Label id="title" htmlFor="title" aria-label="タイトル">
             Title
-          </FromLabel>
-          <FormInput id="title" type="text" name="title" required="required" aria-labelby="titleLabel" />
-        </FormBlock>
-        <FormBlock>
-          <FromLabel id="messageLabel" htmlFor="message">
+          </Label>
+          <Input id="title" type="text" name="title" required="required" aria-labelby="title" />
+        </Block>
+        <Block>
+          <Label id="message" htmlFor="message" aria-label="メッセージ">
             Message
-          </FromLabel>
-          <FormTextarea id="message" name="message" required="required" aria-labelby="messageLabel" />
-        </FormBlock>
-        <FormButton aria-label="フォームの内容を送信" type="submit">
+          </Label>
+          <Textarea id="message" name="message" required="required" aria-labelby="message" />
+        </Block>
+        <Button type="submit" aria-label="フォームの内容を送信">
           SEND
-        </FormButton>
-      </FormContainer>
-    </FormSection>
+        </Button>
+      </Wrapper>
+    </Section>
   )
 }

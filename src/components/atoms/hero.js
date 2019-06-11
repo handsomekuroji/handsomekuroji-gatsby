@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import dummy from '../../images/main/dummy.svg'
 
-const HeroImg = styled.img`
+const Img = styled.img`
   background: var(--c_2);
   height: auto;
   vertical-align: bottom;
@@ -14,23 +14,23 @@ const HeroImg = styled.img`
   }
 `
 
-export default function Hero({ imgSrc, imgAlt }) {
-  const srcSet = fm => {
-    const webp = fm && 'fm=webp&'
-    return `${imgSrc}?${webp}w=320 640w, ${imgSrc}?${webp}w=640 760w, ${imgSrc}?${webp}w=1280 1280w`
+export default function Hero({ src, alt }) {
+  const srcset = bool => {
+    const webp = bool ? 'fm=webp&' : ''
+    return `${src}?${webp}w=320 640w, ${src}?${webp}w=640 760w, ${src}?${webp}w=1280 1280w`
   }
 
   return (
     <picture>
-      <source type="image/webp" data-srcset={srcSet(true)} data-sizes="100w" />
-      <HeroImg
+      <source type="image/webp" data-srcset={srcset(true)} data-sizes="100w" />
+      <Img
         src={dummy}
-        data-src={imgSrc}
-        data-srcset={srcSet}
-        content={imgSrc}
+        data-src={src}
+        data-srcset={srcset(false)}
+        content={src}
         width="640"
         height="360"
-        alt={imgAlt}
+        alt={alt}
         loading="lazy"
         decoding="async"
       />
@@ -39,6 +39,6 @@ export default function Hero({ imgSrc, imgAlt }) {
 }
 
 Hero.propTypes = {
-  imgSrc: PropTypes.string,
-  imgAlt: PropTypes.string
+  src: PropTypes.string,
+  alt: PropTypes.string
 }

@@ -8,7 +8,7 @@ import Amazon from '../../images/icon/amazon.svg'
 import Netflix from '../../images/icon/netflix.svg'
 import Hulu from '../../images/icon/hulu.svg'
 
-const BoxWrapper = styled.div`
+const Wrapper = styled.div`
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
   border-radius: 8px;
@@ -51,7 +51,7 @@ const BoxWrapper = styled.div`
   }
 `
 
-const BoxContainer = styled.div`
+const Container = styled.div`
   background: var(--c_4);
   border-radius: 8px;
   display: grid;
@@ -69,12 +69,12 @@ const BoxContainer = styled.div`
   }
 `
 
-const BoxFigure = styled.figure`
+const Figure = styled.figure`
   align-items: center;
   display: flex;
 `
 
-const BoxImage = styled.img`
+const Img = styled.img`
   border-radius: 8px;
   height: auto;
   position: relative;
@@ -82,13 +82,13 @@ const BoxImage = styled.img`
   z-index: 2;
 `
 
-const BoxTitle = styled.div`
+const Header = styled.header`
   display: flex;
   flex-direction: column;
   position: relative;
 `
 
-const BoxCount = styled.span`
+const Count = styled.span`
   color: var(--c_10);
   font: italic bold 9rem / 1.1 'Georgia', serif;
   left: -24px;
@@ -99,7 +99,7 @@ const BoxCount = styled.span`
   z-index: 1;
 `
 
-const BoxName = styled.h2`
+const Title = styled.h2`
   font: bold 1rem / 1.3 ${font.$f_1};
   margin: 16px 0 0;
   position: relative;
@@ -110,24 +110,24 @@ const BoxName = styled.h2`
   ${media.m`font-size: 1rem;`}
 `
 
-const BoxText = styled.p`
+const Small = styled.small`
   font: 0.7rem / 1.3 ${font.$f_1};
   margin: 4px 0 auto;
   position: relative;
   z-index: 2;
 `
 
-const BoxButton = styled.div`
+const Button = styled.div`
   display: grid;
   gap: 8px;
   grid-template-columns: repeat(auto-fill, 32px);
 `
 
-const BoxLink = styled.a`
+const Anchor = styled.a`
   border-radius: 6px;
 `
 
-const BoxIcon = css`
+const Css = css`
   align-items: center;
   background: var(--c_10);
   border-radius: 6px;
@@ -154,7 +154,7 @@ const BoxIcon = css`
 `
 
 const AmazonIcon = styled.span`
-  ${BoxIcon}
+  ${Css}
 
   &:hover {
     background: #ff9900;
@@ -162,7 +162,7 @@ const AmazonIcon = styled.span`
 `
 
 const NetflixIcon = styled.span`
-  ${BoxIcon}
+  ${Css}
 
   &:hover {
     background: #e50914;
@@ -170,14 +170,14 @@ const NetflixIcon = styled.span`
 `
 
 const HuluIcon = styled.span`
-  ${BoxIcon}
+  ${Css}
 
   &:hover {
     background: #3dbb3d;
   }
 `
 
-const BoxInner = styled(
+const Inner = styled(
   posed.div({
     closed: {
       height: 0,
@@ -220,7 +220,7 @@ const BoxInner = styled(
   }
 `
 
-const BoxVideo = styled.figure`
+const Block = styled.figure`
   border-radius: 8px;
   grid-column: 1 / 3;
   height: auto;
@@ -237,7 +237,7 @@ const BoxVideo = styled.figure`
   }
 `
 
-const BoxIframe = styled.iframe`
+const Iframe = styled.iframe`
   border: 0;
   height: 100%;
   position: absolute;
@@ -245,35 +245,30 @@ const BoxIframe = styled.iframe`
   width: 100%;
 `
 
-export default function Box({ boxData, boxCount, boxSlug }) {
-  const box = boxData.node
+export default function Box({ edge, count }) {
+  const box = edge.node
   const embed = box.embed
-  const url = box.url
+  const src = box.url
   const title = box.title
-  const link = box.affiliate
-  const count = boxCount + 1
+  const url = box.affiliate
+  const number = count + 1
 
-  const [isActive, setIsActive] = React.useState(false)
+  const [Active, setActive] = React.useState(false)
 
-  const boxOpen = () => {
-    setIsActive(isActive !== true)
+  const open = () => {
+    setActive(Active !== true)
   }
 
-  const boxKey = e => {
-    e.key === 'Enter' && setIsActive(isActive !== true)
+  const key = e => {
+    e.key === 'Enter' && setActive(Active !== true)
   }
 
-  const boxDel = e => {
+  const interrupt = e => {
     e.stopPropagation()
   }
 
-  const iframe =
-    embed && embed.includes('shonenjumpplus')
-      ? embed
-      : `https://www.youtube.com/embed/${embed}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`
-
-  const boxLinks = link.map((edge, i) => {
-    const linkIcon = edge.includes('amzn.to') ? (
+  const button = url.map((edge, i) => {
+    const link = edge.includes('amzn.to') ? (
       <AmazonIcon>
         <Amazon />
       </AmazonIcon>
@@ -290,66 +285,75 @@ export default function Box({ boxData, boxCount, boxSlug }) {
     )
 
     return (
-      <BoxLink key={i} href={edge} target="_blank" rel="noopener noreferrer" onClick={boxDel} onKeyDown={boxDel}>
-        {linkIcon}
-      </BoxLink>
+      <Anchor key={i} href={edge} target="_blank" rel="noopener noreferrer" onClick={interrupt} onKeyDown={interrupt}>
+        {link}
+      </Anchor>
     )
   })
 
-  const boxVideo = isActive && embed && (
-    <BoxVideo>
-      <BoxIframe
-        id={embed}
-        frameBorder="0"
-        allowFullScreen="1"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        title={title}
-        width="1280"
-        height="720"
-        loading="lazy"
-        src={iframe}
-      />
-    </BoxVideo>
-  )
+  const block = () => {
+    const iframe =
+      embed && embed.includes('shonenjumpplus')
+        ? embed
+        : `https://www.youtube.com/embed/${embed}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`
+
+    return (
+      embed &&
+      Active && (
+        <Block>
+          <Iframe
+            id={embed}
+            frameBorder="0"
+            allowFullScreen="1"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            title={title}
+            width="1280"
+            height="720"
+            loading="lazy"
+            src={iframe}
+          />
+        </Block>
+      )
+    )
+  }
 
   return (
     <article>
-      <BoxWrapper>
-        <BoxContainer onClick={boxOpen} onKeyDown={boxKey} tabIndex="0">
-          <BoxFigure>
-            <BoxImage
+      <Wrapper>
+        <Container onClick={open} onKeyDown={key} tabIndex="0">
+          <Figure>
+            <Img
               src={dummy}
-              data-src={url}
+              data-src={src}
               alt={title}
-              content={url}
+              content={src}
               width="360"
               height="640"
               loading="lazy"
               decoding="async"
             />
-          </BoxFigure>
-          <BoxTitle>
-            <BoxCount>{count}</BoxCount>
-            <BoxName>{title}</BoxName>
-            <BoxText>{box.text}</BoxText>
-            <BoxButton>{boxLinks}</BoxButton>
-          </BoxTitle>
-          <BoxInner pose={isActive ? 'open' : 'closed'}>
-            {boxVideo}
+          </Figure>
+          <Header>
+            <Count aria-hidden="true">{number}</Count>
+            <Title>{title}</Title>
+            <Small>{box.text}</Small>
+            <Button>{button}</Button>
+          </Header>
+          <Inner pose={Active ? 'open' : 'closed'}>
+            {block()}
             <div
               dangerouslySetInnerHTML={{
                 __html: box.content.childMarkdownRemark.html
               }}
             />
-          </BoxInner>
-        </BoxContainer>
-      </BoxWrapper>
+          </Inner>
+        </Container>
+      </Wrapper>
     </article>
   )
 }
 
 Box.propTypes = {
-  boxData: PropTypes.object,
-  boxCount: PropTypes.number,
-  boxSlug: PropTypes.string
+  edge: PropTypes.object,
+  count: PropTypes.number
 }

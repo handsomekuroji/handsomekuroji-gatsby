@@ -4,23 +4,22 @@ import ky from 'ky'
 import styled from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
 import { font } from '../../components/variable/mixin'
-
 import Icon from '../../images/icon/search.svg'
 
-const Search = styled.div`
+const Wrapper = styled.div`
   margin: 32px auto 0;
   position: relative;
   width: 240px;
 `
 
-const SearchIcon = styled(Icon)`
+const Img = styled(Icon)`
   stroke: rgba(var(--c_1-rgb), 0.5);
   position: absolute;
   right: 12px;
   top: calc(50% - 12px);
 `
 
-const Form = styled.input`
+const Input = styled.input`
   background: var(--c_2);
   border: none;
   border-radius: 32px;
@@ -58,7 +57,7 @@ const popover = {
   }
 }
 
-const Inner = styled(posed.div(popover))`
+const Container = styled(posed.div(popover))`
   left: -30px;
   position: absolute;
   top: 48px;
@@ -81,7 +80,7 @@ const Inner = styled(posed.div(popover))`
   }
 `
 
-const Container = styled.ul`
+const UnOrdered = styled.ul`
   background: #fcfcfc;
   border-radius: 8px;
   box-shadow: rgba(var(--c_9-rgb), 0.2) 0 3px 8px;
@@ -102,7 +101,7 @@ const List = styled.li`
   }
 `
 
-const SearchLink = styled(Link)`
+const Anchor = styled(Link)`
   box-sizing: border-box;
   color: #404040;
   display: block;
@@ -133,7 +132,7 @@ const SearchLink = styled(Link)`
 `
 
 export default function App() {
-  const [isActive, setIsActive] = React.useState(false)
+  const [Active, setActive] = React.useState(false)
   const [data, setData] = React.useState([])
   const [items, setItems] = React.useState([])
 
@@ -156,24 +155,24 @@ export default function App() {
     })()
   }, [setData])
 
-  const setTrue = () => {
-    setIsActive(true)
+  const activation = () => {
+    setActive(true)
   }
 
-  const setFalse = () => {
-    setIsActive(false)
+  const deactivate = () => {
+    setActive(false)
   }
 
-  const eventDelete = e => {
+  const interrupt = e => {
     e.preventDefault()
   }
 
   const filterList = e => {
     const value = e.target.value
-    const values = value.split(/\s+/).map(str => new RegExp(str, 'i'))
+    const valueList = value.split(/\s+/).map(str => new RegExp(str, 'i'))
     const updateList = value
       ? data.filter(list => {
-          return values.every(reg => {
+          return valueList.every(reg => {
             return reg.test(list.title) || reg.test(list.tag.join())
           })
         })
@@ -185,49 +184,45 @@ export default function App() {
     const slug = item.slug
     return (
       <List key={slug} role="option">
-        <SearchLink to={'/' + slug} onFocus={setTrue}>
+        <Anchor to={`/${slug}`} onFocus={activation}>
           {item.title}
-        </SearchLink>
+        </Anchor>
       </List>
     )
   })
 
-  const listInner = items.length > 0 && isActive && (
-    <Inner key="container" onMouseDown={eventDelete}>
-      <Container role="listbox">{listDom}</Container>
-    </Inner>
+  const listInner = items.length > 0 && Active && (
+    <Container key="container" onMouseDown={interrupt}>
+      <UnOrdered role="listbox">{listDom}</UnOrdered>
+    </Container>
   )
 
-  const espanded = !!(items.length > 0 && isActive)
-
-  const submit = e => {
-    e.preventDefault()
-  }
+  const espanded = !!(items.length > 0 && Active)
 
   return (
-    <Search>
-      <form action="/" onSubmit={submit} role="search">
-        <Form
+    <Wrapper>
+      <form action="/" onSubmit={interrupt} role="search">
+        <Input
           type="text"
           placeholder="Search"
           role="combobox"
           aria-label="サイト内を検索"
           aria-expanded={espanded}
           onChange={filterList}
-          onFocus={setTrue}
-          onBlur={setFalse}
+          onFocus={activation}
+          onBlur={deactivate}
         />
-        <SearchIcon
+        <Img
           width="24"
           height="24"
           alt="検索アイコン"
           loading="lazy"
           decoding="async"
           role="presentation"
-          onMouseDown={eventDelete}
+          onMouseDown={interrupt}
         />
       </form>
       <PoseGroup>{listInner}</PoseGroup>
-    </Search>
+    </Wrapper>
   )
 }

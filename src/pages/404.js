@@ -7,8 +7,9 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
+import lozad from '../plugins/lozad'
 
-const SiteMain = styled.main`
+const Main = styled.main`
   margin: 32px auto 0;
   max-width: 640px;
   width: calc(100% - 16px);
@@ -27,26 +28,32 @@ const SiteMain = styled.main`
   ${media.l`max-width: 960px;`}
 `
 
-export default function NotFoundPage({ data }) {
-  const metaData = {
-    title: '404: Not found',
-    description: 'このページは存在しません',
-    url: '/404'
+export default function NotFound({ data }) {
+  const title = '404 Not Found'
+
+  const seo = {
+    title: title,
+    url: '404',
+    description: 'このページは存在しません'
   }
+
+  React.useEffect(() => {
+    lozad()
+  }, [Main])
 
   return (
     <Layout>
-      <SEO meta={metaData} />
-      <Header in404 />
-      <SiteMain>
-        <Loop allPosts={data.allContentfulBlog.edges} />
-      </SiteMain>
-      <Footer alltags={data.allContentfulTag.edges} />
+      <SEO meta={seo} />
+      <Header title={title} />
+      <Main>
+        <Loop edges={data.allContentfulBlog.edges} />
+      </Main>
+      <Footer tag={data.allContentfulTag.edges} />
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
   query NotFound {
     allContentfulBlog(sort: { fields: [createdAt], order: DESC }, limit: 12) {
       edges {

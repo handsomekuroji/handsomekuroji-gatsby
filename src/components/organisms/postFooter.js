@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { media } from '../../components/variable/mixin'
 import Icon from '../../components/atoms/icon'
 
-const FooterContainer = styled.footer`
+const Footer = styled.footer`
   border-top: 1px solid var(--c_8);
   border-radius: 0 0 8px 8px;
   padding: 16px;
@@ -17,7 +17,7 @@ const FooterContainer = styled.footer`
   ${media.m`padding: 48px 64px;`}
 `
 
-const FooterInner = styled.div`
+const Container = styled.div`
   display: grid;
   gap: 12px;
   grid-auto-flow: column;
@@ -33,8 +33,8 @@ const FooterInner = styled.div`
   `}
 `
 
-export default function PostFooter({ footerData }) {
-  const siteData = useStaticQuery(graphql`
+export default function PostFooter({ footer }) {
+  const data = useStaticQuery(graphql`
     query PostFooterQuery {
       site {
         siteMetadata {
@@ -46,12 +46,13 @@ export default function PostFooter({ footerData }) {
     }
   `)
 
-  const url = siteData.site.siteMetadata.siteUrl + '/' + footerData.url
-  const title = footerData.title.replace('&#038;', '%26')
-  const domain = siteData.site.siteMetadata.domain
-  const account = siteData.site.siteMetadata.twitter
+  const meta = data.site.siteMetadata
+  const url = `${meta.siteUrl}/${footer.url}`
+  const title = footer.title.replace('&#038;', '%26')
+  const domain = meta.domain
+  const account = meta.twitter
 
-  const shareIcons = [
+  const icons = [
     {
       type: 'Twitter',
       url: `https://twitter.com/share?count=horizontal&lang=en&url=${url}&text=${title}&via=${account}`
@@ -78,15 +79,15 @@ export default function PostFooter({ footerData }) {
     }
   ]
 
-  const iconList = shareIcons.map((edge, i) => <Icon key={i} iconData={edge} />)
+  const list = icons.map((edge, i) => <Icon key={i} icon={edge} />)
 
   return (
-    <FooterContainer>
-      <FooterInner>{iconList}</FooterInner>
-    </FooterContainer>
+    <Footer>
+      <Container>{list}</Container>
+    </Footer>
   )
 }
 
 PostFooter.propTypes = {
-  footerData: PropTypes.object
+  footer: PropTypes.object
 }

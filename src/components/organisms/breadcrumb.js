@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
-import PropTypes from 'prop-types'
 import Icon from '../../images/main/hk.svg'
 
 const Navigation = styled.nav`
@@ -58,7 +58,7 @@ const Root = styled.li`
   line-height: 1;
 `
 
-const Logo = styled.img`
+const Img = styled.img`
   height: auto;
   margin: 0 2px 0 0;
   transition: 0.3s;
@@ -122,21 +122,21 @@ const Anchor = styled(Link)`
   }
 `
 
-export default function Breadcrumb({ breadcrumbData }) {
-  const best = breadcrumbData.description && 'best'
+export default function Breadcrumb({ breadcrumb }) {
+  const best = breadcrumb.best && 'best'
 
   return (
     <Navigation className={best} aria-label="breadcrumb">
       <Ordered>
         <Root>
           <Anchor to="/">
-            <Logo src={Icon} aria-hidden="true" focusable="false" loading="lazy" decoding="async" />
+            <Img src={Icon} aria-hidden="true" focusable="false" loading="lazy" decoding="async" />
             handsomekuroji
           </Anchor>
         </Root>
         <Separator aria-hidden="true">/</Separator>
         <List>
-          <Anchor to={breadcrumbData.url}>{breadcrumbData.title}</Anchor>
+          <Anchor to={breadcrumb.url}>{breadcrumb.title}</Anchor>
         </List>
       </Ordered>
     </Navigation>
@@ -144,5 +144,5 @@ export default function Breadcrumb({ breadcrumbData }) {
 }
 
 Breadcrumb.propTypes = {
-  breadcrumbData: PropTypes.object
+  breadcrumb: PropTypes.object
 }

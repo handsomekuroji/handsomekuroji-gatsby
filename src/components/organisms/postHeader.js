@@ -8,12 +8,12 @@ import Hero from '../../components/atoms/hero'
 import Share from '../../components/atoms/share'
 import Photo from '../../images/main/handsomekuroji.jpg'
 
-const PostHeaderFig = styled.figure`
+const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 `
 
-const PostHeaderInner = styled.div`
+const Container = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
@@ -28,26 +28,28 @@ const PostHeaderInner = styled.div`
   ${media.l`gap: 24px;`}
 `
 
-const PostTagContainer = styled.div`
+const UnOrdered = styled.ul`
   grid-column: 1 / 3;
   display: flex;
 `
 
-const PostTag = styled(Link)`
-  color: var(--c_0);
-  font: 0.8rem / 1 ${font.$f_1};
+const List = styled.li`
   margin: 0 0 0 8px;
-  position: relative;
-  text-decoration: none;
 
-  ${media.m`
-    font-size: 1rem;
-    margin: 0 0 0 12px;
-  `}
+  ${media.m`margin: 0 0 0 12px;`}
 
   &:first-of-type {
     margin: 0;
   }
+`
+
+const Tag = styled(Link)`
+  color: var(--c_0);
+  font: 0.8rem / 1 ${font.$f_1};
+  position: relative;
+  text-decoration: none;
+
+  ${media.m`font-size: 1rem;`}
 
   &:hover,
   &:focus {
@@ -75,7 +77,7 @@ const PostTag = styled(Link)`
   }
 `
 
-const PostTitle = styled.h1`
+const Title = styled.h1`
   color: var(--c_1);
   font: bold 1.3rem / 1.5 ${font.$f_1};
   grid-column: 1 / 3;
@@ -85,12 +87,12 @@ const PostTitle = styled.h1`
 
   ${media.l`font-size: 2rem;`}
 `
-const PostMeta = styled.div`
+const Meta = styled.div`
   display: grid;
   gap: 8px;
 `
 
-const PostPhoto = styled.img`
+const Img = styled.img`
   border-radius: 50%;
   grid-column: 1 / 2;
   grid-row: 1 / 3;
@@ -98,7 +100,7 @@ const PostPhoto = styled.img`
   width: 40px;
 `
 
-const PostName = styled(Link)`
+const Name = styled(Link)`
   color: var(--c_0);
   font: 0.8rem / 1 ${font.$f_1};
   grid-column: 2 / 3;
@@ -134,14 +136,14 @@ const PostName = styled(Link)`
   }
 `
 
-const PostTime = styled.time`
+const Time = styled.time`
   align-self: flex-end;
   color: var(--c_7);
   font: 0.8rem / 1 ${font.$f_1};
   margin: 0 0 auto;
 `
 
-const PostPrefaces = styled.div`
+const Prefaces = styled.div`
   border-top: 1px solid var(--c_8);
   box-sizing: border-box;
   font-size: 0.95rem;
@@ -177,7 +179,7 @@ const PostPrefaces = styled.div`
       top: -48px;
     `}
 
-    ${media.ms`left: 0px;`}
+    ${media.ms`left 0;`}
 
     ${media.m`
       font-size: 10rem
@@ -204,8 +206,8 @@ const PostPrefaces = styled.div`
   }
 `
 
-export default function PostHeader({ headerData }) {
-  const siteData = useStaticQuery(graphql`
+export default function PostHeader({ header }) {
+  const data = useStaticQuery(graphql`
     query PostHeaderQuery {
       site {
         siteMetadata {
@@ -216,40 +218,42 @@ export default function PostHeader({ headerData }) {
     }
   `)
 
-  const date = dayjs(headerData.date).format('YYYY.MM.DD ddd')
-  const title = headerData.title
-  const author = siteData.site.siteMetadata.author
+  const date = dayjs(header.date).format('YYYY.MM.DD ddd')
+  const title = header.title
+  const author = data.site.siteMetadata.author
 
-  const headerShare = {
+  const share = {
     title: title,
-    url: siteData.site.siteMetadata.siteUrl + '/' + headerData.url
+    url: `${data.site.siteMetadata.siteUrl}/${header.url}`
   }
 
-  const hederTags = headerData.tag.map((edge, i) => (
-    <PostTag key={i} to={`/${edge.slug}`}>
-      <span>#</span>
-      {edge.name}
-    </PostTag>
+  const tags = header.tag.map((edge, i) => (
+    <List key={i}>
+      <Tag to={`/${edge.slug}`}>
+        <span aria-hidden="true">#</span>
+        {edge.name}
+      </Tag>
+    </List>
   ))
 
   return (
     <header>
-      <PostHeaderFig>
-        <Hero imgSrc={headerData.src} imgAlt={title} />
-      </PostHeaderFig>
-      <PostHeaderInner>
-        <PostTagContainer>{hederTags}</PostTagContainer>
-        <PostTitle>{title}</PostTitle>
-        <PostMeta>
-          <PostPhoto data-src={Photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
-          <PostName to="/about">{author}</PostName>
-          <PostTime dateTime={headerData.date}>{date}</PostTime>
-        </PostMeta>
-        <Share shareData={headerShare} />
-      </PostHeaderInner>
-      <PostPrefaces
+      <Figure>
+        <Hero src={header.img} alt={title} />
+      </Figure>
+      <Container>
+        <UnOrdered>{tags}</UnOrdered>
+        <Title>{title}</Title>
+        <Meta>
+          <Img data-src={Photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
+          <Name to="/about">{author}</Name>
+          <Time dateTime={header.date}>{date}</Time>
+        </Meta>
+        <Share meta={share} />
+      </Container>
+      <Prefaces
         dangerouslySetInnerHTML={{
-          __html: headerData.desc
+          __html: header.description
         }}
       />
     </header>
@@ -257,5 +261,5 @@ export default function PostHeader({ headerData }) {
 }
 
 PostHeader.propTypes = {
-  headerData: PropTypes.object
+  header: PropTypes.object
 }

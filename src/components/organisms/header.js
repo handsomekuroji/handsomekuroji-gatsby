@@ -6,14 +6,14 @@ import { media, font } from '../../components/variable/mixin'
 import Logo from '../atoms/logo'
 import Search from '../atoms/search'
 
-const SiteHeader = styled.header`
+const Wrapper = styled.header`
   padding: 32px 0 0;
   text-align: center;
 
   ${media.ls`padding: 48px 0 0;`}
 `
 
-const SiteHeading = css`
+const Css = css`
   display: inline-block;
   width: 60px;
 
@@ -22,15 +22,15 @@ const SiteHeading = css`
   ${media.ls`width: 240px;`}
 `
 
-const SiteH1 = styled.h1`
-  ${SiteHeading}
+const Title = styled.h1`
+  ${Css}
 `
 
-const SiteDiv = styled.div`
-  ${SiteHeading}
+const Heading = styled.div`
+  ${Css}
 `
 
-const OtherHeading = styled.h1`
+const Other = styled.h1`
   font: bold 1.3rem / 1 ${font.$f_1};
   margin: 32px 0 0;
 
@@ -41,27 +41,27 @@ const OtherHeading = styled.h1`
   ${media.ls`font-size: 2rem;`}
 `
 
-export default function Header({ inIndex, in404, inContent }) {
-  const linkLogo = (
+export default function Header({ index, title }) {
+  const logo = (
     <Link to="/" aria-label="ハンサムクロジのサイト">
       <Logo />
     </Link>
   )
 
-  const heading = inIndex ? <SiteH1>{linkLogo}</SiteH1> : <SiteDiv>{linkLogo}</SiteDiv>
-  const otherText = in404 ? '404 Not Found' : inContent || ''
-  const otherHead = inIndex || <OtherHeading>{otherText}</OtherHeading>
-  const searchBox = inContent ? '' : <Search />
+  const heading = index ? <Title>{logo}</Title> : <Heading>{logo}</Heading>
+  const other = title && <Other>{title}</Other>
+  const search = title ? '' : <Search />
 
   return (
-    <SiteHeader role="banner">
+    <Wrapper role="banner">
       {heading}
-      {otherHead}
-      {searchBox}
-    </SiteHeader>
+      {other}
+      {search}
+    </Wrapper>
   )
 }
 
 Header.propTypes = {
-  inIndex: PropTypes.bool
+  index: PropTypes.bool,
+  title: PropTypes.string
 }

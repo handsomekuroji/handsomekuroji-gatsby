@@ -6,7 +6,7 @@ import youtube from '../../plugins/youtube'
 import social from '../../plugins/social'
 import PlayIcon from '../../images/main/play.svg'
 
-const PostContent = styled.div`
+const Wrapper = styled.div`
   counter-reset: section;
   font-size: 0.95rem;
   line-height: 1.8;
@@ -506,24 +506,24 @@ const PostContent = styled.div`
   }
 `
 
-export default function content({ contentData }) {
-  const content = React.useRef()
+export default function Content({ content }) {
+  const wrapper = React.useRef()
 
   React.useEffect(() => {
-    youtube(content.current)
-    social('https://platform.twitter.com/widgets.js', 'twitter-tweet', content.current)
+    youtube(wrapper.current)
+    social('https://platform.twitter.com/widgets.js', 'twitter-tweet', wrapper.current)
   }, [content])
 
   return (
-    <PostContent
-      ref={content}
+    <Wrapper
+      ref={wrapper}
       dangerouslySetInnerHTML={{
-        __html: contentData
+        __html: content
       }}
     />
   )
 }
 
-content.propTypes = {
-  contentData: PropTypes.object
+Content.propTypes = {
+  content: PropTypes.object
 }

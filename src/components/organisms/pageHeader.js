@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import { font, media } from '../variable/mixin'
 import Hero from '../atoms/hero'
 
-const PostHeaderFig = styled.figure`
+const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 `
 
-const PostHeaderInner = styled.div`
+const Container = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
@@ -24,7 +24,7 @@ const PostHeaderInner = styled.div`
   ${media.l`gap: 24px;`}
 `
 
-const PostTitle = styled.h1`
+const Title = styled.h1`
   color: var(--c_1);
   font: bold 1.3rem / 1.5 ${font.$f_1};
   grid-column: 1 / 3;
@@ -35,21 +35,21 @@ const PostTitle = styled.h1`
   ${media.l`font-size: 2rem;`}
 `
 
-export default function PostHeader({ headerData }) {
-  const title = headerData.title
+export default function PageHeader({ header }) {
+  const title = header.title
 
   return (
     <header>
-      <PostHeaderFig>
-        <Hero imgSrc={headerData.src} imgAlt={title} />
-      </PostHeaderFig>
-      <PostHeaderInner>
-        <PostTitle>{title}</PostTitle>
-      </PostHeaderInner>
+      <Figure>
+        <Hero src={header.img} alt={title} />
+      </Figure>
+      <Container>
+        <Title>{title}</Title>
+      </Container>
     </header>
   )
 }
 
-PostHeader.propTypes = {
-  headerData: PropTypes.object
+PageHeader.propTypes = {
+  header: PropTypes.object
 }

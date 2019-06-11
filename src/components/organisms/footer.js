@@ -5,7 +5,7 @@ import { media, font } from '../variable/mixin'
 import Logo from '../atoms/logo'
 import Tag from '../atoms/tag'
 
-const SiteFooter = styled.footer`
+const Wrapper = styled.footer`
   align-items: center;
   display: grid;
   gap: 8px;
@@ -28,16 +28,16 @@ const SiteFooter = styled.footer`
   `}
 `
 
-const SiteNav = styled.nav`
+const Navigation = styled.nav`
   ${media.ms`grid-column: 1 / 3;`}
 `
-const SiteList = styled.ul`
+const UnOrdered = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 `
 
-const SiteFig = styled.div`
+const Container = styled.div`
   margin: 28px auto 0;
   width: 48px;
 
@@ -48,7 +48,7 @@ const SiteFig = styled.div`
   `}
 `
 
-const Copy = styled.small`
+const Copyright = styled.small`
   color: var(--c_0);
   font-family: ${font.$f_1};
   font-size: 0.8rem;
@@ -57,23 +57,23 @@ const Copy = styled.small`
   ${media.ms`justify-self: flex-start;s`}
 `
 
-export default function Footer({ alltags }) {
-  const loopTags = alltags && alltags.map((edge, i) => <Tag key={i} tagList={edge} />)
-  const siteDate = new Date().getFullYear()
+export default function Footer({ tag }) {
+  const tags = tag && tag.map((edge, i) => <Tag key={i} edge={edge} />)
+  const date = new Date().getFullYear()
 
   return (
-    <SiteFooter>
-      <SiteNav role="navigation">
-        <SiteList>{loopTags}</SiteList>
-      </SiteNav>
-      <SiteFig>
+    <Wrapper>
+      <Navigation aria-label="タグナビゲーション">
+        <UnOrdered>{tags}</UnOrdered>
+      </Navigation>
+      <Container>
         <Logo />
-      </SiteFig>
-      <Copy>© 2017 - {siteDate}</Copy>
-    </SiteFooter>
+      </Container>
+      <Copyright>© 2017 - {date}</Copyright>
+    </Wrapper>
   )
 }
 
 Footer.propTypes = {
-  alltags: PropTypes.array
+  tag: PropTypes.array
 }

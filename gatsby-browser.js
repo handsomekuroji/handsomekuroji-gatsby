@@ -1,3 +1,3 @@
 import React from 'react'
-import { ThemeProvider } from './src/context/ThemeContext'
-export const wrapRootElement = ({ element }) => <ThemeProvider>{element}</ThemeProvider>
+import { Provider } from './src/context/Theme'
+export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>
