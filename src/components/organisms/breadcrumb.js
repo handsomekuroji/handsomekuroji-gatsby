@@ -21,10 +21,9 @@ const Navigation = styled.nav`
   `}
 
   &.best {
-    margin: 0 auto;
-    width: 100%;
+    margin: 0;
 
-    ${media.s`margin: 0 auto;`}
+    ${media.s`margin: 0;`}
 
     ${media.m`grid-column: 1 / 3;`}
 
@@ -42,7 +41,6 @@ const Ordered = styled.ol`
     content: '';
     display: block;
     height: 100%;
-    padding: 12px 8px;
 
     ${media.s`padding: 12px;`}
 
