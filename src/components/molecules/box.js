@@ -219,7 +219,16 @@ const Inner = styled(
   }
 `
 
-const Block = styled.figure`
+const Block = styled(
+  posed.figure({
+    closed: {
+      opacity: 0
+    },
+    open: {
+      opacity: 1
+    }
+  })
+)`
   border-radius: 8px;
   grid-column: 1 / 3;
   height: auto;
@@ -244,6 +253,19 @@ const Iframe = styled.iframe`
   width: 100%;
 `
 
+const Content = styled(
+  posed.div({
+    closed: {
+      opacity: 0
+    },
+    open: {
+      opacity: 1
+    }
+  })
+)`
+  transform: translate3d(0, 0, 0);
+`
+
 export default function Box({ edge, count }) {
   const box = edge.node
   const embed = box.embed
@@ -265,6 +287,10 @@ export default function Box({ edge, count }) {
 
   const interrupt = e => {
     e.stopPropagation()
+  }
+
+  const active = bool => {
+    return bool ? 'open' : 'closed'
   }
 
   const button = url.map((edge, i) => {
@@ -297,23 +323,22 @@ export default function Box({ edge, count }) {
         ? embed
         : `https://www.youtube.com/embed/${embed}?rel=0&enablejsapi=1&playsinline=1&modestbranding=1&showinfo=0&widgetid=1`
 
-    return (
-      embed &&
-      Active && (
-        <Block>
-          <Iframe
-            id={embed}
-            frameBorder="0"
-            allowFullScreen="1"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            title={title}
-            width="1280"
-            height="720"
-            loading="lazy"
-            src={iframe}
-          />
-        </Block>
-      )
+    return embed ? (
+      <Block pose={active(Active)}>
+        <Iframe
+          id={embed}
+          frameBorder="0"
+          allowFullScreen="1"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          title={title}
+          width="1280"
+          height="720"
+          loading="lazy"
+          data-src={iframe}
+        />
+      </Block>
+    ) : (
+      ''
     )
   }
 
@@ -339,9 +364,10 @@ export default function Box({ edge, count }) {
             <Small>{box.text}</Small>
             <Button>{button}</Button>
           </Header>
-          <Inner pose={Active ? 'open' : 'closed'}>
+          <Inner pose={active(Active)}>
             {block()}
-            <div
+            <Content
+              pose={active(Active)}
               dangerouslySetInnerHTML={{
                 __html: box.content.childMarkdownRemark.html
               }}
