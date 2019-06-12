@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import posed from 'react-pose'
 import styled, { css } from 'styled-components'
 import { media, font } from '../variable/mixin'
-import dummy from '../../images/main/dummy.svg'
 import Amazon from '../../images/icon/amazon.svg'
 import Netflix from '../../images/icon/netflix.svg'
 import Hulu from '../../images/icon/hulu.svg'
@@ -248,7 +247,8 @@ const Iframe = styled.iframe`
 export default function Box({ edge, count }) {
   const box = edge.node
   const embed = box.embed
-  const src = box.url
+  const small = box.url.replace('.jpg', '._SL30_.jpg')
+  const big = box.url.replace('.jpg', '._SL160_.jpg')
   const title = box.title
   const url = box.affiliate
   const number = count + 1
@@ -323,10 +323,10 @@ export default function Box({ edge, count }) {
         <Container onClick={open} onKeyDown={key} tabIndex="0">
           <Figure>
             <Img
-              src={dummy}
-              data-src={src}
+              src={small}
+              data-src={big}
               alt={title}
-              content={src}
+              content={big}
               width="360"
               height="640"
               loading="lazy"
