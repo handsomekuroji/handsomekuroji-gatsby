@@ -525,5 +525,5 @@ export default function Content({ content }) {
 }
 
 Content.propTypes = {
-  content: PropTypes.object
+  content: PropTypes.string
 }

@@ -115,8 +115,8 @@ export default function Pagination({ page }) {
 
   const inner = length.map((_, i) =>
     calc(++i) ? (
-      <li>
-        <Anchor key={i} to={url(i)} aria-label={`${i}ページ目へ`}>
+      <li key={i}>
+        <Anchor to={url(i)} aria-label={`${i}ページ目へ`}>
           {i}
         </Anchor>
       </li>
