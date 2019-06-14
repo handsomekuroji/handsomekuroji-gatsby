@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Navigation = styled.nav`
   align-items: center;
@@ -22,86 +22,64 @@ const UnOrdered = styled.ul`
 `
 
 const Current = styled.li`
+  align-items: center;
+  background: var(--c_4);
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
   font: italic 1rem / 1.1 'Georgia', serif;
-  padding: 8px;
+  height: 32px;
+  justify-content: center;
+  padding: 0 0 4px;
+  width: 32px;
 `
 
-const Anchor = styled(Link)`
+const Css = css`
+  align-items: center;
+  border-radius: 50%;
+  box-sizing: border-box;
   color: var(--c_0);
   display: flex;
   flex-direction: column;
   font: italic 1rem / 1.1 'Georgia', serif;
-  padding: 8px 8px 6px;
+  height: 32px;
+  justify-content: center;
+  padding: 0 0 4px;
   text-decoration: none;
+  width: 32px;
 
-  &::after {
-    background: var(--c_0);
-    content: '';
-    display: block;
-    height: 1px;
-    margin: 2px 0 0;
-    width: 100%;
-  }
-
-  &:hover {
-    color: var(--c_7);
-
-    &::after {
-      background: var(--c_7);
-    }
+  &:hover,
+  &:focus {
+    background: var(--c_4);
+    box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
+    color: var(--c_0);
   }
 
   &:visited {
     color: var(--c_0);
-
-    &:hover {
-      color: var(--c_7);
-    }
   }
+`
+
+const Anchor = styled(Link)`
+  flex-direction: column;
+
+  ${Css}
 `
 
 const Prev = styled(Link)`
-  color: var(--c_0);
-  font: italic bold 1rem / 1.1 'Georgia', serif;
+  ${Css}
+
   grid-column: 1 / 2;
   margin: 0 auto 0 0;
-  padding: 8px;
-  text-decoration: none;
-  width: min-content;
-
-  &:hover {
-    color: var(--c_7);
-  }
-
-  &:visited {
-    color: var(--c_0);
-
-    &:hover {
-      color: var(--c_7);
-    }
-  }
+  padding: 0 0 0 3px;
 `
 
 const Next = styled(Link)`
-  color: var(--c_0);
-  font: italic bold 1rem / 1.1 'Georgia', serif;
+  ${Css}
+
   grid-column: 3 / 4;
   margin: 0 0 0 auto;
-  padding: 8px;
-  text-decoration: none;
-  width: min-content;
-
-  &:hover {
-    color: var(--c_7);
-  }
-
-  &:visited {
-    color: var(--c_0);
-
-    &:hover {
-      color: var(--c_7);
-    }
-  }
+  padding: 0 3px 0 0;
 `
 
 export default function Pagination({ page }) {
