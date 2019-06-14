@@ -28,6 +28,10 @@ const Button = styled.button`
   &:focus {
     background: var(--c_4);
     box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
+
+    .icon {
+      stroke: var(--c_7);
+    }
   }
 `
 

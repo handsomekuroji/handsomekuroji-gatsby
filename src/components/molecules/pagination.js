@@ -25,7 +25,9 @@ const Current = styled.li`
   align-items: center;
   background: var(--c_4);
   border-radius: 50%;
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
+  color: var(--c_7);
   display: flex;
   font: italic 1rem / 1.1 'Georgia', serif;
   height: 32px;
@@ -52,11 +54,16 @@ const Css = css`
   &:focus {
     background: var(--c_4);
     box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
-    color: var(--c_0);
+    color: var(--c_7);
   }
 
   &:visited {
     color: var(--c_0);
+
+    &:hover,
+    &:focus {
+      color: var(--c_7);
+    }
   }
 `
 
