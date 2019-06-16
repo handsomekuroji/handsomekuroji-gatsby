@@ -111,7 +111,6 @@ const Wrapper = styled.div`
   }
 
   figure {
-    background: var(--c_3);
     border-radius: 12px;
     margin: 32px 0;
     overflow: hidden;
@@ -135,8 +134,9 @@ const Wrapper = styled.div`
   }
 
   img {
-    background: var(--c_2);
+    background: var(--c_3);
     height: auto;
+    transition: 0.2s ease-in;
     vertical-align: bottom;
     width: 100%;
 

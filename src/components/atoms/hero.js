@@ -4,10 +4,15 @@ import PropTypes from 'prop-types'
 import dummy from '../../images/main/dummy.svg'
 
 const Img = styled.img`
-  background: var(--c_2);
+  background: var(--c_3);
   height: auto;
+  transition: 0.2s ease-in;
   vertical-align: bottom;
   width: 100%;
+
+  &.fade {
+    background: 0;
+  }
 
   .dark & {
     filter: brightness(80%);
