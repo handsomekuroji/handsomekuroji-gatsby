@@ -256,27 +256,11 @@ const Wrapper = styled.div`
       text-decoration: none;
 
       &:hover, &:focus {
-        &::before {
-          transform: scaleX(1) translateY(-50%);
-          transform-origin: center left;
-        }
+        text-decoration: underline;
       }
 
       &:visited {
         color: var(--c_5);
-      }
-
-      &::before {
-        background: var(--c_5);
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: scaleX(0) translateY(-50%);
-        transform-origin: center right;
-        transition: transform 0.3s ease;
       }
     }
   }
