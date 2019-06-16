@@ -136,7 +136,7 @@ const Wrapper = styled.div`
   img {
     background: var(--c_3);
     height: auto;
-    transition: 0.2s ease-in;
+    transition: background 0.2s ease;
     vertical-align: bottom;
     width: 100%;
 

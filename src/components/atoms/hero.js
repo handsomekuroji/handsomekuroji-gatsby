@@ -6,7 +6,7 @@ import dummy from '../../images/main/dummy.svg'
 const Img = styled.img`
   background: var(--c_3);
   height: auto;
-  transition: 0.2s ease-in;
+  transition: background 0.4s ease 0.4s;
   vertical-align: bottom;
   width: 100%;
 
