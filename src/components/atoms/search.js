@@ -212,15 +212,7 @@ export default function App() {
           onFocus={activation}
           onBlur={deactivate}
         />
-        <Img
-          width="24"
-          height="24"
-          alt="検索アイコン"
-          loading="lazy"
-          decoding="async"
-          role="presentation"
-          onMouseDown={interrupt}
-        />
+        <Img width="24" height="24" title="検索アイコン" role="presentation" onMouseDown={interrupt} />
       </form>
       <PoseGroup>{listInner}</PoseGroup>
     </Wrapper>

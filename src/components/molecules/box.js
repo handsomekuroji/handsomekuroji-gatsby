@@ -297,16 +297,16 @@ export default function Box({ edge, count }) {
   const button = url.map((edge, i) => {
     const link = edge.includes('amzn.to') ? (
       <AmazonIcon>
-        <Amazon />
+        <Amazon aria-hidden="true" />
       </AmazonIcon>
     ) : edge.includes('netflix.com') ? (
       <NetflixIcon>
-        <Netflix />
+        <Netflix aria-hidden="true" />
       </NetflixIcon>
     ) : (
       edge.includes('happyon.jp') && (
         <HuluIcon>
-          <Hulu />
+          <Hulu aria-hidden="true" />
         </HuluIcon>
       )
     )

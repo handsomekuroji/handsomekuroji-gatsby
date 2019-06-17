@@ -54,9 +54,9 @@ export default function Layout({ children }) {
 
   const button = theme => {
     return theme.dark ? (
-      <Sun width="32" height="32" alt="ライトモードボタン" loading="lazy" decoding="async" />
+      <Sun width="32" height="32" title="ライトモードボタン" />
     ) : (
-      <Moon width="32" height="32" alt="ダークモードボタン" loading="lazy" decoding="async" />
+      <Moon width="32" height="32" title="ダークモードボタン" />
     )
   }
 

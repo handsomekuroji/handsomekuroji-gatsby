@@ -39,7 +39,6 @@ export default function SEO({ meta }) {
       htmlAttributes={{ lang: 'ja' }}
       title={title}
       meta={[
-        { charset: 'utf-8' },
         { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
         { name: 'format-detection', content: 'telephone=no, email=no,address=no' },
         { name: 'description', content: description },

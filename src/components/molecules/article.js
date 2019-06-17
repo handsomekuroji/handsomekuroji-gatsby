@@ -76,6 +76,13 @@ const Title = styled.h2`
   ${media.m`font-size: 1rem;`}
 `
 
+const Other = styled.h3`
+  color: var(--c_1);
+  font: bold 0.95rem / 1.5 ${font.$f_1};
+
+  ${media.m`font-size: 1rem;`}
+`
+
 const Time = styled.time`
   color: var(--c_7);
   font-family: ${font.$f_1};
@@ -83,12 +90,14 @@ const Time = styled.time`
   margin: auto 0 0;
 `
 
-export default function Article({ edge }) {
+export default function Article({ edge, recommend }) {
   const post = edge.node ? edge.node : edge
   const date = post.createdAt
   const time = dayjs(date).format('YYYY.MM.DD ddd')
   const label = dayjs(date).format('YYYY年M月D日')
   const title = post.title
+
+  const heading = recommend ? <Other>{title}</Other> : <Title>{title}</Title>
 
   return (
     <article>
@@ -97,7 +106,7 @@ export default function Article({ edge }) {
           <Thumbnail src={post.thumbnail.file.url} alt={title} />
         </Figure>
         <Header>
-          <Title>{title}</Title>
+          {heading}
           <Time dateTime={date} aria-label={label}>
             {time}
           </Time>
@@ -108,5 +117,6 @@ export default function Article({ edge }) {
 }
 
 Article.propTypes = {
-  edge: PropTypes.object
+  edge: PropTypes.object,
+  recommend: PropTypes.bool
 }

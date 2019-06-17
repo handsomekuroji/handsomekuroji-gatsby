@@ -6,7 +6,8 @@ import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
 import Hero from '../../components/atoms/hero'
 import Share from '../../components/atoms/share'
-import Photo from '../../images/main/handsomekuroji.jpg'
+import photo from '../../images/main/handsomekuroji.jpg'
+import dummy from '../../images/main/dummy.svg'
 
 const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
@@ -246,7 +247,7 @@ export default function PostHeader({ header }) {
         <UnOrdered>{tags}</UnOrdered>
         <Title>{title}</Title>
         <Meta>
-          <Img data-src={Photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
+          <Img src={dummy} data-src={photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
           <Name to="/about">{author}</Name>
           <Time dateTime={header.date} aria-label={label}>
             {date}

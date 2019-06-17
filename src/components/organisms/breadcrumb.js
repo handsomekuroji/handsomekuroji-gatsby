@@ -17,7 +17,7 @@ const Navigation = styled.nav`
 
   ${media.s`
     margin: 24px 0 0;
-    padding: 24px 0;
+    padding: 16px 0;
   `}
 
   &.best {
@@ -37,16 +37,13 @@ const Ordered = styled.ol`
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     display: block;
     height: 100%;
 
     ${media.s`padding: 12px;`}
-
-    ${media.ms`padding: 12px 16px;`}
-
-    ${media.m`padding: 12px 32px;`}
   }
 
   &::after {
@@ -132,7 +129,7 @@ export default function Breadcrumb({ breadcrumb }) {
       <Ordered>
         <Root>
           <Anchor to="/">
-            <Img src={Icon} aria-hidden="true" focusable="false" loading="lazy" decoding="async" />
+            <Img src={Icon} alt="ロゴ" decoding="async" aria-hidden="true" />
             handsomekuroji
           </Anchor>
         </Root>

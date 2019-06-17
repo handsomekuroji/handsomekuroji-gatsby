@@ -18,6 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
               tag {
+                slug
                 name
               }
             }
@@ -27,11 +28,16 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       const posts = result.data.allContentfulBlog.edges
       posts.forEach((edge, i) => {
+        const node = edge.node
+        const tag = node.tag.map(edge => {
+          return edge.slug
+        })
         createPage({
-          path: edge.node.slug,
+          path: node.slug,
           component: path.resolve('./src/templates/post.js'),
           context: {
-            slug: edge.node.slug
+            slug: node.slug,
+            tag: tag
           }
         })
       })

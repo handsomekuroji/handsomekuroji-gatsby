@@ -33,8 +33,7 @@ export default function Logo() {
         src={Small}
         width="180"
         height="60"
-        alt={site.site.siteMetadata.title}
-        loading="lazy"
+        title={site.site.siteMetadata.title}
         decoding="async"
         aria-hidden="true"
       />

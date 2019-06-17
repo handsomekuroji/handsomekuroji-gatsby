@@ -10,6 +10,7 @@ import PostHeader from '../components/organisms/postHeader'
 import PostFooter from '../components/organisms/postFooter'
 import Content from '../components/molecules/content'
 import Breadcrumb from '../components/organisms/breadcrumb'
+import Recommend from '../components/organisms/recommend'
 import Ads from '../components/atoms/ads'
 import lozad from '../plugins/lozad'
 import Replace from '../plugins/replace'
@@ -45,6 +46,7 @@ export default function Post({ data }) {
   const img = post.thumbnail.file.url
   const title = post.title
   const slug = post.slug
+  const edges = data.allContentfulBlog.edges
 
   const seo = {
     img: img,
@@ -58,6 +60,8 @@ export default function Post({ data }) {
     date: post.createdAt,
     tag: post.tag
   })
+
+  const recommend = edges[0] ? <Recommend edges={edges} /> : ''
 
   React.useEffect(() => {
     lozad()
@@ -73,6 +77,7 @@ export default function Post({ data }) {
           <Content content={html} />
           <PostFooter footer={meta} />
         </Article>
+        {recommend}
         <Breadcrumb breadcrumb={meta} />
       </Main>
       <Ads />
@@ -82,7 +87,7 @@ export default function Post({ data }) {
 }
 
 export const query = graphql`
-  query BlogBySlug($slug: String!) {
+  query BlogBySlug($slug: String!, $tag: [String!]) {
     contentfulBlog(slug: { eq: $slug }) {
       slug
       title
@@ -106,6 +111,24 @@ export const query = graphql`
       tag {
         name
         slug
+      }
+    }
+    allContentfulBlog(
+      filter: { tag: { elemMatch: { slug: { in: $tag } } }, slug: { ne: $slug } }
+      sort: { fields: [createdAt], order: DESC }
+      limit: 6
+    ) {
+      edges {
+        node {
+          slug
+          title
+          createdAt
+          thumbnail {
+            file {
+              url
+            }
+          }
+        }
       }
     }
     allContentfulTag {

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { media } from '../variable/mixin'
-import Photo from '../../images/main/handsomekuroji.jpg'
+import photo from '../../images/main/handsomekuroji.jpg'
+import dummy from '../../images/main/dummy.svg'
 
 const Article = styled.article`
   display: grid;
@@ -96,7 +97,8 @@ export default function Balloon({ edge }) {
   return (
     <Article id={edge.node.text.id}>
       <Img
-        data-src={Photo}
+        src={dummy}
+        data-src={photo}
         width="80"
         height="80"
         alt={siteData.site.siteMetadata.author}
