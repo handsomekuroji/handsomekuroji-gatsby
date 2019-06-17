@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
-import Best from '../components/organisms/best'
+import BestList from '../components/organisms/list'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
 import Ads from '../components/atoms/ads'
@@ -41,7 +41,7 @@ export default function Index({ data, pageContext }) {
       <SEO />
       <Header index />
       <Main>
-        <Best edges={data.allContentfulBest.edges} />
+        <BestList edges={data.allContentfulBest.edges} />
         <Loop edges={data.allContentfulBlog.edges} />
         <Pagination page={pageContext} />
       </Main>

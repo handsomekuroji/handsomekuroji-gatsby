@@ -19,9 +19,9 @@ const Css = css`
 const Wrapper = styled.div`
   ${Css}
 
-  margin: 16px 0 0;
+  margin: 24px 0 0;
 
-  ${media.m`margin: 24px 0 0;`}
+  ${media.ms`margin: 32px 0 0;`}
 `
 
 const Other = styled.div`

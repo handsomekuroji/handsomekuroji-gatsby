@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../../components/variable/mixin'
-import Card from '../../components/molecules/card'
+import { media } from '../variable/mixin'
+import Card from '../molecules/card'
 
 const Wrapper = styled.div`
   margin: -16px calc(50% - 50vw);

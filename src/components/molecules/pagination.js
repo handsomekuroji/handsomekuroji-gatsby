@@ -110,7 +110,7 @@ export default function Pagination({ page }) {
   }
 
   const url = i => {
-    return main + (i === 1 || `/${i}`)
+    return main + (i === 1 ? '' : `/${i}`)
   }
 
   const inner = length.map((_, i) =>
