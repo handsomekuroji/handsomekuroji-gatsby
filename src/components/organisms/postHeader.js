@@ -219,6 +219,7 @@ export default function PostHeader({ header }) {
   `)
 
   const date = dayjs(header.date).format('YYYY.MM.DD ddd')
+  const label = dayjs(header.date).format('YYYY年M月D日')
   const title = header.title
   const author = data.site.siteMetadata.author
 
@@ -247,7 +248,9 @@ export default function PostHeader({ header }) {
         <Meta>
           <Img data-src={Photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
           <Name to="/about">{author}</Name>
-          <Time dateTime={header.date}>{date}</Time>
+          <Time dateTime={header.date} aria-label={label}>
+            {date}
+          </Time>
         </Meta>
         <Share meta={share} />
       </Container>

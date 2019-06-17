@@ -91,6 +91,7 @@ export default function Balloon({ edge }) {
 
   const date = edge.node.createdAt
   const time = dayjs(date).format('YYYY.MM.DD ddd HH:mm:ss')
+  const label = dayjs(date).format('YYYY年M月D日')
 
   return (
     <Article id={edge.node.text.id}>
@@ -102,7 +103,9 @@ export default function Balloon({ edge }) {
         loading="lazy"
         decoding="async"
       />
-      <Time dateTime={date}>{time}</Time>
+      <Time dateTime={date} aria-label={label}>
+        {time}
+      </Time>
       <Container>
         <Inner
           dangerouslySetInnerHTML={{

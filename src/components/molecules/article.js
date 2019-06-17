@@ -87,6 +87,7 @@ export default function Article({ edge }) {
   const post = edge.node ? edge.node : edge
   const date = post.createdAt
   const time = dayjs(date).format('YYYY.MM.DD ddd')
+  const label = dayjs(date).format('YYYY年M月D日')
   const title = post.title
 
   return (
@@ -97,7 +98,9 @@ export default function Article({ edge }) {
         </Figure>
         <Header>
           <Title>{title}</Title>
-          <Time dateTime={date}>{time}</Time>
+          <Time dateTime={date} aria-label={label}>
+            {time}
+          </Time>
         </Header>
       </Anchor>
     </article>
