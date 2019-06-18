@@ -22,21 +22,21 @@ const Button = styled.button`
 export default function Share({ meta }) {
   const [active, setActive] = React.useState(false)
 
-  const link = meta => {
+  const link = () => {
     share(meta)
   }
 
+  React.useLayoutEffect(() => {
+    setActive(!!navigator.share)
+  }, [Button])
+
   const button = active ? (
-    <Button type="button" onClick={link(meta)}>
+    <Button type="button" onClick={link}>
       SHARE
     </Button>
   ) : (
     ''
   )
-
-  React.useLayoutEffect(() => {
-    setActive(navigator.share && true)
-  }, [Button])
 
   return button
 }
