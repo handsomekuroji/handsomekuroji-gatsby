@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import Big from '../../images/main/handsomekuroji.svg'
-import Small from '../../images/main/hk.svg'
+import big from '../../images/main/handsomekuroji.svg'
+import small from '../../images/main/hk.svg'
 
 const Img = styled.img`
   height: auto;
@@ -28,9 +28,9 @@ export default function Logo() {
 
   return (
     <picture>
-      <source media="(min-width: 600px)" srcSet={Big} />
+      <source media="(min-width: 600px)" srcSet={big} />
       <Img
-        src={Small}
+        src={small}
         width="180"
         height="60"
         title={site.site.siteMetadata.title}

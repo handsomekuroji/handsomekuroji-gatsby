@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import OgImg from '../images/main/ogp.png'
+import ogImg from '../images/main/ogp.png'
 
 export default function SEO({ meta }) {
   const { site } = useStaticQuery(
@@ -31,7 +31,7 @@ export default function SEO({ meta }) {
   const domain = data.domain
   const twitter = data.twitter
   const facebook = data.facebook
-  const img = meta.img ? `https:${meta.img}` : data.siteUrl + OgImg
+  const img = meta.img ? `https:${meta.img}` : data.siteUrl + ogImg
   const verification = data.verification
 
   return (

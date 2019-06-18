@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
-import Icon from '../../images/main/hk.svg'
+import logo from '../../images/main/hk.svg'
 
 const Navigation = styled.nav`
   background: var(--c_4);
@@ -129,7 +129,7 @@ export default function Breadcrumb({ breadcrumb }) {
       <Ordered>
         <Root>
           <Anchor to="/">
-            <Img src={Icon} alt="ロゴ" decoding="async" aria-hidden="true" />
+            <Img src={logo} alt="ロゴ" decoding="async" aria-hidden="true" />
             handsomekuroji
           </Anchor>
         </Root>

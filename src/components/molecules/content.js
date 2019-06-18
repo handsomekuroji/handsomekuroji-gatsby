@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
 import youtube from '../../plugins/youtube'
 import social from '../../plugins/social'
-import PlayIcon from '../../images/main/play.svg'
+import play from '../../images/main/play.svg'
 
 const Wrapper = styled.div`
   counter-reset: section;
@@ -303,7 +303,7 @@ const Wrapper = styled.div`
 
     &::before {
       align-items: center;
-      background: url(${PlayIcon}) 50% / 16px 16px rgba(var(--c_9-rgb), 0.8) no-repeat;
+      background: url(${play}) 50% / 16px 16px rgba(var(--c_9-rgb), 0.8) no-repeat;
       border-radius: 50%;
       bottom: 0;
       content: '';
