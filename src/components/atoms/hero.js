@@ -31,7 +31,7 @@ export default function Hero({ src, alt }) {
       <Img
         src={dummy}
         data-src={src}
-        data-srcset={srcset(true)}
+        data-srcset={srcset(false)}
         content={src}
         width="640"
         height="360"
