@@ -13,8 +13,8 @@ module.exports = {
   rules: {
     'generator-star-spacing': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    properties: 'always',
-    ignoreDestructuring: false,
+    properties: 0,
+    ignoreDestructuring: 0,
     'prettier/prettier': [
       'error',
       {

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
@@ -54,7 +54,7 @@ export default function Tag({ data, pageContext }) {
 
   return (
     <Layout>
-      <SEO meta={seo} />
+      <Seo meta={seo} />
       <Header />
       <Main>
         <TagHeader header={meta} />

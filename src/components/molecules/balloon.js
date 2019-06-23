@@ -80,7 +80,7 @@ const Inner = styled.div`
 `
 
 export default function Balloon({ edge }) {
-  const siteData = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query BalloonQuery {
       site {
         siteMetadata {
@@ -88,7 +88,7 @@ export default function Balloon({ edge }) {
         }
       }
     }
-  `)
+  `).site.siteMetadata
 
   const date = edge.node.createdAt
   const time = dayjs(date).format('YYYY.MM.DD ddd HH:mm:ss')
@@ -96,15 +96,7 @@ export default function Balloon({ edge }) {
 
   return (
     <Article id={edge.node.text.id}>
-      <Img
-        src={dummy}
-        data-src={photo}
-        width="80"
-        height="80"
-        alt={siteData.site.siteMetadata.author}
-        loading="lazy"
-        decoding="async"
-      />
+      <Img src={dummy} data-src={photo} width="80" height="80" alt={query.author} loading="lazy" decoding="async" />
       <Time dateTime={date} aria-label={label}>
         {time}
       </Time>

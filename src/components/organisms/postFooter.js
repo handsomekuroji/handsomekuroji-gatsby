@@ -34,23 +34,22 @@ const Container = styled.div`
 `
 
 export default function PostFooter({ footer }) {
-  const data = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query PostFooterQuery {
       site {
         siteMetadata {
-          siteUrl
+          root
           domain
           twitter
         }
       }
     }
-  `)
+  `).site.siteMetadata
 
-  const meta = data.site.siteMetadata
-  const url = `${meta.siteUrl}/${footer.url}`
+  const url = `${query.root}/${footer.url}`
   const title = footer.title.replace('&#038;', '%26')
-  const domain = meta.domain
-  const account = meta.twitter
+  const domain = query.domain
+  const account = query.twitter
 
   const icons = [
     {

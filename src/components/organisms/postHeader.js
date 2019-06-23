@@ -208,25 +208,25 @@ const Prefaces = styled.div`
 `
 
 export default function PostHeader({ header }) {
-  const data = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query PostHeaderQuery {
       site {
         siteMetadata {
-          siteUrl
+          root
           author
         }
       }
     }
-  `)
+  `).site.siteMetadata
 
   const date = dayjs(header.date).format('YYYY.MM.DD ddd')
   const label = dayjs(header.date).format('YYYY年M月D日')
   const title = header.title
-  const author = data.site.siteMetadata.author
+  const author = query.author
 
   const share = {
     title: title,
-    url: `${data.site.siteMetadata.siteUrl}/${header.url}`
+    url: `${query.root}/${header.url}`
   }
 
   const tags = header.tag.map((edge, i) => (
