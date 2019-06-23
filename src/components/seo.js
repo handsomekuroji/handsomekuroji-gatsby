@@ -11,7 +11,7 @@ export default function Seo({ meta }) {
         siteMetadata {
           title
           description
-          root
+          siteUrl
           domain
           twitter
           facebook
@@ -23,12 +23,13 @@ export default function Seo({ meta }) {
   `).site.siteMetadata
 
   const title = meta.title ? meta.title : query.title
+  const root = query.siteUrl
   const description = meta.description ? meta.description : query.description
-  const url = meta.url ? `${query.root}/${meta.url}` : query.root
+  const url = meta.url ? `${root}/${meta.url}` : root
   const domain = query.domain
   const twitter = query.twitter
   const facebook = query.facebook
-  const img = meta.img ? `https:${meta.img}` : query.root + ogImg
+  const img = meta.img ? `https:${meta.img}` : root + ogImg
   const verification = query.verification
 
   return (

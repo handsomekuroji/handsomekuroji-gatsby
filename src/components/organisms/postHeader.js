@@ -212,7 +212,7 @@ export default function PostHeader({ header }) {
     query PostHeaderQuery {
       site {
         siteMetadata {
-          root
+          siteUrl
           author
         }
       }
@@ -226,7 +226,7 @@ export default function PostHeader({ header }) {
 
   const share = {
     title: title,
-    url: `${query.root}/${header.url}`
+    url: `${query.siteUrl}/${header.url}`
   }
 
   const tags = header.tag.map((edge, i) => (

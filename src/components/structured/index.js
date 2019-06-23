@@ -13,7 +13,7 @@ export default function StructuredIndex({ edges, page }) {
         siteMetadata {
           title
           description
-          root
+          siteUrl
           mail
           twitter
           facebook
@@ -24,7 +24,7 @@ export default function StructuredIndex({ edges, page }) {
   `).site.siteMetadata
 
   const { number } = page
-  const root = query.root
+  const root = query.siteUrl
   const current = number === 1 ? root : `${root}/${number}`
   const object = {
     title: query.title,

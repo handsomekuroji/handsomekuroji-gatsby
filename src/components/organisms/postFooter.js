@@ -38,7 +38,7 @@ export default function PostFooter({ footer }) {
     query PostFooterQuery {
       site {
         siteMetadata {
-          root
+          siteUrl
           domain
           twitter
         }
@@ -46,7 +46,7 @@ export default function PostFooter({ footer }) {
     }
   `).site.siteMetadata
 
-  const url = `${query.root}/${footer.url}`
+  const url = `${query.siteUrl}/${footer.url}`
   const title = footer.title.replace('&#038;', '%26')
   const domain = query.domain
   const account = query.twitter

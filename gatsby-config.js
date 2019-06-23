@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: env.SITE_TITLE,
     description: env.SITE_DESCRIPTION,
-    root: env.SITE_URL,
+    siteUrl: env.SITE_URL,
     domain: env.SITE_DOMAIN,
     mail: env.SITE_MAIL,
     twitter: env.SITE_TWITTER,
@@ -111,7 +111,7 @@ module.exports = {
               siteMetadata {
                 title
                 description
-                root
+                siteUrl
                 author
               }
             }
@@ -125,8 +125,8 @@ module.exports = {
                 date: edge.node.createdAt,
                 title: edge.node.title,
                 description: edge.node.description.childMarkdownRemark.html,
-                url: `${rss.root}/${edge.node.slug}`,
-                guid: `${rss.root}/${edge.node.slug}`,
+                url: `${rss.siteUrl}/${edge.node.slug}`,
+                guid: `${rss.siteUrl}/${edge.node.slug}`,
                 custom_elements: [
                   {
                     'content:encoded': edge.node.description.childMarkdownRemark.html
