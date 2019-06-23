@@ -52,7 +52,7 @@
     "youtube-player": "^5.5.2"
   },
   "devDependencies": {
-    "eslint": "^6.0.0",
+    "eslint": "^5.1.2",
     "eslint-config-gatsby-standard": "^2.2.0",
     "eslint-config-prettier": "^5.0.0",
     "eslint-config-standard": "^12.0.0",
