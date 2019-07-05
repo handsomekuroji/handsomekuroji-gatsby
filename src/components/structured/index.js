@@ -54,6 +54,6 @@ export default function StructuredIndex({ edges, page }) {
 }
 
 StructuredIndex.propTypes = {
-  edges: PropTypes.object,
+  edges: PropTypes.array,
   page: PropTypes.object
 }

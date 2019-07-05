@@ -8,6 +8,7 @@ import Facebook from '../../images/icon/facebook.svg'
 import Hatebu from '../../images/icon/hatebu.svg'
 import Line from '../../images/icon/line.svg'
 import Pocket from '../../images/icon/pocket.svg'
+import Note from '../../images/icon/note.svg'
 import Feedly from '../../images/icon/feedly.svg'
 
 const Css = css`
@@ -75,6 +76,18 @@ const PocketIcon = styled.a`
   }
 `
 
+const NoteIcon = styled.a`
+  ${Css}
+
+  display: none;
+
+  ${media.ms`display: flex;`}
+
+  &:hover, &:focus {
+    background: #41c9b4;
+  }
+`
+
 const FeedlyIcon = styled.a`
   ${Css}
 
@@ -117,6 +130,10 @@ export default function Icon({ icon }) {
         <PocketIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Pocketに保存" onClick={box}>
           <Pocket />
         </PocketIcon>
+      ) : type === 'Note' ? (
+        <NoteIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="noteで書く">
+          <Note />
+        </NoteIcon>
       ) : (
         type === 'Feedly' && (
           <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Feedlyに登録" onClick={box}>

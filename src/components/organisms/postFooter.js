@@ -73,6 +73,10 @@ export default function PostFooter({ footer }) {
       url: `https://getpocket.com/edit?url=${url}&title=${title}`
     },
     {
+      type: 'Note',
+      url: `https://note.mu/intent/post?url=${url}/&hashtags=handsomekuroji`
+    },
+    {
       type: 'Feedly',
       url: `https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F${domain}%2Ffeed.xml`
     }

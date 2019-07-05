@@ -24,7 +24,6 @@ export default function Ads() {
         data-ad-client="ca-pub-3005738200116146"
         data-ad-slot="2919591828"
         data-auto-format="banner"
-        data-full-width-responsive="true"
       />
     </Wrapper>
   )
