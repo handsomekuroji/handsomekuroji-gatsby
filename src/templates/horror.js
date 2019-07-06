@@ -42,12 +42,17 @@ const Article = styled.article`
 `
 
 const Alert = styled.div`
+  align-items: center;
+  animation: fade 4s ease 0s 1 normal;
   background: var(--c_4);
   border-top: 1px solid var(--c_8);
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
   border-radius: 8px;
+  display: flex;
   font: bold 1.3rem / 1 ${font.$f_1};
+  height: 360px;
+  justify-content: center;
   line-height: 1.8;
   margin: auto;
   max-width: 690px;
@@ -56,16 +61,23 @@ const Alert = styled.div`
   text-align: center;
   transition: 0.3s;
 
-  ${media.s`padding: 24px;`}
+  ${media.s`
+    height: 392px;
+    padding: 24px;
+  `}
 
   ${media.ms`padding: 32px;`}
 
-  ${media.m`padding: 48px;`}
+  ${media.m`
+    height: 436px;
+    padding: 48px;
+  `}
 `
 
 export default function Horror({ data }) {
-  const [active, setActive] = React.useState(false)
+  const [active, setActive] = React.useState(0)
   const dark = { class: 'dark' }
+  const time = dayjs(new Date()).format('HH')
 
   const post = data.contentfulHorror
   const html = Replace(post.content.childMarkdownRemark.html)
@@ -92,19 +104,21 @@ export default function Horror({ data }) {
   }, [Main])
 
   React.useLayoutEffect(() => {
-    const time = dayjs(new Date()).format('HH')
-    setActive(!!(time >= 19 || time <= 4))
+    setActive(time >= 19 || time <= 4 ? 1 : 2)
   }, [Main])
 
-  const content = active ? (
-    <Section content={html} />
-  ) : (
-    <Alert>
-      怖い話が読めるのは
-      <br />
-      夜だけです
-    </Alert>
-  )
+  const content =
+    active === 1 ? (
+      <Section content={html} />
+    ) : active === 2 ? (
+      <Alert>
+        怖い話が読めるのは
+        <br />
+        夜だけです
+      </Alert>
+    ) : (
+      ''
+    )
 
   return (
     <Layout horror>

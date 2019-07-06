@@ -46,7 +46,7 @@ const Container = styled.div`
 
 const Inner = styled.div`
   box-sizing: border-box;
-  max-height: 360px;
+  height: 360px;
   overflow: auto;
   padding: 16px;
   width: 100%;
@@ -79,14 +79,14 @@ const Inner = styled.div`
   }
 
   ${media.s`
-    max-height: 392px;
+    height: 392px;
     padding: 32px 24px 32px 0;
   `}
 
   ${media.ms`padding: 32px 32px 32px 0;`}
 
   ${media.m`
-    max-height: 436px;
+    height: 436px;
     padding: 48px 64px 48px 0;
   `}
 
