@@ -57,9 +57,10 @@ const Alert = styled.div`
 `
 
 export default function Horror({ data }) {
-  const [active, setActive] = React.useState(false)
+  const [active, setActive] = React.useState(0)
   const dark = { class: 'dark' }
   const title = '怖い話'
+  const time = dayjs(new Date()).format('HH')
 
   const seo = {
     title: title,
@@ -72,25 +73,27 @@ export default function Horror({ data }) {
   }, [Main])
 
   React.useLayoutEffect(() => {
-    const time = dayjs(new Date()).format('HH')
-    setActive(!!(time >= 19 || time <= 4))
+    setActive(time >= 19 || time <= 4 ? 1 : 2)
   }, [Main])
 
-  const content = active ? (
-    data.allContentfulHorror.edges.map((edge, i) => <Storeis key={i} edge={edge} />)
-  ) : (
-    <Alert>
-      怖い話が読めるのは
-      <br />
-      夜だけです
-    </Alert>
-  )
+  const content =
+    active === 1 ? (
+      data.allContentfulHorror.edges.map((edge, i) => <Storeis key={i} edge={edge} />)
+    ) : active === 2 ? (
+      <Alert>
+        怖い話が読めるのは
+        <br />
+        夜だけです
+      </Alert>
+    ) : (
+      ''
+    )
 
   return (
     <Layout horror>
       <Seo meta={seo} />
       <Helmet bodyAttributes={dark} />
-      <Header title={active ? title : ''} />
+      <Header title={title} />
       <Main>{content}</Main>
       <Footer tag={data.allContentfulTag.edges} />
     </Layout>
