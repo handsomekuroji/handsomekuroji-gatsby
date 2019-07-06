@@ -131,7 +131,7 @@ const Anchor = styled(Link)`
   }
 `
 
-export default function App() {
+export default function Search() {
   const [Active, setActive] = React.useState(false)
   const [data, setData] = React.useState([])
   const [items, setItems] = React.useState([])

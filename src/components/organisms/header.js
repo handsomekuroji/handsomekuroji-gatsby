@@ -41,7 +41,7 @@ const Other = styled.h1`
   ${media.ls`font-size: 2rem;`}
 `
 
-export default function Header({ index, title }) {
+export default function Header({ index, title, horror }) {
   const logo = (
     <Link to="/" aria-label="ハンサムクロジのサイト">
       <Logo />
@@ -50,7 +50,7 @@ export default function Header({ index, title }) {
 
   const heading = index ? <Title>{logo}</Title> : <Heading>{logo}</Heading>
   const other = title && <Other>{title}</Other>
-  const search = title ? '' : <Search />
+  const search = title || horror ? '' : <Search />
 
   return (
     <Wrapper role="banner">
@@ -63,5 +63,6 @@ export default function Header({ index, title }) {
 
 Header.propTypes = {
   index: PropTypes.bool,
-  title: PropTypes.string
+  title: PropTypes.string,
+  horror: PropTypes.bool
 }

@@ -35,7 +35,7 @@ const Button = styled.button`
   }
 `
 
-export default function Layout({ children }) {
+export default function Layout({ children, horror }) {
   const attr = theme => {
     return { class: theme.dark ? 'dark' : 'light', id: 'body' }
   }
@@ -52,7 +52,7 @@ export default function Layout({ children }) {
     return theme.toggle
   }
 
-  const button = theme => {
+  const icon = theme => {
     return theme.dark ? (
       <Sun width="32" height="32" title="ライトモードボタン" />
     ) : (
@@ -60,9 +60,10 @@ export default function Layout({ children }) {
     )
   }
 
-  const cssTheme = theme => (
-    <Wrapper>
-      <Helmet bodyAttributes={attr(theme)} />
+  const button = theme => {
+    return horror ? (
+      ''
+    ) : (
       <Button
         type="button"
         aria-pressed={pressed(theme)}
@@ -70,8 +71,15 @@ export default function Layout({ children }) {
         aria-controls="body"
         onClick={toggle(theme)}
       >
-        {button(theme)}
+        {icon(theme)}
       </Button>
+    )
+  }
+
+  const cssTheme = theme => (
+    <Wrapper>
+      <Helmet bodyAttributes={attr(theme)} />
+      {button(theme)}
       <Global />
       {children}
     </Wrapper>
@@ -81,5 +89,6 @@ export default function Layout({ children }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  horror: PropTypes.bool
 }

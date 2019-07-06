@@ -7,19 +7,18 @@ import { font, media } from '../components/variable/mixin'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
-import Storeis from '../components/molecules/stories'
 import Footer from '../components/organisms/footer'
+import HorrorHeader from '../components/organisms/horrorHeader'
+import PostFooter from '../components/organisms/postFooter'
+import Section from '../components/molecules/section'
+import Breadcrumb from '../components/organisms/breadcrumb'
+import Ads from '../components/atoms/ads'
 import lozad from '../plugins/lozad'
+import Replace from '../plugins/replace'
 
 const Main = styled.main`
-  background: var(--c_4);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  counter-reset: stories;
   margin: 32px auto 0;
   max-width: 620px;
-  overflow: hidden;
   width: calc(100% - 16px);
 
   ${media.xs`width: calc(100% - 32px);`}
@@ -34,8 +33,17 @@ const Main = styled.main`
   ${media.ls`margin: 48px auto 0;`}
 `
 
+const Article = styled.article`
+  background: var(--c_4);
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.3s;
+`
+
 const Alert = styled.div`
   background: var(--c_4);
+  border-top: 1px solid var(--c_8);
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
   border-radius: 8px;
@@ -58,13 +66,26 @@ const Alert = styled.div`
 export default function Horror({ data }) {
   const [active, setActive] = React.useState(false)
   const dark = { class: 'dark' }
-  const title = '怖い話'
+
+  const post = data.contentfulHorror
+  const html = Replace(post.content.childMarkdownRemark.html)
+  const title = post.title
+  const slug = post.slug
 
   const seo = {
     title: title,
-    url: 'horror',
-    description: '夜じゃないと読めない怖い話'
+    url: `horror/${slug}`,
+    description: post.description.description
   }
+
+  const meta = Object.assign(seo, {
+    description: Replace(post.description.childMarkdownRemark.html),
+    date: post.createdAt,
+    parent: {
+      slug: 'horror',
+      title: '怖い話'
+    }
+  })
 
   React.useEffect(() => {
     lozad()
@@ -76,7 +97,7 @@ export default function Horror({ data }) {
   }, [Main])
 
   const content = active ? (
-    data.allContentfulHorror.edges.map((edge, i) => <Storeis key={i} edge={edge} />)
+    <Section content={html} />
   ) : (
     <Alert>
       怖い話が読めるのは
@@ -89,29 +110,36 @@ export default function Horror({ data }) {
     <Layout horror>
       <Seo meta={seo} />
       <Helmet bodyAttributes={dark} />
-      <Header title={active ? title : ''} />
-      <Main>{content}</Main>
-      <Footer tag={data.allContentfulTag.edges} />
+      <Header horror />
+      <Main>
+        <Article>
+          <HorrorHeader header={meta} />
+          {content}
+          <PostFooter footer={meta} />
+        </Article>
+        <Breadcrumb breadcrumb={meta} />
+      </Main>
+      <Ads />
+      <Footer />
     </Layout>
   )
 }
 
 export const query = graphql`
-  query Horror {
-    allContentfulHorror(sort: { fields: [createdAt], order: DESC }) {
-      edges {
-        node {
-          slug
-          title
-          createdAt
+  query HorrorBySlug($slug: String!) {
+    contentfulHorror(slug: { eq: $slug }) {
+      slug
+      title
+      createdAt
+      description {
+        description
+        childMarkdownRemark {
+          html
         }
       }
-    }
-    allContentfulTag {
-      edges {
-        node {
-          name
-          slug
+      content {
+        childMarkdownRemark {
+          html
         }
       }
     }

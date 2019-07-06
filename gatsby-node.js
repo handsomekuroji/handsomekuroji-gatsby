@@ -111,6 +111,34 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const loadHorrors = new Promise(async resolve => {
+    await graphql(`
+      {
+        allContentfulHorror(sort: { fields: [createdAt], order: DESC }) {
+          edges {
+            node {
+              title
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const posts = result.data.allContentfulHorror.edges
+      posts.forEach((edge, i) => {
+        const node = edge.node
+        createPage({
+          path: 'horror/' + node.slug,
+          component: path.resolve('./src/templates/horror.js'),
+          context: {
+            slug: node.slug
+          }
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadIndex = new Promise(async resolve => {
     await graphql(`
       {
@@ -184,5 +212,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadIndex, loadPosts, loadPages, loadBests, loadTags])
+  return Promise.all([loadIndex, loadPosts, loadPages, loadBests, loadHorrors, loadTags])
 }

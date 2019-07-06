@@ -123,6 +123,16 @@ const Anchor = styled(Link)`
 
 export default function Breadcrumb({ breadcrumb }) {
   const best = breadcrumb.best && 'best'
+  const parent = breadcrumb.parent ? (
+    <>
+      <Separator aria-hidden="true">/</Separator>
+      <List>
+        <Anchor to={breadcrumb.parent.slug}>{breadcrumb.parent.title}</Anchor>
+      </List>
+    </>
+  ) : (
+    ''
+  )
 
   return (
     <Navigation className={best} aria-label="breadcrumb">
@@ -133,6 +143,7 @@ export default function Breadcrumb({ breadcrumb }) {
             handsomekuroji
           </Anchor>
         </Root>
+        {parent}
         <Separator aria-hidden="true">/</Separator>
         <List>
           <Anchor to={breadcrumb.url}>{breadcrumb.title}</Anchor>
