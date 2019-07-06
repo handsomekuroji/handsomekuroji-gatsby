@@ -35,7 +35,7 @@ const Main = styled.main`
 `
 
 const Alert = styled.div`
-  animation: fade 2s ease 2s 1 normal;
+  animation: fade 4s ease 0s 1 normal;
   background: var(--c_4);
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
