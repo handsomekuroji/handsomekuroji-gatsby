@@ -20,12 +20,12 @@ const Wrapper = styled.section`
   ${media.l`grid-template-columns: 1fr 1fr 1fr;`}
 `
 
-export default function Loop({ edges }) {
+export default function Recommend({ edges }) {
   const articles = edges.map((edge, i) => <Article key={i} edge={edge} recommend />)
 
   return <Wrapper>{articles}</Wrapper>
 }
 
-Loop.propTypes = {
+Recommend.propTypes = {
   edges: PropTypes.array
 }

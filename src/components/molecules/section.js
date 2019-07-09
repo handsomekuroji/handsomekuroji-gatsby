@@ -51,6 +51,7 @@ const Inner = styled.div`
   padding: 16px;
   width: 100%;
   writing-mode: vertical-rl;
+  -webkit-overflow-scrolling: touch;
 
   &::after {
     content: '';

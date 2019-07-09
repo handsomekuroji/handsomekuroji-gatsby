@@ -11,6 +11,7 @@ import PostFooter from '../components/organisms/postFooter'
 import Content from '../components/molecules/content'
 import Breadcrumb from '../components/organisms/breadcrumb'
 import Recommend from '../components/organisms/recommend'
+import Favorite from '../components/organisms/favorite'
 import Ads from '../components/atoms/ads'
 import lozad from '../plugins/lozad'
 import Replace from '../plugins/replace'
@@ -46,7 +47,8 @@ export default function Post({ data }) {
   const img = post.thumbnail.file.url
   const title = post.title
   const slug = post.slug
-  const edges = data.allContentfulBlog.edges
+  const posts = data.allContentfulBlog.edges
+  const faves = post.faves
 
   const seo = {
     img: img,
@@ -61,7 +63,8 @@ export default function Post({ data }) {
     tag: post.tag
   })
 
-  const recommend = edges[0] ? <Recommend edges={edges} /> : ''
+  const recommend = posts ? <Recommend edges={posts} /> : ''
+  const favorite = faves ? <Favorite edges={faves} /> : ''
 
   React.useEffect(() => {
     lozad()
@@ -77,6 +80,7 @@ export default function Post({ data }) {
           <Content content={html} />
           <PostFooter footer={meta} />
         </Article>
+        {favorite}
         {recommend}
         <Breadcrumb breadcrumb={meta} />
       </Main>
@@ -111,6 +115,11 @@ export const query = graphql`
       tag {
         name
         slug
+      }
+      faves {
+        affiliate
+        title
+        url
       }
     }
     allContentfulBlog(

@@ -8,10 +8,9 @@ const Css = css`
   display: grid;
   gap: 24px;
 
-  ${media.ms`
-    grid-gap: 32px;
-    grid-template-columns: 1fr 1fr;
-  `}
+  ${media.sm`grid-template-columns: 1fr 1fr;`}
+
+  ${media.ms`grid-gap: 32px;`}
 
   ${media.l`grid-template-columns: 1fr 1fr 1fr;`}
 `
