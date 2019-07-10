@@ -43,8 +43,9 @@ const Anchor = styled.a`
 
 const List = styled.li`
   margin: 0 0 0 16px;
-  scroll-margin-left: 16px;
+  scroll-margin: 0 0 0 16px;
   scroll-snap-align: start;
+  scroll-snap-margin: 0 0 0 16px;
 
   &:first-of-type {
     margin: 0;
