@@ -13,34 +13,36 @@ const Anchor = styled.a`
   visibility: visible;
   will-change: transform;
 
-  &::before {
-    bottom: 0;
-    border-radius: 24px;
-    bottom: -7px;
-    content: '';
-    display: block;
-    filter: blur(8px);
-    height: 16px;
-    left: 0;
-    margin: auto;
-    min-width: 80px;
-    position: absolute;
-    right: 0;
-    transition: 0.3s linear;
-    width: calc(100% - 48px);
-    z-index: -1;
-  }
-
-  &:hover,
-  &:focus {
-    transform: translate(0, -2px);
-    transition: 0.3s;
-
+  ${media.s`
     &::before {
-      background: rgba(var(--c_9-rgb), 0.1);
-      transition: 0.3s;
+      bottom: 0;
+      border-radius: 24px;
+      bottom: -7px;
+      content: '';
+      display: block;
+      filter: blur(8px);
+      height: 16px;
+      left: 0;
+      margin: auto;
+      min-width: 80px;
+      position: absolute;
+      right: 0;
+      transition: 0.3s linear;
+      width: calc(100% - 48px);
+      z-index: -1;
     }
-  }
+
+    &:hover,
+    &:focus {
+      transform: translate(0, -2px);
+      transition: 0.3s;
+
+      &::before {
+        background: rgba(var(--c_9-rgb), 0.1);
+        transition: 0.3s;
+      }
+    }
+  `}
 `
 
 const List = styled.li`
