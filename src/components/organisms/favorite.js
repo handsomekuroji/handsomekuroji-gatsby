@@ -92,6 +92,7 @@ const Ordered = styled.ol`
   overflow: auto;
   padding: 16px;
   scroll-snap-type: x mandatory;
+  visibility: visible;
   white-space: nowrap;
   will-change: transform;
   -webkit-overflow-scrolling: touch;

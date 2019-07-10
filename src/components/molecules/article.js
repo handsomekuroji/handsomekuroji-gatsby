@@ -17,6 +17,8 @@ const Anchor = styled(Link)`
   position: relative;
   text-decoration: none;
   transition: 0.3s linear;
+  visibility: visible;
+  will-change: transform;
 
   ${media.m`font-size: 1rem;`}
 

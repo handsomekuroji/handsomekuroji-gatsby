@@ -10,6 +10,7 @@ const Anchor = styled.a`
   display: block;
   overflow: hidden;
   transition: 0.3s linear;
+  visibility: visible;
   will-change: transform;
 
   &::before {
