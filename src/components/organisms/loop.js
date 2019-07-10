@@ -8,7 +8,7 @@ const Css = css`
   display: grid;
   gap: 24px;
 
-  ${media.sm`grid-template-columns: 1fr 1fr;`}
+  ${media.s`grid-template-columns: 1fr 1fr;`}
 
   ${media.ms`grid-gap: 32px;`}
 

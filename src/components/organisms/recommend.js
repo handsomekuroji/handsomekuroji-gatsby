@@ -10,11 +10,8 @@ const Wrapper = styled.section`
   margin: 16px 0 0;
 
   ${media.s`
-    margin: 24px 0 0;
-  `}
-
-  ${media.ms`
     grid-template-columns: 1fr 1fr;
+    margin: 24px 0 0;
   `}
 
   ${media.l`grid-template-columns: 1fr 1fr 1fr;`}

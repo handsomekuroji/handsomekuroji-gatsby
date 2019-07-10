@@ -93,7 +93,7 @@ const Ordered = styled.ol`
   padding: 16px;
   scroll-snap-type: x mandatory;
   white-space: nowrap;
-  will-change: scroll-position;
+  will-change: transform;
   -webkit-overflow-scrolling: touch;
 
   ${media.s`padding: 16px 0`}
