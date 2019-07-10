@@ -87,6 +87,7 @@ const Right = styled(Arrow)`
 `
 
 const Ordered = styled.ol`
+  backface-visibility: hidden;
   border-top: 1px solid var(--c_8);
   display: flex;
   overflow: auto;
