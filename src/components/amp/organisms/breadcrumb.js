@@ -104,6 +104,10 @@ const Anchor = styled(Link)`
     width: 24px;
 
     ${media.s`margin: 0 4px 0 0;`}
+
+    .dark & {
+      filter: invert(100%);
+    }
   }
 `
 

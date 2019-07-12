@@ -7,11 +7,14 @@ const Figure = styled.figure`
   overflow: hidden;
 
   .thumbnailImg {
-    background: var(--c_3);
     height: auto;
     transition: background 0.4s ease 0.4s;
     vertical-align: bottom;
     width: 100%;
+
+    .dark & {
+      filter: brightness(80%);
+    }
   }
 `
 

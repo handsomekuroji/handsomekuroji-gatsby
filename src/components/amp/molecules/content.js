@@ -132,15 +132,10 @@ const Wrapper = styled.div`
   }
 
   img {
-    background: var(--c_3);
     height: auto;
     transition: background 0.2s ease;
     vertical-align: bottom;
     width: 100%;
-
-    &.fade {
-      background: 0;
-    }
 
     .dark & {
       filter: brightness(80%);
@@ -452,6 +447,10 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
+  }
+
+  .twitter-tweet {
+    margin: 16px 0 0;
   }
 `
 

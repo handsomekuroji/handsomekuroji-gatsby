@@ -3,6 +3,7 @@ export default target => {
   const youtube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
   const story = /<p><span data-youtube="([^>]*?)">([\s\S^>]*?)<\/span><\/p>/gi
   const iframe = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">iframe<\/a><\/p>/gi
+  const twitter = /<blockquote class="twitter-tweet"[^>]*?>[^>]*?<a href="https:\/\/twitter\.com\/[^>]*?\/status\/([^>]*?)\?[^>]*?"[^>]*?<\/blockquote>/gi
   const amazon = /<p><span data-amazon="([^>]*?)">([^>]*?)<\/span><\/p>/gi
   const amazonImage = /<p><span data-amazon="([^>]*?)" data-amaimg="([^>]*?)">([^>]*?)<\/span><\/p>/gi
 
@@ -63,6 +64,11 @@ export default target => {
         </figure>
       `
     })
+    .replace(twitter, (match, id) => {
+      return `
+        <amp-twitter width=592 height=472 layout="responsive" data-tweetid="${id}"></amp-twitter>
+      `
+    })
     .replace(amazonImage, (match, id, img, text) => {
       const title = text.replace(/( )/gi, '</span><span class="item__title">')
       return `
@@ -74,6 +80,7 @@ export default target => {
               height="240"
               alt="${text}"
               class="item__img"
+              layout="responsive"
             ></amp-img>
           </div>
           <div class="item__container">
@@ -100,6 +107,7 @@ export default target => {
               height="240"
               alt="${text}"
               class="item__img"
+              layout="responsive"
             ></amp-img>
           </div>
           <div class="item__container">

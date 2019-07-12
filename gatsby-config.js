@@ -105,7 +105,15 @@ module.exports = {
           }
         },
         canonicalBaseUrl: 'https://handsomekuroji.com',
-        components: ['amp-ad', 'amp-iframe', 'amp-carousel', 'amp-social-share', 'amp-twitter', 'amp-instagram'],
+        components: [
+          'amp-ad',
+          'amp-iframe',
+          'amp-carousel',
+          'amp-social-share',
+          'amp-youtube',
+          'amp-twitter',
+          'amp-instagram'
+        ],
         excludedPaths: ['/404*', '/'],
         pathIdentifier: '/amp',
         relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
