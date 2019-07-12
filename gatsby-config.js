@@ -88,6 +88,31 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-amp`,
+      options: {
+        analytics: {
+          type: 'gtag',
+          dataCredentials: 'include',
+          config: {
+            vars: {
+              gtag_id: 'UA-68797404-1',
+              config: {
+                'UA-68797404-1': {
+                  page_location: '{{pathname}}'
+                }
+              }
+            }
+          }
+        },
+        canonicalBaseUrl: 'https://handsomekuroji.com',
+        components: ['amp-ad', 'amp-iframe', 'amp-carousel', 'amp-social-share', 'amp-twitter', 'amp-instagram'],
+        excludedPaths: ['/404*', '/'],
+        pathIdentifier: '/amp',
+        relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
+        useAmpClientIdApi: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {

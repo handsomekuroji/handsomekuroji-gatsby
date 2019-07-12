@@ -17,7 +17,7 @@ const Img = styled.img`
 
 export default function Logo() {
   const query = useStaticQuery(graphql`
-    query HeaderQuery {
+    query LogoQuery {
       site {
         siteMetadata {
           title
@@ -29,7 +29,7 @@ export default function Logo() {
   return (
     <picture>
       <source media="(min-width: 600px)" srcSet={big} />
-      <Img src={small} width="180" height="60" title={query.title} decoding="async" aria-hidden="true" />
+      <Img src={small} width="180" height="60" alt={query.title} decoding="async" aria-hidden="true" />
     </picture>
   )
 }

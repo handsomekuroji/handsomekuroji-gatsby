@@ -43,6 +43,23 @@ exports.createPages = ({ graphql, actions }) => {
       })
       resolve()
 
+      const amps = result.data.allContentfulBlog.edges
+      amps.forEach((edge, i) => {
+        const node = edge.node
+        const tag = node.tag.map(edge => {
+          return edge.slug
+        })
+        createPage({
+          path: `${node.slug}/amp`,
+          component: path.resolve('./src/templates/post.amp.js'),
+          context: {
+            slug: node.slug,
+            tag: tag
+          }
+        })
+      })
+      resolve()
+
       const searchJSON = result.data.allContentfulBlog.edges.map(edge => {
         const node = edge.node
         const tags = node.tag.map(edge => {
