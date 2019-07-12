@@ -44,7 +44,7 @@ const Anchor = styled.a`
     }
   `}
 
-  .imageImg {
+  amp-img {
     height: 160px;
     width: auto;
   }
@@ -76,15 +76,7 @@ export default function Image({ edge }) {
   return (
     <List>
       <Anchor href={url} target="_blank" rel="noopener noreferrer" aria-label={`${title}をAmazonでチェック`}>
-        <amp-img
-          src={big}
-          width="120"
-          height="160"
-          alt={title}
-          class="imageImg"
-          aria-hidden="true"
-          layout="responsive"
-        ></amp-img>
+        <amp-img src={big} width="120" height="160" alt={title} aria-hidden="true" layout="responsive"></amp-img>
       </Anchor>
     </List>
   )

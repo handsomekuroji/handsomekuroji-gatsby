@@ -96,7 +96,7 @@ const Anchor = styled(Link)`
     transition: transform 0.3s ease;
   }
 
-  .breadcrumbImg {
+  amp-img {
     height: auto;
     margin: 0 2px 0 0;
     transition: 0.3s;
@@ -117,7 +117,7 @@ export default function Breadcrumb({ breadcrumb }) {
       <Ordered>
         <Root>
           <Anchor to="/">
-            <amp-img src={logo} width="24" height="23.38" alt="ロゴ" class="breadcrumbImg" aria-hidden="true"></amp-img>
+            <amp-img src={logo} width="24" height="23.38" alt="ロゴ" aria-hidden="true"></amp-img>
             handsomekuroji
           </Anchor>
         </Root>

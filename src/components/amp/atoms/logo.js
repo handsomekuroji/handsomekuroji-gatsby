@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import small from '../../../images/main/hk.svg'
 
 const Wrapper = styled.div`
-  .logoImg {
+  amp-img {
     height: auto;
     transition: 0.3s;
     vertical-align: bottom;
@@ -29,7 +29,7 @@ export default function Logo() {
 
   return (
     <Wrapper>
-      <amp-img src={small} width="60" height="58" alt={query.title} class="logoImg" aria-hidden="true"></amp-img>
+      <amp-img src={small} width="60" height="58" alt={query.title} aria-hidden="true"></amp-img>
     </Wrapper>
   )
 }

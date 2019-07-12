@@ -6,7 +6,7 @@ const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 
-  .heroImg {
+  amp-img {
     height: auto;
     transition: background 0.4s ease 0.4s;
     vertical-align: bottom;
@@ -26,15 +26,7 @@ export default function Hero({ src, alt }) {
 
   return (
     <Figure>
-      <amp-img
-        src={`${src}?fm=webp`}
-        srcset={srcset(true)}
-        width="640"
-        height="360"
-        alt={alt}
-        class="heroImg"
-        layout="responsive"
-      >
+      <amp-img src={`${src}?fm=webp`} srcset={srcset(true)} width="640" height="360" alt={alt} layout="responsive">
         <amp-img
           src={src}
           srcset={srcset(false)}
@@ -42,7 +34,6 @@ export default function Hero({ src, alt }) {
           height="360"
           alt={alt}
           fallback="fallback"
-          class="heroImg"
           layout="responsive"
         ></amp-img>
       </amp-img>

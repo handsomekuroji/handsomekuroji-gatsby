@@ -86,7 +86,7 @@ const Meta = styled.div`
   display: grid;
   gap: 8px;
 
-  .postHeaderImg {
+  amp-img {
     border-radius: 50%;
     grid-column: 1 / 2;
     grid-row: 1 / 3;
@@ -239,7 +239,7 @@ export default function PostHeader({ header }) {
         <UnOrdered>{tags}</UnOrdered>
         <Title>{title}</Title>
         <Meta>
-          <amp-img src={photo} width="40" height="40" alt={author} class="postHeaderImg"></amp-img>
+          <amp-img src={photo} width="40" height="40" alt={author}></amp-img>
           <Name to="/about">{author}</Name>
           <Time dateTime={header.date} aria-label={label}>
             {date}

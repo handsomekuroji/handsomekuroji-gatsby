@@ -354,7 +354,7 @@ const Wrapper = styled.div`
     ${media.ls`margin: 0 0 0 auto;`}
   }
 
-  .item__img {
+  amp-img {
     border-radius: 6px;
     height: auto;
     position: relative;

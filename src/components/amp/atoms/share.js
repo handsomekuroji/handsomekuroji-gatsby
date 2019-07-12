@@ -6,7 +6,7 @@ const Button = styled.div`
   align-self: center;
   justify-self: flex-end;
 
-  .shareButton {
+  amp-social-share {
     align-items: center;
     background: none;
     border: 1px solid var(--c_7);
@@ -24,14 +24,7 @@ const Button = styled.div`
 export default function Share({ meta }) {
   return (
     <Button>
-      <amp-social-share
-        width="79px"
-        height="32px"
-        class="shareButton"
-        type="system"
-        data-param-text={meta.title}
-        data-param-url={meta.url}
-      >
+      <amp-social-share width="79px" height="32px" type="system" data-param-text={meta.title} data-param-url={meta.url}>
         SHARE
       </amp-social-share>
     </Button>

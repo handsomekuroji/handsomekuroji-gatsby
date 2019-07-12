@@ -26,7 +26,7 @@ export default target => {
               width="${width}"
               height="${height}"
               alt="${alt}"
-              fallback
+              fallback="fallback"
               layout="responsive"
             ></amp-img>
           </amp-img>
@@ -79,7 +79,6 @@ export default target => {
               width="240"
               height="240"
               alt="${text}"
-              class="item__img"
               layout="responsive"
             ></amp-img>
           </div>
@@ -106,7 +105,6 @@ export default target => {
               width="240"
               height="240"
               alt="${text}"
-              class="item__img"
               layout="responsive"
             ></amp-img>
           </div>

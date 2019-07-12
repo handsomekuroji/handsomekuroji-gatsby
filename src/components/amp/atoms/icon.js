@@ -37,7 +37,7 @@ const Css = css`
   }
 `
 const TwitterIcon = styled.div`
-  .iconTwitter {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -47,7 +47,7 @@ const TwitterIcon = styled.div`
 `
 
 const FacebookIcon = styled.div`
-  .iconFacebook {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -56,7 +56,7 @@ const FacebookIcon = styled.div`
   }
 `
 const HatebuIcon = styled.div`
-  .iconHatebu {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -66,7 +66,7 @@ const HatebuIcon = styled.div`
 `
 
 const LineIcon = styled.div`
-  .iconLine {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -76,7 +76,7 @@ const LineIcon = styled.div`
 `
 
 const PocketIcon = styled.div`
-  .iconPocket {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -90,7 +90,7 @@ const NoteIcon = styled.div`
 
   ${media.ms`display: flex;`}
 
-  .iconNote {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -104,7 +104,7 @@ const FeedlyIcon = styled.div`
 
   ${media.ms`display: flex;`}
 
-  .iconFeedly {
+  amp-social-share {
     ${Css}
 
     &:hover, &:focus {
@@ -128,7 +128,6 @@ export default function Icon({ icon }) {
             height="40"
             data-param-text={title}
             data-param-url={url}
-            class="iconTwitter"
             aria-label="Twitterでシェア"
           >
             <Twitter />
@@ -143,7 +142,6 @@ export default function Icon({ icon }) {
             data-param-text={title}
             data-param-url={url}
             data-param-app_id="450276249148867"
-            class="iconFacebook"
             aria-label="Facebookでシェア"
           >
             <Facebook />
@@ -151,14 +149,7 @@ export default function Icon({ icon }) {
         </FacebookIcon>
       ) : type === 'hatebu' ? (
         <HatebuIcon>
-          <amp-social-share
-            type={type}
-            width="40"
-            height="40"
-            data-share-endpoint={url}
-            class="iconHatebu"
-            aria-label="はてブでシェア"
-          >
+          <amp-social-share type={type} width="40" height="40" data-share-endpoint={url} aria-label="はてブでシェア">
             <Hatebu />
           </amp-social-share>
         </HatebuIcon>
@@ -170,7 +161,6 @@ export default function Icon({ icon }) {
             height="40"
             data-param-text={title}
             data-param-url={url}
-            class="iconLine"
             aria-label="LINEでシェア"
           >
             <Line />
@@ -178,41 +168,20 @@ export default function Icon({ icon }) {
         </LineIcon>
       ) : type === 'pocket' ? (
         <PocketIcon>
-          <amp-social-share
-            type={type}
-            width="40"
-            height="40"
-            data-share-endpoint={url}
-            class="iconPocket"
-            aria-label="Pocketに保存"
-          >
+          <amp-social-share type={type} width="40" height="40" data-share-endpoint={url} aria-label="Pocketに保存">
             <Pocket />
           </amp-social-share>
         </PocketIcon>
       ) : type === 'note' ? (
         <NoteIcon>
-          <amp-social-share
-            type={type}
-            width="40"
-            height="40"
-            data-share-endpoint={url}
-            class="iconNote"
-            aria-label="noteで書く"
-          >
+          <amp-social-share type={type} width="40" height="40" data-share-endpoint={url} aria-label="noteで書く">
             <Note />
           </amp-social-share>
         </NoteIcon>
       ) : (
         type === 'feedly' && (
           <FeedlyIcon>
-            <amp-social-share
-              type={type}
-              width="40"
-              height="40"
-              data-share-endpoint={url}
-              class="iconFeedly"
-              aria-label="Feedlyに登録"
-            >
+            <amp-social-share type={type} width="40" height="40" data-share-endpoint={url} aria-label="Feedlyに登録">
               <Feedly />
             </amp-social-share>
           </FeedlyIcon>
