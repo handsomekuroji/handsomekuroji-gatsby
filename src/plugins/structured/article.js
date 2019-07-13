@@ -18,7 +18,9 @@ export default (object, info, page, root) => {
         '@id': `${url}#publisher`,
         logo: {
           '@type': 'ImageObject',
-          url: `${url}/img/icon.png`
+          url: `${url}/img/amp.png`,
+          width: 179,
+          height: 60
         },
         foundingDate: '2018-07-30',
         email: object.mail
