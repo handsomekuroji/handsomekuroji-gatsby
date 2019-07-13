@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
 import Seo from '../components/amp/seo'
+import Structured from '../components/structured/post'
 import Layout from '../components/amp/layout'
 import Header from '../components/amp/organisms/header'
 import Footer from '../components/amp/organisms/footer'
@@ -58,6 +59,7 @@ export default function Amp({ data }) {
   const meta = Object.assign(seo, {
     description: Ampify(post.description.childMarkdownRemark.html),
     date: post.createdAt,
+    update: post.updatedAt,
     tag: post.tag,
     url: slug
   })
@@ -68,6 +70,7 @@ export default function Amp({ data }) {
   return (
     <Layout>
       <Seo meta={seo} />
+      <Structured page={meta} />
       <Header />
       <Main>
         <Article>
@@ -91,6 +94,7 @@ export const query = graphql`
       slug
       title
       createdAt
+      updatedAt
       description {
         description
         childMarkdownRemark {

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
 import Seo from '../components/seo'
+import Structured from '../components/structured/post'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
@@ -60,6 +61,7 @@ export default function Post({ data }) {
   const meta = Object.assign(seo, {
     description: Replace(post.description.childMarkdownRemark.html),
     date: post.createdAt,
+    update: post.updatedAt,
     tag: post.tag
   })
 
@@ -73,6 +75,7 @@ export default function Post({ data }) {
   return (
     <Layout>
       <Seo meta={seo} />
+      <Structured page={meta} />
       <Header />
       <Main>
         <Article>
@@ -96,6 +99,7 @@ export const query = graphql`
       slug
       title
       createdAt
+      updatedAt
       description {
         description
         childMarkdownRemark {
