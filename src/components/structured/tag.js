@@ -3,11 +3,11 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import base from '../../plugins/structured/base'
-import article from '../../plugins/structured/article'
+import collect from '../../plugins/structured/collect'
 
-export default function StructuredIndex({ data }) {
+export default function StructuredIndex({ page, data }) {
   const query = useStaticQuery(graphql`
-    query StructuredPostQuery {
+    query StructuredTagQuery {
       site {
         siteMetadata {
           title
@@ -22,10 +22,14 @@ export default function StructuredIndex({ data }) {
     }
   `).site.siteMetadata
 
+  const { number } = page
+  const root = query.siteUrl
+  const slug = data.url
+  const current = number === 1 ? `${root}/${slug}` : `${root}/${slug}/${number}`
   const object = {
     title: query.title,
     description: query.description,
-    url: `${query.siteUrl}/${data.url}`,
+    url: current,
     domain: query.domain,
     mail: query.mail,
     twitter: query.twitter,
@@ -33,7 +37,7 @@ export default function StructuredIndex({ data }) {
     author: query.author
   }
   const info = base(object)
-  const struct = article(object, info, data, query.siteUrl)
+  const struct = collect(object, info, data, root)
 
   return (
     <Helmet
@@ -48,5 +52,6 @@ export default function StructuredIndex({ data }) {
 }
 
 StructuredIndex.propTypes = {
+  page: PropTypes.object,
   data: PropTypes.object
 }

@@ -33,6 +33,8 @@ const Main = styled.main`
 `
 
 export default function Index({ data, pageContext }) {
+  const edges = data.allContentfulBlog.edges
+
   React.useEffect(() => {
     lozad()
   }, [Main])
@@ -40,11 +42,11 @@ export default function Index({ data, pageContext }) {
   return (
     <Layout>
       <Seo />
-      <Structured edges={data.allContentfulBlog.edges} page={pageContext} />
+      <Structured edges={edges} page={pageContext} />
       <Header index />
       <Main>
         <BestList edges={data.allContentfulBest.edges} />
-        <Loop edges={data.allContentfulBlog.edges} />
+        <Loop edges={edges} />
         <Pagination page={pageContext} />
       </Main>
       <Ads />

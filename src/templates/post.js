@@ -75,7 +75,7 @@ export default function Post({ data }) {
   return (
     <Layout>
       <Seo meta={seo} />
-      <Structured page={meta} />
+      <Structured data={meta} />
       <Header />
       <Main>
         <Article>

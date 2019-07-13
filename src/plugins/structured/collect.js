@@ -4,12 +4,6 @@ export default (object, info, page, root) => {
   const meta = info.meta
   const account = info.account
 
-  const key = []
-  Array.prototype.slice.call(page.tag).forEach(edge => {
-    key.push(edge.name)
-  })
-  const words = key.join(',')
-
   const org = [
     Object.assign(
       {
@@ -30,13 +24,29 @@ export default (object, info, page, root) => {
     )
   ]
 
-  const blog = {
+  const collect = {
     '@context': 'http://schema.org',
-    '@type': 'Blog',
-    description: object.description
+    '@type': 'CollectionPage',
+    headline: object.title,
+    mainEntityOfPage: url,
+    datePublished: page.date,
+    dateModified: page.update,
+    author: {
+      '@id': `${url}#author`
+    },
+    publisher: {
+      '@id': `${url}#publisher`
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: page.img,
+      width: 1280,
+      height: 720
+    },
+    description: page.description
   }
 
-  const list = [Object.assign(blog, author)]
+  const list = [Object.assign(collect, author)]
 
   const person = [
     Object.assign(
@@ -51,32 +61,6 @@ export default (object, info, page, root) => {
       meta,
       account
     )
-  ]
-
-  const post = [
-    Object.assign({
-      '@context': 'http://schema.org',
-      '@type': 'BlogPosting',
-      mainEntityOfPage: url,
-      headline: page.title,
-      keywords: words,
-      datePublished: page.date,
-      dateModified: page.update,
-      author: {
-        '@id': `${url}#author`
-      },
-      publisher: {
-        '@id': `${url}#publisher`
-      },
-      image: {
-        '@type': 'ImageObject',
-        url: page.img,
-        width: 1280,
-        height: 720
-      },
-      description: page.description,
-      isAccessibleForFree: true
-    })
   ]
 
   const bread = [
@@ -94,7 +78,7 @@ export default (object, info, page, root) => {
     })
   ]
 
-  org.push(...list, ...post, ...bread, ...person)
+  org.push(...list, ...bread, ...person)
 
   return org
 }

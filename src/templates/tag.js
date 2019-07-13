@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../components/variable/mixin'
 import Seo from '../components/seo'
+import Structured from '../components/structured/tag'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
@@ -45,6 +46,10 @@ export default function Tag({ data, pageContext }) {
   const meta = {
     img: edges.slice(-1)[0].node.thumbnail.file.url,
     title: name,
+    url: tag.slug,
+    description: tag.description.description.replace(/\r?\n/g, ''),
+    date: tag.createdAt,
+    update: tag.updatedAt,
     count: `投稿数 ${data.allContentfulBlog.totalCount} 件`
   }
 
@@ -55,6 +60,7 @@ export default function Tag({ data, pageContext }) {
   return (
     <Layout>
       <Seo meta={seo} />
+      <Structured edges={edges} page={pageContext} data={meta} />
       <Header />
       <Main>
         <TagHeader header={meta} />
@@ -72,6 +78,8 @@ export const query = graphql`
     contentfulTag(slug: { eq: $slug }) {
       slug
       name
+      updatedAt
+      createdAt
       description {
         description
       }
