@@ -482,6 +482,7 @@ const Wrapper = styled.div`
   }
 
   .iframe__data {
+    border-radius: 12px;
     border: 0;
     height: 100%;
     position: absolute;

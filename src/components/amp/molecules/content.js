@@ -443,6 +443,7 @@ const Wrapper = styled.div`
 
   .iframe__data {
     border: 0;
+    border-radius: 12px;
     height: 100%;
     position: absolute;
     top: 0;
