@@ -4,7 +4,6 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { font, media } from '../variable/mixin'
-import Share from '../../components/atoms/share'
 import photo from '../../images/main/handsomekuroji.jpg'
 import dummy from '../../images/main/dummy.svg'
 
@@ -159,11 +158,6 @@ export default function HorrorHeader({ header }) {
   const title = header.title
   const author = query.author
 
-  const share = {
-    title: title,
-    url: `${query.siteUrl}/${header.url}`
-  }
-
   return (
     <header>
       <Container>
@@ -176,7 +170,6 @@ export default function HorrorHeader({ header }) {
           </Time>
           <Img src={dummy} data-src={photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
         </Meta>
-        <Share meta={share} />
       </Container>
     </header>
   )

@@ -62,7 +62,7 @@ export default function PostFooter({ footer }) {
     },
     {
       type: 'Hatebu',
-      url: `http://b.hatena.ne.jp/add?mode=confirm&url=${url}`
+      url: `https://b.hatena.ne.jp/add?mode=confirm&url=${url}`
     },
     {
       type: 'Line',
