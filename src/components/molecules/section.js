@@ -46,9 +46,9 @@ const Container = styled.div`
 
 const Inner = styled.div`
   box-sizing: border-box;
-  height: 360px;
+  height: 590px;
   overflow: auto;
-  padding: 16px;
+  padding: 24px 24px 24px 0;
   width: 100%;
   writing-mode: vertical-rl;
   -webkit-overflow-scrolling: touch;
@@ -56,7 +56,7 @@ const Inner = styled.div`
   &::after {
     content: '';
     display: block;
-    width: 16px;
+    width: 24px;
 
     ${media.s`width: 24px;`}
 
@@ -80,14 +80,14 @@ const Inner = styled.div`
   }
 
   ${media.s`
-    height: 392px;
+    height: 616px;
     padding: 32px 24px 32px 0;
   `}
 
   ${media.ms`padding: 32px 32px 32px 0;`}
 
   ${media.m`
-    height: 436px;
+    height: 648px;
     padding: 48px 64px 48px 0;
   `}
 

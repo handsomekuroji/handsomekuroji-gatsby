@@ -51,6 +51,7 @@ const Title = styled.h1`
   font: bold 1.3rem / 1.5 ${font.$f_1};
   grid-column: 1 / 3;
   letter-spacing: 0.08rem;
+  position: relative;
   text-align: right;
 
   ${media.xs`font-size: 1.5rem;`}
