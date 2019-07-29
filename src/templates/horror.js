@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import dayjs from 'dayjs'
 import styled from 'styled-components'
-import { font, media } from '../components/variable/mixin'
+import { media } from '../components/variable/mixin'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
@@ -41,43 +40,8 @@ const Article = styled.article`
   transition: 0.3s;
 `
 
-const Alert = styled.div`
-  align-items: center;
-  animation: fade 4s ease 0s 1 normal;
-  background: var(--c_4);
-  border-top: 1px solid var(--c_8);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  display: flex;
-  font: bold 1.3rem / 1 ${font.$f_1};
-  height: 360px;
-  justify-content: center;
-  line-height: 1.8;
-  margin: auto;
-  max-width: 690px;
-  overflow: hidden;
-  padding: 16px;
-  text-align: center;
-  transition: 0.3s;
-
-  ${media.s`
-    height: 392px;
-    padding: 24px;
-  `}
-
-  ${media.ms`padding: 32px;`}
-
-  ${media.m`
-    height: 436px;
-    padding: 48px;
-  `}
-`
-
 export default function Horror({ data }) {
-  const [active, setActive] = React.useState(0)
   const dark = { class: 'dark' }
-  const time = dayjs(new Date()).format('HH')
 
   const post = data.contentfulHorror
   const html = Replace(post.content.childMarkdownRemark.html)
@@ -103,23 +67,6 @@ export default function Horror({ data }) {
     lozad()
   }, [Main])
 
-  React.useLayoutEffect(() => {
-    setActive(time >= 19 || time <= 4 ? 1 : 2)
-  }, [Main])
-
-  const content =
-    active === 1 ? (
-      <Section content={html} />
-    ) : active === 2 ? (
-      <Alert>
-        怖い話が読めるのは
-        <br />
-        夜だけです
-      </Alert>
-    ) : (
-      ''
-    )
-
   return (
     <Layout horror>
       <Seo meta={seo} />
@@ -128,7 +75,7 @@ export default function Horror({ data }) {
       <Main>
         <Article>
           <HorrorHeader header={meta} />
-          {content}
+          <Section content={html} />
           <PostFooter footer={meta} />
         </Article>
         <Breadcrumb breadcrumb={meta} />

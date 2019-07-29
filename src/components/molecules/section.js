@@ -92,7 +92,7 @@ const Inner = styled.div`
   `}
 
   p {
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.1rem;
     margin: 0 8px 0 0;
     text-indent: 1em;
 
@@ -100,6 +100,19 @@ const Inner = styled.div`
 
     &:first-of-type {
       margin: 0;
+    }
+  }
+
+  hr {
+    border: 0;
+    margin: 0 48px;
+    text-align: center;
+
+    &::after {
+      color: var(--c_0);
+      content: '＊＊＊';
+      font-size: 16px;
+      letter-spacing: 1em;
     }
   }
 `
