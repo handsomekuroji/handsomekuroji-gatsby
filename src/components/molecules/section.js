@@ -93,10 +93,8 @@ const Inner = styled.div`
 
   p {
     letter-spacing: 0.1rem;
-    margin: 0 8px 0 0;
+    margin: 0 16px 0 0;
     text-indent: 1em;
-
-    ${media.ms`margin: 0 16px 0 0;`}
 
     &:first-of-type {
       margin: 0;
