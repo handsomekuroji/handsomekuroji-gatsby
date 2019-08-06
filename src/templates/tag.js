@@ -44,7 +44,7 @@ export default function Tag({ data, pageContext }) {
   }
 
   const meta = {
-    img: edges.slice(-1)[0].node.thumbnail.file.url,
+    img: edges.slice(-1)[0].node.thumbnail.localFile.childImageSharp.fluid.src,
     title: name,
     url: tag.slug,
     description: tag.description.description.replace(/\r?\n/g, ''),
@@ -97,8 +97,15 @@ export const query = graphql`
           title
           createdAt
           thumbnail {
-            file {
-              url
+            localFile {
+              absolutePath
+              childImageSharp {
+                fluid {
+                  src
+                  srcSet
+                  srcSetWebp
+                }
+              }
             }
           }
         }

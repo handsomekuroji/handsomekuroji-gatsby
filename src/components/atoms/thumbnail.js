@@ -29,9 +29,9 @@ export default function Thumbnail({ src, alt }) {
       <source type="image/webp" data-src={dummy} data-srcset={srcset(true)} data-sizes="100w" />
       <Img
         src={dummy}
-        data-src={src}
+        data-src={src.src}
         data-srcset={srcset(false)}
-        content={src}
+        content={src.src}
         width="640"
         height="360"
         alt={alt}
