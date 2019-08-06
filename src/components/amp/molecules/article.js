@@ -90,7 +90,7 @@ export default function Article({ edge }) {
   return (
     <article>
       <Anchor to={`/${post.slug}`}>
-        <Thumbnail src={post.thumbnail.file.url} alt={title} />
+        <Thumbnail src={post.thumbnail.localFile.childImageSharp.fluid} alt={title} />
         <Header>
           <Other>{title}</Other>
           <Time dateTime={date} aria-label={label}>

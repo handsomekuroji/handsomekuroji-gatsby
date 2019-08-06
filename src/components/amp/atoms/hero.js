@@ -19,17 +19,12 @@ const Figure = styled.figure`
 `
 
 export default function Hero({ src, alt }) {
-  const srcset = bool => {
-    const webp = bool ? 'fm=webp&' : ''
-    return `${src}?${webp}w=320 640w, ${src}?${webp}w=640 760w, ${src}?${webp}w=1280 1280w`
-  }
-
   return (
     <Figure>
-      <amp-img src={`${src}?fm=webp`} srcset={srcset(true)} width="640" height="360" alt={alt} layout="responsive">
+      <amp-img src={src.srcWebp} srcset={src.srcSetWebp} width="640" height="360" alt={alt} layout="responsive">
         <amp-img
-          src={src}
-          srcset={srcset(false)}
+          src={src.src}
+          srcset={src.srcSet}
           width="640"
           height="360"
           alt={alt}
@@ -42,6 +37,6 @@ export default function Hero({ src, alt }) {
 }
 
 Hero.propTypes = {
-  src: PropTypes.string,
+  src: PropTypes.object,
   alt: PropTypes.string
 }

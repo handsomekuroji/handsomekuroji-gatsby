@@ -29,7 +29,7 @@ export default function Seo({ meta }) {
   const domain = query.domain
   const twitter = query.twitter
   const facebook = query.facebook
-  const img = meta.img ? `https:${meta.img}` : root + ogImg
+  const img = meta.img ? root + meta.img : root + ogImg
   const verification = query.verification
 
   return (

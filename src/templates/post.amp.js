@@ -44,19 +44,20 @@ const Article = styled.article`
 export default function Amp({ data }) {
   const post = data.contentfulBlog
   const html = Ampify(post.content.childMarkdownRemark.html)
-  const img = post.thumbnail.file.url
+  const img = post.thumbnail.localFile.childImageSharp.fluid
   const title = post.title
   const slug = post.slug
   const posts = data.allContentfulBlog.edges
   const faves = post.faves
 
   const seo = {
-    img: img,
+    img: img.src,
     title: title,
     description: post.description.description
   }
 
   const meta = Object.assign(seo, {
+    img: img,
     description: Ampify(post.description.childMarkdownRemark.html),
     date: post.createdAt,
     update: post.updatedAt,
@@ -102,8 +103,15 @@ export const query = graphql`
         }
       }
       thumbnail {
-        file {
-          url
+        localFile {
+          childImageSharp {
+            fluid {
+              src
+              srcWebp
+              srcSet
+              srcSetWebp
+            }
+          }
         }
       }
       content {
@@ -131,8 +139,15 @@ export const query = graphql`
           title
           createdAt
           thumbnail {
-            file {
-              url
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                  srcWebp
+                  srcSet
+                  srcSetWebp
+                }
+              }
             }
           }
         }

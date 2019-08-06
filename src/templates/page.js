@@ -43,7 +43,7 @@ const Article = styled.article`
 export default function Page({ data }) {
   const post = data.contentfulPage
   const html = Replace(post.content.childMarkdownRemark.html)
-  const img = post.thumbnail.file.url
+  const img = post.thumbnail.localFile.childImageSharp.fluid
   const title = post.title
   const slug = post.slug
 
@@ -94,8 +94,14 @@ export const query = graphql`
         }
       }
       thumbnail {
-        file {
-          url
+        localFile {
+          childImageSharp {
+            fluid {
+              src
+              srcSet
+              srcSetWebp
+            }
+          }
         }
       }
       content {

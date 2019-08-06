@@ -13,8 +13,14 @@ exports.createPages = ({ graphql, actions }) => {
               title
               slug
               thumbnail {
-                file {
-                  url
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      src
+                      srcSet
+                      srcSetWebp
+                    }
+                  }
                 }
               }
               tag {
@@ -68,7 +74,7 @@ exports.createPages = ({ graphql, actions }) => {
         return {
           title: node.title,
           slug: node.slug,
-          image: `https:${node.thumbnail.file.url}`,
+          image: `${node.thumbnail.localFile.childImageSharp.fluid.src}`,
           tag: tags
         }
       })

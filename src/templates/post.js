@@ -45,20 +45,21 @@ const Article = styled.article`
 export default function Post({ data }) {
   const post = data.contentfulBlog
   const html = Replace(post.content.childMarkdownRemark.html)
-  const img = post.thumbnail.file.url
+  const img = post.thumbnail.localFile.childImageSharp.fluid
   const title = post.title
   const slug = post.slug
   const posts = data.allContentfulBlog.edges
   const faves = post.faves
 
   const seo = {
-    img: img,
+    img: img.src,
     title: title,
     url: slug,
     description: post.description.description
   }
 
   const meta = Object.assign(seo, {
+    img: img,
     description: Replace(post.description.childMarkdownRemark.html),
     date: post.createdAt,
     update: post.updatedAt,
@@ -107,8 +108,14 @@ export const query = graphql`
         }
       }
       thumbnail {
-        file {
-          url
+        localFile {
+          childImageSharp {
+            fluid {
+              src
+              srcSet
+              srcSetWebp
+            }
+          }
         }
       }
       content {

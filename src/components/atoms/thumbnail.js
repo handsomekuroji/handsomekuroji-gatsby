@@ -20,17 +20,13 @@ const Img = styled.img`
 `
 
 export default function Thumbnail({ src, alt }) {
-  const srcset = bool => {
-    return bool ? src.srcSetWebp : src.srcSet
-  }
-
   return (
     <picture>
-      <source type="image/webp" data-src={dummy} data-srcset={srcset(true)} data-sizes="100w" />
+      <source type="image/webp" data-src={dummy} data-srcset={src.srcSetWebp} data-sizes="100w" />
       <Img
         src={dummy}
         data-src={src.src}
-        data-srcset={srcset(false)}
+        data-srcset={src.srcSet}
         content={src.src}
         width="640"
         height="360"
@@ -43,6 +39,6 @@ export default function Thumbnail({ src, alt }) {
 }
 
 Thumbnail.propTypes = {
-  src: PropTypes.string,
+  src: PropTypes.object,
   alt: PropTypes.string
 }

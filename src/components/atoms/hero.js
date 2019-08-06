@@ -20,19 +20,14 @@ const Img = styled.img`
 `
 
 export default function Hero({ src, alt }) {
-  const srcset = bool => {
-    const webp = bool ? 'fm=webp&' : ''
-    return `${src}?${webp}w=320 640w, ${src}?${webp}w=640 760w, ${src}?${webp}w=1280 1280w`
-  }
-
   return (
     <picture>
-      <source type="image/webp" data-src={dummy} data-srcset={srcset(true)} data-sizes="100w" />
+      <source type="image/webp" data-src={dummy} data-srcset={src.srcSetWebp} data-sizes="100w" />
       <Img
         src={dummy}
-        data-src={src}
-        data-srcset={srcset(false)}
-        content={src}
+        data-src={src.src}
+        data-srcset={src.srcSet}
+        content={src.src}
         width="640"
         height="360"
         alt={alt}
@@ -44,6 +39,6 @@ export default function Hero({ src, alt }) {
 }
 
 Hero.propTypes = {
-  src: PropTypes.string,
+  src: PropTypes.object,
   alt: PropTypes.string
 }

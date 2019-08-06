@@ -19,17 +19,12 @@ const Figure = styled.figure`
 `
 
 export default function Thumbnail({ src, alt }) {
-  const srcset = bool => {
-    const webp = bool ? 'fm=webp&' : ''
-    return `${src}?${webp}w=320 600w, ${src}?${webp}w=330 1040w, ${src}?${webp}w=300 1280w`
-  }
-
   return (
     <Figure>
-      <amp-img src={`${src}?fm=webp`} srcset={srcset(true)} width="640" height="360" alt={alt} layout="responsive">
+      <amp-img src={src.srcWebp} srcset={src.srcSetWebp} width="640" height="360" alt={alt} layout="responsive">
         <amp-img
-          src={src}
-          srcset={srcset(false)}
+          src={src.src}
+          srcset={src.srcSet}
           width="640"
           height="360"
           alt={alt}
@@ -42,6 +37,6 @@ export default function Thumbnail({ src, alt }) {
 }
 
 Thumbnail.propTypes = {
-  src: PropTypes.string,
+  src: PropTypes.object,
   alt: PropTypes.string
 }
