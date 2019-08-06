@@ -20,6 +20,7 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -60,7 +61,8 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: '1c6og4gj8h99',
-        accessToken: env.CTF_CDA_ACCESS_TOKEN
+        accessToken: env.CTF_CDA_ACCESS_TOKEN,
+        downloadLocal: true
       }
     },
     {

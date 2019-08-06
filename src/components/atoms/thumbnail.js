@@ -21,8 +21,7 @@ const Img = styled.img`
 
 export default function Thumbnail({ src, alt }) {
   const srcset = bool => {
-    const webp = bool ? 'fm=webp&' : ''
-    return `${src}?${webp}w=320 600w, ${src}?${webp}w=330 1040w, ${src}?${webp}w=300 1280w`
+    return bool ? src.srcSetWebp : src.srcSet
   }
 
   return (

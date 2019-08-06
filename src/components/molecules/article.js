@@ -105,7 +105,7 @@ export default function Article({ edge, recommend }) {
     <article>
       <Anchor to={`/${post.slug}`}>
         <Figure>
-          <Thumbnail src={post.thumbnail.file.url} alt={title} />
+          <Thumbnail src={post.thumbnail.localFile.childImageSharp.fluid} alt={title} />
         </Figure>
         <Header>
           {heading}

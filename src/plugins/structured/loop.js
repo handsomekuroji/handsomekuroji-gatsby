@@ -3,7 +3,7 @@ export default (author, edges, root) => {
 
   Array.prototype.slice.call(edges).forEach(edge => {
     const date = edge.node.createdAt
-    const img = edge.node.thumbnail
+    const img = edge.node.thumbnail.localFile.absolutePath
 
     const list = {
       '@context': 'https://schema.org',
@@ -17,7 +17,7 @@ export default (author, edges, root) => {
       },
       image: {
         '@type': 'ImageObject',
-        url: img ? `https:${img.file.url}` : `${root}/img/ogp.png`,
+        url: img ? `${img}` : `${root}/img/ogp.png`,
         width: '1280',
         height: '720'
       }
