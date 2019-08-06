@@ -98,7 +98,6 @@ export const query = graphql`
           createdAt
           thumbnail {
             localFile {
-              absolutePath
               childImageSharp {
                 fluid {
                   src
