@@ -13,16 +13,16 @@ export default target => {
       return `
         <figure>
           <amp-img
-            src="${img}?fm=webp"
-            srcset="${img}?fm=webp&w=320 640w, ${img}?fm=webp&w=640 760w, ${img}?fm=webp&w=1280 1280w"
+            src="https:${img}?fm=webp"
+            srcset="https:${img}?fm=webp&w=320 640w, https:${img}?fm=webp&w=640 760w, https:${img}?fm=webp&w=1280 1280w"
             width="${width}"
             height="${height}"
             alt="${alt}"
             layout="responsive"
           >
             <amp-img
-              src="${img}"
-              srcset="${img}?w=320 640w, ${img}?w=640 760w, ${img}?w=1280 1280w"
+              src="https:${img}"
+              srcset="https:${img}?w=320 640w, https:${img}?w=640 760w, https:${img}?w=1280 1280w"
               width="${width}"
               height="${height}"
               alt="${alt}"
