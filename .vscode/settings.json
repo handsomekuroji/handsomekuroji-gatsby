@@ -16,5 +16,13 @@
       "language": "javascriptreact",
       "autoFix": true
     }
-  ]
+  ],
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorStyle": "block",
+  "editor.fontFamily": "Hasklig, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.renderIndentGuides": true,
+  "telemetry.enableTelemetry": false,
+  "workbench.editor.highlightModifiedTabs": true
 }
