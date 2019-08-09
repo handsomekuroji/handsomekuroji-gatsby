@@ -7,7 +7,7 @@ import Article from '../molecules/article'
 const Wrapper = styled.section`
   display: grid;
   gap: 24px;
-  margin: 16px 0 0;
+  margin: 24px 0 0;
 
   ${media.s`
     grid-template-columns: 1fr 1fr;

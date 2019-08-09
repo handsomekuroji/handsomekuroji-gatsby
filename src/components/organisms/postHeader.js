@@ -18,7 +18,7 @@ const Container = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: auto 1fr;
-  padding: 16px;
+  padding: 24px 16px;
 
   ${media.s`padding: 32px 24px;`}
 

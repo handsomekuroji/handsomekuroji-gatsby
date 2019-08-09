@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { media } from '../../variable/mixin'
 
 const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
+  height: 100%;
+  object-fit: cover;
   overflow: hidden;
+
+  ${media.s`height: auto;`}
 
   amp-img {
     height: auto;

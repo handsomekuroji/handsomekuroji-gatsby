@@ -39,7 +39,7 @@ const Container = styled.div`
 
     ${media.s`padding: 12px;`}
 
-    ${media.ms`padding: 16px;`}
+    ${media.ms`padding: 16px calc((100vw - 100%) / 4);`}
   }
 `
 

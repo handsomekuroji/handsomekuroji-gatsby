@@ -1,14 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { media } from '../variable/mixin'
 import dummy from '../../images/main/dummy.svg'
 
 const Img = styled.img`
   background: var(--c_3);
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   transition: background 0.4s ease 0.4s;
   vertical-align: bottom;
   width: 100%;
+
+  ${media.s`height: auto;`}
 
   &.fade {
     background: 0;

@@ -12,13 +12,18 @@ const Anchor = styled(Link)`
   color: var(--c_0);
   display: grid;
   font-size: 0.95rem;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1.5fr;
   height: 100%;
   position: relative;
   text-decoration: none;
   transition: 0.3s linear;
   visibility: visible;
   will-change: transform;
+
+  ${media.s`
+    grid-template-columns: none;
+    grid-template-rows: auto 1fr;
+  `}
 
   ${media.m`font-size: 1rem;`}
 
