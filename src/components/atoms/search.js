@@ -105,9 +105,8 @@ const Anchor = styled(Link)`
   box-sizing: border-box;
   color: #404040;
   display: block;
-  font: bold 0.9rem / 1.3  ${font.$f_1};
+  font: bold 0.9rem / 1.3 ${font.$f_1};
   line-height: 1.35;
-  vertical-align: bottom;
   text-decoration: none;
   padding: 12px 16px;
   transition: 0.1s linear;
@@ -117,7 +116,7 @@ const Anchor = styled(Link)`
     color: rgba(var(--c_0-rgb), 0.5);
 
     &:visited {
-      color: rgba(var(--c_0-rgb), 0.5);Z
+      color: rgba(var(--c_0-rgb), 0.5);
     }
   }
 

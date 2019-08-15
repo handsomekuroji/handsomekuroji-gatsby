@@ -30,15 +30,13 @@ export default function Share({ meta }) {
     setActive(!!navigator.share)
   }, [Button])
 
-  const button = active ? (
+  return active ? (
     <Button type="button" onClick={link}>
       SHARE
     </Button>
   ) : (
     ''
   )
-
-  return button
 }
 
 Share.propTypes = {

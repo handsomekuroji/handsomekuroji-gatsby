@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { media, font } from '../../components/variable/mixin'
 import Logo from '../atoms/logo'
 import Search from '../atoms/search'
@@ -13,21 +13,13 @@ const Wrapper = styled.header`
   ${media.ls`padding: 48px 0 0;`}
 `
 
-const Css = css`
+const Title = styled.h1`
   display: inline-block;
   width: 60px;
 
   ${media.ms`width: 180px;`}
 
   ${media.ls`width: 240px;`}
-`
-
-const Title = styled.h1`
-  ${Css}
-`
-
-const Heading = styled.div`
-  ${Css}
 `
 
 const Other = styled.h1`
@@ -48,7 +40,7 @@ export default function Header({ index, title, horror }) {
     </Link>
   )
 
-  const heading = index ? <Title>{logo}</Title> : <Heading>{logo}</Heading>
+  const heading = index ? <Title>{logo}</Title> : <Title as="div">{logo}</Title>
   const other = title && <Other>{title}</Other>
   const search = title || horror ? '' : <Search />
 
