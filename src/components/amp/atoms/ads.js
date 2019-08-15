@@ -1,7 +1,6 @@
 import React from 'react'
-import AdSense from 'react-adsense'
 import styled from 'styled-components'
-import { media } from '../../components/variable/mixin'
+import { media } from '../../../components/variable/mixin'
 
 const Wrapper = styled.div`
   margin: 32px auto 0;
@@ -18,11 +17,13 @@ const Wrapper = styled.div`
 export default function Ads() {
   return (
     <Wrapper>
-      <AdSense.Google
-        client="ca-pub-3005738200116146"
-        slot="2919591828"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
+      <amp-ad
+        width="auto"
+        height="320"
+        type="adsense"
+        data-ad-client="ca-pub-3005738200116146"
+        data-ad-slot="2919591828"
+        data-auto-format="banner"
       />
     </Wrapper>
   )

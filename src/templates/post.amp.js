@@ -13,7 +13,7 @@ import Content from '../components/amp/molecules/content'
 import Breadcrumb from '../components/amp/organisms/breadcrumb'
 import Recommend from '../components/amp/organisms/recommend'
 import Favorite from '../components/amp/organisms/favorite'
-import Ads from '../components/atoms/ads'
+import Ads from '../components/amp/atoms/ads'
 import Ampify from '../plugins/ampify'
 
 const Main = styled.main`

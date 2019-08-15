@@ -69,10 +69,7 @@ export default function Seo({ meta }) {
         { rel: 'mask-icon', href: '/img/safari-pinned-tab.svg', color: '#404040' },
         { rel: 'preconnect dns-prefetch', href: 'https://www.google-analytics.com' }
       ]}
-      script={[
-        { src: 'https://cdn.ampproject.org/v0.js', async: true },
-        { src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js', 'custom-element': 'amp-ad', async: true }
-      ]}
+      script={[{ src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true }]}
     />
   )
 }
