@@ -67,7 +67,6 @@ const Inner = styled.div`
 
   &::-webkit-scrollbar {
     appearance: scrollbarbutton-up;
-    display: inline;
     height: 4px;
     width: auto;
     overflow: overlay;

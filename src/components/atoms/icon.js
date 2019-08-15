@@ -108,41 +108,40 @@ export default function Icon({ icon }) {
     modal(url, event)
   }
 
-  return (
-    <>
-      {type === 'Twitter' ? (
-        <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Twitterでシェア" onClick={box}>
-          <Twitter />
-        </TwitterIcon>
-      ) : type === 'Facebook' ? (
-        <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア" onClick={box}>
-          <Facebook />
-        </FacebookIcon>
-      ) : type === 'Hatebu' ? (
-        <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="はてブでシェア" onClick={box}>
-          <Hatebu />
-        </HatebuIcon>
-      ) : type === 'Line' ? (
-        <LineIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="LINEでシェア" onClick={box}>
-          <Line />
-        </LineIcon>
-      ) : type === 'Pocket' ? (
-        <PocketIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Pocketに保存" onClick={box}>
-          <Pocket />
-        </PocketIcon>
-      ) : type === 'Note' ? (
-        <NoteIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="noteで書く">
-          <Note />
-        </NoteIcon>
-      ) : (
-        type === 'Feedly' && (
-          <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Feedlyに登録" onClick={box}>
-            <Feedly />
-          </FeedlyIcon>
-        )
-      )}
-    </>
-  )
+  const icons =
+    type === 'Twitter' ? (
+      <TwitterIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Twitterでシェア" onClick={box}>
+        <Twitter />
+      </TwitterIcon>
+    ) : type === 'Facebook' ? (
+      <FacebookIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア" onClick={box}>
+        <Facebook />
+      </FacebookIcon>
+    ) : type === 'Hatebu' ? (
+      <HatebuIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="はてブでシェア" onClick={box}>
+        <Hatebu />
+      </HatebuIcon>
+    ) : type === 'Line' ? (
+      <LineIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="LINEでシェア" onClick={box}>
+        <Line />
+      </LineIcon>
+    ) : type === 'Pocket' ? (
+      <PocketIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Pocketに保存" onClick={box}>
+        <Pocket />
+      </PocketIcon>
+    ) : type === 'Note' ? (
+      <NoteIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="noteで書く">
+        <Note />
+      </NoteIcon>
+    ) : (
+      type === 'Feedly' && (
+        <FeedlyIcon href={url} target="_blank" rel="noopener noreferrer" aria-label="Feedlyに登録" onClick={box}>
+          <Feedly />
+        </FeedlyIcon>
+      )
+    )
+
+  return icons
 }
 
 Icon.propTypes = {

@@ -205,6 +205,15 @@ const Inner = styled(
 
   ${media.m`font-size: 0.9rem;`}
 
+  &.visivle {
+    visibility: visible;
+  }
+
+  &.hidden {
+    transition: visibility 0s ease 0.3s;
+    visibility: hidden;
+  }
+
   p {
     letter-spacing: 0.05rem;
     line-height: 1.8;
@@ -343,6 +352,8 @@ export default function Box({ edge, count }) {
     )
   }
 
+  const visible = Active ? 'visible' : 'hidden'
+
   return (
     <article>
       <Wrapper>
@@ -365,7 +376,7 @@ export default function Box({ edge, count }) {
             <Small>{box.text}</Small>
             <Button>{button}</Button>
           </Header>
-          <Inner pose={active(Active)}>
+          <Inner pose={active(Active)} className={visible}>
             {block()}
             <Content
               pose={active(Active)}

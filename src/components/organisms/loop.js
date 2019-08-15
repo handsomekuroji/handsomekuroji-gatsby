@@ -33,8 +33,9 @@ const Other = styled.div`
 
 export default function Loop({ edges, tag }) {
   const articles = edges.map((edge, i) => <Article key={i} edge={edge} />)
+  const loop = tag ? <Other>{articles}</Other> : <Wrapper>{articles}</Wrapper>
 
-  return tag ? <Other>{articles}</Other> : <Wrapper>{articles}</Wrapper>
+  return loop
 }
 
 Loop.propTypes = {
