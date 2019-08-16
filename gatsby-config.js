@@ -90,17 +90,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-guess-js',
-      options: {
-        GAViewID: '109972360',
-        minimumThreshold: 0.03,
-        period: {
-          startDate: new Date('2017-1-1'),
-          endDate: new Date()
-        }
-      }
-    },
-    {
       resolve: `gatsby-plugin-amp`,
       options: {
         analytics: {
