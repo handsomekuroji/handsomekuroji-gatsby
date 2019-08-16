@@ -58,8 +58,7 @@ export default function Seo({ meta }) {
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'application-name', content: title },
         { name: 'msapplication-TileColor', content: '#404040' },
-        { name: 'theme-color', content: '#fcfcfc' },
-        { name: 'google-site-verification', content: verification }
+        { name: 'theme-color', content: '#fcfcfc' }
       ]}
       link={[
         { rel: 'canonical', href: url },
