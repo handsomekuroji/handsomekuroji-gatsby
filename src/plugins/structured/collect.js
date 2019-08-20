@@ -12,7 +12,7 @@ export default (object, info, page, root) => {
         '@id': `${url}#publisher`,
         logo: {
           '@type': 'ImageObject',
-          url: `${url}/img/amp.png`,
+          url: `${root}/img/amp.png`,
           width: 179,
           height: 60
         },

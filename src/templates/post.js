@@ -58,12 +58,15 @@ export default function Post({ data }) {
     description: post.description.description
   }
 
-  const meta = Object.assign(seo, {
-    img: img,
-    description: Replace(post.description.childMarkdownRemark.html),
+  const structured = Object.assign(seo, {
     date: post.createdAt,
     update: post.updatedAt,
     tag: post.tag
+  })
+
+  const meta = Object.assign(structured, {
+    img: img,
+    description: Replace(post.description.childMarkdownRemark.html)
   })
 
   const recommend = posts ? <Recommend edges={posts} /> : ''
@@ -76,7 +79,7 @@ export default function Post({ data }) {
   return (
     <Layout>
       <Seo meta={seo} />
-      <Structured data={meta} />
+      <Structured data={structured} />
       <Header />
       <Main>
         <Article>
