@@ -32,6 +32,7 @@ export default function StructuredIndex({ data }) {
     facebook: query.facebook,
     author: query.author
   }
+
   const info = base(object)
   const struct = article(object, info, data, query.siteUrl)
 

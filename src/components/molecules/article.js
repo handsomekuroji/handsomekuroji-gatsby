@@ -69,13 +69,15 @@ const Figure = styled.figure`
 
 const Header = styled.header`
   background: var(--c_4);
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 8px 8px 0;
   box-sizing: border-box;
   display: grid;
   gap: 16px;
   padding: 24px;
   position: relative;
   transition: background 0.3s;
+
+  ${media.s`border-radius: 0 0 8px 8px;`}
 `
 
 const Title = styled.h2`

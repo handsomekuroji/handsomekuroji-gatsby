@@ -63,10 +63,9 @@ export default function Amp({ data }) {
     url: slug
   })
 
-  const meta = Object.assign(structured, {
-    img: img,
-    description: Ampify(post.description.childMarkdownRemark.html)
-  })
+  const meta = Object.assign({}, structured)
+  meta.img = img
+  meta.description = Ampify(post.description.childMarkdownRemark.html)
 
   const recommend = posts ? <Recommend edges={posts} /> : ''
   const favorite = faves ? <Favorite edges={faves} /> : ''
