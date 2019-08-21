@@ -3,7 +3,7 @@ export default target => {
   const youtube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
   const story = /<p><span data-youtube="([^>]*?)">([\s\S^>]*?)<\/span><\/p>/gi
   const iframe = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">iframe<\/a><\/p>/gi
-  const twitter = /<blockquote class="twitter-tweet"[^>]*?>[^>]*?<a href="https:\/\/twitter\.com\/[^>]*?\/status\/([^>]*?)\?[^>]*?"[^>]*?<\/blockquote>/gi
+  const twitter = /<blockquote class="twitter-tweet"[^>]*?>.*?<a href="https:\/\/twitter\.com\/[^>]*?\/status\/([^>]*?)\?[^>]*?".*?<\/blockquote>/gi
   const amazon = /<p><span data-amazon="([^>]*?)">([^>]*?)<\/span><\/p>/gi
   const amazonImage = /<p><span data-amazon="([^>]*?)" data-amaimg="([^>]*?)">([^>]*?)<\/span><\/p>/gi
 

@@ -83,14 +83,14 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: 'gatsby-plugin-styled-components',
       options: {
         minify: true,
         pure: true
       }
     },
     {
-      resolve: `gatsby-plugin-amp`,
+      resolve: 'gatsby-plugin-amp',
       options: {
         analytics: {
           type: 'gtag',
