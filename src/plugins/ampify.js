@@ -73,13 +73,13 @@ export default target => {
       const title = text.replace(/( )/gi, '</span><span class="item__title">')
       return `
         <div class="item">
-          <div class="item__figure">
+          <div class="item__figure--amp">
             <amp-img
               src="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg"
-              width="240"
-              height="240"
+              width="auto"
+              height="160"
               alt="${text}"
-              layout="responsive"
+              layout="fixed-height"
             ></amp-img>
           </div>
           <div class="item__container">
@@ -99,13 +99,13 @@ export default target => {
       const title = text.replace(/( )/gi, '</span><span class="item__title">')
       return `
         <div class="item">
-          <div class="item__figure">
+          <div class="item__figure--amp">
             <amp-img
               src="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg"
-              width="240"
-              height="240"
+              width="auto"
+              height="160"
               alt="${text}"
-              layout="responsive"
+              layout="fixed-height"
             ></amp-img>
           </div>
           <div class="item__container">

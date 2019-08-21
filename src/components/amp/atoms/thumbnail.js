@@ -4,21 +4,28 @@ import styled from 'styled-components'
 import { media } from '../../variable/mixin'
 
 const Figure = styled.figure`
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px 0 0 8px;
   height: 100%;
   object-fit: cover;
   overflow: hidden;
 
-  ${media.s`height: auto;`}
+  ${media.s`
+    border-radius: 8px 8px 0 0;
+    height: auto;
+  `}
 
   amp-img {
-    height: auto;
+    height: 100%;
     transition: background 0.4s ease 0.4s;
     vertical-align: bottom;
     width: 100%;
 
     .dark & {
       filter: brightness(80%);
+    }
+
+    img {
+      object-fit: cover;
     }
   }
 `

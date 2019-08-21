@@ -352,6 +352,22 @@ const Wrapper = styled.div`
     }
 
     ${media.ls`margin: 0 0 0 auto;`}
+
+    &--amp {
+      margin: 0 auto;
+      position: relative;
+      width: 160px;
+
+      amp-img {
+        border-radius: 0;
+
+        img[src] {
+          min-width: auto;
+          width: auto;
+          position: static;
+        }
+      }
+    }
   }
 
   amp-img {
