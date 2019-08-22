@@ -21,6 +21,12 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        mergeLinkHeaders: false
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
