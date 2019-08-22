@@ -20,7 +20,6 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
