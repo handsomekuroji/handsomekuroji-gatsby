@@ -55,7 +55,7 @@ export default function Post({ data }) {
     img: img.src,
     title: title,
     url: slug,
-    description: post.description.description
+    description: Replace(post.description.childMarkdownRemark.html).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
   }
 
   const structured = Object.assign(seo, {

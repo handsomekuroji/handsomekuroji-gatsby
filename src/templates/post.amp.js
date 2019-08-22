@@ -53,7 +53,7 @@ export default function Amp({ data }) {
   const seo = {
     img: img.src,
     title: title,
-    description: post.description.description
+    description: Ampify(post.description.childMarkdownRemark.html).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
   }
 
   const structured = Object.assign(seo, {
