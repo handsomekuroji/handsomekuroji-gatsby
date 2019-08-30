@@ -14,7 +14,7 @@ export default target => {
       return `
         <figure>
           <picture>
-            <source type="image/webp" data-srcset="https:${img}?fm=webp&w=320 640w, https:${img}?fm=webp&w=640 760w, https:${img}?fm=webp&w=1280 1280w" data-sizes="100w" />
+            <source type="image/webp" src-set="${dummy}" data-srcset="https:${img}?fm=webp&w=320 640w, https:${img}?fm=webp&w=640 760w, https:${img}?fm=webp&w=1280 1280w" data-sizes="100w" />
             <img src="${dummy}" content="https:${img}" data-src="https:${img}" data-srcset="https:${img}?w=320 640w, https:${img}?w=640 760w, https:${img}?w=1280 1280w" width="${width}" height="${height}" alt="${alt}" loading="lazy" decoding="async" class="img">
           </picture>
         </figure>

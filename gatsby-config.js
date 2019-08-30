@@ -115,7 +115,7 @@ module.exports = {
           'amp-twitter',
           'amp-instagram'
         ],
-        excludedPaths: ['/404*', '/'],
+        excludedPaths: ['/404/', '/404.html', '/'],
         pathIdentifier: '/amp',
         relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
         relCanonicalPattern: '{{canonicalBaseUrl}}{{pathname}}',
@@ -187,7 +187,8 @@ module.exports = {
                 }
               }
             `,
-            output: '/feed.xml'
+            output: '/feed.xml',
+            title: `handsomekuroji's RSS Feed`
           }
         ]
       }

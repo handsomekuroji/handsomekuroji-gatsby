@@ -36,18 +36,21 @@ export default function Seo({ meta }) {
       htmlAttributes={{ lang: 'ja' }}
       title={title}
       meta={[
-        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
         { name: 'format-detection', content: 'telephone=no, email=no,address=no' },
         { name: 'description', content: description },
+        { name: 'author', content: query.author },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: `@${twitter}` },
         { name: 'twitter:domain', content: domain },
         { name: 'twitter:creator', content: '@' + twitter },
         { property: 'article:publisher', content: `https://www.facebook.com/${facebook}` },
         { property: 'fb:app_id', content: '130788987000950' },
+        { property: 'og:locale', content: 'ja_JP' },
         { property: 'og:site_name', content: query.title },
         { property: 'og:type', content: 'website' },
         { property: 'og:image', content: img },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
         { property: 'og:title', content: title },
         { property: 'og:description', content: description },
         { property: 'thumbnail', content: img },

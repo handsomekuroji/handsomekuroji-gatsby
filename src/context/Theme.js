@@ -17,7 +17,7 @@ const Provider = ({ children }) => {
     const lsDark = JSON.parse(localStorage.getItem('dark'))
     const support = () => window.matchMedia('(prefers-color-scheme: dark)').matches === true
     setDark(lsDark !== null ? lsDark : support)
-  }, [dark])
+  }, [])
 
   return <Context.Provider value={{ dark, toggle }}>{children}</Context.Provider>
 }

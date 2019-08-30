@@ -26,7 +26,7 @@ const Img = styled.img`
 export default function Thumbnail({ src, alt }) {
   return (
     <picture>
-      <source type="image/webp" data-srcset={src.srcSetWebp} data-sizes="100w" />
+      <source type="image/webp" src-set={dummy} data-srcset={src.srcSetWebp} data-sizes="100w" />
       <Img
         src={dummy}
         data-src={src.src}
