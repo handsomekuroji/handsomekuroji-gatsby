@@ -112,11 +112,13 @@ const Anchor = styled(Link)`
   transition: 0.1s linear;
   width: 100%;
 
-  &:hover {
-    color: rgba(var(--c_0-rgb), 0.5);
-
-    &:visited {
+  @media (hover: hover) {
+    &:hover {
       color: rgba(var(--c_0-rgb), 0.5);
+
+      &:visited {
+        color: rgba(var(--c_0-rgb), 0.5);
+      }
     }
   }
 

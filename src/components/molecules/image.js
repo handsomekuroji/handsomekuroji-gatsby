@@ -32,7 +32,18 @@ const Anchor = styled.a`
       z-index: -1;
     }
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        transform: translate(0, -2px);
+        transition: 0.3s;
+
+        &::before {
+          background: rgba(var(--c_9-rgb), 0.1);
+          transition: 0.3s;
+        }
+      }
+    }
+
     &:focus {
       transform: translate(0, -2px);
       transition: 0.3s;
@@ -49,7 +60,6 @@ const List = styled.li`
   margin: 0 0 0 16px;
   scroll-margin: 0 0 0 16px;
   scroll-snap-align: start;
-  scroll-snap-margin: 0 0 0 16px;
 
   &:first-of-type {
     margin: 0;

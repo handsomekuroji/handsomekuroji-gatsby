@@ -22,7 +22,16 @@ const Anchor = styled(Link)`
 
   ${media.m`font-size: 1rem;`}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        transform: scaleX(1) translateY(-50%);
+        transform-origin: center left;
+      }
+    }
+  }
+
+  &:focus {
     &::before {
       transform: scaleX(1) translateY(-50%);
       transform-origin: center left;

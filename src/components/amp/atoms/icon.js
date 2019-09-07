@@ -21,7 +21,17 @@ const Css = css`
   transition: 0.3s linear;
   width: 40px;
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      transition: 0.3s;
+
+      .icon {
+        fill: #fff;
+        transition: 0.2s;
+      }
+    }
+  }
+
   &:focus {
     transition: 0.3s;
 
@@ -40,7 +50,13 @@ const TwitterIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #1da1f2;
+      }
+    }
+
+    &:focus {
       background: #1da1f2;
     }
   }
@@ -50,7 +66,13 @@ const FacebookIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #3b5998;
+      }
+    }
+
+    &:focus {
       background: #3b5998;
     }
   }
@@ -59,7 +81,13 @@ const HatebuIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #00a4de;
+      }
+    }
+
+    &:focus {
       background: #00a4de;
     }
   }
@@ -69,7 +97,13 @@ const LineIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #00c300;
+      }
+    }
+
+    &:focus {
       background: #00c300;
     }
   }
@@ -79,7 +113,13 @@ const PocketIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #ef3f56;
+      }
+    }
+
+    &:focus {
       background: #ef3f56;
     }
   }
@@ -93,7 +133,13 @@ const NoteIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #41c9b4;
+      }
+    }
+
+    &:focus {
       background: #41c9b4;
     }
   }
@@ -107,7 +153,13 @@ const FeedlyIcon = styled.div`
   amp-social-share {
     ${Css}
 
-    &:hover, &:focus {
+    @media (hover: hover) {
+      &:hover {
+        background: #2bb24c;
+      }
+    }
+
+    &:focus {
       background: #2bb24c;
     }
   }

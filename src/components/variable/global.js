@@ -144,7 +144,12 @@ export default createGlobalStyle`
       color: var(--c_6);
     }
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        outline: none;
+      }
+    }
+
     &:active {
       outline: none;
     }

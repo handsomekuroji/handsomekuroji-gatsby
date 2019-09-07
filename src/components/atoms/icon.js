@@ -22,7 +22,17 @@ const Css = css`
   transition: 0.3s linear;
   width: 40px;
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      transition: 0.3s;
+
+      .icon {
+        fill: #fff;
+        transition: 0.2s;
+      }
+    }
+  }
+
   &:focus {
     transition: 0.3s;
 
@@ -40,7 +50,13 @@ const Css = css`
 const TwitterIcon = styled.a`
   ${Css}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #1da1f2;
+    }
+  }
+
+  &:focus {
     background: #1da1f2;
   }
 `
@@ -48,14 +64,26 @@ const TwitterIcon = styled.a`
 const FacebookIcon = styled.a`
   ${Css}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #3b5998;
+    }
+  }
+
+  &:focus {
     background: #3b5998;
   }
 `
 const HatebuIcon = styled.a`
   ${Css}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #00a4de;
+    }
+  }
+
+  &:focus {
     background: #00a4de;
   }
 `
@@ -63,7 +91,13 @@ const HatebuIcon = styled.a`
 const LineIcon = styled.a`
   ${Css}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #00c300;
+    }
+  }
+
+  &:focus {
     background: #00c300;
   }
 `
@@ -71,7 +105,13 @@ const LineIcon = styled.a`
 const PocketIcon = styled.a`
   ${Css}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #ef3f56;
+    }
+  }
+
+  &:focus {
     background: #ef3f56;
   }
 `
@@ -83,7 +123,13 @@ const NoteIcon = styled.a`
 
   ${media.ms`display: flex;`}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #41c9b4;
+    }
+  }
+
+  &:focus {
     background: #41c9b4;
   }
 `
@@ -95,7 +141,13 @@ const FeedlyIcon = styled.a`
 
   ${media.ms`display: flex;`}
 
-  &:hover, &:focus {
+  @media (hover: hover) {
+    &:hover {
+      background: #2bb24c;
+    }
+  }
+
+  &:focus {
     background: #2bb24c;
   }
 `

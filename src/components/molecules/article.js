@@ -45,13 +45,15 @@ const Anchor = styled(Link)`
     z-index: -1;
   }
 
-  &:hover {
-    transform: translate(0, -2px);
-    transition: 0.3s;
-
-    &::before {
-      background: rgba(var(--c_9-rgb), 0.1);
+  @media (hover: hover) {
+    &:hover {
+      transform: translate(0, -2px);
       transition: 0.3s;
+
+      &::before {
+        background: rgba(var(--c_9-rgb), 0.1);
+        transition: 0.3s;
+      }
     }
   }
 

@@ -24,7 +24,17 @@ const Button = styled.button`
   right: 16px;
   transition: 0.2s;
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      background: var(--c_4);
+      box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
+
+      .icon {
+        stroke: var(--c_7);
+      }
+    }
+  }
+
   &:focus {
     background: var(--c_4);
     box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;

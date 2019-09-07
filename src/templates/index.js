@@ -7,6 +7,7 @@ import Structured from '../components/structured/index'
 import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
+import Splash from '../components/atoms/splash'
 import BestList from '../components/organisms/list'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
@@ -34,9 +35,11 @@ const Main = styled.main`
 
 export default function Index({ data, pageContext }) {
   const edges = data.allContentfulBlog.edges
+  const Image = pageContext.number === 1 ? <Splash /> : ''
 
   React.useEffect(() => {
     lozad()
+    console.log(pageContext)
   }, [Main])
 
   return (
@@ -51,6 +54,7 @@ export default function Index({ data, pageContext }) {
       </Main>
       <Ads />
       <Footer tag={data.allContentfulTag.edges} />
+      {Image}
     </Layout>
   )
 }

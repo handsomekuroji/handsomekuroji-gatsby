@@ -54,7 +54,7 @@ const Copyright = styled.small`
   font-size: 0.8rem;
   text-align: center;
 
-  ${media.ms`justify-self: flex-start;s`}
+  ${media.ms`justify-self: flex-start;`}
 `
 
 export default function Footer({ tag }) {

@@ -43,7 +43,6 @@ const Container = styled.div`
       top: -32  px;
     `}
   }
-}
 `
 
 const Title = styled.h1`
@@ -78,7 +77,12 @@ const Prev = styled(Link)`
     color: var(--c_1);
   }
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(var(--c_1-rgb), 0.2);
+    }
+  }
+
   &:focus {
     background: rgba(var(--c_1-rgb), 0.2);
   }
@@ -108,7 +112,15 @@ const Name = styled(Link)`
 
   ${media.m`font-size: 1rem;`}
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        transform: scaleX(1) translateY(-50%);
+        transform-origin: center left;
+      }
+    }
+  }
+
   &:focus {
     &::before {
       transform: scaleX(1) translateY(-50%);

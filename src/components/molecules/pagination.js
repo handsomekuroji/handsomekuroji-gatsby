@@ -50,7 +50,14 @@ const Css = css`
   text-decoration: none;
   width: 32px;
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      background: var(--c_4);
+      box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
+      color: var(--c_7);
+    }
+  }
+
   &:focus {
     background: var(--c_4);
     box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
@@ -60,7 +67,12 @@ const Css = css`
   &:visited {
     color: var(--c_0);
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        color: var(--c_7);
+      }
+    }
+
     &:focus {
       color: var(--c_7);
     }

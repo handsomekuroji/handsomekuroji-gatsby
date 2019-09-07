@@ -43,7 +43,12 @@ const Link = styled.a`
 
   ${media.ms`grid-template-columns: 160px 1fr auto;`}
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      transition: 0.3s;
+    }
+  }
+
   &:focus {
     transition: 0.3s;
   }
@@ -80,7 +85,12 @@ const Right = styled(Arrow)`
 
   ${media.sm`margin: 0 0 0 8px;`}
 
-  ${Link}:hover &,
+  ${Link}:hover & {
+    @media (hover: hover) {
+      transform: translateX(8px);
+    }
+  }
+
   ${Link}:focus & {
     transform: translateX(8px);
   }

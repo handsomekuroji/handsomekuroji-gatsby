@@ -46,13 +46,15 @@ const Anchor = styled(Link)`
 
   ${media.s`padding: 24px;`}
 
-  &:hover {
-    background: rgba(var(--c_1-rgb), 0.1);
-    transition: 0.3s;
-
-    &::before {
-      background: rgba(var(--c_9-rgb), 0.1);
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(var(--c_1-rgb), 0.1);
       transition: 0.3s;
+
+      &::before {
+        background: rgba(var(--c_9-rgb), 0.1);
+        transition: 0.3s;
+      }
     }
   }
 

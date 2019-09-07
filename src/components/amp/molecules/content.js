@@ -235,7 +235,13 @@ const Wrapper = styled.div`
       position: relative;
       text-decoration: none;
 
-      &:hover, &:focus {
+      @media (hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:focus {
         text-decoration: underline;
       }
 
@@ -284,9 +290,11 @@ const Wrapper = styled.div`
       width: 48px;
     }
 
-    &:hover::before {
-      background-color: rgba(var(--c_9-rgb), 0.8);
-      opacity: 0.8;
+    @media (hover: hover) {
+      &:hover::before {
+        background-color: rgba(var(--c_9-rgb), 0.8);
+        opacity: 0.8;
+      }
     }
   }
 
@@ -439,16 +447,20 @@ const Wrapper = styled.div`
 
     ${media.ls`width: 96px;`}
 
-    &:hover {
-      background: var(--c_2);
-      color: var(--c_1);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--c_2);
+        color: var(--c_1);
+      }
     }
 
     &:visited {
       color: var(--c_1);
 
-      &:hover {
-        color: var(--c_1);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--c_1);
+        }
       }
     }
   }

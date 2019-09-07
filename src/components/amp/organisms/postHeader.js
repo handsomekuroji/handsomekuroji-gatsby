@@ -46,7 +46,15 @@ const Tag = styled(Link)`
 
   ${media.m`font-size: 1rem;`}
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        transform: scaleX(1) translateY(-50%);
+        transform-origin: center left;
+      }
+    }
+  }
+
   &:focus {
     &::before {
       transform: scaleX(1) translateY(-50%);
@@ -105,7 +113,15 @@ const Name = styled(Link)`
 
   ${media.m`font-size: 1rem;`}
 
-  &:hover,
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        transform: scaleX(1) translateY(-50%);
+        transform-origin: center left;
+      }
+    }
+  }
+
   &:focus {
     &::before {
       transform: scaleX(1) translateY(-50%);

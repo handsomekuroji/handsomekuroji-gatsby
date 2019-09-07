@@ -67,9 +67,11 @@ const Button = styled.button`
   padding: 12px 12px 10px;
   transition: 0.2s ease;
 
-  &:hover {
-    background: rgba(var(--c_0-rgb), 0.8);
-    border: 1px solid rgba(var(--c_0-rgb), 0.8);
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(var(--c_0-rgb), 0.8);
+      border: 1px solid rgba(var(--c_0-rgb), 0.8);
+    }
   }
 `
 

@@ -33,19 +33,23 @@ const Wrapper = styled.div`
     z-index: -1;
   }
 
-  &:hover {
-    transform: translate(0, -2px);
+  @media (hover: hover) {
+    &:hover {
+      transform: translate(0, -2px);
 
-    &::after {
-      background: rgba(var(--c_9-rgb), 0.1);
+      &::after {
+        background: rgba(var(--c_9-rgb), 0.1);
+      }
     }
   }
 
   &.hover {
     transition: none;
 
-    &:hover {
-      transform: none;
+    @media (hover: hover) {
+      &:hover {
+        transform: none;
+      }
     }
   }
 `
@@ -137,12 +141,14 @@ const Css = css`
   transition: 0.3s linear;
   width: 32px;
 
-  &:hover {
-    transition: 0.3s;
+  @media (hover: hover) {
+    &:hover {
+      transition: 0.3s;
 
-    .icon {
-      fill: #fff;
-      transition: 0.2s;
+      .icon {
+        fill: #fff;
+        transition: 0.2s;
+      }
     }
   }
 
@@ -155,24 +161,30 @@ const Css = css`
 const AmazonIcon = styled.span`
   ${Css}
 
-  &:hover {
-    background: #ff9900;
+  @media (hover: hover) {
+    &:hover {
+      background: #ff9900;
+    }
   }
 `
 
 const NetflixIcon = styled.span`
   ${Css}
 
-  &:hover {
-    background: #e50914;
+  @media (hover: hover) {
+    &:hover {
+      background: #e50914;
+    }
   }
 `
 
 const HuluIcon = styled.span`
   ${Css}
 
-  &:hover {
-    background: #3dbb3d;
+  @media (hover: hover) {
+    &:hover {
+      background: #3dbb3d;
+    }
   }
 `
 
