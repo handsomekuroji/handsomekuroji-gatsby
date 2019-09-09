@@ -39,7 +39,6 @@ export default function Index({ data, pageContext }) {
 
   React.useEffect(() => {
     lozad()
-    console.log(pageContext)
   }, [Main])
 
   return (

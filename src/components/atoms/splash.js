@@ -67,16 +67,17 @@ const Inner = styled(posed.div(inner))`
 
 const Big = styled(big)`
   display: none;
+  fill: var(--c_1);
 
   ${media.ms`display: inline`}
 
   @keyframes animate-svg-fill {
     0% {
-      fill: transparent;
+      opacity: 0;
     }
 
     100% {
-      fill: var(--c_1);
+      opacity: 1;
     }
   }
 
@@ -139,16 +140,17 @@ const Big = styled(big)`
 
 const Small = styled(small)`
   display: inline;
+  fill: var(--c_1);
 
   ${media.ms`display: none`}
 
   @keyframes animate-svg-small {
     0% {
-      fill: transparent;
+      opacity: 0;
     }
 
     100% {
-      fill: var(--c_1);
+      opacity: 1;
     }
   }
 
