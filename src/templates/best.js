@@ -9,7 +9,6 @@ import Footer from '../components/organisms/footer'
 import Box from '../components/molecules/box'
 import Breadcrumb from '../components/organisms/breadcrumb'
 import Ads from '../components/atoms/ads'
-import lozad from '../plugins/lozad'
 
 const Main = styled.main`
   display: grid;
@@ -52,10 +51,6 @@ export default function Best({ data }) {
     description: best.content.content.replace(/\r?\n/g, ''),
     best: true
   }
-
-  React.useEffect(() => {
-    lozad()
-  }, [loop])
 
   return (
     <Layout>

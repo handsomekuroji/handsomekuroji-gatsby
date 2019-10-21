@@ -12,7 +12,6 @@ import Content from '../components/molecules/content'
 import Form from '../components/organisms/form'
 import Breadcrumb from '../components/organisms/breadcrumb'
 import Ads from '../components/atoms/ads'
-import lozad from '../plugins/lozad'
 import Replace from '../plugins/replace'
 
 const Main = styled.main`
@@ -57,10 +56,6 @@ export default function Page({ data }) {
   const meta = Object.assign(seo, {
     description: Replace(post.description.childMarkdownRemark.html)
   })
-
-  React.useEffect(() => {
-    lozad()
-  }, [Content])
 
   return (
     <Layout>

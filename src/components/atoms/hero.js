@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import dummy from '../../images/main/dummy.svg'
 
 const Img = styled.img`
   background: var(--c_3);
@@ -22,12 +21,12 @@ const Img = styled.img`
 export default function Hero({ src, alt }) {
   return (
     <picture>
-      <source type="image/webp" src-set={dummy} data-srcset={src.srcSetWebp} data-sizes="100w" />
+      <source type="image/webp" src={src.srcWebp} srcSet={src.srcSetWebp} sizes="100w" />
       <Img
-        src={dummy}
-        data-src={src.src}
-        data-srcset={src.srcSet}
+        src={src.src}
+        srcSet={src.srcSet}
         content={src.src}
+        sizes="100w"
         width="640"
         height="360"
         alt={alt}

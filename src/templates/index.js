@@ -12,7 +12,6 @@ import BestList from '../components/organisms/list'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
 import Ads from '../components/atoms/ads'
-import lozad from '../plugins/lozad'
 
 const Main = styled.main`
   margin: 32px auto 0;
@@ -36,10 +35,6 @@ const Main = styled.main`
 export default function Index({ data, pageContext }) {
   const edges = data.allContentfulBlog.edges
   const Image = pageContext.number === 1 ? <Splash /> : ''
-
-  React.useEffect(() => {
-    lozad()
-  }, [Main])
 
   return (
     <Layout>

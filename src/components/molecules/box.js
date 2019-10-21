@@ -291,7 +291,6 @@ const Content = styled(
 export default function Box({ edge, count }) {
   const box = edge.node
   const embed = box.embed
-  const small = box.url.replace('.jpg', '._SL30_.jpg')
   const big = box.url.replace('.jpg', '._SL160_.jpg')
   const title = box.title
   const url = box.affiliate
@@ -356,7 +355,7 @@ export default function Box({ edge, count }) {
           width="1280"
           height="720"
           loading="lazy"
-          data-src={iframe}
+          src={iframe}
         />
       </Block>
     ) : (
@@ -371,16 +370,7 @@ export default function Box({ edge, count }) {
       <Wrapper>
         <Container onClick={open} onKeyDown={key} tabIndex="0">
           <Figure>
-            <Img
-              src={small}
-              data-src={big}
-              alt={title}
-              content={big}
-              width="360"
-              height="640"
-              loading="lazy"
-              decoding="async"
-            />
+            <Img src={big} alt={title} width="360" height="640" loading="lazy" decoding="async" />
           </Figure>
           <Header>
             <Count aria-hidden="true">{number}</Count>

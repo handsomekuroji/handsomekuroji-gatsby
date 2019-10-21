@@ -51,7 +51,8 @@ export default function TagHeader({ header }) {
     <Header>
       <Image
         src={`${src}?w=96`}
-        data-srcset={`${src}?w=128 1040w`}
+        srcSet={`${src}?w=128 1040w`}
+        sizes="100vw"
         width="48"
         height="48"
         alt={name}

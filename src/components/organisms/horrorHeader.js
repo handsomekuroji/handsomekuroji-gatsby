@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { font, media } from '../variable/mixin'
 import photo from '../../images/main/handsomekuroji.jpg'
-import dummy from '../../images/main/dummy.svg'
 
 const Container = styled.div`
   display: grid;
@@ -181,7 +180,7 @@ export default function HorrorHeader({ header }) {
           <Time dateTime={header.date} aria-label={label}>
             {date}
           </Time>
-          <Img src={dummy} data-src={photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
+          <Img src={photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
         </Meta>
       </Container>
     </header>

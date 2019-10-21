@@ -7,7 +7,6 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Loop from '../components/organisms/loop'
-import lozad from '../plugins/lozad'
 
 const Main = styled.main`
   margin: 32px auto 0;
@@ -36,10 +35,6 @@ export default function NotFound({ data }) {
     url: '404',
     description: 'このページは存在しません'
   }
-
-  React.useEffect(() => {
-    lozad()
-  }, [Main])
 
   return (
     <Layout>

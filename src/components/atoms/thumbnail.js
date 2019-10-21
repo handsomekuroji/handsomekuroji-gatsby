@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { media } from '../variable/mixin'
-import dummy from '../../images/main/dummy.svg'
 
 const Img = styled.img`
   background: var(--c_3);
@@ -26,12 +25,11 @@ const Img = styled.img`
 export default function Thumbnail({ src, alt }) {
   return (
     <picture>
-      <source type="image/webp" src-set={dummy} data-srcset={src.srcSetWebp} data-sizes="100w" />
+      <source type="image/webp" src={src.srcWebp} srcSet={src.srcSetWebp} sizes="30vw" />
       <Img
-        src={dummy}
-        data-src={src.src}
-        data-srcset={src.srcSet}
-        content={src.src}
+        src={src.src}
+        srcSet={src.srcSet}
+        sizes="30vw"
         width="640"
         height="360"
         alt={alt}

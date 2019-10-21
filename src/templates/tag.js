@@ -11,7 +11,6 @@ import TagHeader from '../components/organisms/tagHeader'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
 import Ads from '../components/atoms/ads'
-import lozad from '../plugins/lozad'
 
 const Main = styled.main`
   margin: 32px auto 0;
@@ -52,10 +51,6 @@ export default function Tag({ data, pageContext }) {
     update: tag.updatedAt,
     count: `投稿数 ${data.allContentfulBlog.totalCount} 件`
   }
-
-  React.useEffect(() => {
-    lozad()
-  }, [Main])
 
   return (
     <Layout>

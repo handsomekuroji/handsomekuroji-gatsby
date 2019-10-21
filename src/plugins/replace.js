@@ -1,5 +1,3 @@
-import dummy from '../images/main/dummy.svg'
-
 export default target => {
   const image = /<p><img src="([^>]*?)" alt="([^>]*?)" width="([^>]*?)" height="([^>]*?)"><\/p>/gi
   const youtube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
@@ -14,8 +12,8 @@ export default target => {
       return `
         <figure>
           <picture>
-            <source type="image/webp" src-set="${dummy}" data-srcset="https:${img}?fm=webp&w=320 640w, https:${img}?fm=webp&w=640 760w, https:${img}?fm=webp&w=1280 1280w" data-sizes="100w" />
-            <img src="${dummy}" content="https:${img}" data-src="https:${img}" data-srcset="https:${img}?w=320 640w, https:${img}?w=640 760w, https:${img}?w=1280 1280w" width="${width}" height="${height}" alt="${alt}" loading="lazy" decoding="async" class="img">
+            <source type="image/webp" srcset="https:${img}?fm=webp&w=320 640w, https:${img}?fm=webp&w=640 760w, https:${img}?fm=webp&w=1280 1280w" sizes="100w" />
+            <img src="https:${img}" srcset="https:${img}?w=320 640w, https:${img}?w=640 760w, https:${img}?w=1280 1280w" sizes="100w" width="${width}" height="${height}" alt="${alt}" loading="lazy" decoding="async" class="img">
           </picture>
         </figure>
       `
@@ -24,7 +22,7 @@ export default target => {
       return `
         <figure class="youtube" data-youtube="${id}">
           <div id="${id}">
-            <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" data-src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" loading="lazy" decoding="async">
+            <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" loading="lazy" decoding="async">
             <button type="button" class="youtube__button" aria-label="再生" aria-pressed="false"></button>
           </div>
         </figure>
@@ -35,7 +33,7 @@ export default target => {
         <div class="storyline">
           <figure class="youtube" data-youtube="${id}">
             <div id="${id}">
-              <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" data-src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" loading="lazy" decoding="async">
+              <img class="youtube__img" src="https://i.ytimg.com/vi/${id}/sddefault.jpg" width="640" height="480" alt="${id}" loading="lazy" decoding="async">
               <button type="button" class="youtube__button" aria-label="再生" aria-pressed="false"></button>
             </div>
           </figure>
@@ -46,7 +44,7 @@ export default target => {
     .replace(iframe, (match, url) => {
       return `
         <figure class="iframe">
-          <iframe class="iframe__data" data-src="${url}" width="640" height="360" loading="lazy" allowfullscreen></iframe>
+          <iframe class="iframe__data" src="${url}" width="640" height="360" loading="lazy" allowfullscreen></iframe>
         </figure>
       `
     })
@@ -55,7 +53,7 @@ export default target => {
       return `
         <div class="item">
           <div class="item__figure">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/${img}._SL10_.jpg" data-src="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" content="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" width="240" height="240" alt="${text}" loading="lazy" decoding="async" class="item__img">
+            <img src="https://images-fe.ssl-images-amazon.com/images/I/${img}.jpg" width="240" height="240" alt="${text}" loading="lazy" decoding="async" class="item__img">
           </div>
           <div class="item__container">
             <div class="item__name">
@@ -75,7 +73,7 @@ export default target => {
       return `
         <div class="item">
           <div class="item__figure">
-            <img src="https://images-fe.ssl-images-amazon.com/images/P/${id}._SL10_.jpg" data-src="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" content="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" width="240" height="240" alt="${text}" loading="lazy" decoding="async" class="item__img">
+            <img src="https://images-fe.ssl-images-amazon.com/images/P/${id}.jpg" width="240" height="240" alt="${text}" loading="lazy" decoding="async" class="item__img">
           </div>
           <div class="item__container">
             <div class="item__name">

@@ -21,10 +21,19 @@ const Figure = styled.figure`
 export default function Hero({ src, alt }) {
   return (
     <Figure>
-      <amp-img src={src.srcWebp} srcset={src.srcSetWebp} width="640" height="360" alt={alt} layout="responsive">
+      <amp-img
+        src={src.srcWebp}
+        srcSet={src.srcSetWebp}
+        sizes="100vw"
+        width="640"
+        height="360"
+        alt={alt}
+        layout="responsive"
+      >
         <amp-img
           src={src.src}
-          srcset={src.srcSet}
+          srcSet={src.srcSet}
+          sizes="100vw"
           width="640"
           height="360"
           alt={alt}

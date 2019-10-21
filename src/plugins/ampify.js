@@ -15,6 +15,7 @@ export default target => {
           <amp-img
             src="https:${img}?fm=webp"
             srcset="https:${img}?fm=webp&w=320 640w, https:${img}?fm=webp&w=640 760w, https:${img}?fm=webp&w=1280 1280w"
+            sizes="100vw"
             width="${width}"
             height="${height}"
             alt="${alt}"
@@ -23,6 +24,7 @@ export default target => {
             <amp-img
               src="https:${img}"
               srcset="https:${img}?w=320 640w, https:${img}?w=640 760w, https:${img}?w=1280 1280w"
+              sizes="100vw"
               width="${width}"
               height="${height}"
               alt="${alt}"

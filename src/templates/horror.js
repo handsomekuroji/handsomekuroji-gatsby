@@ -12,7 +12,6 @@ import PostFooter from '../components/organisms/postFooter'
 import Section from '../components/molecules/section'
 import Breadcrumb from '../components/organisms/breadcrumb'
 import Ads from '../components/atoms/ads'
-import lozad from '../plugins/lozad'
 import Replace from '../plugins/replace'
 
 const Main = styled.main`
@@ -62,10 +61,6 @@ export default function Horror({ data }) {
       title: '怖い話'
     }
   })
-
-  React.useEffect(() => {
-    lozad()
-  }, [Main])
 
   return (
     <Layout horror>

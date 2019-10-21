@@ -14,7 +14,6 @@ import Breadcrumb from '../components/organisms/breadcrumb'
 import Recommend from '../components/organisms/recommend'
 import Favorite from '../components/organisms/favorite'
 import Ads from '../components/atoms/ads'
-import lozad from '../plugins/lozad'
 import Replace from '../plugins/replace'
 
 const Main = styled.main`
@@ -70,10 +69,6 @@ export default function Post({ data }) {
 
   const recommend = posts ? <Recommend edges={posts} /> : ''
   const favorite = faves ? <Favorite edges={faves} /> : ''
-
-  React.useEffect(() => {
-    lozad()
-  }, [Content])
 
   return (
     <Layout>

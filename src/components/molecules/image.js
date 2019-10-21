@@ -78,22 +78,12 @@ const Img = styled.img`
 export default function Image({ edge }) {
   const title = edge.title
   const url = edge.affiliate
-  const small = edge.url.replace('.jpg', '._SL30_.jpg')
   const big = edge.url.replace('.jpg', '._SL320_.jpg')
 
   return (
     <List>
       <Anchor href={url} target="_blank" rel="noopener noreferrer" aria-label={`${title}をAmazonでチェック`}>
-        <Img
-          src={small}
-          data-src={big}
-          width="80"
-          height="120"
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          aria-hidden="true"
-        />
+        <Img src={big} width="80" height="120" alt={title} loading="lazy" decoding="async" aria-hidden="true" />
       </Anchor>
     </List>
   )
