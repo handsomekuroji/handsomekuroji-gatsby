@@ -53,6 +53,7 @@ export default function Seo({ meta }) {
         { property: 'og:image:height', content: '630' },
         { property: 'og:title', content: title },
         { property: 'og:description', content: description },
+        { property: 'og:url', content: root },
         { property: 'thumbnail', content: img },
         { name: 'google-site-verification', content: verification },
         { name: 'apple-mobile-web-app-title', content: title },
