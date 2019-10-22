@@ -84,7 +84,9 @@ export default function Card({ edge }) {
     <Article>
       <Anchor to={`/best/${best.slug}`}>
         <Header>
-          <Icon aria-hidden="true">{best.icon}</Icon>
+          <Icon aria-hidden="true" role="img" aria-label={title}>
+            {best.icon}
+          </Icon>
           <Title>{title}</Title>
         </Header>
       </Anchor>
