@@ -25,8 +25,8 @@ export default function Hero({ src, alt }) {
         src={src.srcWebp}
         srcSet={src.srcSetWebp}
         sizes="100vw"
-        width="640"
-        height="360"
+        width={src.presentationWidth}
+        height={src.presentationHeight}
         alt={alt}
         layout="responsive"
       >
@@ -34,8 +34,8 @@ export default function Hero({ src, alt }) {
           src={src.src}
           srcSet={src.srcSet}
           sizes="100vw"
-          width="640"
-          height="360"
+          width={src.presentationWidth}
+          height={src.presentationHeight}
           alt={alt}
           fallback="fallback"
           layout="responsive"

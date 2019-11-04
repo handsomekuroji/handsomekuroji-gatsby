@@ -7,7 +7,6 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Footer from '../components/organisms/footer'
 import Balloon from '../components/molecules/balloon'
-import lozad from '../plugins/lozad'
 
 const Main = styled.main`
   background: var(--c_4);
@@ -48,10 +47,6 @@ export default function NotFoundPage({ data }) {
   }
 
   const story = data.allContentfulStory.edges.map((edge, i) => <Balloon key={i} edge={edge} />)
-
-  React.useEffect(() => {
-    lozad()
-  }, [Main])
 
   return (
     <Layout>

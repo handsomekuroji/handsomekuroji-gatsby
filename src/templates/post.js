@@ -110,7 +110,10 @@ export const query = graphql`
             fluid {
               src
               srcSet
+              srcWebp
               srcSetWebp
+              presentationHeight
+              presentationWidth
             }
           }
         }

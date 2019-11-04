@@ -27,8 +27,8 @@ export default function Hero({ src, alt }) {
         srcSet={src.srcSet}
         content={src.src}
         sizes="100w"
-        width="640"
-        height="360"
+        width={src.presentationWidth}
+        height={src.presentationHeight}
         alt={alt}
         loading="lazy"
         decoding="async"

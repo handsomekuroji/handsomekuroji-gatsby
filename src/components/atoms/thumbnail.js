@@ -30,8 +30,8 @@ export default function Thumbnail({ src, alt }) {
         src={src.src}
         srcSet={src.srcSet}
         sizes="30vw"
-        width="640"
-        height="360"
+        width={src.presentationWidth}
+        height={src.presentationHeight}
         alt={alt}
         loading="lazy"
         decoding="async"

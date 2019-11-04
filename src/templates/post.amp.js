@@ -109,9 +109,11 @@ export const query = graphql`
           childImageSharp {
             fluid {
               src
-              srcWebp
               srcSet
+              srcWebp
               srcSetWebp
+              presentationHeight
+              presentationWidth
             }
           }
         }

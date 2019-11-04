@@ -8,7 +8,6 @@ import Layout from '../components/layout'
 import Header from '../components/organisms/header'
 import Storeis from '../components/molecules/stories'
 import Footer from '../components/organisms/footer'
-import lozad from '../plugins/lozad'
 
 const Main = styled.main`
   background: var(--c_4);
@@ -42,10 +41,6 @@ export default function Horror({ data }) {
     url: 'horror',
     description: '夜じゃないと読めない怖い話'
   }
-
-  React.useEffect(() => {
-    lozad()
-  }, [Main])
 
   const content = data.allContentfulHorror.edges.map((edge, i) => <Storeis key={i} edge={edge} />)
 
