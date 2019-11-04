@@ -11,7 +11,12 @@ const Img = styled.img`
   vertical-align: bottom;
   width: 100%;
 
-  ${media.s`height: auto;`}
+  ${media.s`
+    height: auto;
+    left: 0;
+    position: absolute;
+    top: 0;
+  `}
 
   &.fade {
     background: 0;

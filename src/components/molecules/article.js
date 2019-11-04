@@ -65,8 +65,18 @@ const Anchor = styled(Link)`
 const Figure = styled.figure`
   border-radius: 8px 0 0 8px;
   overflow: hidden;
+  position: relative;
 
-  ${media.s`border-radius: 8px 8px 0 0;`}
+  ${media.s`
+    border-radius: 8px 8px 0 0;
+
+    &::before {
+      content: '';
+      display: block;
+      padding: 0 0 56.25%;
+      position: relative;
+    }
+  `}
 `
 
 const Header = styled.header`

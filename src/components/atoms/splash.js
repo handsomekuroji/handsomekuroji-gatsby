@@ -142,17 +142,7 @@ const Small = styled(small)`
   display: inline;
   fill: var(--c_1);
 
-  ${media.ms`display: none`}
-
-  @keyframes animate-svg-small {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
+  ${media.ms`display: none;`}
 
   .hks-1 {
     animation: animate-svg-small 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.3s both;
