@@ -69,7 +69,7 @@ const Big = styled(big)`
   display: none;
   fill: var(--c_1);
 
-  ${media.ms`display: inline`}
+  ${media.ms`display: inline;`}
 
   @keyframes animate-svg-fill {
     0% {
