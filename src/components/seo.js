@@ -34,7 +34,6 @@ export default function Seo({ meta }) {
 
   return (
     <Helmet
-      htmlAttributes={{ lang: 'ja' }}
       title={title}
       meta={[
         { name: 'format-detection', content: 'telephone=no, email=no,address=no' },
@@ -73,6 +72,7 @@ export default function Seo({ meta }) {
         { rel: 'preconnect dns-prefetch', href: 'https://www.google-analytics.com' }
       ]}
       script={[{ src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true }]}
+      defer={false}
     />
   )
 }

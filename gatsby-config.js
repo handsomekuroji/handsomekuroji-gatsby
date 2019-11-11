@@ -15,7 +15,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-eslint',
-    'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-netlify',
     'gatsby-plugin-catch-links',
@@ -81,6 +80,7 @@ module.exports = {
         lang: 'ja'
       }
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
