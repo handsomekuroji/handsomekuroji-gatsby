@@ -138,7 +138,7 @@ export default function Search() {
   const [items, setItems] = React.useState([])
 
   React.useEffect(() => {
-    ;(async () => {
+    const api = async () => {
       await ky('/search.json')
         .json()
         .then(res => {
@@ -153,7 +153,8 @@ export default function Search() {
             }
           ])
         })
-    })()
+    }
+    api()
   }, [setData])
 
   const activation = () => {

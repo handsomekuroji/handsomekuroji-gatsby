@@ -7,7 +7,7 @@ import small from '../../images/icon/hk.svg'
 
 const popover = {
   visible: {
-    delay: 2400,
+    delay: 2500,
     transition: { ease: 'backIn', duration: 400 },
     width: 0
   },
@@ -69,7 +69,9 @@ const Big = styled(big)`
   display: none;
   fill: var(--c_1);
 
-  ${media.ms`display: inline;`}
+  ${media.ms`
+    display: inline;
+  `}
 
   @keyframes animate-svg-fill {
     0% {

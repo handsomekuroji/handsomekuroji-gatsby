@@ -89,7 +89,9 @@ const Header = styled.header`
   position: relative;
   transition: background 0.3s;
 
-  ${media.s`border-radius: 0 0 8px 8px;`}
+  ${media.s`
+    border-radius: 0 0 8px 8px;
+  `}
 `
 
 const Title = styled.h2`

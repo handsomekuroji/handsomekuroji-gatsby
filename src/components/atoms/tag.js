@@ -7,7 +7,9 @@ import { font, media } from '../variable/mixin'
 const List = styled.li`
   margin: 8px;
 
-  ${media.ms`margin: 8px 12px;`}
+  ${media.ms`
+    margin: 8px 12px;
+  `}
 `
 
 const Anchor = styled(Link)`
@@ -20,7 +22,9 @@ const Anchor = styled(Link)`
   text-decoration: none;
   width: 100%;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 
   @media (hover: hover) {
     &:hover {
