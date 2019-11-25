@@ -75,7 +75,7 @@ export default target => {
     .replace(video, (match, url) => {
       return `
         <figure class="video">
-          <amp-video muted autoplay loop layout="responsive" width="640" height="360" class="video__data">
+          <amp-video muted autoplay loop playsinline layout="responsive" width="640" height="360" class="video__data">
             <source type="video/mp4" src="${url}">
           </amp-video>
         </figure>

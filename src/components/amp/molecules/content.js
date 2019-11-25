@@ -485,6 +485,10 @@ const Wrapper = styled.div`
     display: block;
     height: auto;
     width: 100%;
+
+    video {
+      border-radius: 12px;
+    }
   }
 
   .twitter-tweet {
