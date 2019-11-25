@@ -368,6 +368,7 @@ const Wrapper = styled.div`
 
       amp-img {
         border-radius: 0;
+        max-width: 100%;
 
         img[src] {
           min-width: auto;
@@ -381,6 +382,7 @@ const Wrapper = styled.div`
   amp-img {
     border-radius: 6px;
     height: auto;
+    max-width: 100%;
     position: relative;
     width: 100%;
   }
@@ -475,6 +477,13 @@ const Wrapper = styled.div`
     height: 100%;
     position: absolute;
     top: 0;
+    width: 100%;
+  }
+
+  .video__data {
+    border-radius: 12px;
+    display: block;
+    height: auto;
     width: 100%;
   }
 

@@ -113,7 +113,8 @@ module.exports = {
           'amp-social-share',
           'amp-youtube',
           'amp-twitter',
-          'amp-instagram'
+          'amp-instagram',
+          'amp-video'
         ],
         excludedPaths: ['/404/', '/404.html', '/'],
         pathIdentifier: '/amp',

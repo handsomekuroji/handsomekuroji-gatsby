@@ -3,6 +3,7 @@ export default target => {
   const youtube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
   const story = /<p><span data-youtube="([^>]*?)">([\s\S^>]*?)<\/span><\/p>/gi
   const iframe = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">iframe<\/a><\/p>/gi
+  const video = /<p><a href="([^>]*?)" target="_blank" rel="noopener noreferrer">video<\/a><\/p>/gi
   const amazon = /<p><span data-amazon="([^>]*?)">([^>]*?)<\/span><\/p>/gi
   const amazonImage = /<p><span data-amazon="([^>]*?)" data-amaimg="([^>]*?)">([^>]*?)<\/span><\/p>/gi
 
@@ -45,6 +46,15 @@ export default target => {
       return `
         <figure class="iframe">
           <iframe class="iframe__data" src="${url}" width="640" height="360" loading="lazy" allowfullscreen></iframe>
+        </figure>
+      `
+    })
+    .replace(video, (match, url) => {
+      return `
+        <figure class="video">
+          <video muted autoplay loop width="640" height="360" loading="lazy" class="video__data">
+            <source type="video/mp4" src="${url}">
+          </video>
         </figure>
       `
     })

@@ -501,6 +501,13 @@ const Wrapper = styled.div`
     top: 0;
     width: 100%;
   }
+
+  .video__data {
+    border-radius: 12px;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
 `
 
 export default function Content({ content }) {

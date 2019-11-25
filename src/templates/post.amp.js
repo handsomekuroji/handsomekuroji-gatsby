@@ -140,6 +140,7 @@ export const query = graphql`
     ) {
       edges {
         node {
+          slug
           title
           createdAt
           thumbnail {
@@ -147,9 +148,11 @@ export const query = graphql`
               childImageSharp {
                 fluid {
                   src
-                  srcWebp
                   srcSet
+                  srcWebp
                   srcSetWebp
+                  presentationHeight
+                  presentationWidth
                 }
               }
             }

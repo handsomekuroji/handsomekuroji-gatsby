@@ -16,6 +16,7 @@ const Figure = styled.figure`
 
   amp-img {
     height: 100%;
+    max-width: 100%;
     transition: background 0.4s ease 0.4s;
     vertical-align: bottom;
     width: 100%;

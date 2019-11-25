@@ -57,6 +57,7 @@ const Anchor = styled.a`
 
   amp-img {
     height: 160px;
+    max-width: 100%;
     width: auto;
   }
 `
