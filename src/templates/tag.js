@@ -43,7 +43,7 @@ export default function Tag({ data, pageContext }) {
   }
 
   const meta = {
-    img: edges.slice(-1)[0].node.thumbnail.localFile.childImageSharp.fluid.src,
+    img: edges.slice(-1)[0].node.thumbnail.file.url,
     title: name,
     url: tag.slug,
     description: tag.description.description.replace(/\r?\n/g, ''),
@@ -70,7 +70,7 @@ export default function Tag({ data, pageContext }) {
 
 export const query = graphql`
   query TagBySlug($slug: String!, $skip: Int!, $limit: Int!) {
-    contentfulTag(filter: { node_locale: { eq: "ja-JP" } }, slug: { eq: $slug }) {
+    contentfulTag(node_locale: { eq: "ja-JP" }, slug: { eq: $slug }) {
       slug
       name
       updatedAt
@@ -92,14 +92,19 @@ export const query = graphql`
           title
           createdAt
           thumbnail {
-            localFile {
-              childImageSharp {
-                fluid {
-                  src
-                  srcSet
-                  srcSetWebp
+            file {
+              details {
+                image {
+                  height
+                  width
                 }
               }
+              url
+            }
+            fluid {
+              src
+              srcSet
+              srcSetWebp
             }
           }
         }

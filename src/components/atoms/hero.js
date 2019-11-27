@@ -19,16 +19,18 @@ const Img = styled.img`
 `
 
 export default function Hero({ src, alt }) {
+  const fluid = src.fluid
+  const file = src.file.details.image
+
   return (
     <picture>
-      <source type="image/webp" src={src.srcWebp} srcSet={src.srcSetWebp} sizes="100w" />
+      <source type="image/webp" src={fluid.srcWebp} srcSet={fluid.srcSetWebp} sizes="100w" />
       <Img
-        src={src.src}
-        srcSet={src.srcSet}
-        content={src.src}
+        src={fluid.src}
+        srcSet={fluid.srcSet}
         sizes="100w"
-        width={src.presentationWidth}
-        height={src.presentationHeight}
+        width={file.width}
+        height={file.height}
         alt={alt}
         loading="lazy"
         decoding="async"

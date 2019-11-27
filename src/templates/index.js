@@ -75,17 +75,19 @@ export const query = graphql`
           title
           createdAt
           thumbnail {
-            localFile {
-              childImageSharp {
-                fluid {
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  presentationHeight
-                  presentationWidth
+            file {
+              details {
+                image {
+                  height
+                  width
                 }
               }
+            }
+            fluid {
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
             }
           }
         }

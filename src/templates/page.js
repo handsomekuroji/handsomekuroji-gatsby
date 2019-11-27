@@ -42,12 +42,12 @@ const Article = styled.article`
 export default function Page({ data }) {
   const post = data.contentfulPage
   const html = Replace(post.content.childMarkdownRemark.html)
-  const img = post.thumbnail.localFile.childImageSharp.fluid
+  const img = post.thumbnail
   const title = post.title
   const slug = post.slug
 
   const seo = {
-    img: img,
+    img: img.fluid.src,
     title: title,
     url: slug,
     description: post.description.description
@@ -78,7 +78,7 @@ export default function Page({ data }) {
 
 export const query = graphql`
   query PageBySlug($slug: String!) {
-    contentfulPage(filter: { node_locale: { eq: "ja-JP" } }, slug: { eq: $slug }) {
+    contentfulPage(node_locale: { eq: "ja-JP" }, slug: { eq: $slug }) {
       slug
       title
       createdAt
@@ -89,17 +89,19 @@ export const query = graphql`
         }
       }
       thumbnail {
-        localFile {
-          childImageSharp {
-            fluid {
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              presentationHeight
-              presentationWidth
+        file {
+          details {
+            image {
+              height
+              width
             }
           }
+        }
+        fluid {
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
         }
       }
       content {

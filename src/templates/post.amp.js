@@ -44,14 +44,14 @@ const Article = styled.article`
 export default function Amp({ data }) {
   const post = data.contentfulBlog
   const html = Ampify(post.content.childMarkdownRemark.html)
-  const img = post.thumbnail.localFile.childImageSharp.fluid
+  const img = post.thumbnail
   const title = post.title
   const slug = post.slug
   const posts = data.allContentfulBlog.edges
   const faves = post.faves
 
   const seo = {
-    img: img.src,
+    img: img.fluid.src,
     title: title,
     description: Ampify(post.description.childMarkdownRemark.html).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
   }
@@ -105,17 +105,19 @@ export const query = graphql`
         }
       }
       thumbnail {
-        localFile {
-          childImageSharp {
-            fluid {
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              presentationHeight
-              presentationWidth
+        file {
+          details {
+            image {
+              height
+              width
             }
           }
+        }
+        fluid {
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
         }
       }
       content {
@@ -144,17 +146,19 @@ export const query = graphql`
           title
           createdAt
           thumbnail {
-            localFile {
-              childImageSharp {
-                fluid {
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  presentationHeight
-                  presentationWidth
+            file {
+              details {
+                image {
+                  height
+                  width
                 }
               }
+            }
+            fluid {
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
             }
           }
         }

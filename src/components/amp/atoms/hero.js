@@ -20,23 +20,26 @@ const Figure = styled.figure`
 `
 
 export default function Hero({ src, alt }) {
+  const fluid = src.fluid
+  const file = src.file.details.image
+
   return (
     <Figure>
       <amp-img
-        src={src.srcWebp}
-        srcSet={src.srcSetWebp}
+        src={fluid.srcWebp}
+        srcSet={fluid.srcSetWebp}
         sizes="100vw"
-        width={src.presentationWidth}
-        height={src.presentationHeight}
+        width={file.width}
+        height={file.height}
         alt={alt}
         layout="responsive"
       >
         <amp-img
-          src={src.src}
-          srcSet={src.srcSet}
+          src={fluid.src}
+          srcSet={fluid.srcSet}
           sizes="100vw"
-          width={src.presentationWidth}
-          height={src.presentationHeight}
+          width={file.wdth}
+          height={file.height}
           alt={alt}
           fallback="fallback"
           layout="responsive"

@@ -49,16 +49,7 @@ export default function TagHeader({ header }) {
 
   return (
     <Header>
-      <Image
-        src={`${src}?w=96`}
-        srcSet={`${src}?w=128 1040w`}
-        sizes="100vw"
-        width="48"
-        height="48"
-        alt={name}
-        loading="lazy"
-        decoding="async"
-      />
+      <Image src={`${src}?w=96`} width="48" height="48" alt={name} loading="lazy" decoding="async" />
       <Title>{name}</Title>
       <Count>{header.count}</Count>
     </Header>

@@ -7,20 +7,16 @@ exports.createPages = ({ graphql, actions }) => {
   const loadPosts = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulBlog(filter: { node_locale: { eq: "en-US" } }, sort: { fields: [createdAt], order: DESC }) {
+        allContentfulBlog(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               title
               slug
               thumbnail {
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      src
-                      srcSet
-                      srcSetWebp
-                    }
-                  }
+                fluid {
+                  src
+                  srcSet
+                  srcSetWebp
                 }
               }
               tag {
@@ -74,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
         return {
           title: node.title,
           slug: node.slug,
-          image: `${node.thumbnail.localFile.childImageSharp.fluid.src}`,
+          image: `${node.thumbnail.fluid.src}`,
           tag: tags
         }
       })
@@ -85,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadPages = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulPage(filter: { node_locale: { eq: "en-US" } }, sort: { fields: [createdAt], order: DESC }) {
+        allContentfulPage(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               slug
@@ -111,7 +107,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadBests = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulBest(filter: { node_locale: { eq: "en-US" } }, sort: { fields: [createdAt], order: DESC }) {
+        allContentfulBest(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               slug
@@ -137,7 +133,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadHorrors = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulHorror(filter: { node_locale: { eq: "en-US" } }, sort: { fields: [createdAt], order: DESC }) {
+        allContentfulHorror(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               title
@@ -165,7 +161,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadIndex = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulBlog(filter: { node_locale: { eq: "en-US" } }, sort: { fields: [createdAt], order: DESC }) {
+        allContentfulBlog(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               slug
@@ -198,7 +194,7 @@ exports.createPages = ({ graphql, actions }) => {
   const loadTags = new Promise(async resolve => {
     await graphql(`
       {
-        allContentfulTag(filter: { node_locale: { eq: "en-US" } }, sort: { fields: [createdAt], order: DESC }) {
+        allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
           edges {
             node {
               slug

@@ -82,7 +82,6 @@ export const query = graphql`
     allContentfulFaves(
       filter: { best: { slug: { eq: $slug } }, node_locale: { eq: "ja-JP" } }
       sort: { fields: [createdAt], order: DESC }
-      node_locale: { eq: "ja-JP" }
     ) {
       totalCount
       edges {
