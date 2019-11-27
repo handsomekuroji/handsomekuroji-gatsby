@@ -57,6 +57,8 @@ export default function Page({ data }) {
     description: Replace(post.description.childMarkdownRemark.html)
   })
 
+  meta.img = img
+
   return (
     <Layout>
       <Seo meta={seo} />
