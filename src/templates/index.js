@@ -63,7 +63,12 @@ export default function Index({ data, pageContext }) {
 
 export const query = graphql`
   query Index($skip: Int!, $limit: Int!) {
-    allContentfulBlog(sort: { fields: [createdAt], order: DESC }, limit: $limit, skip: $skip) {
+    allContentfulBlog(
+      filter: { node_locale: { eq: "ja-JP" } }
+      sort: { fields: [createdAt], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           slug
@@ -86,7 +91,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulBest(sort: { fields: [updatedAt], order: DESC }) {
+    allContentfulBest(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [updatedAt], order: DESC }) {
       edges {
         node {
           title
@@ -95,7 +100,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTag {
+    allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }) {
       edges {
         node {
           name

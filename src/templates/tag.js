@@ -70,7 +70,7 @@ export default function Tag({ data, pageContext }) {
 
 export const query = graphql`
   query TagBySlug($slug: String!, $skip: Int!, $limit: Int!) {
-    contentfulTag(slug: { eq: $slug }) {
+    contentfulTag(filter: { node_locale: { eq: "ja-JP" } }, slug: { eq: $slug }) {
       slug
       name
       updatedAt
@@ -80,7 +80,7 @@ export const query = graphql`
       }
     }
     allContentfulBlog(
-      filter: { tag: { elemMatch: { slug: { eq: $slug } } } }
+      filter: { node_locale: { eq: "ja-JP" }, tag: { elemMatch: { slug: { eq: $slug } } } }
       sort: { fields: [createdAt], order: DESC }
       limit: $limit
       skip: $skip
@@ -105,7 +105,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTag {
+    allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }) {
       edges {
         node {
           name

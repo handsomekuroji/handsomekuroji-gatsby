@@ -16,7 +16,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-eslint',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-netlify',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     {
@@ -58,7 +57,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: '1c6og4gj8h99',
+        spaceId: env.CTF_SPACE_ID,
         accessToken: env.CTF_CDA_ACCESS_TOKEN,
         downloadLocal: true
       }
@@ -172,7 +171,7 @@ module.exports = {
             },
             query: `
               {
-                allContentfulBlog(limit: 10, sort: {fields: [createdAt], order: DESC}) {
+                allContentfulBlog(filter: { node_locale: { eq: "ja-JP" } }, limit: 10, sort: {fields: [createdAt], order: DESC}) {
                   edges {
                     node {
                       title

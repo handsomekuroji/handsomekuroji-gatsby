@@ -134,7 +134,7 @@ export const query = graphql`
       }
     }
     allContentfulBlog(
-      filter: { tag: { elemMatch: { slug: { in: $tag } } }, slug: { ne: $slug } }
+      filter: { node_locale: { eq: "ja-JP" }, tag: { elemMatch: { slug: { in: $tag } } }, slug: { ne: $slug } }
       sort: { fields: [createdAt], order: DESC }
       limit: 6
     ) {
@@ -160,7 +160,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTag {
+    allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }) {
       edges {
         node {
           name

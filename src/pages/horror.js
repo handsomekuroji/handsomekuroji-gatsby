@@ -57,7 +57,7 @@ export default function Horror({ data }) {
 
 export const query = graphql`
   query Horror {
-    allContentfulHorror(sort: { fields: [createdAt], order: DESC }) {
+    allContentfulHorror(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           slug
@@ -66,7 +66,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTag {
+    allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }) {
       edges {
         node {
           name

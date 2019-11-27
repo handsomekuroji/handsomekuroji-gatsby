@@ -50,7 +50,7 @@ export default function NotFound({ data }) {
 
 export const query = graphql`
   query NotFound {
-    allContentfulBlog(sort: { fields: [createdAt], order: DESC }, limit: 12) {
+    allContentfulBlog(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }, limit: 12) {
       edges {
         node {
           slug
@@ -70,7 +70,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTag {
+    allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }) {
       edges {
         node {
           name

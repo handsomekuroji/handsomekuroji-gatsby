@@ -60,7 +60,7 @@ export default function NotFoundPage({ data }) {
 
 export const query = graphql`
   query Story {
-    allContentfulStory(sort: { fields: [createdAt], order: DESC }) {
+    allContentfulStory(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           createdAt

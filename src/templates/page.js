@@ -78,7 +78,7 @@ export default function Page({ data }) {
 
 export const query = graphql`
   query PageBySlug($slug: String!) {
-    contentfulPage(slug: { eq: $slug }) {
+    contentfulPage(filter: { node_locale: { eq: "ja-JP" } }, slug: { eq: $slug }) {
       slug
       title
       createdAt
@@ -108,7 +108,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTag {
+    allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }) {
       edges {
         node {
           name
