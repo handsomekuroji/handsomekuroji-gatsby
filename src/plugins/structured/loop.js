@@ -3,7 +3,7 @@ export default (author, edges, root) => {
 
   Array.prototype.slice.call(edges).forEach(edge => {
     const date = edge.node.createdAt
-    const img = edge.node.thumbnail.fluid.src
+    const img = edge.node.thumbnail.localFile.childImageSharp.fluid.src
 
     const list = {
       '@context': 'https://schema.org',

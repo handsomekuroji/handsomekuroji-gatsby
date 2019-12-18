@@ -24,5 +24,8 @@
   "editor.formatOnPaste": true,
   "editor.renderIndentGuides": true,
   "telemetry.enableTelemetry": false,
-  "workbench.editor.highlightModifiedTabs": true
+  "workbench.editor.highlightModifiedTabs": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

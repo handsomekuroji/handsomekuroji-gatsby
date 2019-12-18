@@ -58,7 +58,8 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: env.CTF_SPACE_ID,
-        accessToken: env.CTF_CDA_ACCESS_TOKEN
+        accessToken: env.CTF_CDA_ACCESS_TOKEN,
+        downloadLocal: true
       }
     },
     {
