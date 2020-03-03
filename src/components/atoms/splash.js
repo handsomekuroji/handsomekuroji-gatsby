@@ -153,13 +153,19 @@ const Small = styled(small)`
 
 export default function Splash() {
   const [Visible, setVisible] = React.useState(false)
+  const [Domain, setDomain] = React.useState(false)
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     setVisible(!Visible)
+
+    let ref = document.referrer
+    let result = ref.match(/handsomekuroji\.com/)
+    setDomain(!result)
+    console.log(ref)
   }, [])
 
   return (
-    <Wrapper pose={Visible ? 'visible' : 'hidden'}>
+    <Wrapper pose={Visible ? 'visible' : 'hidden'} className={Domain ? 'test' : 'eee'}>
       <Inner>
         <Big width="220.61" height="74" title="ロゴ" aria-hidden="true" />
         <Small width="60" height="58.45" title="ロゴ" aria-hidden="true" />
