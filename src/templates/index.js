@@ -40,9 +40,11 @@ const Main = styled.main`
   `}
 `
 
-export default function Index({ data, pageContext }) {
+export default function Index({ data, pageContext, location }) {
+  const { state = {} } = location
+  const { splash } = state || false
   const edges = data.allContentfulBlog.edges
-  const Image = pageContext.number === 1 ? <Splash /> : ''
+  const Image = pageContext.number === 1 && !splash ? <Splash /> : ''
 
   return (
     <Layout>

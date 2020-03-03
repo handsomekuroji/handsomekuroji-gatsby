@@ -132,14 +132,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        headers: {
-          '/*': ['Referrer-Policy: strict-origin-when-cross-origin']
-        }
-      }
-    },
-    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-68797404-1'

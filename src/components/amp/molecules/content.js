@@ -79,7 +79,7 @@ const Wrapper = styled.div`
       ${media.s`top: -80px;`}
 
       ${media.m`
-        font-size: 10rem
+        font-size: 10rem;
         left: -80px;
         top: -112px;
       `}
