@@ -65,9 +65,9 @@ export default function Seo({ meta }) {
       ]}
       link={[
         { rel: 'canonical', href: url },
-        { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/img/favicon.svg' },
+        { rel: 'icon alternate', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png' },
+        { rel: 'icon alternate', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png' },
         { rel: 'mask-icon', href: '/img/safari-pinned-tab.svg', color: '#404040' },
         { rel: 'preconnect dns-prefetch', href: 'https://www.google-analytics.com' }
       ]}
