@@ -263,7 +263,9 @@ export default function PostHeader({ header }) {
         <Title>{title}</Title>
         <Meta>
           <Img src={photo} width="80" height="80" alt={author} loading="lazy" decoding="async" />
-          <Name to="/about">{author}</Name>
+          <Name to="/about" state={{ splash: true }}>
+            {author}
+          </Name>
           <Time dateTime={header.date} aria-label={label}>
             {date}
           </Time>

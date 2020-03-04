@@ -174,9 +174,13 @@ export default function HorrorHeader({ header }) {
     <header>
       <Container>
         <Title>{title}</Title>
-        <Prev to="horror">一覧へ</Prev>
+        <Prev to="horror" state={{ splash: true }}>
+          一覧へ
+        </Prev>
         <Meta>
-          <Name to="/about">{author}</Name>
+          <Name to="/about" state={{ splash: true }}>
+            {author}
+          </Name>
           <Time dateTime={header.date} aria-label={label}>
             {date}
           </Time>

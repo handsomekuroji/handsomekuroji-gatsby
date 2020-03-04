@@ -146,7 +146,7 @@ export default function Breadcrumb({ breadcrumb }) {
     <Navigation className={best} aria-label="breadcrumb">
       <Ordered>
         <Root>
-          <Anchor to="/">
+          <Anchor to="/" state={{ splash: true }}>
             <Img src={logo} alt="ロゴ" decoding="async" aria-hidden="true" />
             handsomekuroji
           </Anchor>

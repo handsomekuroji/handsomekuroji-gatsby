@@ -45,7 +45,6 @@ export default function Index({ data, pageContext, location }) {
   const { splash } = state || false
   const edges = data.allContentfulBlog.edges
   const Image = pageContext.number === 1 && !splash ? <Splash /> : ''
-  location.state = { splash: true }
 
   return (
     <Layout>

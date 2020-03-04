@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <Wrapper role="banner">
       <Heading>
-        <Link to="/" aria-label="ハンサムクロジのサイト">
+        <Link to="/" state={{ splash: true }} aria-label="ハンサムクロジのサイト">
           <Logo />
         </Link>
       </Heading>

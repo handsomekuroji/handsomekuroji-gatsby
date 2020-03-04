@@ -98,7 +98,7 @@ export default function Article({ edge }) {
 
   return (
     <article>
-      <Anchor to={`/${post.slug}`}>
+      <Anchor to={`/${post.slug}`} state={{ splash: true }}>
         <Thumbnail src={post.thumbnail.localFile.childImageSharp.fluid} alt={title} />
         <Header>
           <Other>{title}</Other>

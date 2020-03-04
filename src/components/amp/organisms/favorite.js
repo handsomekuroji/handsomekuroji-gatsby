@@ -26,7 +26,7 @@ const Wrapper = styled.section`
   }
 `
 
-const Link = styled.a`
+const Links = styled.a`
   align-items: center;
   border-radius: 8px 8px 0 0;
   box-sizing: border-box;
@@ -93,13 +93,13 @@ const Right = styled(Arrow)`
 
   ${media.sm`margin: 0 0 0 8px;`}
 
-  ${Link}:hover & {
+  ${Links}:hover & {
     @media (hover: hover) {
       transform: translateX(8px);
     }
   }
 
-  ${Link}:focus & {
+  ${Links}:focus & {
     transform: translateX(8px);
   }
 `
@@ -109,7 +109,7 @@ export default function Favorite({ edges }) {
 
   return (
     <Wrapper>
-      <Link
+      <Links
         href="https://www.amazon.co.jp/gp/video/offers/ref=atv_pv_new_offer?&_encoding=UTF8&tag=handsomekuroji-22&linkCode=ur2&linkId=02064249370a9b29a9f1754f61d3b7b2&camp=247&creative=1211"
         target="_blank"
         rel="noopener noreferrer"
@@ -122,7 +122,7 @@ export default function Favorite({ edges }) {
           月額500円で映画見放題
         </Text>
         <Right />
-      </Link>
+      </Links>
       <amp-carousel height="300" layout="fixed-height" type="carousel" controls class="favoliteCarousel">
         {images}
       </amp-carousel>

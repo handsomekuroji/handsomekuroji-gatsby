@@ -256,7 +256,9 @@ export default function PostHeader({ header }) {
         <Title>{title}</Title>
         <Meta>
           <amp-img src={photo} width="40" height="40" alt={author}></amp-img>
-          <Name to="/about">{author}</Name>
+          <Name to="/about" state={{ splash: true }}>
+            {author}
+          </Name>
           <Time dateTime={header.date} aria-label={label}>
             {date}
           </Time>
