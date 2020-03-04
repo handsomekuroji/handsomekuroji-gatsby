@@ -35,7 +35,7 @@ const Other = styled.h1`
 
 export default function Header({ index, title, horror }) {
   const logo = (
-    <Link to="/" state={{ splash: true }} aria-label="ハンサムクロジのサイト">
+    <Link to="/" aria-label="ハンサムクロジのサイト">
       <Logo />
     </Link>
   )
