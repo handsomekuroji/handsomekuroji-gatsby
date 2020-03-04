@@ -12,7 +12,6 @@ import BestList from '../components/organisms/list'
 import Loop from '../components/organisms/loop'
 import Pagination from '../components/molecules/pagination'
 import Ads from '../components/atoms/ads'
-import { navigate } from '@reach/router'
 
 const Main = styled.main`
   margin: 32px auto 0;
@@ -46,7 +45,7 @@ export default function Index({ data, pageContext, location }) {
   const { splash } = state || false
   const edges = data.allContentfulBlog.edges
   const Image = pageContext.number === 1 && !splash ? <Splash /> : ''
-  navigate({ state: { splash: true } })
+  location.state = { splash: true }
 
   return (
     <Layout>
