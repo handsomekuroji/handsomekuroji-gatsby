@@ -60,21 +60,27 @@ const Wrapper = styled.div`
   h2 {
     color: var(--c_1);
     font: bold 1.3rem / 1.5 ${font.$f_1};
-    letter-spacing: 0.1rem;
+    font-feature-settings: 'palt' 1;
+    letter-spacing: 0.04em;
     position: relative;
     z-index: 1;
 
     ${media.l`font-size: 1.5rem;`}
+
+    ${media.lm`font-size: 1.7rem;`}
 
     &::before {
       color: var(--c_8);
       counter-increment: section;
       content: counter(section, decimal-leading-zero);
       font: italic bold 7rem / 1.1 'Georgia', serif;
-      left: -32px;
+      left: -64px;
+      opacity: 0;
       position: absolute;
       text-indent: 0.1rem;
       top: -60px;
+      transition: opacity 1s ease, visibility 1s ease, left 1s ease;
+      visibility: hidden;
       white-space: pre;
       z-index: -1;
 
@@ -82,7 +88,7 @@ const Wrapper = styled.div`
 
       ${media.m`
         font-size: 10rem;
-        left: -80px;
+        left: -160px;
         top: -112px;
       `}
 
@@ -90,6 +96,14 @@ const Wrapper = styled.div`
         font-size: 12rem
         top: -128px;
       `}
+    }
+
+    &.active::before {
+      left: -32px;
+      opacity: 1;
+      visibility: visible;
+
+      ${media.m`left: -80px;`}
     }
   }
 
@@ -514,6 +528,26 @@ export default function Content({ content }) {
   const wrapper = React.useRef()
 
   React.useEffect(() => {
+    const sections = document.getElementsByTagName('h2')
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active')
+          }
+        })
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px',
+        threshold: 0
+      }
+    )
+
+    Array.prototype.slice.call(sections).forEach(section => {
+      observer.observe(section)
+    })
+
     youtube(wrapper.current)
     social('https://platform.twitter.com/widgets.js', 'twitter-tweet', wrapper.current)
   }, [content])

@@ -88,8 +88,9 @@ const Tag = styled(Link)`
 const Title = styled.h1`
   color: var(--c_1);
   font: bold 1.3rem / 1.5 ${font.$f_1};
+  font-feature-settings: 'palt' 1;
   grid-column: 1 / 3;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.04em;
 
   ${media.xs`font-size: 1.5rem;`}
 
@@ -183,29 +184,50 @@ const Prefaces = styled.div`
     color: var(--c_8);
     content: '00';
     font: italic bold 7rem / 1.1 'Georgia', serif;
-    left: -16px;
+    left: -64px;
+    opacity: 0;
     position: absolute;
     text-indent: 0.1rem;
     top: -46px;
+    transition: opacity 1s ease, visibility 1s ease, left 1s ease;
+    visibility: hidden;
     white-space: pre;
     z-index: -1;
 
     ${media.s`
-      left: -8px;
+      left: -64px;
       top: -48px;
     `}
 
     ${media.ms`left 0;`}
 
     ${media.m`
-      font-size: 10rem
-      left: -16px;
+      font-size: 10rem;
+      left: -160px;
       top: -64px;
     `}
 
     ${media.l`
       font-size: 12rem
       top: -80px;
+    `}
+  }
+
+  &.active::before {
+    left: -16px;
+    opacity: 1;
+    visibility: visible;
+
+    ${media.s`
+      left: -8px;
+    `}
+
+    ${media.ms`
+      left 0;
+    `}
+
+    ${media.m`
+      left: -16px;
     `}
   }
 
@@ -234,6 +256,8 @@ export default function PostHeader({ header }) {
     }
   `).site.siteMetadata
 
+  const preface = React.useRef()
+
   const date = dayjs(header.date).format('YYYY.MM.DD ddd')
   const label = dayjs(header.date).format('YYYY年M月D日')
   const title = header.title
@@ -243,6 +267,25 @@ export default function PostHeader({ header }) {
     title: title,
     url: `${query.siteUrl}/${header.url}`
   }
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active')
+          }
+        })
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px',
+        threshold: 0
+      }
+    )
+
+    observer.observe(preface.current)
+  }, [])
 
   const tags = header.tag.map((edge, i) => (
     <List key={i}>
@@ -273,6 +316,7 @@ export default function PostHeader({ header }) {
         <Share meta={share} />
       </Container>
       <Prefaces
+        ref={preface}
         dangerouslySetInnerHTML={{
           __html: header.description
         }}

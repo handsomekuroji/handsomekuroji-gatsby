@@ -114,14 +114,14 @@ export default createGlobalStyle`
 
     &.dark {
       transition: none;
-      --c_0: #ced8de;
+      --c_0: #fcfcfc;
       --c_1: #fcfcfc;
       --c_1-rgb: 206, 216, 222;
       --c_2: rgba(0, 0, 0, 0.3);
       --c_3: #19191a;
       --c_4: #23232a;
       --c_4-rgb: 35, 35, 42;
-      --c_7: #ced8de;
+      --c_7: #fcfcfc;
       --c_7-rgb: 206, 216, 222;
       --c_8: #19191a;
       --c_8-rgb: 25, 25, 26;

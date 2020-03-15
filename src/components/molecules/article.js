@@ -97,6 +97,8 @@ const Header = styled.header`
 const Title = styled.h2`
   color: var(--c_1);
   font: bold 0.95rem / 1.5 ${font.$f_1};
+  font-feature-settings: 'palt' 1;
+  letter-spacing: 0.04em;
 
   ${media.m`font-size: 1rem;`}
 `
@@ -104,6 +106,8 @@ const Title = styled.h2`
 const Other = styled.h3`
   color: var(--c_1);
   font: bold 0.95rem / 1.5 ${font.$f_1};
+  font-feature-settings: 'palt' 1;
+  letter-spacing: 0.04em;
 
   ${media.m`font-size: 1rem;`}
 `

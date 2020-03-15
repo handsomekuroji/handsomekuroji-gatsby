@@ -27,8 +27,9 @@ const Container = styled.div`
 const Title = styled.h1`
   color: var(--c_1);
   font: bold 1.3rem / 1.5 ${font.$f_1};
+  font-feature-settings: 'palt' 1;
   grid-column: 1 / 3;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.04em;
 
   ${media.xs`font-size: 1.5rem;`}
 
