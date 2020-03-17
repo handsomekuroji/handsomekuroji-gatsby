@@ -58,11 +58,14 @@ const Wrapper = styled.div`
   }
 
   h2 {
-    color: var(--c_1);
+    color: transparent;
+    display: inline-block;
     font: bold 1.3rem / 1.5 ${font.$f_1};
     font-feature-settings: 'palt' 1;
     letter-spacing: 0.04em;
     position: relative;
+    transition: color 0s 1s ease;
+    visibility: hidden;
     z-index: 1;
 
     ${media.l`font-size: 1.5rem;`}
@@ -98,12 +101,35 @@ const Wrapper = styled.div`
       `}
     }
 
-    &.active::before {
-      left: -32px;
-      opacity: 1;
+    &::after {
+      background: var(--c_3);
+      content: '';
+      display: block;
+      height: 100%;
+      left: -150%;
+      position: absolute;
+      top: 0;
+      transition: left 0.4s 0.6s, width 0.2s 1s;
+      visibility: visible;
+      width: 100%;
+    }
+
+    &.active {
+      color: var(--c_1);
       visibility: visible;
 
-      ${media.m`left: -80px;`}
+      &::before {
+        left: -32px;
+        opacity: 1;
+        visibility: visible;
+
+        ${media.m`left: -80px;`}
+      }
+
+      &::after {
+        left: 0;
+        width: 0;
+      }
     }
   }
 
