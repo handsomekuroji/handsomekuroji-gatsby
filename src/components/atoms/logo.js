@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import big from '../../images/main/handsomekuroji.svg'
-import small from '../../images/main/hk.svg'
+import big from '~src/images/main/logo-large.svg'
+import small from '~src/images/main/logo-small.svg'
 
 const Img = styled.img`
   height: auto;

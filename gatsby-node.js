@@ -1,6 +1,16 @@
 const path = require('path')
 const fs = require('fs')
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '~src': path.resolve(__dirname, 'src')
+      }
+    }
+  })
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 

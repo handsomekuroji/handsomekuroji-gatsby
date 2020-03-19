@@ -38,6 +38,7 @@ export default function PostFooter({ footer }) {
     query PostFooterQuery {
       site {
         siteMetadata {
+          title
           siteUrl
           domain
           twitter
@@ -46,6 +47,7 @@ export default function PostFooter({ footer }) {
     }
   `).site.siteMetadata
 
+  const name = query.title
   const url = `${query.siteUrl}/${footer.url}`
   const title = footer.title.replace('&#038;', '%26')
   const domain = query.domain
@@ -74,7 +76,7 @@ export default function PostFooter({ footer }) {
     },
     {
       type: 'Note',
-      url: `https://note.mu/intent/post?url=${url}/&hashtags=handsomekuroji`
+      url: `https://note.mu/intent/post?url=${url}/&hashtags=${name}`
     },
     {
       type: 'Feedly',

@@ -11,7 +11,8 @@ module.exports = {
     twitter: env.SITE_TWITTER,
     facebook: env.SITE_FACEBOOK,
     author: env.SITE_AUTHOR,
-    verification: env.SITE_VERIFICATION
+    verification: env.SITE_VERIFICATION,
+    associate: env.ASSOCIATE_ID
   },
   plugins: [
     'gatsby-plugin-eslint',
@@ -104,7 +105,7 @@ module.exports = {
             }
           }
         },
-        canonicalBaseUrl: 'https://handsomekuroji.com',
+        canonicalBaseUrl: env.SITE_URL,
         components: [
           'amp-ad',
           'amp-iframe',
@@ -188,7 +189,7 @@ module.exports = {
               }
             `,
             output: '/feed.xml',
-            title: `handsomekuroji's RSS Feed`
+            title: `${env.SITE_TITLE}'s RSS Feed`
           }
         ]
       }

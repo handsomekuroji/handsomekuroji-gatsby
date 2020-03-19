@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
-import { font, media } from '../../../components/variable/mixin'
-import Hero from '../atoms/hero'
-import Share from '../atoms/share'
-import photo from '../../../images/main/handsomekuroji.jpg'
+import { font, media } from '~src/components/variable/mixin'
+import Hero from '~src/components/amp/atoms/hero'
+import Share from '~src/components/amp/atoms/share'
+import photo from '~src/images/main/handsomekuroji.jpg'
 
 const Container = styled.div`
   display: grid;
@@ -14,13 +14,21 @@ const Container = styled.div`
   grid-template-columns: auto 1fr;
   padding: 16px;
 
-  ${media.s`padding: 32px 24px;`}
+  ${media.s`
+    padding: 32px 24px;
+  `}
 
-  ${media.ms`padding: 48px 32px;`}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
 
-  ${media.m`padding: 48px 64px;`}
+  ${media.m`
+    padding: 48px 64px;
+  `}
 
-  ${media.l`gap: 24px;`}
+  ${media.l`
+    gap: 24px;
+  `}
 `
 
 const UnOrdered = styled.ul`
@@ -31,7 +39,9 @@ const UnOrdered = styled.ul`
 const List = styled.li`
   margin: 0 0 0 8px;
 
-  ${media.m`margin: 0 0 0 12px;`}
+  ${media.m`
+    margin: 0 0 0 12px;
+  `}
 
   &:first-of-type {
     margin: 0;
@@ -44,7 +54,9 @@ const Tag = styled(Link)`
   position: relative;
   text-decoration: none;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 
   @media (hover: hover) {
     &:hover {
@@ -87,9 +99,13 @@ const Title = styled.h1`
   grid-column: 1 / 3;
   letter-spacing: 0.04em;
 
-  ${media.xs`font-size: 1.5rem;`}
+  ${media.xs`
+    font-size: 1.5rem;\
+  `}
 
-  ${media.l`font-size: 2rem;`}
+  ${media.l`
+    font-size: 2rem;
+  `}
 `
 const Meta = styled.div`
   display: grid;
@@ -112,7 +128,9 @@ const Name = styled(Link)`
   position: relative;
   text-decoration: none;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 
   @media (hover: hover) {
     &:hover {
@@ -166,9 +184,13 @@ const Prefaces = styled.div`
   width: 100%;
   z-index: 1;
 
-  ${media.s`padding: 32px 24px;`}
+  ${media.s`
+    padding: 32px 24px;
+  `}
 
-  ${media.ms`padding: 48px 32px;`}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
 
   ${media.m`
     font-size: 1rem;
@@ -191,7 +213,9 @@ const Prefaces = styled.div`
       top: -48px;
     `}
 
-    ${media.ms`left 0;`}
+    ${media.ms`
+      left 0;
+    `}
 
     ${media.m`
       font-size: 10rem

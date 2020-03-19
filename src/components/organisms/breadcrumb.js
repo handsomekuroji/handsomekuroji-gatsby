@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { useStaticQuery, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '../../components/variable/mixin'
-import logo from '../../images/main/hk.svg'
+import logo from '../../images/main/logo-small.svg'
 
 const Navigation = styled.nav`
   background: var(--c_4);
@@ -23,11 +23,17 @@ const Navigation = styled.nav`
   &.best {
     margin: 0;
 
-    ${media.s`margin: 0;`}
+    ${media.s`
+      margin: 0;
+    `}
 
-    ${media.m`grid-column: 1 / 3;`}
+    ${media.m`
+      grid-column: 1 / 3;
+    `}
 
-    ${media.l`grid-column: 1 / 4;`}
+    ${media.l`
+      grid-column: 1 / 4;
+    `}
   }
 `
 
@@ -43,7 +49,9 @@ const Ordered = styled.ol`
     display: block;
     height: 100%;
 
-    ${media.s`padding: 12px;`}
+    ${media.s`
+      padding: 12px;
+    `}
   }
 
   &::after {
@@ -64,7 +72,9 @@ const Img = styled.img`
   vertical-align: bottom;
   width: 24px;
 
-  ${media.s`margin: 0 4px 0 0;`}
+  ${media.s`
+    margin: 0 4px 0 0;
+  `}
 
   .dark & {
     filter: invert(100%);
@@ -84,7 +94,9 @@ const Separator = styled.li`
   line-height: 1;
   margin: 0 8px;
 
-  ${media.s`margin: 0 12px;`}
+  ${media.s`
+    margin: 0 12px;
+  `}
 `
 
 const Anchor = styled(Link)`
@@ -130,6 +142,16 @@ const Anchor = styled(Link)`
 `
 
 export default function Breadcrumb({ breadcrumb }) {
+  const query = useStaticQuery(graphql`
+    query BreadcrumbQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `).site.siteMetadata
+
   const best = breadcrumb.best && 'best'
   const parent = breadcrumb.parent ? (
     <>
@@ -148,7 +170,7 @@ export default function Breadcrumb({ breadcrumb }) {
         <Root>
           <Anchor to="/" state={{ splash: true }}>
             <Img src={logo} alt="ロゴ" decoding="async" aria-hidden="true" />
-            handsomekuroji
+            {query.title}
           </Anchor>
         </Root>
         {parent}

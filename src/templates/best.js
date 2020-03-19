@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { media } from '../components/variable/mixin'
-import Seo from '../components/seo'
-import Layout from '../components/layout'
-import Header from '../components/organisms/header'
-import Footer from '../components/organisms/footer'
-import Box from '../components/molecules/box'
-import Breadcrumb from '../components/organisms/breadcrumb'
-import Ads from '../components/atoms/ads'
+import { media } from '~src/components/variable/mixin'
+import Seo from '~src/components/seo'
+import Layout from '~src/components/layout'
+import Header from '~src/components/organisms/header'
+import Footer from '~src/components/organisms/footer'
+import Box from '~src/components/molecules/box'
+import Breadcrumb from '~src/components/organisms/breadcrumb'
+import Ads from '~src/components/atoms/ads'
 
 const Main = styled.main`
   display: grid;
@@ -17,9 +17,13 @@ const Main = styled.main`
   max-width: 620px;
   width: calc(100% - 16px);
 
-  ${media.xs`width: calc(100% - 32px);`}
+  ${media.xs`
+    width: calc(100% - 32px);
+  `}
 
-  ${media.s`width: calc(100% - 48px);`}
+  ${media.s`
+    width: calc(100% - 48px);
+  `}
 
   ${media.ms`
     grid-gap: 32px;
@@ -28,9 +32,13 @@ const Main = styled.main`
     width: calc(100% - 64px);
   `}
 
-  ${media.m`grid-template-columns: 1fr 1fr;`}
+  ${media.m`
+    grid-template-columns: 1fr 1fr;
+  `}
 
-  ${media.ls`margin: 48px auto 0;`}
+  ${media.ls`
+    margin: 48px auto 0;
+  `}
 
   ${media.l`
     grid-template-columns: 1fr 1fr 1fr;

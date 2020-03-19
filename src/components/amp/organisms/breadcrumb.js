@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { useStaticQuery, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '../../../components/variable/mixin'
-import logo from '../../../images/main/hk.svg'
+import logo from '../../../images/main/logo-small.svg'
 
 const Navigation = styled.nav`
   background: var(--c_4);
@@ -33,7 +33,9 @@ const Ordered = styled.ol`
     display: block;
     height: 100%;
 
-    ${media.s`padding: 12px;`}
+    ${media.s`
+      padding: 12px;
+    `}
   }
 
   &::after {
@@ -60,7 +62,9 @@ const Separator = styled.li`
   line-height: 1;
   margin: 0 8px;
 
-  ${media.s`margin: 0 12px;`}
+  ${media.s`
+    margin: 0 12px;
+  `}
 `
 
 const Anchor = styled(Link)`
@@ -111,7 +115,9 @@ const Anchor = styled(Link)`
     vertical-align: bottom;
     width: 24px;
 
-    ${media.s`margin: 0 4px 0 0;`}
+    ${media.s`
+      margin: 0 4px 0 0;
+    `}
 
     .dark & {
       filter: invert(100%);
@@ -120,13 +126,23 @@ const Anchor = styled(Link)`
 `
 
 export default function Breadcrumb({ breadcrumb }) {
+  const query = useStaticQuery(graphql`
+    query AmpBreadcrumbQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `).site.siteMetadata
+
   return (
     <Navigation aria-label="breadcrumb">
       <Ordered>
         <Root>
           <Anchor to="/" state={{ splash: true }}>
             <amp-img src={logo} width="24" height="23.38" alt="ロゴ" aria-hidden="true"></amp-img>
-            handsomekuroji
+            {query.title}
           </Anchor>
         </Root>
         <Separator aria-hidden="true">/</Separator>

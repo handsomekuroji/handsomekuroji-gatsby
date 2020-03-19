@@ -10,11 +10,17 @@ const Footer = styled.footer`
   border-radius: 0 0 8px 8px;
   padding: 16px;
 
-  ${media.s`padding: 32px 24px;`}
+  ${media.s`
+    padding: 32px 24px;
+  `}
 
-  ${media.ms`padding: 48px 32px;`}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
 
-  ${media.m`padding: 48px 64px;`}
+  ${media.m`
+    padding: 48px 64px;
+  `}
 `
 
 const Container = styled.div`
@@ -25,7 +31,9 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 320px;
 
-  ${media.xs`gap: 16px;`}
+  ${media.xs`
+    gap: 16px;
+  `}
 
   ${media.m`
     gap: 24px;
@@ -38,6 +46,7 @@ export default function PostFooter({ footer }) {
     query AmpPostFooterQuery {
       site {
         siteMetadata {
+          title
           siteUrl
           domain
           twitter
@@ -46,6 +55,7 @@ export default function PostFooter({ footer }) {
     }
   `).site.siteMetadata
 
+  const name = query.title
   const url = `${query.siteUrl}/${footer.url}`
   const title = footer.title.replace('&#038;', '%26')
   const domain = query.domain
@@ -76,7 +86,7 @@ export default function PostFooter({ footer }) {
     },
     {
       type: 'note',
-      url: `https://note.mu/intent/post?url=${url}/&hashtags=handsomekuroji`
+      url: `https://note.mu/intent/post?url=${url}/&hashtags=${name}`
     },
     {
       type: 'feedly',

@@ -2,20 +2,13 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "eslint.enable": true,
-  "eslint.autoFixOnSave": true,
   "eslint.validate": [
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "javascript",
-      "autoFix": true
-    },
-    {
-      "language": "javascriptreact",
-      "autoFix": true
-    }
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
   ],
   "editor.cursorSmoothCaretAnimation": true,
   "editor.cursorStyle": "block",
@@ -26,6 +19,8 @@
   "telemetry.enableTelemetry": false,
   "workbench.editor.highlightModifiedTabs": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+    "source.fixAll": true
   }
 }

@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { media } from '../variable/mixin'
 import posed from 'react-pose'
-import big from '../../images/icon/handsomekuroji.svg'
-import small from '../../images/icon/hk.svg'
+import big from '../../images/icon/logo-large.svg'
+import small from '../../images/icon/logo-small.svg'
 
 const popover = {
   visible: {
