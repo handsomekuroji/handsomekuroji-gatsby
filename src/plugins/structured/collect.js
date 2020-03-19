@@ -54,7 +54,7 @@ export default (object, info, page, root) => {
         '@context': 'https://schema.org',
         '@type': 'Person',
         '@id': `${url}#author`,
-        image: `${root}/img/handsomekuroji.jpg`,
+        image: `${root}/img/profile.jpg`,
         gender: 'male',
         birthDate: '1987-04-11'
       },

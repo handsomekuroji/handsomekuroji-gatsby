@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { font, media } from '~src/components/variable/mixin'
 import Hero from '~src/components/amp/atoms/hero'
 import Share from '~src/components/amp/atoms/share'
-import photo from '~src/images/main/handsomekuroji.jpg'
+import photo from '~src/images/main/profile.jpg'
 
 const Container = styled.div`
   display: grid;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { media } from '../variable/mixin'
-import photo from '../../images/main/handsomekuroji.jpg'
+import photo from '../../images/main/profile.jpg'
 
 const Article = styled.article`
   display: grid;

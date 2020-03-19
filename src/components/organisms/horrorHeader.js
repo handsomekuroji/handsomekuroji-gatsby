@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { font, media } from '../variable/mixin'
-import photo from '../../images/main/handsomekuroji.jpg'
+import photo from '../../images/main/profile.jpg'
 
 const Container = styled.div`
   display: grid;

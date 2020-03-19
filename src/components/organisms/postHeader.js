@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { font, media } from '~src/components/variable/mixin'
 import Hero from '~src/components/atoms/hero'
 import Share from '~src/components/atoms/share'
-import photo from '~src/images/main/handsomekuroji.jpg'
+import photo from '~src/images/main/profile.jpg'
 
 const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
