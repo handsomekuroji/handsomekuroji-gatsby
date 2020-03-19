@@ -50,7 +50,7 @@ const Article = styled.article`
 export default function Amp({ data }) {
   const post = data.contentfulBlog
   const affiliate = data.site.siteMetadata
-  const html = Ampify(post.content.childMarkdownRemark.html)
+  const html = Ampify(post.content.childMarkdownRemark.html, affiliate)
   const img = post.thumbnail.localFile.childImageSharp.fluid
   const title = post.title
   const slug = post.slug

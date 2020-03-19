@@ -12,7 +12,7 @@ module.exports = {
     facebook: env.SITE_FACEBOOK,
     author: env.SITE_AUTHOR,
     verification: env.SITE_VERIFICATION,
-    amazon: env.ASSOCIATE_ID,
+    amazon: env.AMAZON_ID,
     rakuten: env.RAKUTEN_ID,
     sid: env.LINKSHARE_SID,
     pid: env.LINKSHARE_PID,
