@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media, font } from '../../variable/mixin'
-import Logo from '../../amp/atoms/logo'
-import Tag from '../../atoms/tag'
+import { media, font } from '~src/components/variable/mixin'
+import Logo from '~src/components/amp/atoms/logo'
+import Tag from '~src/components/atoms/tag'
 
 const Wrapper = styled.footer`
   align-items: center;
@@ -13,14 +13,18 @@ const Wrapper = styled.footer`
   max-width: 640px;
   width: calc(100% - 32px);
 
-  ${media.xs`width: calc(100% - 48px);`}
+  ${media.xs`
+    width: calc(100% - 48px);
+  `}
 
   ${media.ms`
     gap: 24px 8px;
     max-width: 690px;
   `}
 
-  ${media.m`width: calc(100% - 64px);`}
+  ${media.m`
+    width: calc(100% - 64px);
+  `}
 
   ${media.ls`
     gap: 32px 8px;
@@ -29,7 +33,9 @@ const Wrapper = styled.footer`
 `
 
 const Navigation = styled.nav`
-  ${media.ms`grid-column: 1 / 3;`}
+  ${media.ms`
+    grid-column: 1 / 3;
+  `}
 `
 const UnOrdered = styled.ul`
   display: flex;
@@ -54,7 +60,9 @@ const Copyright = styled.small`
   font-size: 0.8rem;
   text-align: center;
 
-  ${media.ms`justify-self: flex-start;`}
+  ${media.ms`
+    justify-self: flex-start;
+  `}
 `
 
 export default function Footer({ tag }) {

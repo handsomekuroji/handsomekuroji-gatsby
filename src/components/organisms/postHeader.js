@@ -230,7 +230,7 @@ const Prefaces = styled.div`
     `}
 
     ${media.l`
-      font-size: 12rem
+      font-size: 12rem;
       top: -80px;
     `}
   }

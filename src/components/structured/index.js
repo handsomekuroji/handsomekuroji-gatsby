@@ -2,9 +2,9 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import base from '../../plugins/structured/base'
-import site from '../../plugins/structured/site'
-import loop from '../../plugins/structured/loop'
+import base from '~src/plugins/structured/base'
+import site from '~src/plugins/structured/site'
+import loop from '~src/plugins/structured/loop'
 
 export default function StructuredIndex({ edges, page }) {
   const query = useStaticQuery(graphql`

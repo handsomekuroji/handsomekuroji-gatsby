@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { media } from '../components/variable/mixin'
-import Seo from '../components/seo'
-import Layout from '../components/layout'
-import Header from '../components/organisms/header'
-import Footer from '../components/organisms/footer'
-import Balloon from '../components/molecules/balloon'
+import { media } from '~src/components/variable/mixin'
+import Seo from '~src/components/seo'
+import Layout from '~src/components/layout'
+import Header from '~src/components/organisms/header'
+import Footer from '~src/components/organisms/footer'
+import Balloon from '~src/components/molecules/balloon'
 
 const Main = styled.main`
   background: var(--c_4);
@@ -19,7 +19,9 @@ const Main = styled.main`
   padding: 16px;
   width: calc(100% - 16px);
 
-  ${media.xs`width: calc(100% - 32px);`}
+  ${media.xs`
+    width: calc(100% - 32px);
+  `}
 
   ${media.s`
     padding: 24px;
@@ -32,21 +34,24 @@ const Main = styled.main`
     width: calc(100% - 64px);
   `}
 
-  ${media.m`padding: 64px;`}
+  ${media.m`
+    padding: 64px;
+  `}
 
-  ${media.ls`margin: 48px auto 0;`}
+  ${media.ls`
+    margin: 48px auto 0;
+  `}
 `
 
 export default function NotFoundPage({ data }) {
   const title = 'Story'
+  const story = data.allContentfulStory.edges.map((edge, i) => <Balloon key={i} edge={edge} />)
 
   const seo = {
     title: title,
     url: 'story',
     description: 'ぼくの物語'
   }
-
-  const story = data.allContentfulStory.edges.map((edge, i) => <Balloon key={i} edge={edge} />)
 
   return (
     <Layout>

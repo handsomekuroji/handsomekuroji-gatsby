@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
-import { font, media } from '../variable/mixin'
+import { font, media } from '~src/components/variable/mixin'
 
 const Wrapper = styled.article`
   border-top: 2px solid var(--c_3);
@@ -44,7 +44,9 @@ const Anchor = styled(Link)`
   padding: 16px;
   text-decoration: none;
 
-  ${media.s`padding: 24px;`}
+  ${media.s`
+    padding: 24px;
+  `}
 
   @media (hover: hover) {
     &:hover {
@@ -76,9 +78,13 @@ const Title = styled.h2`
   color: var(--c_1);
   font: bold 1rem / 1.5 ${font.$f_1};
 
-  ${media.s`font-size: 1.1rem;`}
+  ${media.s`
+    font-size: 1.1rem;
+  `}
 
-  ${media.ms`font-size: 1.2rem;`}
+  ${media.ms`
+    font-size: 1.2rem;
+  `}
 `
 
 const Time = styled.time`

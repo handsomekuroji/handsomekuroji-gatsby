@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../variable/mixin'
+import { media } from '~src/components/variable/mixin'
 
 const Anchor = styled.a`
   border-radius: 8px;
@@ -64,7 +64,9 @@ const List = styled.li`
   &:first-of-type {
     margin: 0;
 
-    ${media.s`scroll-margin-left: 24px;`}
+    ${media.s`
+      scroll-margin-left: 24px;
+    `}
   }
 `
 
@@ -72,7 +74,9 @@ const Img = styled.img`
   height: 160px;
   width: auto;
 
-  ${media.sm`height: 180px;`}
+  ${media.sm`
+    height: 180px;
+  `}
 `
 
 export default function Image({ edge }) {

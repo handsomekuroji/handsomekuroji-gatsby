@@ -1,15 +1,15 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { media } from '../../components/variable/mixin'
-import modal from '../../plugins/modal'
-import Twitter from '../../images/icon/twitter.svg'
-import Facebook from '../../images/icon/facebook.svg'
-import Hatebu from '../../images/icon/hatebu.svg'
-import Line from '../../images/icon/line.svg'
-import Pocket from '../../images/icon/pocket.svg'
-import Note from '../../images/icon/note.svg'
-import Feedly from '../../images/icon/feedly.svg'
+import { media } from '~src/components/variable/mixin'
+import modal from '~src/plugins/modal'
+import Twitter from '~src/images/icon/twitter.svg'
+import Facebook from '~src/images/icon/facebook.svg'
+import Hatebu from '~src/images/icon/hatebu.svg'
+import Line from '~src/images/icon/line.svg'
+import Pocket from '~src/images/icon/pocket.svg'
+import Note from '~src/images/icon/note.svg'
+import Feedly from '~src/images/icon/feedly.svg'
 
 const Css = css`
   align-items: center;
@@ -121,7 +121,9 @@ const NoteIcon = styled.a`
 
   display: none;
 
-  ${media.ms`display: flex;`}
+  ${media.ms`
+    display: flex;
+  `}
 
   @media (hover: hover) {
     &:hover {
@@ -139,7 +141,9 @@ const FeedlyIcon = styled.a`
 
   display: none;
 
-  ${media.ms`display: flex;`}
+  ${media.ms`
+    display: flex;
+  `}
 
   @media (hover: hover) {
     &:hover {

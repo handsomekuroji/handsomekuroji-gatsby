@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import share from '../../plugins/share'
+import share from '~src/plugins/share'
 
 const Button = styled.button`
   align-items: center;
@@ -28,7 +28,7 @@ export default function Share({ meta }) {
 
   React.useLayoutEffect(() => {
     setActive(!!navigator.share)
-  }, [Button])
+  }, [])
 
   const button = active ? (
     <Button type="button" onClick={link}>

@@ -41,7 +41,6 @@ const Ordered = styled.ol`
   display: flex;
   overflow: scroll;
   white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
 
   &::before,
   &::after {

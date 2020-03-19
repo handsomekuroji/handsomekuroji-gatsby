@@ -3,8 +3,8 @@ import { Link } from 'gatsby'
 import ky from 'ky'
 import styled from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
-import { font } from '../../components/variable/mixin'
-import Icon from '../../images/icon/search.svg'
+import { font } from '~src/components/variable/mixin'
+import Icon from '~src/images/icon/search.svg'
 
 const Wrapper = styled.div`
   margin: 32px auto 0;
@@ -89,7 +89,6 @@ const UnOrdered = styled.ul`
   position: absolute;
   top: 0;
   width: 100%;
-  -webkit-overflow-scrolling: touch;
 `
 
 const List = styled.li`
@@ -155,7 +154,7 @@ export default function Search() {
         })
     }
     api()
-  }, [setData])
+  }, [])
 
   const activation = () => {
     setActive(true)

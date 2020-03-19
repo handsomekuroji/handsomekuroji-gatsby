@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { font } from '../variable/mixin'
+import { font } from '~src/components/variable/mixin'
 
 export default createGlobalStyle`
   * {

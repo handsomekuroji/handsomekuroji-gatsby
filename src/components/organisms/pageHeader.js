@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, media } from '../variable/mixin'
-import Hero from '../atoms/hero'
+import { font, media } from '~src/components/variable/mixin'
+import Hero from '~src/components/atoms/hero'
 
 const Figure = styled.figure`
   border-radius: 8px 8px 0 0;
@@ -15,13 +15,21 @@ const Container = styled.div`
   grid-template-columns: auto 1fr;
   padding: 16px;
 
-  ${media.s`padding: 32px 24px;`}
+  ${media.s`
+    padding: 32px 24px;
+  `}
 
-  ${media.ms`padding: 48px 32px;`}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
 
-  ${media.m`padding: 48px 64px;`}
+  ${media.m`
+    padding: 48px 64px;
+  `}
 
-  ${media.l`gap: 24px;`}
+  ${media.l`
+    gap: 24px;
+  `}
 `
 
 const Title = styled.h1`
@@ -31,9 +39,13 @@ const Title = styled.h1`
   grid-column: 1 / 3;
   letter-spacing: 0.04em;
 
-  ${media.xs`font-size: 1.5rem;`}
+  ${media.xs`
+    font-size: 1.5rem;
+  `}
 
-  ${media.l`font-size: 2rem;`}
+  ${media.l`
+    font-size: 2rem;
+  `}
 `
 
 export default function PageHeader({ header }) {

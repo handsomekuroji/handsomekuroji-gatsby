@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, media } from '../../../components/variable/mixin'
-import play from '../../../images/main/play.svg'
+import { font, media } from '~src/components/variable/mixin'
+import play from '~src/images/main/play.svg'
 
 const Wrapper = styled.div`
   counter-reset: section;
@@ -31,7 +31,9 @@ const Wrapper = styled.div`
       padding: 0 32px;
     `}
 
-    ${media.m`padding: 0 64px;`}
+    ${media.m`
+      padding: 0 64px;
+    `}
 
     &:first-of-type {
       margin: 0;
@@ -44,9 +46,13 @@ const Wrapper = styled.div`
       margin: 0 -24px;
       padding: 0 0 16px;
 
-      ${media.s`padding: 0 0 32px;`}
+      ${media.s`
+        padding: 0 0 32px;
+      `}
 
-      ${media.ms`margin: 0 -32px;`}
+      ${media.ms`
+        margin: 0 -32px;
+      `}
 
       ${media.m`
         margin: 0 -64px;
@@ -62,7 +68,9 @@ const Wrapper = styled.div`
     position: relative;
     z-index: 1;
 
-    ${media.l`font-size: 1.5rem;`}
+    ${media.l`
+      font-size: 1.5rem;
+    `}
 
     &::before {
       color: var(--c_8);
@@ -76,7 +84,9 @@ const Wrapper = styled.div`
       white-space: pre;
       z-index: -1;
 
-      ${media.s`top: -80px;`}
+      ${media.s`
+        top: -80px;
+      `}
 
       ${media.m`
         font-size: 10rem;
@@ -112,6 +122,7 @@ const Wrapper = styled.div`
     border-radius: 12px;
     margin: 32px 0;
     overflow: hidden;
+
     &:last-child {
       margin: 32px 0 0;
     }
@@ -148,14 +159,18 @@ const Wrapper = styled.div`
     position: relative;
     margin: 0 -32px;
 
-    ${media.m`margin: 0;`}
+    ${media.m`
+      margin: 0;
+    `}
 
     &[data-title] {
       margin: 0;
       padding: 16px;
       z-index: 1;
 
-      ${media.ms`padding: 24px 32px;`}
+      ${media.ms`
+        padding: 24px 32px;
+      `}
 
       &::before {
         color: var(--c_4);
@@ -199,11 +214,17 @@ const Wrapper = styled.div`
     border-top: 1px solid var(--c_8);
     margin: 16px -16px;
 
-    ${media.s`margin: 32px -24px;`}
+    ${media.s`
+      margin: 32px -24px;
+    `}
 
-    ${media.ms`margin: 48px -32px;`}
+    ${media.ms`
+      margin: 48px -32px;
+    `}
 
-    ${media.m`margin: 48px -64px;`}
+    ${media.m`
+      margin: 48px -64px;
+    `}
   }
 
   .link {
@@ -359,7 +380,9 @@ const Wrapper = styled.div`
       width: calc(100% - 48px);
     }
 
-    ${media.ls`margin: 0 0 0 auto;`}
+    ${media.ls`
+      margin: 0 0 0 auto;
+    `}
 
     &--amp {
       margin: 0 auto;
@@ -391,7 +414,9 @@ const Wrapper = styled.div`
     font-weight: bold;
     text-align: center;
 
-    ${media.ls`text-align: left;`}
+    ${media.ls`
+      text-align: left;
+    `}
   }
 
   .item__title {
@@ -399,9 +424,13 @@ const Wrapper = styled.div`
     font: bold 1rem / 1.6 ${font.$f_1};
     margin: 0 8px 0 0;
 
-    ${media.m`font-size: 1rem;`}
+    ${media.m`
+      font-size: 1rem;
+    `}
 
-    ${media.ls`font-size: 1.2rem;`}
+    ${media.ls`
+      font-size: 1.2rem;
+    `}
 
     &:last-of-type {
       margin: 0;
@@ -414,9 +443,13 @@ const Wrapper = styled.div`
     justify-content: center;
     margin: 16px 0 0;
 
-    ${media.s`grid-auto-flow: column;`}
+    ${media.s`
+      grid-auto-flow: column;
+    `}
 
-    ${media.ms`grid-gap: 16px;`}
+    ${media.ms`
+      grid-gap: 16px;
+    `}
 
     ${media.ls`
       grid-gap: 8px;
@@ -439,15 +472,25 @@ const Wrapper = styled.div`
     width: 160px;
     z-index: 1;
 
-    ${media.s`width: 96px;`}
+    ${media.s`
+      width: 96px;
+    `}
 
-    ${media.sm`width: 112px;`}
+    ${media.sm`
+      width: 112px;
+    `}
 
-    ${media.ms`width: 120px;`}
+    ${media.ms`
+      width: 120px;
+    `}
 
-    ${media.m`font-size: 1rem;`}
+    ${media.m`
+      font-size: 1rem;
+    `}
 
-    ${media.ls`width: 96px;`}
+    ${media.ls`
+      width: 96px;
+    `}
 
     @media (hover: hover) {
       &:hover {

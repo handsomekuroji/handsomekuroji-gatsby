@@ -3,8 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
-import { media } from '../variable/mixin'
-import photo from '../../images/main/profile.jpg'
+import { media } from '~src/components/variable/mixin'
+import photo from '~src/images/main/profile.jpg'
 
 const Article = styled.article`
   display: grid;
@@ -12,9 +12,13 @@ const Article = styled.article`
   grid-template-columns: auto 1fr;
   margin: 24px 0 0;
 
-  ${media.ms`margin: 32px 0 0;`}
+  ${media.ms`
+    margin: 32px 0 0;
+  `}
 
-  ${media.m`margin: 48px 0 0;`}
+  ${media.m`
+    margin: 48px 0 0;
+  `}
 
   &:first-of-type {
     margin: 0;
@@ -31,7 +35,9 @@ const Img = styled.img`
   height: auto;
   width: 48px;
 
-  ${media.ms`width: 56px;`}
+  ${media.ms`
+    width: 56px;
+  `}
 `
 
 const Container = styled.div`
@@ -50,7 +56,9 @@ const Container = styled.div`
     padding: 16px;
   `}
 
-  ${media.m`padding: 32px;`}
+  ${media.m`
+    padding: 32px;
+  `}
 
   &::after {
     border: 16px solid transparent;

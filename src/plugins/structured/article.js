@@ -3,8 +3,8 @@ export default (object, info, page, root) => {
   const author = info.author
   const meta = info.meta
   const account = info.account
-
   const key = []
+
   Array.prototype.slice.call(page.tag).forEach(edge => {
     key.push(edge.name)
   })

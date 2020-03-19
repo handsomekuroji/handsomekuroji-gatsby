@@ -1,4 +1,4 @@
-export default target => {
+export default (target, affiliate) => {
   const image = /<p><img src="([^>]*?)" alt="([^>]*?)" width="([^>]*?)" height="([^>]*?)"><\/p>/gi
   const youtube = /<p><span data-youtube="([^>]*?)">youtube<\/span><\/p>/gi
   const story = /<p><span data-youtube="([^>]*?)">([\s\S^>]*?)<\/span><\/p>/gi
@@ -70,9 +70,9 @@ export default target => {
               <span class="item__title">${title}</span>
             </div>
             <div class="item__button">
-              <a href="https://www.amazon.co.jp/dp/${id}?SubscriptionId=AKIAJYRV5DJ2HM3AL57A&tag=handsomekuroji-22&linkCode=xm2&camp=2025&creative=165953&creativeASIN=${id}" rel="noopener nofollow" target="_blank" data-name="${text}" aria-label="Amazon" class="item__a item__a--amazon">Amazon</a>
-              <a href="https://hb.afl.rakuten.co.jp/hgc/0f436b4a.0c3994ab.0f436b4b.28a7a2d2/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F${text}%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" rel="noopener nofollow" target="_blank" aria-label="Rakuten" class="item__a item__a--rakuten">Rakuten</a>
-              <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=2796530&pid=885366263&vc_url=http%3A%2F%2Fsearch.shopping.yahoo.co.jp%2Fsearch%3Fp%3D${text}" rel="noopener nofollow" target="_blank" aria-label="Yahoo" class="item__a item__a--yahoo">Yahoo!</a>
+              <a href="https://www.amazon.co.jp/dp/${id}?tag=${affiliate.amazon}&creativeASIN=${id}" rel="noopener nofollow" target="_blank" data-name="${text}" aria-label="Amazon" class="item__a item__a--amazon">Amazon</a>
+              <a href="https://hb.afl.rakuten.co.jp/hgc/${affiliate.rakuten}/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F${text}%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" rel="noopener nofollow" target="_blank" aria-label="Rakuten" class="item__a item__a--rakuten">Rakuten</a>
+              <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=${affiliate.sid}&pid=${affiliate.pid}&vc_url=http%3A%2F%2Fsearch.shopping.yahoo.co.jp%2Fsearch%3Fp%3D${text}" rel="noopener nofollow" target="_blank" aria-label="Yahoo" class="item__a item__a--yahoo">Yahoo!</a>
             </div>
           </div>
         </div>
@@ -90,9 +90,9 @@ export default target => {
               <span class="item__title">${title}</span>
             </div>
             <div class="item__button">
-              <a href="https://www.amazon.co.jp/dp/${id}?SubscriptionId=AKIAJYRV5DJ2HM3AL57A&tag=handsomekuroji-22&linkCode=xm2&camp=2025&creative=165953&creativeASIN=${id}" rel="noopener nofollow" target="_blank" data-name="${text}" aria-label="Amazon" class="item__a item__a--amazon">Amazon</a>
-              <a href="https://hb.afl.rakuten.co.jp/hgc/0f436b4a.0c3994ab.0f436b4b.28a7a2d2/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F${text}%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" rel="noopener nofollow" target="_blank" aria-label="Rakuten" class="item__a item__a--rakuten">Rakuten</a>
-              <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=2796530&pid=885366263&vc_url=http%3A%2F%2Fsearch.shopping.yahoo.co.jp%2Fsearch%3Fp%3D${text}" rel="noopener nofollow" target="_blank" aria-label="Yahoo" class="item__a item__a--yahoo">Yahoo!</a>
+              <a href="https://www.amazon.co.jp/dp/${id}?tag=${affiliate.amazon}&creativeASIN=${id}" rel="noopener nofollow" target="_blank" data-name="${text}" aria-label="Amazon" class="item__a item__a--amazon">Amazon</a>
+              <a href="https://hb.afl.rakuten.co.jp/hgc/${affiliate.rakuten}/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F${text}%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" rel="noopener nofollow" target="_blank" aria-label="Rakuten" class="item__a item__a--rakuten">Rakuten</a>
+              <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=${affiliate.sid}&pid=${affiliate.pid}&vc_url=http%3A%2F%2Fsearch.shopping.yahoo.co.jp%2Fsearch%3Fp%3D${text}" rel="noopener nofollow" target="_blank" aria-label="Yahoo" class="item__a item__a--yahoo">Yahoo!</a>
             </div>
           </div>
         </div>

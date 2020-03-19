@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
-import { font, media } from '../variable/mixin'
-import photo from '../../images/main/profile.jpg'
+import { font, media } from '~src/components/variable/mixin'
+import photo from '~src/images/main/profile.jpg'
 
 const Container = styled.div`
   display: grid;
@@ -13,13 +13,21 @@ const Container = styled.div`
   padding: 16px;
   position: relative;
 
-  ${media.s`padding: 32px 24px;`}
+  ${media.s`
+    padding: 32px 24px;
+  `}
 
-  ${media.ms`padding: 48px 32px;`}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
 
-  ${media.m`padding: 48px 64px;`}
+  ${media.m`
+    padding: 48px 64px;
+  `}
 
-  ${media.l`gap: 24px;`}
+  ${media.l`
+    gap: 24px;
+  `}
 
   &::before {
     color: var(--c_8);
@@ -52,9 +60,13 @@ const Title = styled.h1`
   position: relative;
   text-align: right;
 
-  ${media.xs`font-size: 1.5rem;`}
+  ${media.xs`
+    font-size: 1.5rem;
+  `}
 
-  ${media.l`font-size: 2rem;`}
+  ${media.l`
+    font-size: 2rem;
+  `}
 `
 
 const Prev = styled(Link)`
@@ -109,7 +121,9 @@ const Name = styled(Link)`
   text-align: right;
   text-decoration: none;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 
   @media (hover: hover) {
     &:hover {

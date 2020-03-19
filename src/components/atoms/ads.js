@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { media } from '../../components/variable/mixin'
+import { useStaticQuery } from 'gatsby'
+import { media } from '~src/components/variable/mixin'
 
 const Wrapper = styled.div`
   margin: 32px auto 0;
@@ -15,16 +16,27 @@ const Wrapper = styled.div`
 `
 
 export default function Ads() {
+  const query = useStaticQuery(graphql`
+    query AdsQuery {
+      site {
+        siteMetadata {
+          adClient
+          adSlot
+        }
+      }
+    }
+  `).site.siteMetadata
+
   React.useEffect(() => {
     if (window) (window.adsbygoogle = window.adsbygoogle || []).push({})
-  }, [Wrapper])
+  }, [])
 
   return (
     <Wrapper>
       <ins
         className="adsbygoogle"
-        data-ad-client="ca-pub-3005738200116146"
-        data-ad-slot="2919591828"
+        data-ad-client={query.adClient}
+        data-ad-slot={query.adSlot}
         data-ad-format="rectangle"
         data-full-width-responsive="true"
       />

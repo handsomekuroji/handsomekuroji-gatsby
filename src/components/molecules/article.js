@@ -3,8 +3,8 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
-import { font, media } from '../variable/mixin'
-import Thumbnail from '../../components/atoms/thumbnail'
+import { font, media } from '~src/components/variable/mixin'
+import Thumbnail from '~src/components/atoms/thumbnail'
 
 const Anchor = styled(Link)`
   border-radius: 8px;
@@ -25,7 +25,9 @@ const Anchor = styled(Link)`
     grid-template-rows: auto 1fr;
   `}
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 
   &::before {
     bottom: 0;
@@ -100,7 +102,9 @@ const Title = styled.h2`
   font-feature-settings: 'palt' 1;
   letter-spacing: 0.04em;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 `
 
 const Other = styled.h3`
@@ -109,7 +113,9 @@ const Other = styled.h3`
   font-feature-settings: 'palt' 1;
   letter-spacing: 0.04em;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 `
 
 const Time = styled.time`

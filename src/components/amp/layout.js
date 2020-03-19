@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Global from '../variable/global'
+import Global from '~src/components/variable/global'
 
 const Wrapper = styled.div`
   display: flex;

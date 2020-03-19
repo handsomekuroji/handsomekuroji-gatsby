@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import posed from 'react-pose'
 import styled, { css } from 'styled-components'
-import { media, font } from '../variable/mixin'
-import Amazon from '../../images/icon/amazon.svg'
-import Netflix from '../../images/icon/netflix.svg'
-import Hulu from '../../images/icon/hulu.svg'
+import { media, font } from '~src/components/variable/mixin'
+import Amazon from '~src/images/icon/amazon.svg'
+import Netflix from '~src/images/icon/netflix.svg'
+import Hulu from '~src/images/icon/hulu.svg'
 
 const Wrapper = styled.div`
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
@@ -63,9 +63,13 @@ const Container = styled.div`
   overflow: hidden;
   padding: 16px;
 
-  ${media.ms`grid-template-columns: 120px 1fr;`}
+  ${media.ms`
+    grid-template-columns: 120px 1fr;
+  `}
 
-  ${media.m`grid-template-columns: 96px 1fr;`}
+  ${media.m`
+    grid-template-columns: 96px 1fr;
+  `}
 
   &:focus {
     outline: thin solid rgba(var(--c_5-rgb), 0.5);
@@ -108,9 +112,13 @@ const Title = styled.h2`
   position: relative;
   z-index: 2;
 
-  ${media.ms`font-size: 1.5rem;`}
+  ${media.ms`
+    font-size: 1.5rem;
+  `}
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m`
+    font-size: 1rem;
+  `}
 `
 
 const Small = styled.small`
@@ -213,9 +221,13 @@ const Inner = styled(
   text-align: left;
   transform: translate3d(0, 0, 0);
 
-  ${media.ms`font-size: 1rem;`}
+  ${media.ms`
+    font-size: 1rem;
+  `}
 
-  ${media.m`font-size: 0.9rem;`}
+  ${media.m`
+    font-size: 0.9rem;
+  `}
 
   &.visivle {
     visibility: visible;

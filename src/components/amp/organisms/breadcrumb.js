@@ -2,8 +2,8 @@ import React from 'react'
 import { useStaticQuery, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, media } from '../../../components/variable/mixin'
-import logo from '../../../images/main/logo-small.svg'
+import { font, media } from '~src/components/variable/mixin'
+import logo from '~src/images/main/logo-small.svg'
 
 const Navigation = styled.nav`
   background: var(--c_4);
@@ -25,7 +25,6 @@ const Ordered = styled.ol`
   display: flex;
   overflow: scroll;
   white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
 
   &::before,
   &::after {

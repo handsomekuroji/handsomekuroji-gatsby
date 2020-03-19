@@ -2,10 +2,10 @@ import React from 'react'
 import { useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, media } from '../variable/mixin'
-import Image from '../molecules/image'
-import Prime from '../../images/icon/prime.svg'
-import Arrow from '../../images/icon/arrow.svg'
+import { font, media } from '~src/components/variable/mixin'
+import Image from '~src/components/molecules/image'
+import Prime from '~src/images/icon/prime.svg'
+import Arrow from '~src/images/icon/arrow.svg'
 
 const Wrapper = styled.section`
   background: var(--c_4);
@@ -117,7 +117,6 @@ const Ordered = styled.ol`
   visibility: visible;
   white-space: nowrap;
   will-change: transform;
-  -webkit-overflow-scrolling: touch;
 
   ${media.s`
     padding: 16px 0;
@@ -152,15 +151,17 @@ export default function Favorite({ edges }) {
     query FavoriteQuery {
       site {
         siteMetadata {
-          associate
+          amazon
         }
       }
     }
   `).site.siteMetadata
 
-  const link = query.associate ? (
+  const amazon = query.amazon
+
+  const link = amazon ? (
     <Links
-      href={`https://www.amazon.co.jp/gp/video/offers/ref=atv_pv_new_offer?&_encoding=UTF8&tag=${query.associate}&linkCode=ur2&linkId=02064249370a9b29a9f1754f61d3b7b2&camp=247&creative=1211`}
+      href={`https://www.amazon.co.jp/gp/video/offers/ref=atv_pv_new_offer?tag=${amazon}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Amazon Prime Video なら30日間無料・月額500円で映画見放題"

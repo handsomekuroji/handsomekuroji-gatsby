@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { media } from '../variable/mixin'
+import { media } from '~src/components/variable/mixin'
 import posed from 'react-pose'
-import big from '../../images/icon/logo-large.svg'
-import small from '../../images/icon/logo-small.svg'
+import big from '~src/images/icon/logo-large.svg'
+import small from '~src/images/icon/logo-small.svg'
 
 const popover = {
   visible: {

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { media } from '../../../components/variable/mixin'
+import { useStaticQuery } from 'gatsby'
+import { media } from '~src/components/variable/mixin'
 
 const Wrapper = styled.div`
   margin: 32px auto 0;
@@ -15,14 +16,25 @@ const Wrapper = styled.div`
 `
 
 export default function Ads() {
+  const query = useStaticQuery(graphql`
+    query AmpAdsQuery {
+      site {
+        siteMetadata {
+          adClient
+          adSlot
+        }
+      }
+    }
+  `).site.siteMetadata
+
   return (
     <Wrapper>
       <amp-ad
         width="auto"
         height="320"
         type="adsense"
-        data-ad-client="ca-pub-3005738200116146"
-        data-ad-slot="2919591828"
+        data-ad-client={query.adClient}
+        data-ad-slot={query.adSlot}
         data-auto-format="banner"
       />
     </Wrapper>

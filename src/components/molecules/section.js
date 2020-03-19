@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../../components/variable/mixin'
+import { media } from '~src/components/variable/mixin'
 
 const Wrapper = styled.div`
   font-size: 0.95rem;
@@ -30,11 +30,17 @@ const Container = styled.div`
     width: 16px;
     z-index: 2;
 
-    ${media.s`width: 24px;`}
+    ${media.s`
+      width: 24px;
+    `}
 
-    ${media.ms`width: 32px;`}
+    ${media.ms`
+      width: 32px;
+    `}
 
-    ${media.m`width: 64px;`}
+    ${media.m`
+      width: 64px;
+    `}
   }
 
   &::after {
@@ -51,18 +57,23 @@ const Inner = styled.div`
   padding: 24px 24px 24px 0;
   width: 100%;
   writing-mode: vertical-rl;
-  -webkit-overflow-scrolling: touch;
 
   &::after {
     content: '';
     display: block;
     width: 24px;
 
-    ${media.s`width: 24px;`}
+    ${media.s`
+      width: 24px;
+    `}
 
-    ${media.ms`width: 32px;`}
+    ${media.ms`
+      width: 32px;
+    `}
 
-    ${media.m`width: 64px;`}
+    ${media.m`
+      width: 64px;
+    `}
   }
 
   &::-webkit-scrollbar {
@@ -83,7 +94,9 @@ const Inner = styled.div`
     padding: 32px 24px 32px 0;
   `}
 
-  ${media.ms`padding: 32px 32px 32px 0;`}
+  ${media.ms`
+    padding: 32px 32px 32px 0;
+  `}
 
   ${media.m`
     height: 648px;

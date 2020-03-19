@@ -2,8 +2,8 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../../../components/variable/mixin'
-import Icon from '../atoms/icon'
+import { media } from '~src/components/variable/mixin'
+import Icon from '~src/components/amp/atoms/icon'
 
 const Footer = styled.footer`
   border-top: 1px solid var(--c_8);

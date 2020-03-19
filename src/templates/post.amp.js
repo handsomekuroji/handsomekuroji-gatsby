@@ -1,36 +1,42 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { media } from '../components/variable/mixin'
-import Seo from '../components/amp/seo'
-import Structured from '../components/structured/post'
-import Layout from '../components/amp/layout'
-import Header from '../components/amp/organisms/header'
-import Footer from '../components/amp/organisms/footer'
-import PostHeader from '../components/amp/organisms/postHeader'
-import PostFooter from '../components/amp/organisms/postFooter'
-import Content from '../components/amp/molecules/content'
-import Breadcrumb from '../components/amp/organisms/breadcrumb'
-import Recommend from '../components/amp/organisms/recommend'
-import Favorite from '../components/amp/organisms/favorite'
-import Ads from '../components/amp/atoms/ads'
-import Ampify from '../plugins/ampify'
+import { media } from '~src/components/variable/mixin'
+import Seo from '~src/components/amp/seo'
+import Structured from '~src/components/structured/post'
+import Layout from '~src/components/amp/layout'
+import Header from '~src/components/amp/organisms/header'
+import Footer from '~src/components/amp/organisms/footer'
+import PostHeader from '~src/components/amp/organisms/postHeader'
+import PostFooter from '~src/components/amp/organisms/postFooter'
+import Content from '~src/components/amp/molecules/content'
+import Breadcrumb from '~src/components/amp/organisms/breadcrumb'
+import Recommend from '~src/components/amp/organisms/recommend'
+import Favorite from '~src/components/amp/organisms/favorite'
+import Ads from '~src/components/amp/atoms/ads'
+import Ampify from '~src/plugins/ampify'
 
 const Main = styled.main`
   margin: 32px auto 0;
   max-width: 620px;
   width: calc(100% - 16px);
 
-  ${media.xs`width: calc(100% - 32px);`}
+  ${media.xs`
+    width: calc(100% - 32px);
+  `}
 
-  ${media.s`width: calc(100% - 48px);`}
+  ${media.s`
+    width: calc(100% - 48px);
+  `}
 
   ${media.ms`
     max-width: 690px;
     width: calc(100% - 64px);
   `}
 
-  ${media.ls`margin: 48px auto 0;`}
+  ${media.ls`
+    margin: 48px auto 0;
+  `}
 `
 
 const Article = styled.article`
@@ -43,6 +49,7 @@ const Article = styled.article`
 
 export default function Amp({ data }) {
   const post = data.contentfulBlog
+  const affiliate = data.site.siteMetadata
   const html = Ampify(post.content.childMarkdownRemark.html)
   const img = post.thumbnail.localFile.childImageSharp.fluid
   const title = post.title
@@ -53,7 +60,10 @@ export default function Amp({ data }) {
   const seo = {
     img: img.src,
     title: title,
-    description: Ampify(post.description.childMarkdownRemark.html).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
+    description: Ampify(post.description.childMarkdownRemark.html, affiliate).replace(
+      /<("[^"]*"|'[^']*'|[^'">])*>/g,
+      ''
+    )
   }
 
   const structured = Object.assign(seo, {
@@ -65,7 +75,7 @@ export default function Amp({ data }) {
 
   const meta = Object.assign({}, structured)
   meta.img = img
-  meta.description = Ampify(post.description.childMarkdownRemark.html)
+  meta.description = Ampify(post.description.childMarkdownRemark.html, affiliate)
 
   const recommend = posts ? <Recommend edges={posts} /> : ''
   const favorite = faves ? <Favorite edges={faves} /> : ''
@@ -93,6 +103,14 @@ export default function Amp({ data }) {
 
 export const query = graphql`
   query AmpBySlug($slug: String!, $tag: [String!]) {
+    site {
+      siteMetadata {
+        amazon
+        rakuten
+        sid
+        pid
+      }
+    }
     contentfulBlog(slug: { eq: $slug }) {
       slug
       title

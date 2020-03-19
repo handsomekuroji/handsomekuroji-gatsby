@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../../variable/mixin'
+import { media } from '~src/components/variable/mixin'
 
 const Figure = styled.figure`
   border-radius: 8px 0 0 8px;

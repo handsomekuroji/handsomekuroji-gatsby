@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font } from '../variable/mixin'
+import { font } from '~src/components/variable/mixin'
 
 const Article = styled.article`
   margin: 0 0 0 16px;

@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { font, media } from '../../components/variable/mixin'
+import { font, media } from '~src/components/variable/mixin'
 
 const Header = styled.header`
   display: grid;
   gap: 8px;
   grid-template-columns: auto 1fr;
 
-  ${media.l`gap: 12px 16px;`}
+  ${media.l`
+    gap: 12px 16px;
+  `}
 `
 
 const Image = styled.img`
@@ -33,14 +35,18 @@ const Title = styled.h1`
     content: '#';
   }
 
-  ${media.l`font-size: 2rem;`}
+  ${media.l`
+    font-size: 2rem;
+  `}
 `
 
 const Count = styled.div`
   font: 0.9rem / 1 ${font.$f_1};
   margin: 0 0 0 2px;
 
-  ${media.l`font-size: 0.9rem;`}
+  ${media.l`
+    font-size: 0.9rem;
+  `}
 `
 
 export default function TagHeader({ header }) {

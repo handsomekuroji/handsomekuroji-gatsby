@@ -1,16 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
-import { media, font } from '../variable/mixin'
+import { media, font } from '~src/components/variable/mixin'
 
 const Section = styled.section`
   box-sizing: border-box;
   padding: 0 16px 32px;
 
-  ${media.s`padding: 0 24px 32px;`}
+  ${media.s`
+    padding: 0 24px 32px;
+  `}
 
-  ${media.ms`padding: 0 32px 32px;`}
+  ${media.ms`
+    padding: 0 32px 32px;
+  `}
 
-  ${media.m`padding: 0 64px 48px;`}
+  ${media.m`
+    padding: 0 64px 48px;
+  `}
 `
 
 const Wrapper = styled.form`

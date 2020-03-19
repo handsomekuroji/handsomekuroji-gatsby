@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import small from '../../../images/main/logo-small.svg'
+import small from '~src/images/main/logo-small.svg'
 
 const Wrapper = styled.div`
   amp-img {

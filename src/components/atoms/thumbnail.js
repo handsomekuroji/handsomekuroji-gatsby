@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../variable/mixin'
+import { media } from '~src/components/variable/mixin'
 
 const Img = styled.img`
   background: var(--c_3);

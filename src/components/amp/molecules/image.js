@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../../variable/mixin'
+import { media } from '~src/components/variable/mixin'
 
 const Anchor = styled.a`
   border-radius: 8px;
@@ -70,13 +70,17 @@ const List = styled.div`
   &:first-of-type {
     margin: 0 0 0 16px;
 
-    ${media.s`margin: 0 0 0 24px;`}
+    ${media.s`
+      margin: 0 0 0 24px;
+    `}
   }
 
   &:last-of-type {
     margin: 0 16px 0 0;
 
-    ${media.s`margin: 0 24px 0 0;`}
+    ${media.s`
+      margin: 0 24px 0 0;
+    `}
   }
 `
 

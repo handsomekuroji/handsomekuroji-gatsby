@@ -2,19 +2,25 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { media } from '../../components/variable/mixin'
-import Icon from '../../components/atoms/icon'
+import { media } from '~src/components/variable/mixin'
+import Icon from '~src/components/atoms/icon'
 
 const Footer = styled.footer`
   border-top: 1px solid var(--c_8);
   border-radius: 0 0 8px 8px;
   padding: 16px;
 
-  ${media.s`padding: 32px 24px;`}
+  ${media.s`
+    padding: 32px 24px;
+  `}
 
-  ${media.ms`padding: 48px 32px;`}
+  ${media.ms`
+    padding: 48px 32px;
+  `}
 
-  ${media.m`padding: 48px 64px;`}
+  ${media.m`
+    padding: 48px 64px;
+  `}
 `
 
 const Container = styled.div`
@@ -25,7 +31,9 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 320px;
 
-  ${media.xs`gap: 16px;`}
+  ${media.xs`
+    gap: 16px;
+  `}
 
   ${media.m`
     gap: 24px;

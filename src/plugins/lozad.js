@@ -3,6 +3,7 @@ const lozad = process.browser ? require('lozad') : null
 export default () => {
   if ('loading' in HTMLImageElement.prototype) {
     const images = document.querySelectorAll('[data-src]')
+
     images.forEach(img => {
       img.src = img.dataset.src
     })

@@ -6,6 +6,7 @@ export default (src, name, refs) => {
 
     const script = () => {
       let time = 1
+
       window.addEventListener('scroll', () => {
         if (time === 1) {
           const script = document.createElement('script')

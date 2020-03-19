@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { font, media } from '../variable/mixin'
+import { font, media } from '~src/components/variable/mixin'
 
 const List = styled.li`
   margin: 8px;

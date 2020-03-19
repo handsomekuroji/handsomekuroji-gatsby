@@ -12,7 +12,12 @@ module.exports = {
     facebook: env.SITE_FACEBOOK,
     author: env.SITE_AUTHOR,
     verification: env.SITE_VERIFICATION,
-    associate: env.ASSOCIATE_ID
+    amazon: env.ASSOCIATE_ID,
+    rakuten: env.RAKUTEN_ID,
+    sid: env.LINKSHARE_SID,
+    pid: env.LINKSHARE_PID,
+    adClient: env.ADSENSE_CLIENT,
+    adSlot: env.ADSENSE_SLOT
   },
   plugins: [
     'gatsby-plugin-eslint',
