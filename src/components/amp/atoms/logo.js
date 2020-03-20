@@ -6,7 +6,7 @@ import small from '~src/images/main/logo-small.svg'
 const Wrapper = styled.div`
   amp-img {
     height: auto;
-    transition: 0.3s;
+    transition: filter 0.3s ease;
     vertical-align: bottom;
     width: 100%;
 

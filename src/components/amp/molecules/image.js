@@ -9,7 +9,7 @@ const Anchor = styled.a`
   color: var(--c_0);
   display: block;
   overflow: hidden;
-  transition: 0.3s linear;
+  transition: transform 0.3s linear;
   visibility: visible;
   will-change: transform;
 
@@ -27,7 +27,7 @@ const Anchor = styled.a`
       min-width: 80px;
       position: absolute;
       right: 0;
-      transition: 0.3s linear;
+      transition: background 0.3s linear;
       width: calc(100% - 48px);
       z-index: -1;
     }
@@ -35,22 +35,22 @@ const Anchor = styled.a`
     @media (hover: hover) {
       &:hover{
         transform: translate(0, -2px);
-        transition: 0.3s;
+        transition: transform 0.3s linear;
 
         &::before {
           background: rgba(var(--c_9-rgb), 0.1);
-          transition: 0.3s;
+          transition: background 0.3s linear;
         }
       }
     }
 
     &:focus {
       transform: translate(0, -2px);
-      transition: 0.3s;
+      transition: transform 0.3s linear;
 
       &::before {
         background: rgba(var(--c_9-rgb), 0.1);
-        transition: 0.3s;
+        transition: background 0.3s linear;
       }
     }
   `}

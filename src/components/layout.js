@@ -22,7 +22,7 @@ const Button = styled.button`
   position: absolute;
   top: 16px;
   right: 16px;
-  transition: 0.2s;
+  transition: background 0.2s ease, box-shadow 0.2s ease, stroke 0.2s ease;
 
   @media (hover: hover) {
     &:hover {

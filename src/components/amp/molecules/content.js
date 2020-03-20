@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   font-size: 0.95rem;
   line-height: 1.8;
   padding: 0 0 32px;
-  transition: 0.3s;
+  transition: background 0.3s ease;
 
   ${media.m`
     font-size: 1rem;
@@ -144,7 +144,7 @@ const Wrapper = styled.div`
 
   img {
     height: auto;
-    transition: background 0.2s ease;
+    transition: filter 0.2s ease;
     vertical-align: bottom;
     width: 100%;
 
@@ -283,7 +283,6 @@ const Wrapper = styled.div`
     height: 100%;
     position: absolute;
     top: 0;
-    transition: 0.2s ease;
     width: 100%;
   }
 
@@ -307,7 +306,7 @@ const Wrapper = styled.div`
       margin: auto;
       opacity: 0.6;
       right: 0;
-      transition: 0.2s ease;
+      transition: background 0.2s ease, opacity 0.2s ease;
       width: 48px;
     }
 
