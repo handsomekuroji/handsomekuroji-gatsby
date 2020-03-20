@@ -9,9 +9,8 @@ const Anchor = styled.a`
   color: var(--c_0);
   display: block;
   overflow: hidden;
-  transition: transform 0.3s linear;
+  transition: opacity 0.2s ease;
   visibility: visible;
-  will-change: transform;
 
   ${media.s`
     &::before {
@@ -27,30 +26,26 @@ const Anchor = styled.a`
       min-width: 80px;
       position: absolute;
       right: 0;
-      transition: background 0.3s linear;
+      transition: background 0.2s ease;
       width: calc(100% - 48px);
       z-index: -1;
     }
 
     @media (hover: hover) {
       &:hover{
-        transform: translate(0, -2px);
-        transition: transform 0.3s linear;
+        opacity: 0.8;
 
         &::before {
           background: rgba(var(--c_9-rgb), 0.1);
-          transition: background 0.3s linear;
         }
       }
     }
 
     &:focus {
-      transform: translate(0, -2px);
-      transition: transform 0.3s linear;
+      opacity: 0.8;
 
       &::before {
         background: rgba(var(--c_9-rgb), 0.1);
-        transition: background 0.3s linear;
       }
     }
   `}
@@ -66,6 +61,10 @@ const List = styled.div`
   max-width: 120px;
   position: relative;
   width: 60vw;
+
+  ${media.s`
+    margin: 0 0 0 16px;
+  `}
 
   &:first-of-type {
     margin: 0 0 0 16px;

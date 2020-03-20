@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '~src/components/variable/mixin'
@@ -55,16 +55,6 @@ const Links = styled.a`
   ${media.ms`
     grid-template-columns: 160px 1fr auto;
   `}
-
-  @media (hover: hover) {
-    &:hover {
-      transition: 0.3s;
-    }
-  }
-
-  &:focus {
-    transition: 0.3s;
-  }
 `
 
 const Icon = styled(Prime)`
@@ -95,7 +85,7 @@ const Text = styled.span`
 const Right = styled(Arrow)`
   stroke: var(--c_7);
   height: auto;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
   width: 16px;
 
   ${media.s`
@@ -106,8 +96,8 @@ const Right = styled(Arrow)`
     margin: 0 0 0 8px;
   `}
 
-  ${Links}:hover & {
-    @media (hover: hover) {
+  @media (hover: hover) {
+    ${Links}:hover & {
       transform: translateX(8px);
     }
   }
@@ -154,7 +144,7 @@ export default function Favorite({ edges }) {
   return (
     <Wrapper>
       {link}
-      <amp-carousel height="300" layout="fixed-height" type="carousel" controls class="favoliteCarousel">
+      <amp-carousel height="160" layout="fixed-height" type="carousel" controls class="favoliteCarousel">
         {images}
       </amp-carousel>
     </Wrapper>

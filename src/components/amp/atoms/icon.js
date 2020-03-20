@@ -18,32 +18,26 @@ const Css = css`
   height: 40px;
   justify-content: center;
   text-align: center;
-  transition: fill 0.3s linear, background 0.3s linear;
+  transition: background 0.2s ease;
   width: 40px;
+
+  .icon {
+    fill: var(--c_7);
+    transition: fill 0.2s ease;
+  }
 
   @media (hover: hover) {
     &:hover {
-      transition: fill 0.3s ease, background 0.3s ease;
-
       .icon {
         fill: #fff;
-        transition: fill 0.2s ease, background 0.2s ease;
       }
     }
   }
 
   &:focus {
-    transition: fill 0.3s ease, background 0.3s ease;
-
     .icon {
       fill: #fff;
-      transition: fill 0.2s ease, background 0.2s ease;
     }
-  }
-
-  .icon {
-    fill: var(--c_7);
-    transition: fill 0.5s ease, background 0.5s ease;
   }
 `
 const TwitterIcon = styled.div`

@@ -6,13 +6,8 @@ import small from '~src/images/main/logo-small.svg'
 const Wrapper = styled.div`
   amp-img {
     height: auto;
-    transition: filter 0.3s ease;
     vertical-align: bottom;
     width: 100%;
-
-    .dark & {
-      filter: invert(100%);
-    }
   }
 `
 

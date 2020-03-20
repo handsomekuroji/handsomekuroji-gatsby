@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '~src/components/variable/mixin'
@@ -13,7 +13,6 @@ const Navigation = styled.nav`
   overflow: hidden;
   padding: 16px 0 16px 16px;
   position: relative;
-  transition: 0.3s;
 
   ${media.s`
     margin: 24px 0 0;
@@ -74,22 +73,6 @@ const Anchor = styled(Link)`
   position: relative;
   text-decoration: none;
 
-  @media (hover: hover) {
-    &:hover {
-      &::before {
-        transform: scaleX(1) translateY(-50%);
-        transform-origin: center left;
-      }
-    }
-  }
-
-  &:focus {
-    &::before {
-      transform: scaleX(1) translateY(-50%);
-      transform-origin: center left;
-    }
-  }
-
   &:visited {
     color: var(--c_0);
   }
@@ -104,23 +87,30 @@ const Anchor = styled(Link)`
     top: 50%;
     transform: scaleX(0) translateY(-50%);
     transform-origin: center right;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover::before {
+      transform: scaleX(1) translateY(-50%);
+      transform-origin: center left;
+    }
+  }
+
+  &:focus::before {
+    transform: scaleX(1) translateY(-50%);
+    transform-origin: center left;
   }
 
   amp-img {
     height: auto;
     margin: 0 2px 0 0;
-    transition: 0.3s;
     vertical-align: bottom;
     width: 24px;
 
     ${media.s`
       margin: 0 4px 0 0;
     `}
-
-    .dark & {
-      filter: invert(100%);
-    }
   }
 `
 

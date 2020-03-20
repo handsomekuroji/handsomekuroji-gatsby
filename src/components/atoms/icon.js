@@ -19,32 +19,26 @@ const Css = css`
   height: 40px;
   justify-content: center;
   text-align: center;
-  transition: 0.3s linear;
+  transition: background 0.2s ease;
   width: 40px;
 
   @media (hover: hover) {
     &:hover {
-      transition: 0.3s;
-
       .icon {
         fill: #fff;
-        transition: 0.2s;
       }
     }
   }
 
   &:focus {
-    transition: 0.3s;
-
     .icon {
       fill: #fff;
-      transition: 0.2s;
     }
   }
 
   .icon {
     fill: var(--c_7);
-    transition: 0.5s linear;
+    transition: fill 0.2s ease;
   }
 `
 const TwitterIcon = styled.a`

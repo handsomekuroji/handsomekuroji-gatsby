@@ -27,19 +27,15 @@ const Anchor = styled(Link)`
   `}
 
   @media (hover: hover) {
-    &:hover {
-      &::before {
-        transform: scaleX(1) translateY(-50%);
-        transform-origin: center left;
-      }
-    }
-  }
-
-  &:focus {
-    &::before {
+    &:hover::before {
       transform: scaleX(1) translateY(-50%);
       transform-origin: center left;
     }
+  }
+
+  &:focus::before {
+    transform: scaleX(1) translateY(-50%);
+    transform-origin: center left;
   }
 
   &:visited {
@@ -56,7 +52,7 @@ const Anchor = styled(Link)`
     top: 50%;
     transform: scaleX(0) translateY(-50%);
     transform-origin: center right;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
   }
 `
 

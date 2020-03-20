@@ -42,7 +42,6 @@ const Article = styled.article`
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   border-radius: 8px;
   overflow: hidden;
-  transition: 0.3s;
 `
 
 export default function Horror({ data }) {

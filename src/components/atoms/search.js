@@ -108,7 +108,7 @@ const Anchor = styled(Link)`
   line-height: 1.35;
   text-decoration: none;
   padding: 12px 16px;
-  transition: 0.1s linear;
+  transition: color 0.2s ease;
   width: 100%;
 
   @media (hover: hover) {

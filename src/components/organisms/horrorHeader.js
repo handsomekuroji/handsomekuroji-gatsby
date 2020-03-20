@@ -125,26 +125,6 @@ const Name = styled(Link)`
     font-size: 1rem;
   `}
 
-  @media (hover: hover) {
-    &:hover {
-      &::before {
-        transform: scaleX(1) translateY(-50%);
-        transform-origin: center left;
-      }
-    }
-  }
-
-  &:focus {
-    &::before {
-      transform: scaleX(1) translateY(-50%);
-      transform-origin: center left;
-    }
-  }
-
-  &:visited {
-    color: var(--c_0);
-  }
-
   &::before {
     background: var(--c_0);
     content: '';
@@ -155,7 +135,23 @@ const Name = styled(Link)`
     top: 50%;
     transform: scaleX(0) translateY(-50%);
     transform-origin: center right;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover::before {
+      transform: scaleX(1) translateY(-50%);
+      transform-origin: center left;
+    }
+  }
+
+  &:focus::before {
+    transform: scaleX(1) translateY(-50%);
+    transform-origin: center left;
+  }
+
+  &:visited {
+    color: var(--c_0);
   }
 `
 

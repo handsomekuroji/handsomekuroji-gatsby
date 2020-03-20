@@ -2,14 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { font, media } from '~src/components/variable/mixin'
-import play from '~src/images/main/play.svg'
 
 const Wrapper = styled.div`
   counter-reset: section;
   font-size: 0.95rem;
   line-height: 1.8;
   padding: 0 0 32px;
-  transition: background 0.3s ease;
 
   ${media.m`
     font-size: 1rem;
@@ -144,13 +142,8 @@ const Wrapper = styled.div`
 
   img {
     height: auto;
-    transition: filter 0.2s ease;
     vertical-align: bottom;
     width: 100%;
-
-    .dark & {
-      filter: brightness(80%);
-    }
   }
 
   blockquote {
@@ -276,51 +269,6 @@ const Wrapper = styled.div`
     background: var(--c_0);
     position: relative;
     z-index: 1;
-  }
-
-  .youtube__img {
-    object-fit: cover;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .youtube__button {
-    bottom: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    &::before {
-      align-items: center;
-      background: url(${play}) 50% / 16px 16px rgba(var(--c_9-rgb), 0.8) no-repeat;
-      border-radius: 50%;
-      bottom: 0;
-      content: '';
-      display: flex;
-      height: 48px;
-      justify-content: center;
-      left: 0;
-      margin: auto;
-      opacity: 0.6;
-      right: 0;
-      transition: background 0.2s ease, opacity 0.2s ease;
-      width: 48px;
-    }
-
-    @media (hover: hover) {
-      &:hover::before {
-        background-color: rgba(var(--c_9-rgb), 0.8);
-        opacity: 0.8;
-      }
-    }
-  }
-
-  .youtube__icon {
-    height: 16px;
-    width: 16px;
   }
 
   .storyline {

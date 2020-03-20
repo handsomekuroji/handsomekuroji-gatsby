@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   border-radius: 8px;
   cursor: pointer;
   position: relative;
-  transition: 0.2s ease-in;
+  transition: transform 0.2s ease-in;
 
   &::after {
     bottom: 0;
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     min-width: 80px;
     position: absolute;
     right: 0;
-    transition: 0.3s linear;
+    transition: background 0.2s ease;
     width: calc(100% - 48px);
     z-index: -1;
   }
@@ -146,23 +146,19 @@ const Css = css`
   height: 32px;
   justify-content: center;
   text-align: center;
-  transition: 0.3s linear;
+  transition: background 0.2s ease;
   width: 32px;
-
-  @media (hover: hover) {
-    &:hover {
-      transition: 0.3s;
-
-      .icon {
-        fill: #fff;
-        transition: 0.2s;
-      }
-    }
-  }
 
   .icon {
     fill: var(--c_7);
-    transition: 0.5s linear;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      .icon {
+        fill: #fff;
+      }
+    }
   }
 `
 

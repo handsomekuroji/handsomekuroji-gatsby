@@ -9,12 +9,12 @@ const Anchor = styled.a`
   color: var(--c_0);
   display: block;
   overflow: hidden;
-  transition: 0.3s linear;
+  transition: transform 0.2s ease;
   visibility: visible;
   will-change: transform;
 
-  ${media.s`
-    &::before {
+  &::before {
+    ${media.s`
       bottom: 0;
       border-radius: 24px;
       bottom: -7px;
@@ -27,33 +27,29 @@ const Anchor = styled.a`
       min-width: 80px;
       position: absolute;
       right: 0;
-      transition: 0.3s linear;
+      transition: background 0.2s ease;
       width: calc(100% - 48px);
       z-index: -1;
-    }
+    `}
+  }
 
-    @media (hover: hover) {
-      &:hover {
-        transform: translate(0, -2px);
-        transition: 0.3s;
-
-        &::before {
-          background: rgba(var(--c_9-rgb), 0.1);
-          transition: 0.3s;
-        }
-      }
-    }
-
-    &:focus {
+  @media (hover: hover) {
+    &:hover {
       transform: translate(0, -2px);
-      transition: 0.3s;
 
       &::before {
         background: rgba(var(--c_9-rgb), 0.1);
-        transition: 0.3s;
       }
     }
-  `}
+  }
+
+  &:focus {
+    transform: translate(0, -2px);
+
+    &::before {
+      background: rgba(var(--c_9-rgb), 0.1);
+    }
+  }
 `
 
 const List = styled.li`

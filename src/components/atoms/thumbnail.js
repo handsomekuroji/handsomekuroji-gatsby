@@ -7,7 +7,7 @@ const Img = styled.img`
   background: var(--c_3);
   height: 100%;
   object-fit: cover;
-  transition: background 0.4s ease 0.4s;
+  transition: background 0.2s ease 0.4s;
   vertical-align: bottom;
   width: 100%;
 
@@ -17,10 +17,6 @@ const Img = styled.img`
     position: absolute;
     top: 0;
   `}
-
-  &.fade {
-    background: 0;
-  }
 
   .dark & {
     filter: brightness(80%);

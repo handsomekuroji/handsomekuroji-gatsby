@@ -108,12 +108,10 @@ export default createGlobalStyle`
     min-width: 320px;
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
-    transition: background 0.3s;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(var(--c_7-rgb), 0.2);
 
     &.dark {
-      transition: none;
       --c_0: #fcfcfc;
       --c_1: #fcfcfc;
       --c_1-rgb: 206, 216, 222;
@@ -138,7 +136,7 @@ export default createGlobalStyle`
     background: 0 / 0 100%;
     color: var(--c_5);
     outline: none;
-    transition: 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 
     &:visited {
       color: var(--c_6);

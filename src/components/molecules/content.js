@@ -11,7 +11,6 @@ const Wrapper = styled.div`
   font-size: 0.95rem;
   line-height: 1.8;
   padding: 0 0 32px;
-  transition: 0.3s;
 
   ${media.m`
     font-size: 1rem;
@@ -70,7 +69,7 @@ const Wrapper = styled.div`
     font-feature-settings: 'palt' 1;
     letter-spacing: 0.04em;
     position: relative;
-    transition: color 0s 1s ease;
+    transition: color 0s ease 1s;
     visibility: hidden;
     z-index: 1;
 
@@ -121,7 +120,7 @@ const Wrapper = styled.div`
       left: -150%;
       position: absolute;
       top: 0;
-      transition: left 0.4s 0.6s, width 0.2s 1s;
+      transition: left 0.4s ease 0.6s, width 0.2s ease 1s;
       visibility: visible;
       width: 100%;
     }
@@ -190,13 +189,9 @@ const Wrapper = styled.div`
   img {
     background: var(--c_3);
     height: auto;
-    transition: background 0.2s ease;
+    transition: filter 0.2s ease;
     vertical-align: bottom;
     width: 100%;
-
-    &.fade {
-      background: 0;
-    }
 
     .dark & {
       filter: brightness(80%);
@@ -360,7 +355,6 @@ const Wrapper = styled.div`
     height: 100%;
     position: absolute;
     top: 0;
-    transition: 0.2s ease;
     width: 100%;
   }
 
@@ -384,14 +378,13 @@ const Wrapper = styled.div`
       margin: auto;
       opacity: 0.6;
       right: 0;
-      transition: 0.2s ease;
+      transition: background 0.2s ease;
       width: 48px;
     }
 
     @media (hover: hover) {
       &:hover::before {
-        background-color: rgba(var(--c_9-rgb), 0.8);
-        opacity: 0.8;
+        background-color: rgba(var(--c_9-rgb), 0.6);
       }
     }
   }

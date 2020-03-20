@@ -22,6 +22,7 @@ const Anchor = styled(Link)`
   justify-content: center;
   position: relative;
   text-decoration: none;
+  transition: transform 0.2s ease;
 
   &::before {
     bottom: 0;
@@ -36,7 +37,7 @@ const Anchor = styled(Link)`
     min-width: 80px;
     position: absolute;
     right: 0;
-    transition: 0.3s linear;
+    transition: background 0.3s ease;
     width: calc(100% - 48px);
     z-index: -1;
   }
@@ -44,11 +45,9 @@ const Anchor = styled(Link)`
   @media (hover: hover) {
     &:hover {
       transform: translate(0, -2px);
-      transition: 0.3s;
 
       &::before {
         background: rgba(var(--c_9-rgb), 0.1);
-        transition: 0.3s;
       }
     }
   }

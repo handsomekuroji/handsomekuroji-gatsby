@@ -17,13 +17,8 @@ const Figure = styled.figure`
   amp-img {
     height: 100%;
     max-width: 100%;
-    transition: background 0.4s ease 0.4s;
     vertical-align: bottom;
     width: 100%;
-
-    .dark & {
-      filter: brightness(80%);
-    }
 
     img {
       object-fit: cover;
@@ -37,7 +32,6 @@ export default function Thumbnail({ src, alt }) {
       <amp-img
         src={src.srcWebp}
         srcSet={src.srcSetWebp}
-        sizes="30vw"
         width={src.presentationWidth}
         height={src.presentationHeight}
         alt={alt}
@@ -46,7 +40,6 @@ export default function Thumbnail({ src, alt }) {
         <amp-img
           src={src.src}
           srcSet={src.srcSet}
-          sizes="30vw"
           width={src.presentationWidth}
           height={src.presentationHeight}
           alt={alt}

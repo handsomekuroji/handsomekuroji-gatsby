@@ -71,7 +71,7 @@ const Button = styled.button`
   font: bold 1rem / 1 ${font.$f_1};
   margin: 8px 0 0;
   padding: 12px 12px 10px;
-  transition: 0.2s ease;
+  transition: background 0.2s ease, border 0.2s ease;
 
   @media (hover: hover) {
     &:hover {

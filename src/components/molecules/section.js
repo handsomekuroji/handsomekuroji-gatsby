@@ -6,7 +6,6 @@ import { media } from '~src/components/variable/mixin'
 const Wrapper = styled.div`
   font-size: 0.95rem;
   line-height: 1.8;
-  transition: 0.3s;
 
   ${media.m`
     font-size: 1rem;

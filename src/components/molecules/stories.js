@@ -43,6 +43,7 @@ const Anchor = styled(Link)`
   font: bold 1rem / 1.5 ${font.$f_1};
   padding: 16px;
   text-decoration: none;
+  transition: background 0.2s ease;
 
   ${media.s`
     padding: 24px;
@@ -51,12 +52,6 @@ const Anchor = styled(Link)`
   @media (hover: hover) {
     &:hover {
       background: rgba(var(--c_1-rgb), 0.1);
-      transition: 0.3s;
-
-      &::before {
-        background: rgba(var(--c_9-rgb), 0.1);
-        transition: 0.3s;
-      }
     }
   }
 
@@ -71,7 +66,6 @@ const Header = styled.header`
   display: grid;
   gap: 8px;
   position: relative;
-  transition: background 0.3s;
 `
 
 const Title = styled.h2`

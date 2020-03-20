@@ -8,7 +8,10 @@ import small from '~src/images/icon/logo-small.svg'
 const popover = {
   visible: {
     delay: 2500,
-    transition: { ease: 'backIn', duration: 400 },
+    transition: {
+      ease: 'backIn',
+      duration: 400
+    },
     width: 0
   },
   hidden: {

@@ -5,13 +5,9 @@ import PropTypes from 'prop-types'
 const Img = styled.img`
   background: var(--c_3);
   height: auto;
-  transition: background 0.4s ease 0.4s;
+  transition: background 0.2s ease 0.4s;
   vertical-align: bottom;
   width: 100%;
-
-  &.fade {
-    background: 0;
-  }
 
   .dark & {
     filter: brightness(80%);
