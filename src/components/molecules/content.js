@@ -595,8 +595,8 @@ export default function Content({ content }) {
   React.useEffect(() => {
     const sections = document.getElementsByTagName('h2')
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active')
           }
@@ -609,7 +609,7 @@ export default function Content({ content }) {
       }
     )
 
-    Array.prototype.slice.call(sections).forEach(section => {
+    Array.prototype.slice.call(sections).forEach((section) => {
       observer.observe(section)
     })
 

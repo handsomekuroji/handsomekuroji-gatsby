@@ -288,8 +288,8 @@ export default function PostHeader({ header }) {
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active')
           }

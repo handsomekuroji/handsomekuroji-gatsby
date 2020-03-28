@@ -162,7 +162,7 @@ module.exports = {
           {
             serialize(ctx) {
               const rss = ctx.query.site.siteMetadata
-              return ctx.query.allContentfulBlog.edges.map(edge => ({
+              return ctx.query.allContentfulBlog.edges.map((edge) => ({
                 date: edge.node.createdAt,
                 title: edge.node.title,
                 description: edge.node.description.childMarkdownRemark.html,

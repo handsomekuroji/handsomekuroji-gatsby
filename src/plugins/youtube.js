@@ -1,13 +1,13 @@
 const YouTubePlayer = require('youtube-player')
 
-export default target => {
+export default (target) => {
   const classes = target.getElementsByClassName('youtube')
 
   if (classes[0]) {
     let player
     const url = `${location.protocol}//${location.hostname}`
 
-    Array.prototype.slice.call(classes).forEach(edge => {
+    Array.prototype.slice.call(classes).forEach((edge) => {
       edge.getElementsByClassName('youtube__button')[0].addEventListener('click', () => {
         player = YouTubePlayer(edge.dataset.youtube, {
           height: '720',

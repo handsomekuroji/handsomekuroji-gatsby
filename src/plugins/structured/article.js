@@ -5,7 +5,7 @@ export default (object, info, page, root) => {
   const account = info.account
   const key = []
 
-  Array.prototype.slice.call(page.tag).forEach(edge => {
+  Array.prototype.slice.call(page.tag).forEach((edge) => {
     key.push(edge.name)
   })
   const words = key.join(',')

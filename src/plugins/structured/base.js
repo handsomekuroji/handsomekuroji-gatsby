@@ -1,4 +1,4 @@
-export default object => {
+export default (object) => {
   const url = object.url
   const name = object.title
 

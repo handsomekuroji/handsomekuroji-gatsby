@@ -1,4 +1,4 @@
-export default data => {
+export default (data) => {
   navigator
     .share({
       title: data.title,
@@ -10,7 +10,7 @@ export default data => {
       console.log('Successful share')
     })
 
-    .catch(e => {
+    .catch((e) => {
       console.log('Error sharing', e)
     })
 }

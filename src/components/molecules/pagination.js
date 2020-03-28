@@ -117,11 +117,11 @@ export default function Pagination({ page }) {
   const min = last ? 3 : 2
   const max = first ? 3 : 2
 
-  const calc = i => {
+  const calc = (i) => {
     return i !== number && i >= number - min && i <= number + max
   }
 
-  const url = i => {
+  const url = (i) => {
     return main + (i === 1 ? '' : `/${i}`)
   }
 

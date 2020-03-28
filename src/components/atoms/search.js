@@ -140,10 +140,10 @@ export default function Search() {
     const api = async () => {
       await ky('/search.json')
         .json()
-        .then(res => {
+        .then((res) => {
           setData(res)
         })
-        .catch(e => {
+        .catch((e) => {
           setData([
             {
               title: '',
@@ -164,16 +164,16 @@ export default function Search() {
     setActive(false)
   }
 
-  const interrupt = e => {
+  const interrupt = (e) => {
     e.preventDefault()
   }
 
-  const filterList = e => {
+  const filterList = (e) => {
     const value = e.target.value
-    const valueList = value.split(/\s+/).map(str => new RegExp(str, 'i'))
+    const valueList = value.split(/\s+/).map((str) => new RegExp(str, 'i'))
     const updateList = value
-      ? data.filter(list => {
-          return valueList.every(reg => {
+      ? data.filter((list) => {
+          return valueList.every((reg) => {
             return reg.test(list.title) || reg.test(list.tag.join())
           })
         })
@@ -181,7 +181,7 @@ export default function Search() {
     setItems(updateList)
   }
 
-  const listDom = items.map(item => {
+  const listDom = items.map((item) => {
     const slug = item.slug
     return (
       <List key={slug} role="option">

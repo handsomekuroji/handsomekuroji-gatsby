@@ -14,7 +14,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const loadPosts = new Promise(async resolve => {
+  const loadPosts = new Promise(async (resolve) => {
     await graphql(`
       {
         allContentfulBlog(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
@@ -41,11 +41,11 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const posts = result.data.allContentfulBlog.edges
       posts.forEach((edge, i) => {
         const node = edge.node
-        const tag = node.tag.map(edge => {
+        const tag = node.tag.map((edge) => {
           return edge.slug
         })
         createPage({
@@ -62,7 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
       const amps = result.data.allContentfulBlog.edges
       amps.forEach((edge, i) => {
         const node = edge.node
-        const tag = node.tag.map(edge => {
+        const tag = node.tag.map((edge) => {
           return edge.slug
         })
         createPage({
@@ -76,9 +76,9 @@ exports.createPages = ({ graphql, actions }) => {
       })
       resolve()
 
-      const searchJSON = result.data.allContentfulBlog.edges.map(edge => {
+      const searchJSON = result.data.allContentfulBlog.edges.map((edge) => {
         const node = edge.node
-        const tags = node.tag.map(edge => {
+        const tags = node.tag.map((edge) => {
           return edge.name
         })
         return {
@@ -92,7 +92,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  const loadPages = new Promise(async resolve => {
+  const loadPages = new Promise(async (resolve) => {
     await graphql(`
       {
         allContentfulPage(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
@@ -103,7 +103,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const posts = result.data.allContentfulPage.edges
       posts.forEach((edge, i) => {
         createPage({
@@ -118,7 +118,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  const loadBests = new Promise(async resolve => {
+  const loadBests = new Promise(async (resolve) => {
     await graphql(`
       {
         allContentfulBest(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
@@ -129,7 +129,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const posts = result.data.allContentfulBest.edges
       posts.forEach((edge, i) => {
         createPage({
@@ -144,7 +144,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  const loadHorrors = new Promise(async resolve => {
+  const loadHorrors = new Promise(async (resolve) => {
     await graphql(`
       {
         allContentfulHorror(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
@@ -156,7 +156,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const posts = result.data.allContentfulHorror.edges
       posts.forEach((edge, i) => {
         const node = edge.node
@@ -172,7 +172,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  const loadIndex = new Promise(async resolve => {
+  const loadIndex = new Promise(async (resolve) => {
     await graphql(`
       {
         allContentfulBlog(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
@@ -183,7 +183,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const posts = result.data.allContentfulBlog.edges
       const limit = 6
       const pages = Math.ceil(posts.length / limit)
@@ -205,7 +205,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  const loadTags = new Promise(async resolve => {
+  const loadTags = new Promise(async (resolve) => {
     await graphql(`
       {
         allContentfulTag(filter: { node_locale: { eq: "ja-JP" } }, sort: { fields: [createdAt], order: DESC }) {
@@ -219,7 +219,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const tags = result.data.allContentfulTag.edges
       const limit = 6
       tags.map(({ node }) => {

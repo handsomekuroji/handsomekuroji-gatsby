@@ -4,7 +4,7 @@ export default () => {
   if ('loading' in HTMLImageElement.prototype) {
     const images = document.querySelectorAll('[data-src]')
 
-    images.forEach(img => {
+    images.forEach((img) => {
       img.src = img.dataset.src
     })
   } else {

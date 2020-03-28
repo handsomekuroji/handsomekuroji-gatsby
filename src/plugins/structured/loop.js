@@ -1,7 +1,7 @@
 export default (author, edges, root) => {
   const loop = []
 
-  Array.prototype.slice.call(edges).forEach(edge => {
+  Array.prototype.slice.call(edges).forEach((edge) => {
     const date = edge.node.createdAt
     const img = edge.node.thumbnail.localFile.childImageSharp.fluid.src
 

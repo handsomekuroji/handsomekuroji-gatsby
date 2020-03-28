@@ -50,23 +50,23 @@ const Button = styled.button`
 `
 
 export default function Layout({ children, horror }) {
-  const attr = theme => {
+  const attr = (theme) => {
     return { class: theme.dark ? 'dark' : 'light', id: 'body' }
   }
 
-  const pressed = theme => {
+  const pressed = (theme) => {
     return theme.dark
   }
 
-  const label = theme => {
+  const label = (theme) => {
     return theme.dark ? 'ライトモードに切り替え' : 'ダークモードに切り替え'
   }
 
-  const toggle = theme => {
+  const toggle = (theme) => {
     return theme.toggle
   }
 
-  const icon = theme => {
+  const icon = (theme) => {
     return theme.dark ? (
       <Sun width="32" height="32" title="ライトモードボタン" />
     ) : (
@@ -74,7 +74,7 @@ export default function Layout({ children, horror }) {
     )
   }
 
-  const button = theme => {
+  const button = (theme) => {
     return horror ? (
       ''
     ) : (
@@ -90,7 +90,7 @@ export default function Layout({ children, horror }) {
     )
   }
 
-  const cssTheme = theme => (
+  const cssTheme = (theme) => (
     <Wrapper>
       <Helmet bodyAttributes={attr(theme)} />
       {button(theme)}

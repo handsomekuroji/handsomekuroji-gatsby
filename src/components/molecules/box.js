@@ -310,15 +310,15 @@ export default function Box({ edge, count }) {
     setActive(Active !== true)
   }
 
-  const key = e => {
+  const key = (e) => {
     e.key === 'Enter' && setActive(Active !== true)
   }
 
-  const interrupt = e => {
+  const interrupt = (e) => {
     e.stopPropagation()
   }
 
-  const active = bool => {
+  const active = (bool) => {
     return bool ? 'open' : 'closed'
   }
 
