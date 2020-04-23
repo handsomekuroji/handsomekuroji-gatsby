@@ -1,6 +1,6 @@
 export default (url, event) => {
-  const width = (screen.width - 600) / 2
-  const height = (screen.height - 500) / 2
+  const width = (window.screen.width - 600) / 2
+  const height = (window.screen.height - 500) / 2
 
   event && event.preventDefault()
   window.open(

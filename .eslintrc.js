@@ -1,35 +1,31 @@
 module.exports = {
+  globals: {
+    __PATH_PREFIX__: true
+  },
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
-    parser: 'babel-eslint'
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+      jsx: true
+    }
   },
   env: {
     es6: true,
     browser: true
   },
-  extends: ['prettier', 'prettier/standard', 'gatsby-standard'],
-  plugins: ['prettier', 'react'],
+  extends: ['plugin:prettier/recommended', 'gatsby-standard', 'react-app'],
+  plugins: ['react'],
   rules: {
     'generator-star-spacing': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     properties: 0,
-    ignoreDestructuring: 0,
-    'prettier/prettier': [
-      'error',
-      {
-        trailingComma: 'none',
-        singleQuote: true,
-        semi: false,
-        printWidth: 120
-      }
-    ]
+    ignoreDestructuring: 0
   },
   settings: {
     'import/resolver': {
-      'alias': [
-        ['~src', './src']
-      ]
+      alias: [['~src', './src']]
     }
   }
 }

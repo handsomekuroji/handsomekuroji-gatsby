@@ -157,7 +157,7 @@ const Small = styled(small)`
 export default function Splash() {
   const [Visible, setVisible] = React.useState(false)
 
-  React.useEffect(() => {
+  React.useEffect((Visible) => {
     setVisible(!Visible)
   }, [])
 

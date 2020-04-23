@@ -89,36 +89,43 @@ export default function Form() {
   return (
     <Section>
       <Wrapper name="contact" action="/thanks" netlify-honeypot="bot-field" data-netlify="true" method="post">
-        <input type="hidden" name="form-name" value="contact" aria-hedden="true" />
+        <input type="hidden" name="form-name" value="contact" aria-hidden="true" />
         <Hidden>
           <label id="dont" htmlFor="bot">
             Don’t fill this out
           </label>
-          <input id="bot" type="text" name="bot-field" aria-labelby="dont" />
+          <input id="bot" type="text" name="bot-field" aria-labelledby="dont" />
         </Hidden>
         <Block>
           <Label id="name" htmlFor="name" aria-label="名前">
             Name
           </Label>
-          <Input id="name" type="text" name="name" autoComplete="name" required="required" aria-labelby="name" />
+          <Input id="name" type="text" name="name" autoComplete="name" required="required" aria-labelledby="name" />
         </Block>
         <Block>
           <Label id="email" htmlFor="email" aria-label="メールアドレス">
             Email
           </Label>
-          <Input id="email" type="email" name="email" autoComplete="email" required="required" aria-labelby="email" />
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            autoComplete="email"
+            required="required"
+            aria-labelledby="email"
+          />
         </Block>
         <Block>
           <Label id="title" htmlFor="title" aria-label="タイトル">
             Title
           </Label>
-          <Input id="title" type="text" name="title" required="required" aria-labelby="title" />
+          <Input id="title" type="text" name="title" required="required" aria-labelledby="title" />
         </Block>
         <Block>
           <Label id="message" htmlFor="message" aria-label="メッセージ">
             Message
           </Label>
-          <Textarea id="message" name="message" required="required" aria-labelby="message" />
+          <Textarea id="message" name="message" required="required" aria-labelledby="message" />
         </Block>
         <Button type="submit" aria-label="フォームの内容を送信">
           SEND

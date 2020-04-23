@@ -5,7 +5,7 @@ export default (target) => {
 
   if (classes[0]) {
     let player
-    const url = `${location.protocol}//${location.hostname}`
+    const url = `${window.location.protocol}//${window.location.hostname}`
 
     Array.prototype.slice.call(classes).forEach((edge) => {
       edge.getElementsByClassName('youtube__button')[0].addEventListener('click', () => {

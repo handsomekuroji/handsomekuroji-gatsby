@@ -154,7 +154,7 @@ export default function Icon({ icon }) {
   const type = icon.type
   const url = icon.url
 
-  const box = () => {
+  const box = (event) => {
     modal(url, event)
   }
 

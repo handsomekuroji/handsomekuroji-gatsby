@@ -222,7 +222,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then((result) => {
       const tags = result.data.allContentfulTag.edges
       const limit = 6
-      tags.map(({ node }) => {
+      Array.from(tags).forEach(({ node }) => {
         const posts = node.blog !== null ? node.blog.length : 0
         const pages = Math.ceil(posts / limit)
         const count = [...Array(pages).keys()]
