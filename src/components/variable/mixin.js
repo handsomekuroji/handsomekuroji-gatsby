@@ -6,25 +6,20 @@ export const font = {
 }
 
 const sizes = {
-  xs: 'screen and (min-width: 375px)',
-  s: 'screen and (min-width: 414px)',
-  sm: 'screen and (min-width: 470px)',
-  ms: 'screen and (min-width: 600px)',
-  m: 'screen and (min-width: 680px)',
-  ml: 'screen and (min-width: 768px)',
-  ls: 'screen and (min-width: 900px)',
-  l: 'screen and (min-width: 1040px)',
-  lm: 'screen and (min-width: 1280px)',
-  ll: 'screen and (min-width: 1400px)',
-  xl: 'screen and (min-width: 1800px)',
-  ix: 'screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3)'
+  xs: '375px',
+  s: '414px',
+  sm: '470px',
+  ms: '600px',
+  m: '680px',
+  ml: '768px',
+  ls: '900px',
+  l: '1040px',
+  lm: '1280px',
+  ll: '1400px',
+  xl: '1800px'
 }
 
 export const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media ${sizes[label]} {
-      ${css(...args)}
-    }
-  `
+  acc[label] = () => `@media screen and (min-width: ${sizes[label]})`
   return acc
 }, {})

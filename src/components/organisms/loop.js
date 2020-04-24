@@ -8,17 +8,17 @@ const Css = css`
   display: grid;
   gap: 24px;
 
-  ${media.s`
+  ${media.s} {
     grid-template-columns: 1fr 1fr;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     grid-gap: 32px;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     grid-template-columns: 1fr 1fr 1fr;
-  `}
+  }
 `
 
 const Wrapper = styled.div`
@@ -26,9 +26,9 @@ const Wrapper = styled.div`
 
   margin: 24px 0 0;
 
-  ${media.ms`
+  ${media.ms} {
     margin: 32px 0 0;
-  `}
+  }
 `
 
 const Other = styled.div`
@@ -36,9 +36,9 @@ const Other = styled.div`
 
   margin: 16px 0 0;
 
-  ${media.m`
+  ${media.m} {
     margin: 24px 0 0;
-  `}
+  }
 `
 
 export default function Loop({ edges, tag }) {

@@ -25,7 +25,6 @@ const Anchor = styled(Link)`
   transition: transform 0.2s ease;
 
   &::before {
-    bottom: 0;
     border-radius: 24px;
     bottom: -7px;
     content: '';

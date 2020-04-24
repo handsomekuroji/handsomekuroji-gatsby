@@ -9,14 +9,14 @@ const Wrapper = styled.section`
   gap: 24px;
   margin: 16px 0 0;
 
-  ${media.s`
+  ${media.s} {
     grid-template-columns: 1fr 1fr;
     margin: 24px 0 0;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     grid-template-columns: 1fr 1fr 1fr;
-  `}
+  }
 `
 
 export default function Recommend({ edges }) {

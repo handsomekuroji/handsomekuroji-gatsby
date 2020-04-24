@@ -14,8 +14,7 @@ const Anchor = styled.a`
   will-change: transform;
 
   &::before {
-    ${media.s`
-      bottom: 0;
+    ${media.s} {
       border-radius: 24px;
       bottom: -7px;
       content: '';
@@ -30,7 +29,7 @@ const Anchor = styled.a`
       transition: background 0.2s ease;
       width: calc(100% - 48px);
       z-index: -1;
-    `}
+    }
   }
 
   @media (hover: hover) {
@@ -60,9 +59,9 @@ const List = styled.li`
   &:first-of-type {
     margin: 0;
 
-    ${media.s`
+    ${media.s} {
       scroll-margin-left: 24px;
-    `}
+    }
   }
 `
 
@@ -70,9 +69,9 @@ const Img = styled.img`
   height: 160px;
   width: auto;
 
-  ${media.sm`
+  ${media.sm} {
     height: 180px;
-  `}
+  }
 `
 
 export default function Image({ edge }) {

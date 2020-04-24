@@ -7,9 +7,9 @@ const Wrapper = styled.div`
   font-size: 0.95rem;
   line-height: 1.8;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 `
 
 const Container = styled.div`
@@ -29,17 +29,17 @@ const Container = styled.div`
     width: 16px;
     z-index: 2;
 
-    ${media.s`
+    ${media.s} {
       width: 24px;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       width: 32px;
-    `}
+    }
 
-    ${media.m`
+    ${media.m} {
       width: 64px;
-    `}
+    }
   }
 
   &::after {
@@ -62,24 +62,24 @@ const Inner = styled.div`
     display: block;
     width: 24px;
 
-    ${media.s`
+    ${media.s} {
       width: 24px;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       width: 32px;
-    `}
+    }
 
-    ${media.m`
+    ${media.m} {
       width: 64px;
-    `}
+    }
   }
 
   &::-webkit-scrollbar {
     appearance: scrollbarbutton-up;
     height: 4px;
-    width: auto;
     overflow: overlay;
+    width: auto;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -88,19 +88,19 @@ const Inner = styled.div`
     z-index: 3;
   }
 
-  ${media.s`
+  ${media.s} {
     height: 616px;
     padding: 32px 24px 32px 0;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 32px 32px 32px 0;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     height: 648px;
     padding: 48px 64px 48px 0;
-  `}
+  }
 
   p {
     letter-spacing: 0.1rem;

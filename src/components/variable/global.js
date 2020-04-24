@@ -36,8 +36,8 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
+    appearance: none;
     display: none;
-    -webkit-appearance: none;
   }
 
   @keyframes fade {
@@ -105,11 +105,11 @@ export default createGlobalStyle`
     background: var(--c_3);
     color: var(--c_0);
     font: 62.5% / 1 ${font.$f_0};
-    min-width: 320px;
     -moz-osx-font-smoothing: grayscale;
-    text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
+    min-width: 320px;
     -webkit-tap-highlight-color: rgba(var(--c_7-rgb), 0.2);
+    text-size-adjust: 100%;
 
     &.dark {
       --c_0: #fcfcfc;

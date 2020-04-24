@@ -11,12 +11,12 @@ const Img = styled.img`
   vertical-align: bottom;
   width: 100%;
 
-  ${media.s`
+  ${media.s} {
     height: auto;
     left: 0;
     position: absolute;
     top: 0;
-  `}
+  }
 
   .dark & {
     filter: brightness(80%);

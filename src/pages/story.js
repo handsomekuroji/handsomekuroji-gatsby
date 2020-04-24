@@ -10,37 +10,37 @@ import Balloon from '~src/components/molecules/balloon'
 
 const Main = styled.main`
   background: var(--c_4);
+  border-radius: 8px;
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
-  border-radius: 8px;
   margin: 32px auto 0;
   max-width: 620px;
   overflow: hidden;
   padding: 16px;
   width: calc(100% - 16px);
 
-  ${media.xs`
+  ${media.xs} {
     width: calc(100% - 32px);
-  `}
+  }
 
-  ${media.s`
+  ${media.s} {
     padding: 24px;
     width: calc(100% - 48px);
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     max-width: 690px;
     padding: 32px;
     width: calc(100% - 64px);
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 64px;
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     margin: 48px auto 0;
-  `}
+  }
 `
 
 export default function NotFoundPage({ data }) {

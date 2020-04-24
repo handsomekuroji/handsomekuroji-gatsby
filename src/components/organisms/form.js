@@ -6,17 +6,17 @@ const Section = styled.section`
   box-sizing: border-box;
   padding: 0 16px 32px;
 
-  ${media.s`
+  ${media.s} {
     padding: 0 24px 32px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 0 32px 32px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 0 64px 48px;
-  `}
+  }
 `
 
 const Wrapper = styled.form`

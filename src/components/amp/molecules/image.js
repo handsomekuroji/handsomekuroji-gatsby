@@ -12,9 +12,8 @@ const Anchor = styled.a`
   transition: opacity 0.2s ease;
   visibility: visible;
 
-  ${media.s`
+  ${media.s} {
     &::before {
-      bottom: 0;
       border-radius: 24px;
       bottom: -7px;
       content: '';
@@ -32,7 +31,7 @@ const Anchor = styled.a`
     }
 
     @media (hover: hover) {
-      &:hover{
+      &:hover {
         opacity: 0.8;
 
         &::before {
@@ -48,7 +47,7 @@ const Anchor = styled.a`
         background: rgba(var(--c_9-rgb), 0.1);
       }
     }
-  `}
+  }
 
   amp-img {
     height: 160px;
@@ -62,24 +61,24 @@ const List = styled.div`
   position: relative;
   width: 60vw;
 
-  ${media.s`
+  ${media.s} {
     margin: 0 0 0 16px;
-  `}
+  }
 
   &:first-of-type {
     margin: 0 0 0 16px;
 
-    ${media.s`
+    ${media.s} {
       margin: 0 0 0 24px;
-    `}
+    }
   }
 
   &:last-of-type {
     margin: 0 16px 0 0;
 
-    ${media.s`
+    ${media.s} {
       margin: 0 24px 0 0;
-    `}
+    }
   }
 `
 

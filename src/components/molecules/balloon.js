@@ -12,13 +12,13 @@ const Article = styled.article`
   grid-template-columns: auto 1fr;
   margin: 24px 0 0;
 
-  ${media.ms`
+  ${media.ms} {
     margin: 32px 0 0;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     margin: 48px 0 0;
-  `}
+  }
 
   &:first-of-type {
     margin: 0;
@@ -35,9 +35,9 @@ const Img = styled.img`
   height: auto;
   width: 48px;
 
-  ${media.ms`
+  ${media.ms} {
     width: 56px;
-  `}
+  }
 `
 
 const Container = styled.div`
@@ -51,14 +51,14 @@ const Container = styled.div`
   text-align: left;
   width: fit-content;
 
-  ${media.ms`
+  ${media.ms} {
     font-size: 1rem;
     padding: 16px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 32px;
-  `}
+  }
 
   &::after {
     border: 16px solid transparent;

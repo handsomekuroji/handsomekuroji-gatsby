@@ -20,8 +20,8 @@ const Button = styled.button`
   border-radius: 50%;
   padding: 6px;
   position: absolute;
-  top: 16px;
   right: 16px;
+  top: 16px;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 
   .icon {

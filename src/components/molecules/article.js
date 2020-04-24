@@ -20,17 +20,16 @@ const Anchor = styled(Link)`
   visibility: visible;
   will-change: transform;
 
-  ${media.s`
+  ${media.s} {
     grid-template-columns: none;
     grid-template-rows: auto 1fr;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 
   &::before {
-    bottom: 0;
     border-radius: 24px;
     bottom: -7px;
     content: '';
@@ -67,7 +66,7 @@ const Figure = styled.figure`
   overflow: hidden;
   position: relative;
 
-  ${media.s`
+  ${media.s} {
     border-radius: 8px 8px 0 0;
 
     &::before {
@@ -76,7 +75,7 @@ const Figure = styled.figure`
       padding: 0 0 56.25%;
       position: relative;
     }
-  `}
+  }
 `
 
 const Header = styled.header`
@@ -88,9 +87,9 @@ const Header = styled.header`
   padding: 24px;
   position: relative;
 
-  ${media.s`
+  ${media.s} {
     border-radius: 0 0 8px 8px;
-  `}
+  }
 `
 
 const Title = styled.h2`
@@ -99,9 +98,9 @@ const Title = styled.h2`
   font-feature-settings: 'palt' 1;
   letter-spacing: 0.04em;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 `
 
 const Other = styled.h3`
@@ -110,9 +109,9 @@ const Other = styled.h3`
   font-feature-settings: 'palt' 1;
   letter-spacing: 0.04em;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 `
 
 const Time = styled.time`

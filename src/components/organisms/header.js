@@ -10,39 +10,39 @@ const Wrapper = styled.header`
   padding: 32px 0 0;
   text-align: center;
 
-  ${media.ls`
+  ${media.ls} {
     padding: 48px 0 0;
-  `}
+  }
 `
 
 const Title = styled.h1`
   display: inline-block;
   width: 60px;
 
-  ${media.ms`
+  ${media.ms} {
     width: 180px;
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     width: 240px;
-  `}
+  }
 `
 
 const Other = styled.h1`
   font: bold 1.3rem / 1 ${font.$f_1};
   margin: 32px 0 0;
 
-  ${media.xs`
+  ${media.xs} {
     font-size: 1.5rem;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     margin: 32px 0 0;
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     font-size: 2rem;
-  `}
+  }
 `
 
 export default function Header({ index, title, horror }) {

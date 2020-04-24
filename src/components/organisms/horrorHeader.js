@@ -13,21 +13,21 @@ const Container = styled.div`
   padding: 16px;
   position: relative;
 
-  ${media.s`
+  ${media.s} {
     padding: 32px 24px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 48px 32px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 48px 64px;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     gap: 24px;
-  `}
+  }
 
   &::before {
     color: var(--c_8);
@@ -39,16 +39,16 @@ const Container = styled.div`
     top: -16px;
     white-space: pre;
 
-    ${media.m`
-      font-size: 10rem
+    ${media.m} {
+      font-size: 10rem;
       left: -32px;
       top: -24px;
-    `}
+    }
 
-    ${media.l`
-      font-size: 12rem
-      top: -32  px;
-    `}
+    ${media.l} {
+      font-size: 12rem;
+      top: -32 px;
+    }
   }
 `
 
@@ -60,13 +60,13 @@ const Title = styled.h1`
   position: relative;
   text-align: right;
 
-  ${media.xs`
+  ${media.xs} {
     font-size: 1.5rem;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     font-size: 2rem;
-  `}
+  }
 `
 
 const Prev = styled(Link)`
@@ -121,9 +121,9 @@ const Name = styled(Link)`
   text-align: right;
   text-decoration: none;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 
   &::before {
     background: var(--c_0);

@@ -8,9 +8,9 @@ const Header = styled.header`
   gap: 8px;
   grid-template-columns: auto 1fr;
 
-  ${media.l`
+  ${media.l} {
     gap: 12px 16px;
-  `}
+  }
 `
 
 const Image = styled.img`
@@ -20,10 +20,10 @@ const Image = styled.img`
   object-fit: cover;
   width: 48px;
 
-  ${media.l`
+  ${media.l} {
     height: 64px;
     width: 64px;
-  `}
+  }
 `
 
 const Title = styled.h1`
@@ -35,18 +35,18 @@ const Title = styled.h1`
     content: '#';
   }
 
-  ${media.l`
+  ${media.l} {
     font-size: 2rem;
-  `}
+  }
 `
 
 const Count = styled.div`
   font: 0.9rem / 1 ${font.$f_1};
   margin: 0 0 0 2px;
 
-  ${media.l`
+  ${media.l} {
     font-size: 0.9rem;
-  `}
+  }
 `
 
 export default function TagHeader({ header }) {

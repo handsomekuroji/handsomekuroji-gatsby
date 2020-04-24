@@ -12,29 +12,29 @@ const Wrapper = styled.div`
   line-height: 1.8;
   padding: 0 0 32px;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
     padding: 0 0 48px;
-  `}
+  }
 
   section {
     margin: 16px 0 0;
     overflow: hidden;
     padding: 0 16px;
 
-    ${media.s`
+    ${media.s} {
       margin: 32px 0 0;
       padding: 0 24px;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       margin: 48px 0 0;
       padding: 0 32px;
-    `}
+    }
 
-    ${media.m`
+    ${media.m} {
       padding: 0 64px;
-    `}
+    }
 
     &:first-of-type {
       margin: 0;
@@ -47,18 +47,18 @@ const Wrapper = styled.div`
       margin: 0 -24px;
       padding: 0 0 16px;
 
-      ${media.s`
+      ${media.s} {
         padding: 0 0 32px;
-      `}
+      }
 
-      ${media.ms`
+      ${media.ms} {
         margin: 0 -32px;
-      `}
+      }
 
-      ${media.m`
+      ${media.m} {
         margin: 0 -64px;
         padding: 0 0 48px;
-      `}
+      }
     }
   }
 
@@ -73,18 +73,18 @@ const Wrapper = styled.div`
     visibility: hidden;
     z-index: 1;
 
-    ${media.l`
+    ${media.l} {
       font-size: 1.5rem;
-    `}
+    }
 
-    ${media.lm`
+    ${media.lm} {
       font-size: 1.7rem;
-    `}
+    }
 
     &::before {
       color: var(--c_8);
-      counter-increment: section;
       content: counter(section, decimal-leading-zero);
+      counter-increment: section;
       font: italic bold 7rem / 1.1 'Georgia', serif;
       left: -64px;
       opacity: 0;
@@ -96,20 +96,20 @@ const Wrapper = styled.div`
       white-space: pre;
       z-index: -1;
 
-      ${media.s`
+      ${media.s} {
         top: -80px;
-      `}
+      }
 
-      ${media.m`
+      ${media.m} {
         font-size: 10rem;
         left: -160px;
         top: -112px;
-      `}
+      }
 
-      ${media.l`
-        font-size: 12rem
+      ${media.l} {
+        font-size: 12rem;
         top: -128px;
-      `}
+      }
     }
 
     &::after {
@@ -134,9 +134,9 @@ const Wrapper = styled.div`
         opacity: 1;
         visibility: visible;
 
-        ${media.m`
+        ${media.m} {
           left: -80px;
-        `}
+        }
       }
 
       &::after {
@@ -200,22 +200,22 @@ const Wrapper = styled.div`
 
   blockquote {
     background: var(--c_8);
+    margin: 0 -32px;
     padding: 16px 32px 24px;
     position: relative;
-    margin: 0 -32px;
 
-    ${media.m`
+    ${media.m} {
       margin: 0;
-    `}
+    }
 
     &[data-title] {
       margin: 0;
       padding: 16px;
       z-index: 1;
 
-      ${media.ms`
+      ${media.ms} {
         padding: 24px 32px;
-      `}
+      }
 
       &::before {
         color: var(--c_4);
@@ -224,16 +224,16 @@ const Wrapper = styled.div`
         left: -8px;
         position: absolute;
         text-indent: 0.1rem;
-        top: -16px;
         -webkit-text-stroke: 0;
+        top: -16px;
         white-space: pre;
         z-index: -1;
 
-        ${media.m`
-          font-size: 5rem
+        ${media.m} {
+          font-size: 5rem;
           left: -16px;
           top: -24px;
-        `}
+        }
       }
     }
 
@@ -244,11 +244,11 @@ const Wrapper = styled.div`
         margin: 0;
 
         &:first-letter {
+          float: left;
           font-size: 2.2rem;
           font-weight: bold;
-          float: left;
-          line-height: 1.4;
           letter-spacing: 0.2em;
+          line-height: 1.4;
         }
       }
     }
@@ -259,17 +259,17 @@ const Wrapper = styled.div`
     border-top: 1px solid var(--c_8);
     margin: 16px -16px;
 
-    ${media.s`
+    ${media.s} {
       margin: 32px -24px;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       margin: 48px -32px;
-    `}
+    }
 
-    ${media.m`
+    ${media.m} {
       margin: 48px -64px;
-    `}
+    }
   }
 
   .twitter-tweet {
@@ -294,10 +294,10 @@ const Wrapper = styled.div`
     padding: 16px;
     text-decoration: none;
 
-    ${media.ms`
+    ${media.ms} {
       font-size: 0.95rem;
       padding: 16px 20px;
-    `}
+    }
 
     p {
       display: flex;
@@ -351,8 +351,8 @@ const Wrapper = styled.div`
   }
 
   .youtube__img {
-    object-fit: cover;
     height: 100%;
+    object-fit: cover;
     position: absolute;
     top: 0;
     width: 100%;
@@ -406,11 +406,11 @@ const Wrapper = styled.div`
       z-index: 2;
     }
 
-    ${media.m`
+    ${media.m} {
       [data-youtube] {
         margin: 0;
       }
-    `}
+    }
   }
 
   .item {
@@ -421,11 +421,11 @@ const Wrapper = styled.div`
     margin: 24px 0 0;
     padding: 32px 16px;
 
-    ${media.ls`
+    ${media.ls} {
       grid-auto-flow: column;
       grid-gap: 32px;
       padding: 32px;
-    `}
+    }
   }
 
   .item__figure {
@@ -450,9 +450,9 @@ const Wrapper = styled.div`
       width: calc(100% - 48px);
     }
 
-    ${media.ls`
+    ${media.ls} {
       margin: 0 0 0 auto;
-    `}
+    }
   }
 
   .item__img {
@@ -466,9 +466,9 @@ const Wrapper = styled.div`
     font-weight: bold;
     text-align: center;
 
-    ${media.ls`
+    ${media.ls} {
       text-align: left;
-    `}
+    }
   }
 
   .item__title {
@@ -476,13 +476,13 @@ const Wrapper = styled.div`
     font: bold 1rem / 1.6 ${font.$f_1};
     margin: 0 8px 0 0;
 
-    ${media.m`
+    ${media.m} {
       font-size: 1rem;
-    `}
+    }
 
-    ${media.ls`
+    ${media.ls} {
       font-size: 1.2rem;
-    `}
+    }
 
     &:last-of-type {
       margin: 0;
@@ -495,18 +495,18 @@ const Wrapper = styled.div`
     justify-content: center;
     margin: 16px 0 0;
 
-    ${media.s`
+    ${media.s} {
       grid-auto-flow: column;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       grid-gap: 16px;
-    `}
+    }
 
-    ${media.ls`
+    ${media.ls} {
       grid-gap: 8px;
       justify-content: flex-start;
-    `}
+    }
   }
 
   .item__a {
@@ -524,25 +524,25 @@ const Wrapper = styled.div`
     width: 160px;
     z-index: 1;
 
-    ${media.s`
+    ${media.s} {
       width: 96px;
-    `}
+    }
 
-    ${media.sm`
+    ${media.sm} {
       width: 112px;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       width: 120px;
-    `}
+    }
 
-    ${media.m`
+    ${media.m} {
       font-size: 1rem;
-    `}
+    }
 
-    ${media.ls`
+    ${media.ls} {
       width: 96px;
-    `}
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -573,8 +573,8 @@ const Wrapper = styled.div`
   }
 
   .iframe__data {
-    border-radius: 12px;
     border: 0;
+    border-radius: 12px;
     height: 100%;
     position: absolute;
     top: 0;

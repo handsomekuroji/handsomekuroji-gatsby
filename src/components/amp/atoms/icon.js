@@ -122,9 +122,9 @@ const PocketIcon = styled.div`
 const NoteIcon = styled.div`
   display: none;
 
-  ${media.ms`
+  ${media.ms} {
     display: flex;
-  `}
+  }
 
   amp-social-share {
     ${Css}
@@ -144,9 +144,9 @@ const NoteIcon = styled.div`
 const FeedlyIcon = styled.div`
   display: none;
 
-  ${media.ms`
+  ${media.ms} {
     display: flex;
-  `}
+  }
 
   amp-social-share {
     ${Css}

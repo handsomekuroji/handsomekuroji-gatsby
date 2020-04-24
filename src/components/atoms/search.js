@@ -13,9 +13,9 @@ const Wrapper = styled.div`
 `
 
 const Img = styled(Icon)`
-  stroke: rgba(var(--c_1-rgb), 0.5);
   position: absolute;
   right: 12px;
+  stroke: rgba(var(--c_1-rgb), 0.5);
   top: calc(50% - 12px);
 `
 
@@ -106,8 +106,8 @@ const Anchor = styled(Link)`
   display: block;
   font: bold 0.9rem / 1.3 ${font.$f_1};
   line-height: 1.35;
-  text-decoration: none;
   padding: 12px 16px;
+  text-decoration: none;
   transition: color 0.2s ease;
   width: 100%;
 

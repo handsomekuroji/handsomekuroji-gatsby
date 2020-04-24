@@ -8,15 +8,14 @@ import Netflix from '~src/images/icon/netflix.svg'
 import Hulu from '~src/images/icon/hulu.svg'
 
 const Wrapper = styled.div`
+  border-radius: 8px;
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
-  border-radius: 8px;
   cursor: pointer;
   position: relative;
   transition: transform 0.2s ease-in;
 
   &::after {
-    bottom: 0;
     border-radius: 24px;
     bottom: -7px;
     content: '';
@@ -63,13 +62,13 @@ const Container = styled.div`
   overflow: hidden;
   padding: 16px;
 
-  ${media.ms`
+  ${media.ms} {
     grid-template-columns: 120px 1fr;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     grid-template-columns: 96px 1fr;
-  `}
+  }
 
   &:focus {
     outline: thin solid rgba(var(--c_5-rgb), 0.5);
@@ -112,13 +111,13 @@ const Title = styled.h2`
   position: relative;
   z-index: 2;
 
-  ${media.ms`
+  ${media.ms} {
     font-size: 1.5rem;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 `
 
 const Small = styled.small`
@@ -167,7 +166,7 @@ const AmazonIcon = styled.span`
 
   @media (hover: hover) {
     &:hover {
-      background: #ff9900;
+      background: #f90;
     }
   }
 `
@@ -217,13 +216,13 @@ const Inner = styled(
   text-align: left;
   transform: translate3d(0, 0, 0);
 
-  ${media.ms`
+  ${media.ms} {
     font-size: 1rem;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     font-size: 0.9rem;
-  `}
+  }
 
   &.visivle {
     visibility: visible;

@@ -115,9 +115,9 @@ const NoteIcon = styled.a`
 
   display: none;
 
-  ${media.ms`
+  ${media.ms} {
     display: flex;
-  `}
+  }
 
   @media (hover: hover) {
     &:hover {
@@ -135,9 +135,9 @@ const FeedlyIcon = styled.a`
 
   display: none;
 
-  ${media.ms`
+  ${media.ms} {
     display: flex;
-  `}
+  }
 
   @media (hover: hover) {
     &:hover {

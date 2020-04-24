@@ -21,28 +21,28 @@ const Main = styled.main`
   max-width: 620px;
   width: calc(100% - 16px);
 
-  ${media.xs`
+  ${media.xs} {
     width: calc(100% - 32px);
-  `}
+  }
 
-  ${media.s`
+  ${media.s} {
     width: calc(100% - 48px);
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     max-width: 690px;
     width: calc(100% - 64px);
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     margin: 48px auto 0;
-  `}
+  }
 `
 
 const Article = styled.article`
   background: var(--c_4);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   border-radius: 8px;
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   overflow: hidden;
 `
 

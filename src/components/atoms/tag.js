@@ -7,9 +7,9 @@ import { font, media } from '~src/components/variable/mixin'
 const List = styled.li`
   margin: 8px;
 
-  ${media.ms`
+  ${media.ms} {
     margin: 8px 12px;
-  `}
+  }
 `
 
 const Anchor = styled(Link)`
@@ -17,14 +17,14 @@ const Anchor = styled(Link)`
   display: flex;
   font: 1rem / 1 ${font.$f_1};
   height: auto;
-  vertical-align: bottom;
   position: relative;
   text-decoration: none;
+  vertical-align: bottom;
   width: 100%;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 
   @media (hover: hover) {
     &:hover::before {

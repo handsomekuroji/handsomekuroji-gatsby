@@ -57,9 +57,9 @@ const Inner = styled(posed.div(inner))`
 
   &::before {
     animation: animate-svg-width 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2s both;
-    content: '';
     background: var(--c_3);
     bottom: 0;
+    content: '';
     display: block;
     left: 0;
     position: absolute;
@@ -72,9 +72,9 @@ const Big = styled(big)`
   display: none;
   fill: var(--c_1);
 
-  ${media.ms`
+  ${media.ms} {
     display: inline;
-  `}
+  }
 
   @keyframes animate-svg-fill {
     0% {
@@ -147,7 +147,9 @@ const Small = styled(small)`
   display: inline;
   fill: var(--c_1);
 
-  ${media.ms`display: none;`}
+  ${media.ms} {
+    display: none;
+  }
 
   .hks-1 {
     animation: animate-svg-small 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.3s both;

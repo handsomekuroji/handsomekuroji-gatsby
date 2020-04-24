@@ -20,17 +20,16 @@ const Anchor = styled(Link)`
   visibility: visible;
   will-change: transform;
 
-  ${media.s`
+  ${media.s} {
     grid-template-columns: none;
     grid-template-rows: auto 1fr;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 
   &::before {
-    bottom: 0;
     border-radius: 24px;
     bottom: -7px;
     content: '';
@@ -71,9 +70,9 @@ const Header = styled.header`
   padding: 24px;
   position: relative;
 
-  ${media.s`
+  ${media.s} {
     border-radius: 0 0 8px 8px;
-  `}
+  }
 `
 
 const Other = styled.h3`
@@ -82,9 +81,9 @@ const Other = styled.h3`
   font-feature-settings: 'palt' 1;
   letter-spacing: 0.04em;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 `
 
 const Time = styled.time`

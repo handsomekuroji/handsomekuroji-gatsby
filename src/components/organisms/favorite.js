@@ -9,14 +9,14 @@ import Arrow from '~src/images/icon/arrow.svg'
 
 const Wrapper = styled.section`
   background: var(--c_4);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   border-radius: 8px;
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   margin: 16px 0 0;
 
-  ${media.s`
+  ${media.s} {
     margin: 24px 0 0;
     padding: 0;
-  `}
+  }
 `
 
 const Links = styled.a`
@@ -32,19 +32,19 @@ const Links = styled.a`
   text-decoration: none;
   width: 100%;
 
-  ${media.s`
+  ${media.s} {
     grid-template-columns: 120px 1fr auto;
     padding: 16px 24px;
-  `}
+  }
 
-  ${media.sm`
+  ${media.sm} {
     grid-template-columns: 140px 1fr auto;
     padding: 24px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     grid-template-columns: 160px 1fr auto;
-  `}
+  }
 `
 
 const Icon = styled(Prime)`
@@ -63,28 +63,28 @@ const Text = styled.span`
   margin: 0 0 0 auto;
   text-align: left;
 
-  ${media.xs`
+  ${media.xs} {
     font-size: 0.88rem;
-  `}
+  }
 
-  ${media.s`
+  ${media.s} {
     font-size: 1rem;
-  `}
+  }
 `
 
 const Right = styled(Arrow)`
-  stroke: var(--c_7);
   height: auto;
+  stroke: var(--c_7);
   transition: transform 0.2s ease;
   width: 16px;
 
-  ${media.s`
+  ${media.s} {
     width: 24px;
-  `}
+  }
 
-  ${media.sm`
+  ${media.sm} {
     margin: 0 0 0 8px;
-  `}
+  }
 
   ${Links}:hover & {
     @media (hover: hover) {
@@ -108,13 +108,13 @@ const Ordered = styled.ol`
   white-space: nowrap;
   will-change: transform;
 
-  ${media.s`
+  ${media.s} {
     padding: 16px 0;
-  `}
+  }
 
-  ${media.sm`
+  ${media.sm} {
     padding: 20px 0 24px;
-  `}
+  }
 
   &::before,
   &::after {
@@ -122,17 +122,17 @@ const Ordered = styled.ol`
     display: block;
     height: 100%;
 
-    ${media.s`
+    ${media.s} {
       padding: 12px;
-    `}
+    }
   }
 
   &::after {
     padding: 8px;
 
-    ${media.s`
+    ${media.s} {
       padding: 12px;
-    `}
+    }
   }
 `
 

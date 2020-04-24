@@ -13,29 +13,28 @@ const Main = styled.main`
   background: var(--c_4);
   box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   box-sizing: border-box;
-  border-radius: 8px;
   counter-reset: stories;
   margin: 32px auto 0;
   max-width: 620px;
   overflow: hidden;
   width: calc(100% - 16px);
 
-  ${media.xs`
+  ${media.xs} {
     width: calc(100% - 32px);
-  `}
+  }
 
-  ${media.s`
+  ${media.s} {
     width: calc(100% - 48px);
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     max-width: 690px;
     width: calc(100% - 64px);
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     margin: 48px auto 0;
-  `}
+  }
 `
 
 export default function Horror({ data }) {

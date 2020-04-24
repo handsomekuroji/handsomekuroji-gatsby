@@ -15,21 +15,21 @@ const Container = styled.div`
   grid-template-columns: auto 1fr;
   padding: 16px;
 
-  ${media.s`
+  ${media.s} {
     padding: 32px 24px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 48px 32px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 48px 64px;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     gap: 24px;
-  `}
+  }
 `
 
 const Title = styled.h1`
@@ -39,13 +39,13 @@ const Title = styled.h1`
   grid-column: 1 / 3;
   letter-spacing: 0.04em;
 
-  ${media.xs`
+  ${media.xs} {
     font-size: 1.5rem;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     font-size: 2rem;
-  `}
+  }
 `
 
 export default function PageHeader({ header }) {

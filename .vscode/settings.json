@@ -1,6 +1,7 @@
 {
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "eslint.alwaysShowStatus": true,
   "eslint.enable": true,
   "eslint.validate": [
     "vue",
@@ -21,6 +22,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.tslint": true,
+    "source.fixAll.stylelint": true,
     "source.fixAll": true
   }
 }

@@ -6,21 +6,21 @@ import { media } from '~src/components/variable/mixin'
 import Icon from '~src/components/atoms/icon'
 
 const Footer = styled.footer`
-  border-top: 1px solid var(--c_8);
   border-radius: 0 0 8px 8px;
+  border-top: 1px solid var(--c_8);
   padding: 16px;
 
-  ${media.s`
+  ${media.s} {
     padding: 32px 24px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 48px 32px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 48px 64px;
-  `}
+  }
 `
 
 const Container = styled.div`
@@ -31,14 +31,14 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 320px;
 
-  ${media.xs`
+  ${media.xs} {
     gap: 16px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     gap: 24px;
     max-width: 360px;
-  `}
+  }
 `
 
 export default function PostFooter({ footer }) {

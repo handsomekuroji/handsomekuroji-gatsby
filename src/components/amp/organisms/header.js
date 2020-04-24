@@ -8,22 +8,22 @@ const Wrapper = styled.header`
   padding: 32px 0 0;
   text-align: center;
 
-  ${media.ls`
+  ${media.ls} {
     padding: 48px 0 0;
-  `}
+  }
 `
 
 const Heading = styled.div`
   display: inline-block;
   width: 60px;
 
-  ${media.ms`
+  ${media.ms} {
     width: 180px;
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     width: 240px;
-  `}
+  }
 `
 
 export default function Header() {

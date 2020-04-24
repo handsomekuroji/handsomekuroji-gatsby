@@ -19,34 +19,34 @@ const Container = styled.div`
   grid-template-columns: auto 1fr;
   padding: 24px 16px;
 
-  ${media.s`
+  ${media.s} {
     padding: 32px 24px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 48px 32px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     padding: 48px 64px;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     gap: 24px;
-  `}
+  }
 `
 
 const UnOrdered = styled.ul`
-  grid-column: 1 / 3;
   display: flex;
+  grid-column: 1 / 3;
 `
 
 const List = styled.li`
   margin: 0 0 0 8px;
 
-  ${media.m`
+  ${media.m} {
     margin: 0 0 0 12px;
-  `}
+  }
 
   &:first-of-type {
     margin: 0;
@@ -59,7 +59,9 @@ const Tag = styled(Link)`
   position: relative;
   text-decoration: none;
 
-  ${media.m`font-size: 1rem;`}
+  ${media.m} {
+    font-size: 1rem;
+  }
 
   @media (hover: hover) {
     &:hover {
@@ -102,13 +104,13 @@ const Title = styled.h1`
   grid-column: 1 / 3;
   letter-spacing: 0.04em;
 
-  ${media.xs`
+  ${media.xs} {
     font-size: 1.5rem;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     font-size: 2rem;
-  `}
+  }
 `
 const Meta = styled.div`
   display: grid;
@@ -131,9 +133,9 @@ const Name = styled(Link)`
   position: relative;
   text-decoration: none;
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
-  `}
+  }
 
   &::before {
     background: var(--c_0);
@@ -183,18 +185,18 @@ const Prefaces = styled.div`
   width: 100%;
   z-index: 1;
 
-  ${media.s`
+  ${media.s} {
     padding: 32px 24px;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     padding: 48px 32px;
-  `}
+  }
 
-  ${media.m`
+  ${media.m} {
     font-size: 1rem;
     padding: 48px 64px;
-  `}
+  }
 
   &::before {
     color: var(--c_8);
@@ -210,25 +212,25 @@ const Prefaces = styled.div`
     white-space: pre;
     z-index: -1;
 
-    ${media.s`
+    ${media.s} {
       left: -64px;
       top: -48px;
-    `}
+    }
 
-    ${media.ms`
-      left 0;
-    `}
+    ${media.ms} {
+      left: 0;
+    }
 
-    ${media.m`
+    ${media.m} {
       font-size: 10rem;
       left: -160px;
       top: -64px;
-    `}
+    }
 
-    ${media.l`
+    ${media.l} {
       font-size: 12rem;
       top: -80px;
-    `}
+    }
   }
 
   &.active::before {
@@ -236,17 +238,17 @@ const Prefaces = styled.div`
     opacity: 1;
     visibility: visible;
 
-    ${media.s`
+    ${media.s} {
       left: -8px;
-    `}
+    }
 
-    ${media.ms`
-      left 0;
-    `}
+    ${media.ms} {
+      left: 0;
+    }
 
-    ${media.m`
+    ${media.m} {
       left: -16px;
-    `}
+    }
   }
 
   p {

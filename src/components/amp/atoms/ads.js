@@ -8,11 +8,11 @@ const Wrapper = styled.div`
   max-width: 620px;
   width: 100%;
 
-  ${media.m`
+  ${media.m} {
     margin: 48px auto 0;
     max-width: 960px;
     width: calc(100% - 64px);
-  `}
+  }
 `
 
 export default function Ads() {

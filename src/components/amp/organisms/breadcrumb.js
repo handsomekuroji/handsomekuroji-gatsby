@@ -7,17 +7,17 @@ import logo from '~src/images/main/logo-small.svg'
 
 const Navigation = styled.nav`
   background: var(--c_4);
-  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   border-radius: 8px;
+  box-shadow: rgba(var(--c_9-rgb), 0.1) 0 1px 6px;
   margin: 16px auto 0;
   overflow: hidden;
   padding: 16px 0 16px 16px;
   position: relative;
 
-  ${media.s`
+  ${media.s} {
     margin: 24px 0 0;
     padding: 16px 0;
-  `}
+  }
 `
 
 const Ordered = styled.ol`
@@ -31,9 +31,9 @@ const Ordered = styled.ol`
     display: block;
     height: 100%;
 
-    ${media.s`
+    ${media.s} {
       padding: 12px;
-    `}
+    }
   }
 
   &::after {
@@ -60,9 +60,9 @@ const Separator = styled.li`
   line-height: 1;
   margin: 0 8px;
 
-  ${media.s`
+  ${media.s} {
     margin: 0 12px;
-  `}
+  }
 `
 
 const Anchor = styled(Link)`
@@ -108,9 +108,9 @@ const Anchor = styled(Link)`
     vertical-align: bottom;
     width: 24px;
 
-    ${media.s`
+    ${media.s} {
       margin: 0 4px 0 0;
-    `}
+    }
   }
 `
 

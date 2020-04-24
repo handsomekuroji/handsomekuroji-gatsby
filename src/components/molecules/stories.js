@@ -16,8 +16,8 @@ const Wrapper = styled.article`
 
   &::before {
     color: var(--c_8);
-    counter-increment: stories;
     content: counter(stories, decimal-leading-zero);
+    counter-increment: stories;
     font: italic bold 7rem / 1.1 'Georgia', serif;
     position: absolute;
     right: -24px;
@@ -25,15 +25,15 @@ const Wrapper = styled.article`
     top: -48px;
     white-space: pre;
 
-    ${media.m`
-      font-size: 10rems
+    ${media.m} {
+      font-size: 10rem;
       top: -72px;
-    `}
+    }
 
-    ${media.l`
-      font-size: 12rem
+    ${media.l} {
+      font-size: 12rem;
       top: -88px;
-    `}
+    }
   }
 `
 
@@ -45,9 +45,9 @@ const Anchor = styled(Link)`
   text-decoration: none;
   transition: background 0.2s ease;
 
-  ${media.s`
+  ${media.s} {
     padding: 24px;
-  `}
+  }
 
   @media (hover: hover) {
     &:hover {
@@ -72,13 +72,13 @@ const Title = styled.h2`
   color: var(--c_1);
   font: bold 1rem / 1.5 ${font.$f_1};
 
-  ${media.s`
+  ${media.s} {
     font-size: 1.1rem;
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     font-size: 1.2rem;
-  `}
+  }
 `
 
 const Time = styled.time`

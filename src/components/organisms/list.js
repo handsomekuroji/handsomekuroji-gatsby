@@ -18,39 +18,39 @@ const Container = styled.div`
   max-width: 640px;
   width: calc(100% - 16px);
 
-  ${media.xs`
+  ${media.xs} {
     width: calc(100% - 32px);
-  `}
+  }
 
-  ${media.s`
+  ${media.s} {
     width: calc(100% - 48px);
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     max-width: 690px;
     width: calc(100% - 64px);
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     max-width: 960px;
-  `}
+  }
 
   &::after {
     content: '';
     display: block;
     padding: 4px;
 
-    ${media.xs`
+    ${media.xs} {
       padding: 8px;
-    `}
+    }
 
-    ${media.s`
+    ${media.s} {
       padding: 12px;
-    `}
+    }
 
-    ${media.ms`
+    ${media.ms} {
       padding: 16px calc((100vw - 100%) / 4);
-    `}
+    }
   }
 `
 

@@ -9,10 +9,10 @@ const Figure = styled.figure`
   object-fit: cover;
   overflow: hidden;
 
-  ${media.s`
+  ${media.s} {
     border-radius: 8px 8px 0 0;
     height: auto;
-  `}
+  }
 
   amp-img {
     height: 100%;

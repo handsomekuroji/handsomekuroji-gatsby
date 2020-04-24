@@ -13,26 +13,26 @@ const Main = styled.main`
   max-width: 640px;
   width: calc(100% - 16px);
 
-  ${media.xs`
+  ${media.xs} {
     width: calc(100% - 32px);
-  `}
+  }
 
-  ${media.s`
+  ${media.s} {
     width: calc(100% - 48px);
-  `}
+  }
 
-  ${media.ms`
+  ${media.ms} {
     max-width: 690px;
     width: calc(100% - 64px);
-  `}
+  }
 
-  ${media.ls`
+  ${media.ls} {
     margin: 48px auto 0;
-  `}
+  }
 
-  ${media.l`
+  ${media.l} {
     max-width: 960px;
-  `}
+  }
 `
 
 export default function NotFound({ data }) {
