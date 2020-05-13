@@ -69,22 +69,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-microcms',
-      options: {
-        apiKey: env.MICROCMS_API_KEY,
-        serviceId: env.MICROCMS_SERVICE_ID,
-        endpoint: 'page',
-      },
-    },
-    {
-      resolve: 'gatsby-source-microcms',
-      options: {
-        apiKey: env.MICROCMS_API_KEY,
-        serviceId: env.MICROCMS_SERVICE_ID,
-        endpoint: 'horror',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: env.SITE_TITLE,
