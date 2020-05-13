@@ -50,5 +50,5 @@ export default function Loop({ edges, tag }) {
 
 Loop.propTypes = {
   edges: PropTypes.array,
-  tag: PropTypes.bool
+  tag: PropTypes.bool,
 }

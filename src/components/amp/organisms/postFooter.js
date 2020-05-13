@@ -64,34 +64,34 @@ export default function PostFooter({ footer }) {
     {
       type: 'twitter',
       url,
-      title
+      title,
     },
     {
       type: 'facebook',
       url,
-      title
+      title,
     },
     {
       type: 'hatebu',
-      url: `https://b.hatena.ne.jp/add?mode=confirm&url=${url}`
+      url: `https://b.hatena.ne.jp/add?mode=confirm&url=${url}`,
     },
     {
       type: 'line',
       url,
-      title
+      title,
     },
     {
       type: 'pocket',
-      url: `https://getpocket.com/edit?url=${url}&title=${title}`
+      url: `https://getpocket.com/edit?url=${url}&title=${title}`,
     },
     {
       type: 'note',
-      url: `https://note.mu/intent/post?url=${url}/&hashtags=${name}`
+      url: `https://note.mu/intent/post?url=${url}/&hashtags=${name}`,
     },
     {
       type: 'feedly',
-      url: `https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F${domain}%2Ffeed.xml`
-    }
+      url: `https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F${domain}%2Ffeed.xml`,
+    },
   ]
 
   const list = icons.map((edge, i) => <Icon key={i} icon={edge} />)
@@ -104,5 +104,5 @@ export default function PostFooter({ footer }) {
 }
 
 PostFooter.propTypes = {
-  footer: PropTypes.object
+  footer: PropTypes.object,
 }

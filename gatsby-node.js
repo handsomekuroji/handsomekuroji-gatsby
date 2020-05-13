@@ -5,9 +5,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '~src': path.resolve(__dirname, 'src')
-      }
-    }
+        '~src': path.resolve(__dirname, 'src'),
+      },
+    },
   })
 }
 
@@ -53,8 +53,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve('./src/templates/post.js'),
           context: {
             slug: node.slug,
-            tag: tag
-          }
+            tag: tag,
+          },
         })
       })
       resolve()
@@ -70,8 +70,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve('./src/templates/post.amp.js'),
           context: {
             slug: node.slug,
-            tag: tag
-          }
+            tag: tag,
+          },
         })
       })
       resolve()
@@ -85,7 +85,7 @@ exports.createPages = ({ graphql, actions }) => {
           title: node.title,
           slug: node.slug,
           image: `${node.thumbnail.localFile.childImageSharp.fluid.src}`,
-          tag: tags
+          tag: tags,
         }
       })
       fs.writeFileSync('./static/search.json', JSON.stringify(searchJSON, null, 2))
@@ -110,8 +110,8 @@ exports.createPages = ({ graphql, actions }) => {
           path: edge.node.slug,
           component: path.resolve('./src/templates/page.js'),
           context: {
-            slug: edge.node.slug
-          }
+            slug: edge.node.slug,
+          },
         })
       })
       resolve()
@@ -136,8 +136,8 @@ exports.createPages = ({ graphql, actions }) => {
           path: 'best/' + edge.node.slug,
           component: path.resolve('./src/templates/best.js'),
           context: {
-            slug: edge.node.slug
-          }
+            slug: edge.node.slug,
+          },
         })
       })
       resolve()
@@ -164,8 +164,8 @@ exports.createPages = ({ graphql, actions }) => {
           path: 'horror/' + node.slug,
           component: path.resolve('./src/templates/horror.js'),
           context: {
-            slug: node.slug
-          }
+            slug: node.slug,
+          },
         })
       })
       resolve()
@@ -197,8 +197,8 @@ exports.createPages = ({ graphql, actions }) => {
             pages: pages,
             number: i + 1,
             limit: limit,
-            skip: i * limit
-          }
+            skip: i * limit,
+          },
         })
       })
       resolve()
@@ -236,8 +236,8 @@ exports.createPages = ({ graphql, actions }) => {
               pages: pages,
               number: i + 1,
               limit: limit,
-              skip: i * limit
-            }
+              skip: i * limit,
+            },
           })
         })
       })

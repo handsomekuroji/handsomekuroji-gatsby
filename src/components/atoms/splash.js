@@ -10,21 +10,21 @@ const popover = {
     delay: 2500,
     transition: {
       ease: 'backIn',
-      duration: 400
+      duration: 400,
     },
-    width: 0
+    width: 0,
   },
   hidden: {
     left: 'auto',
-    width: '100%'
-  }
+    width: '100%',
+  },
 }
 
 const inner = {
   visible: {
     delay: 2500,
-    opacity: 0
-  }
+    opacity: 0,
+  },
 }
 
 const Wrapper = styled(posed.div(popover))`

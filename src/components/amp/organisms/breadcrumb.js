@@ -144,5 +144,5 @@ export default function Breadcrumb({ breadcrumb }) {
 }
 
 Breadcrumb.propTypes = {
-  breadcrumb: PropTypes.object
+  breadcrumb: PropTypes.object,
 }

@@ -104,5 +104,5 @@ export default function Layout({ children, horror }) {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  horror: PropTypes.bool
+  horror: PropTypes.bool,
 }

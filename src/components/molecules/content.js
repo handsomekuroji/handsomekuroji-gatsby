@@ -167,6 +167,7 @@ const Wrapper = styled.div`
     border-radius: 12px;
     margin: 32px 0;
     overflow: hidden;
+
     &:last-child {
       margin: 32px 0 0;
     }
@@ -605,7 +606,7 @@ export default function Content({ content }) {
       {
         root: null,
         rootMargin: '-20% 0px',
-        threshold: 0
+        threshold: 0,
       }
     )
 
@@ -621,12 +622,12 @@ export default function Content({ content }) {
     <Wrapper
       ref={wrapper}
       dangerouslySetInnerHTML={{
-        __html: content
+        __html: content,
       }}
     />
   )
 }
 
 Content.propTypes = {
-  content: PropTypes.string
+  content: PropTypes.string,
 }

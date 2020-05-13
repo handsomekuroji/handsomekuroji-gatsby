@@ -179,5 +179,5 @@ export default function Favorite({ edges }) {
 }
 
 Favorite.propTypes = {
-  edges: PropTypes.array
+  edges: PropTypes.array,
 }

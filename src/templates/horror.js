@@ -56,7 +56,7 @@ export default function Horror({ data }) {
   const seo = {
     title: title,
     url: `horror/${slug}`,
-    description: post.description.description
+    description: post.description.description,
   }
 
   const meta = Object.assign(seo, {
@@ -64,8 +64,8 @@ export default function Horror({ data }) {
     date: post.createdAt,
     parent: {
       slug: 'horror',
-      title: '怖い話'
-    }
+      title: '怖い話',
+    },
   })
 
   return (

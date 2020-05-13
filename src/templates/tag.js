@@ -47,7 +47,7 @@ export default function Tag({ data, pageContext }) {
   const seo = {
     title: name,
     url: tag.slug,
-    description: tag.description.description.replace(/\r?\n/g, '')
+    description: tag.description.description.replace(/\r?\n/g, ''),
   }
 
   const meta = {
@@ -57,7 +57,7 @@ export default function Tag({ data, pageContext }) {
     description: tag.description.description.replace(/\r?\n/g, ''),
     date: tag.createdAt,
     update: tag.updatedAt,
-    count: `投稿数 ${data.allContentfulBlog.totalCount} 件`
+    count: `投稿数 ${data.allContentfulBlog.totalCount} 件`,
   }
 
   return (

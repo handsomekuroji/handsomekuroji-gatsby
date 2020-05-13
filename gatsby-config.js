@@ -17,7 +17,7 @@ module.exports = {
     sid: env.LINKSHARE_SID,
     pid: env.LINKSHARE_PID,
     adClient: env.ADSENSE_CLIENT,
-    adSlot: env.ADSENSE_SLOT
+    adSlot: env.ADSENSE_SLOT,
   },
   plugins: [
     'gatsby-plugin-eslint',
@@ -28,8 +28,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -44,29 +44,45 @@ module.exports = {
           {
             resolve: 'gatsby-remark-external-links',
             options: {
-              rel: 'noopener noreferrer'
-            }
+              rel: 'noopener noreferrer',
+            },
           },
           {
             resolve: 'gatsby-remark-custom-blocks',
             options: {
               blocks: {
                 link: {
-                  classes: 'link'
-                }
-              }
-            }
-          }
-        ]
-      }
+                  classes: 'link',
+                },
+              },
+            },
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: env.CTF_SPACE_ID,
         accessToken: env.CTF_CDA_ACCESS_TOKEN,
-        downloadLocal: true
-      }
+        downloadLocal: true,
+      },
+    },
+    {
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: env.MICROCMS_API_KEY,
+        serviceId: env.MICROCMS_SERVICE_ID,
+        endpoint: 'page',
+      },
+    },
+    {
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: env.MICROCMS_API_KEY,
+        serviceId: env.MICROCMS_SERVICE_ID,
+        endpoint: 'horror',
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -82,16 +98,16 @@ module.exports = {
         display: 'standalone',
         icon: 'src/images/main/icon.png',
         crossOrigin: 'use-credentials',
-        lang: 'ja'
-      }
+        lang: 'ja',
+      },
     },
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         minify: true,
-        pure: true
-      }
+        pure: true,
+      },
     },
     {
       resolve: 'gatsby-plugin-amp',
@@ -104,11 +120,11 @@ module.exports = {
               gtag_id: 'UA-68797404-1',
               config: {
                 'UA-68797404-1': {
-                  page_location: '{{pathname}}'
-                }
-              }
-            }
-          }
+                  page_location: '{{pathname}}',
+                },
+              },
+            },
+          },
         },
         canonicalBaseUrl: env.SITE_URL,
         components: [
@@ -119,29 +135,29 @@ module.exports = {
           'amp-youtube',
           'amp-twitter',
           'amp-instagram',
-          'amp-video'
+          'amp-video',
         ],
         excludedPaths: ['/404/', '/404.html', '/'],
         pathIdentifier: '/amp',
         relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
         relCanonicalPattern: '{{canonicalBaseUrl}}{{pathname}}',
-        useAmpClientIdApi: true
-      }
+        useAmpClientIdApi: true,
+      },
     },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /icon/,
-          exclude: /main/
-        }
-      }
+          exclude: /main/,
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-68797404-1'
-      }
+        trackingId: 'UA-68797404-1',
+      },
     },
     {
       resolve: 'gatsby-plugin-feed',
@@ -170,9 +186,9 @@ module.exports = {
                 guid: `${rss.siteUrl}/${edge.node.slug}`,
                 custom_elements: [
                   {
-                    'content:encoded': edge.node.description.childMarkdownRemark.html
-                  }
-                ]
+                    'content:encoded': edge.node.description.childMarkdownRemark.html,
+                  },
+                ],
               }))
             },
             query: `
@@ -194,10 +210,10 @@ module.exports = {
               }
             `,
             output: '/feed.xml',
-            title: `${env.SITE_TITLE}'s RSS Feed`
-          }
-        ]
-      }
-    }
-  ]
+            title: `${env.SITE_TITLE}'s RSS Feed`,
+          },
+        ],
+      },
+    },
+  ],
 }

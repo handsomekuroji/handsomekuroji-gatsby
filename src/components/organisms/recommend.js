@@ -26,5 +26,5 @@ export default function Recommend({ edges }) {
 }
 
 Recommend.propTypes = {
-  edges: PropTypes.array
+  edges: PropTypes.array,
 }

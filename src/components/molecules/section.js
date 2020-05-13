@@ -132,7 +132,7 @@ export default function Section({ content }) {
       <Container>
         <Inner
           dangerouslySetInnerHTML={{
-            __html: content
+            __html: content,
           }}
         />
       </Container>
@@ -140,5 +140,5 @@ export default function Section({ content }) {
   )
 }
 Section.propTypes = {
-  content: PropTypes.string
+  content: PropTypes.string,
 }

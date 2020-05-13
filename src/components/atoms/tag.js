@@ -68,5 +68,5 @@ export default function Tag({ edge }) {
 }
 
 Tag.propTypes = {
-  edge: PropTypes.object
+  edge: PropTypes.object,
 }

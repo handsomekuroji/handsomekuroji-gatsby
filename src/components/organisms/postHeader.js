@@ -285,7 +285,7 @@ export default function PostHeader({ header }) {
 
   const share = {
     title: title,
-    url: `${query.siteUrl}/${header.url}`
+    url: `${query.siteUrl}/${header.url}`,
   }
 
   React.useEffect(() => {
@@ -300,7 +300,7 @@ export default function PostHeader({ header }) {
       {
         root: null,
         rootMargin: '-20% 0px',
-        threshold: 0
+        threshold: 0,
       }
     )
 
@@ -338,7 +338,7 @@ export default function PostHeader({ header }) {
       <Prefaces
         ref={preface}
         dangerouslySetInnerHTML={{
-          __html: header.description
+          __html: header.description,
         }}
       />
     </header>
@@ -346,5 +346,5 @@ export default function PostHeader({ header }) {
 }
 
 PostHeader.propTypes = {
-  header: PropTypes.object
+  header: PropTypes.object,
 }

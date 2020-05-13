@@ -63,13 +63,13 @@ export default function Post({ data }) {
     description: Replace(post.description.childMarkdownRemark.html, affiliate).replace(
       /<("[^"]*"|'[^']*'|[^'">])*>/g,
       ''
-    )
+    ),
   }
 
   const structured = Object.assign(seo, {
     date: post.createdAt,
     update: post.updatedAt,
-    tag: post.tag
+    tag: post.tag,
   })
 
   const meta = Object.assign({}, structured)

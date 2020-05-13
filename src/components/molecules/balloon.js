@@ -110,7 +110,7 @@ export default function Balloon({ edge }) {
       <Container>
         <Inner
           dangerouslySetInnerHTML={{
-            __html: edge.node.text.childMarkdownRemark.html
+            __html: edge.node.text.childMarkdownRemark.html,
           }}
         />
       </Container>
@@ -119,5 +119,5 @@ export default function Balloon({ edge }) {
 }
 
 Balloon.propTypes = {
-  edge: PropTypes.object
+  edge: PropTypes.object,
 }

@@ -149,5 +149,5 @@ export default function Article({ edge, recommend }) {
 
 Article.propTypes = {
   edge: PropTypes.object,
-  recommend: PropTypes.bool
+  recommend: PropTypes.bool,
 }

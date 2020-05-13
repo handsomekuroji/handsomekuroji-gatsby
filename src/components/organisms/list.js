@@ -65,5 +65,5 @@ export default function Best({ edges }) {
 }
 
 Best.propTypes = {
-  edges: PropTypes.array
+  edges: PropTypes.array,
 }

@@ -43,5 +43,5 @@ export default function Thumbnail({ src, alt }) {
 
 Thumbnail.propTypes = {
   src: PropTypes.object,
-  alt: PropTypes.string
+  alt: PropTypes.string,
 }

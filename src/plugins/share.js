@@ -3,7 +3,7 @@ export default (data) => {
     .share({
       title: data.title,
       text: data.title,
-      url: data.url
+      url: data.url,
     })
 
     .then(() => {

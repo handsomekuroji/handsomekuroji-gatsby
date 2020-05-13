@@ -48,13 +48,13 @@ const popover = {
   enter: {
     opacity: 1,
     transition: { duration: 150 },
-    y: 0
+    y: 0,
   },
   exit: {
     opacity: 0,
     transition: { duration: 150 },
-    y: 8
-  }
+    y: 8,
+  },
 }
 
 const Container = styled(posed.div(popover))`
@@ -148,8 +148,8 @@ export default function Search() {
             {
               title: '',
               slug: '',
-              tag: []
-            }
+              tag: [],
+            },
           ])
         })
     }

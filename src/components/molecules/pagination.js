@@ -163,5 +163,5 @@ export default function Pagination({ page }) {
 }
 
 Pagination.propTypes = {
-  page: PropTypes.object
+  page: PropTypes.object,
 }

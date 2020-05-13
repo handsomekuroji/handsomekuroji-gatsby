@@ -13,14 +13,14 @@ export default (author, edges, root) => {
       dateModified: edge.node.updatedAt || date,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `${root}/${edge.node.slug}`
+        '@id': `${root}/${edge.node.slug}`,
       },
       image: {
         '@type': 'ImageObject',
         url: img ? `${root}${img}` : `${root}/img/ogp.png`,
         width: '1280',
-        height: '720'
-      }
+        height: '720',
+      },
     }
 
     loop.push(...[Object.assign(list, author)])

@@ -63,5 +63,5 @@ export default function TagHeader({ header }) {
 }
 
 TagHeader.propTypes = {
-  header: PropTypes.object
+  header: PropTypes.object,
 }

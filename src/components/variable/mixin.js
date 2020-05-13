@@ -1,8 +1,6 @@
-import { css } from 'styled-components'
-
 export const font = {
   $f_0: `'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif`,
-  $f_1: `YuMincho, 'Hiragino Mincho ProN', Meiryo, serif`
+  $f_1: `YuMincho, 'Hiragino Mincho ProN', Meiryo, serif`,
 }
 
 const sizes = {
@@ -16,7 +14,7 @@ const sizes = {
   l: '1040px',
   lm: '1280px',
   ll: '1400px',
-  xl: '1800px'
+  xl: '1800px',
 }
 
 export const media = Object.keys(sizes).reduce((acc, label) => {

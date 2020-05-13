@@ -4,33 +4,33 @@ export default (object) => {
 
   const author = {
     copyrightHolder: {
-      '@id': `${url}#author`
+      '@id': `${url}#author`,
     },
     publisher: {
-      '@id': `${url}#publisher`
+      '@id': `${url}#publisher`,
     },
     author: {
-      '@id': `${url}#author`
+      '@id': `${url}#author`,
     },
     editor: {
-      '@id': `${url}#author`
-    }
+      '@id': `${url}#author`,
+    },
   }
 
   const meta = {
     url,
     name,
     alternateName: name,
-    description: object.description
+    description: object.description,
   }
 
   const account = {
-    sameAs: [`https://twitter.com/${object.twitter}`, `https://www.facebook.com/${object.facebook}`]
+    sameAs: [`https://twitter.com/${object.twitter}`, `https://www.facebook.com/${object.facebook}`],
   }
 
   return {
     author,
     meta,
-    account
+    account,
   }
 }

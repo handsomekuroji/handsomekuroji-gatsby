@@ -50,7 +50,7 @@ export default function NotFoundPage({ data }) {
   const seo = {
     title: title,
     url: 'story',
-    description: 'ぼくの物語'
+    description: 'ぼくの物語',
   }
 
   return (

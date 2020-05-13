@@ -89,5 +89,5 @@ export default function Image({ edge }) {
 }
 
 Image.propTypes = {
-  edge: PropTypes.object
+  edge: PropTypes.object,
 }

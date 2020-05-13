@@ -93,5 +93,5 @@ export default function Card({ edge }) {
 }
 
 Card.propTypes = {
-  edge: PropTypes.object
+  edge: PropTypes.object,
 }

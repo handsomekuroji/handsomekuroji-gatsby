@@ -197,14 +197,14 @@ const Inner = styled(
       height: 0,
       'margin-top': 0,
       opacity: 0,
-      'padding-bottom': 0
+      'padding-bottom': 0,
     },
     open: {
       height: 'auto',
       'margin-top': '24px',
       opacity: 1,
-      'padding-bottom': '6px'
-    }
+      'padding-bottom': '6px',
+    },
   })
 )`
   box-sizing: border-box;
@@ -250,11 +250,11 @@ const Inner = styled(
 const Block = styled(
   posed.figure({
     closed: {
-      opacity: 0
+      opacity: 0,
     },
     open: {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   })
 )`
   border-radius: 8px;
@@ -284,11 +284,11 @@ const Iframe = styled.iframe`
 const Content = styled(
   posed.div({
     closed: {
-      opacity: 0
+      opacity: 0,
     },
     open: {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   })
 )`
   opacity: 0;
@@ -390,7 +390,7 @@ export default function Box({ edge, count }) {
             <Content
               pose={active(Active)}
               dangerouslySetInnerHTML={{
-                __html: box.content.childMarkdownRemark.html
+                __html: box.content.childMarkdownRemark.html,
               }}
             />
           </Inner>
@@ -402,5 +402,5 @@ export default function Box({ edge, count }) {
 
 Box.propTypes = {
   edge: PropTypes.object,
-  count: PropTypes.number
+  count: PropTypes.number,
 }

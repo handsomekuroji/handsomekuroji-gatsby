@@ -64,32 +64,32 @@ export default function PostFooter({ footer }) {
   const icons = [
     {
       type: 'Twitter',
-      url: `https://twitter.com/share?count=horizontal&lang=en&url=${url}&text=${title}&via=${account}`
+      url: `https://twitter.com/share?count=horizontal&lang=en&url=${url}&text=${title}&via=${account}`,
     },
     {
       type: 'Facebook',
-      url: `https://www.facebook.com/share.php?u=${url}`
+      url: `https://www.facebook.com/share.php?u=${url}`,
     },
     {
       type: 'Hatebu',
-      url: `https://b.hatena.ne.jp/add?mode=confirm&url=${url}`
+      url: `https://b.hatena.ne.jp/add?mode=confirm&url=${url}`,
     },
     {
       type: 'Line',
-      url: `https://line.me/R/msg/text/?${title}&nbsp;${url}`
+      url: `https://line.me/R/msg/text/?${title}&nbsp;${url}`,
     },
     {
       type: 'Pocket',
-      url: `https://getpocket.com/edit?url=${url}&title=${title}`
+      url: `https://getpocket.com/edit?url=${url}&title=${title}`,
     },
     {
       type: 'Note',
-      url: `https://note.mu/intent/post?url=${url}/&hashtags=${name}`
+      url: `https://note.mu/intent/post?url=${url}/&hashtags=${name}`,
     },
     {
       type: 'Feedly',
-      url: `https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F${domain}%2Ffeed.xml`
-    }
+      url: `https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2F${domain}%2Ffeed.xml`,
+    },
   ]
 
   const list = icons.map((edge, i) => <Icon key={i} icon={edge} />)
@@ -102,5 +102,5 @@ export default function PostFooter({ footer }) {
 }
 
 PostFooter.propTypes = {
-  footer: PropTypes.object
+  footer: PropTypes.object,
 }

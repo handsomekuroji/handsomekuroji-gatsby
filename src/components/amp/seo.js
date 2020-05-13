@@ -62,23 +62,23 @@ export default function Seo({ meta }) {
         { name: 'application-name', content: title },
         { name: 'msapplication-TileColor', content: '#404040' },
         { name: 'theme-color', content: '#fcfcfc' },
-        { name: 'google-site-verification', content: verification }
+        { name: 'google-site-verification', content: verification },
       ]}
       link={[
         { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png' },
         { rel: 'mask-icon', href: '/img/safari-pinned-tab.svg', color: '#404040' },
-        { rel: 'preconnect dns-prefetch', href: 'https://www.google-analytics.com' }
+        { rel: 'preconnect dns-prefetch', href: 'https://www.google-analytics.com' },
       ]}
     />
   )
 }
 
 Seo.propTypes = {
-  meta: PropTypes.object
+  meta: PropTypes.object,
 }
 
 Seo.defaultProps = {
-  meta: {}
+  meta: {},
 }

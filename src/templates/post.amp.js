@@ -62,14 +62,14 @@ export default function Amp({ data }) {
     description: Ampify(post.description.childMarkdownRemark.html, affiliate).replace(
       /<("[^"]*"|'[^']*'|[^'">])*>/g,
       ''
-    )
+    ),
   }
 
   const structured = Object.assign(seo, {
     date: post.createdAt,
     update: post.updatedAt,
     tag: post.tag,
-    url: slug
+    url: slug,
   })
 
   const meta = Object.assign({}, structured)

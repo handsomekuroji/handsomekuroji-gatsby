@@ -84,5 +84,5 @@ export default function Footer({ tag }) {
 }
 
 Footer.propTypes = {
-  tag: PropTypes.array
+  tag: PropTypes.array,
 }

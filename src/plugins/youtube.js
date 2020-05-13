@@ -21,8 +21,8 @@ export default (target) => {
             modestbranding: 1,
             showinfo: 0,
             origin: url,
-            widget_referrer: url
-          }
+            widget_referrer: url,
+          },
         })
 
         player.on('ready', () => {

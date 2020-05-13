@@ -43,5 +43,5 @@ export default function Hero({ src, alt }) {
 
 Hero.propTypes = {
   src: PropTypes.object,
-  alt: PropTypes.string
+  alt: PropTypes.string,
 }

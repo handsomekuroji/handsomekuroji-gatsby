@@ -64,5 +64,5 @@ export default function PageHeader({ header }) {
 }
 
 PageHeader.propTypes = {
-  header: PropTypes.object
+  header: PropTypes.object,
 }

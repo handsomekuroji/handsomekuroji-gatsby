@@ -42,5 +42,5 @@ export default function Share({ meta }) {
 }
 
 Share.propTypes = {
-  meta: PropTypes.object
+  meta: PropTypes.object,
 }

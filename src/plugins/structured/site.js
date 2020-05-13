@@ -14,20 +14,20 @@ export default (object, info, article, root) => {
           '@type': 'ImageObject',
           url: `${url}/img/amp.png`,
           width: 179,
-          height: 60
+          height: 60,
         },
         foundingDate: '2018-07-30',
-        email: object.mail
+        email: object.mail,
       },
       meta,
       account
-    )
+    ),
   ]
 
   const blog = {
     '@context': 'http://schema.org',
     '@type': 'Blog',
-    description: object.description
+    description: object.description,
   }
 
   if (article) {
@@ -46,12 +46,12 @@ export default (object, info, article, root) => {
           '@type': 'ImageObject',
           url: `${root}/img/icon.png`,
           width: '512',
-          height: '512'
-        }
+          height: '512',
+        },
       },
       meta,
       author
-    )
+    ),
   ]
 
   const person = [
@@ -62,11 +62,11 @@ export default (object, info, article, root) => {
         '@id': `${url}#author`,
         image: `${root}/img/profile.jpg`,
         gender: 'male',
-        birthDate: '1987-04-11'
+        birthDate: '1987-04-11',
       },
       meta,
       account
-    )
+    ),
   ]
 
   org.push(...list, ...site, ...person)

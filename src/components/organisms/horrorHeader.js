@@ -202,5 +202,5 @@ export default function HorrorHeader({ header }) {
 }
 
 HorrorHeader.propTypes = {
-  header: PropTypes.object
+  header: PropTypes.object,
 }

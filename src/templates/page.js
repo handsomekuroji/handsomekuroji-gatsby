@@ -56,11 +56,11 @@ export default function Page({ data }) {
     img: img.src,
     title: title,
     url: slug,
-    description: post.description.description
+    description: post.description.description,
   }
 
   const meta = Object.assign(seo, {
-    description: Replace(post.description.childMarkdownRemark.html, affiliate)
+    description: Replace(post.description.childMarkdownRemark.html, affiliate),
   })
 
   meta.img = img

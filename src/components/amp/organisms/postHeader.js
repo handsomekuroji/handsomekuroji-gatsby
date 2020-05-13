@@ -253,7 +253,7 @@ export default function PostHeader({ header }) {
 
   const share = {
     title: title,
-    url: `${query.siteUrl}/${header.url}`
+    url: `${query.siteUrl}/${header.url}`,
   }
 
   const tags = header.tag.map((edge, i) => (
@@ -284,7 +284,7 @@ export default function PostHeader({ header }) {
       </Container>
       <Prefaces
         dangerouslySetInnerHTML={{
-          __html: header.description
+          __html: header.description,
         }}
       />
     </header>
@@ -292,5 +292,5 @@ export default function PostHeader({ header }) {
 }
 
 PostHeader.propTypes = {
-  header: PropTypes.object
+  header: PropTypes.object,
 }

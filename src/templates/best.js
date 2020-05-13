@@ -57,7 +57,7 @@ export default function Best({ data }) {
     title: title,
     url: `best/${slug}`,
     description: best.content.content.replace(/\r?\n/g, ''),
-    best: true
+    best: true,
   }
 
   return (

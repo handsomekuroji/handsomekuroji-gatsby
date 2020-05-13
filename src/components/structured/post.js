@@ -30,7 +30,7 @@ export default function StructuredIndex({ data }) {
     mail: query.mail,
     twitter: query.twitter,
     facebook: query.facebook,
-    author: query.author
+    author: query.author,
   }
 
   const info = base(object)
@@ -41,13 +41,13 @@ export default function StructuredIndex({ data }) {
       script={[
         {
           type: 'application/ld+json',
-          innerHTML: JSON.stringify(struct)
-        }
+          innerHTML: JSON.stringify(struct),
+        },
       ]}
     />
   )
 }
 
 StructuredIndex.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 }

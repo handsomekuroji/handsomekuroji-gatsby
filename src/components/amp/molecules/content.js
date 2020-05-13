@@ -490,12 +490,12 @@ export default function Content({ content }) {
   return (
     <Wrapper
       dangerouslySetInnerHTML={{
-        __html: content
+        __html: content,
       }}
     />
   )
 }
 
 Content.propTypes = {
-  content: PropTypes.string
+  content: PropTypes.string,
 }

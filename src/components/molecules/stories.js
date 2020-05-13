@@ -110,5 +110,5 @@ export default function Article({ edge }) {
 }
 
 Article.propTypes = {
-  edge: PropTypes.object
+  edge: PropTypes.object,
 }

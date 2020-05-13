@@ -11,7 +11,7 @@ export default () => {
     lozad('[data-src]', {
       loaded(el) {
         el.classList.add('fade')
-      }
+      },
     }).observe()
   }
 }

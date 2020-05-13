@@ -45,7 +45,7 @@ export default function Horror({ data }) {
   const seo = {
     title: title,
     url: 'horror',
-    description: '夜じゃないと読めない怖い話'
+    description: '夜じゃないと読めない怖い話',
   }
 
   return (

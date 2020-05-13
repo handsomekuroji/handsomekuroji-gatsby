@@ -68,5 +68,5 @@ export default function Header({ index, title, horror }) {
 Header.propTypes = {
   index: PropTypes.bool,
   title: PropTypes.string,
-  horror: PropTypes.bool
+  horror: PropTypes.bool,
 }

@@ -41,7 +41,7 @@ export default function NotFound({ data }) {
   const seo = {
     title: title,
     url: '404',
-    description: 'このページは存在しません'
+    description: 'このページは存在しません',
   }
 
   return (
