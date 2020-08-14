@@ -27,7 +27,6 @@ module.exports = {
     'import/core-modules': ['react'],
   },
   rules: {
-    'prettier/prettier': 'error',
     'generator-star-spacing': 'off',
     properties: 0,
     ignoreDestructuring: 0,
