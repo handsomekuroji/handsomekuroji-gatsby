@@ -40,7 +40,6 @@ module.exports = {
         plugins: [
           'gatsby-remark-attr',
           'gatsby-remark-sectionize',
-          'gatsby-remark-bracketed-spans',
           {
             resolve: 'gatsby-remark-external-links',
             options: {

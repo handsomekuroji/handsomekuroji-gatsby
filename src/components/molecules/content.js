@@ -274,7 +274,6 @@ const Wrapper = styled.div`
   }
 
   .twitter-tweet {
-    display: grid !important;
     justify-content: center;
     margin: 32px auto 0 !important;
     width: 100% !important;
