@@ -184,7 +184,7 @@ export default function HorrorHeader({ header }) {
     <header>
       <Container>
         <Title>{title}</Title>
-        <Prev to="horror" state={{ splash: true }}>
+        <Prev to="/horror" state={{ splash: true }}>
           一覧へ
         </Prev>
         <Meta>

@@ -97,7 +97,7 @@ export default function Article({ edge }) {
 
   return (
     <Wrapper>
-      <Anchor to={`horror/${post.slug}`}>
+      <Anchor to={`/horror/${post.slug}`}>
         <Header>
           <Title>{title}</Title>
           <Time dateTime={date} aria-label={label}>
