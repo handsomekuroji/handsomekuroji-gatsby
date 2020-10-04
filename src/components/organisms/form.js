@@ -64,7 +64,6 @@ const Textarea = styled.textarea`
 
 const Button = styled.button`
   background: var(--c_0);
-  border: 1px solid var(--c_0);
   border-radius: 6px;
   box-sizing: border-box;
   color: var(--c_4);
@@ -72,11 +71,11 @@ const Button = styled.button`
   margin: 8px 0 0;
   padding: 12px 12px 10px;
   transition: background 0.2s ease, border 0.2s ease;
+  width: 100px;
 
   @media (hover: hover) {
     &:hover {
-      background: rgba(var(--c_0-rgb), 0.8);
-      border: 1px solid rgba(var(--c_0-rgb), 0.8);
+      background: rgba(var(--c_1-rgb), 0.8);
     }
   }
 `
@@ -88,7 +87,7 @@ const Hidden = styled.div`
 export default function Form() {
   return (
     <Section>
-      <Wrapper name="contact" action="/thanks" netlify-honeypot="bot-field" data-netlify="true" method="post">
+      <Wrapper name="contact" action="https://getform.io/f/d98fb02b-74fc-4e35-9934-78538178130b" method="POST">
         <input type="hidden" name="form-name" value="contact" aria-hidden="true" />
         <Hidden>
           <label id="dont" htmlFor="bot">
@@ -114,12 +113,6 @@ export default function Form() {
             required="required"
             aria-labelledby="email"
           />
-        </Block>
-        <Block>
-          <Label id="title" htmlFor="title" aria-label="タイトル">
-            Title
-          </Label>
-          <Input id="title" type="text" name="title" required="required" aria-labelledby="title" />
         </Block>
         <Block>
           <Label id="message" htmlFor="message" aria-label="メッセージ">
