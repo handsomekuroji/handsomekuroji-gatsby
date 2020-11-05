@@ -69,7 +69,6 @@ export default function Seo({ meta }) {
         { rel: 'icon alternate', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png' },
         { rel: 'icon alternate', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png' },
         { rel: 'mask-icon', href: '/img/safari-pinned-tab.svg', color: '#404040' },
-        { rel: 'preconnect dns-prefetch', href: 'https://www.google-analytics.com' },
       ]}
       script={[{ src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true }]}
       defer={false}

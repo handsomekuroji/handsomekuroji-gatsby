@@ -73,8 +73,6 @@ module.exports = {
         name: env.SITE_TITLE,
         short_name: 'HK',
         description: env.SITE_DESCRIPTION,
-        'og:title': env.SITE_TITLE,
-        'og:description': env.SITE_DESCRIPTION,
         start_url: '/',
         background_color: '#fcfcfc',
         theme_color: '#fcfcfc',
