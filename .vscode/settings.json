@@ -2,7 +2,6 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "eslint.alwaysShowStatus": true,
-  "eslint.enable": true,
   "eslint.validate": [
     "vue",
     "html",
@@ -13,7 +12,6 @@
   ],
   "editor.cursorSmoothCaretAnimation": true,
   "editor.cursorStyle": "block",
-  "editor.fontFamily": "Hasklig, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.renderIndentGuides": true,
