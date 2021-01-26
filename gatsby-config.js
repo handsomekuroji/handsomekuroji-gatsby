@@ -20,6 +20,7 @@ module.exports = {
     adSlot: env.ADSENSE_SLOT,
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-eslint',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
